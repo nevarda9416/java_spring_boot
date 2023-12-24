@@ -1,4 +1,4 @@
-package com.example.niitiproduct.controllers.admin;
+package com.example.niitiproduct.controllers.api;
 
 import com.example.niitiproduct.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
