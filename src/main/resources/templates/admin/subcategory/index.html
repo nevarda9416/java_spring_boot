@@ -1,0 +1,136 @@
+<div id="layouts-partials-header" th:replace="admin/layouts/header::layouts-header"></div>
+<!-- page content -->
+<div class="right_col" role="main">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Cập nhật danh mục sản phẩm con</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Sửa</a>
+                                <a class="dropdown-item" href="#">Xóa</a>
+                            </div>
+                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <form class="" action="" method="post" novalidate>
+                        </p>
+                        <span class="section">Thông tin danh mục con</span>
+                        <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">Tên danh mục<span
+                                    class="required">*</span></label>
+                            <div class="col-md-9 col-sm-9">
+                                <input class="form-control" name="name" type="text" placeholder="Tủ mạng"
+                                       required="required"/>
+                            </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">Ảnh danh mục</label>
+                            <div class="col-md-9 col-sm-9">
+                                <input class="form-control optional" name="image" type="file"/></div>
+                        </div>
+                        <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">Tóm tắt</label>
+                            <div class="col-md-9 col-sm-9">
+                                <input class="form-control" name="summary" type="text"/></div>
+                        </div>
+                        <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">Mô tả</label>
+                            <div class="col-md-9 col-sm-9">
+                                <textarea required="required" name="description"></textarea></div>
+                        </div>
+                        <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">Danh mục cha</label>
+                            <div class="col-md-9 col-sm-9">
+                                <select class="select2_group form-control">
+                                    <option value="HI">Bộ phát wifi</option>
+                                    <option value="AK">Bộ phát wifi 4G</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">Cho phép hiển thị</label>
+                            <div class="col-md-9 col-sm-9">
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="flat" name="is_actived" type="checkbox" checked="checked">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">Thứ tự hiển thị</label>
+                            <div class="col-md-9 col-sm-9">
+                                <input class="form-control number" name="display_order" type="number" min="0"></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6 offset-md-3">
+                                <button type="submit" class="btn btn-primary">Lưu</button>
+                                <button type="reset" class="btn btn-success">Làm lại</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Danh mục sản phẩm con</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Làm mới</a>
+                                <a class="dropdown-item" href="#">Xuất ra excel</a>
+                            </div>
+                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+
+                    <div class="table-responsive">
+                        <table class="table table-striped jambo_table bulk_action">
+                            <thead>
+                            <tr class="headings">
+                                <th class="column-title">Tên danh mục</th>
+                                <th class="column-title">Trạng thái</th>
+                                <th class="column-title no-link last"><span class="nobr">Thao tác</span></th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr class="even pointer">
+                                <td class=" ">Tủ mạng</td>
+                                <td class=" ">Hiển thị</td>
+                                <td class=" last"><a href="#">Sửa</a> | <a href="#">Xóa</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /page content -->
+<div id="layouts-partials-footer" th:replace="admin/layouts/footer::layouts-footer"></div>
