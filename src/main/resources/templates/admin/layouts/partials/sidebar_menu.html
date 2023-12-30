@@ -1,14 +1,26 @@
 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu" th:fragment="layouts-sidebar-menu">
     <div class="menu_section">
-        <h3>General</h3>
+        <h3>Quản lý</h3>
         <ul class="nav side-menu">
-            <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+            <li><a><i class="fa fa-list"></i> Danh sách khách hàng</a></li>
+            <li><a><i class="fa fa-list-alt"></i> Danh sách đơn hàng</a></li>
+            <li><a><i class="fa fa-list-ol"></i> Lịch sử đơn hàng</a></li>
+            <li><a><i class="fa fa-list-ul"></i> Danh mục sản phẩm <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="index.html">Dashboard</a></li>
-                    <li><a href="index2.html">Dashboard2</a></li>
-                    <li><a href="index3.html">Dashboard3</a></li>
+                    <li><a href="/admin/categories">Danh mục cha</a></li>
+                    <li><a href="/admin/subcategories">Danh mục con</a></li>
                 </ul>
             </li>
+            <li><a><i class="fa fa-th-list"></i> Danh sách sản phẩm</a></li>
+            <li><a><i class="fa fa-angellist"></i> Danh sách nhà cung cấp</a></li>
+            <li><a><i class="fa fa-list"></i> Hệ thống đại lý</a></li>
+            <li><a><i class="fa fa-list-alt"></i> Danh sách bảo hành</a></li>
+            <li><a><i class="fa fa-list-ol"></i> Danh mục tồn kho</a></li>
+            <li><a><i class="fa fa-list-ul"></i> Khuyến mãi</a></li>
+            <li><a><i class="fa fa-th-list"></i> Quảng cáo</a></li>
+            <li><a><i class="fa fa-angellist"></i> Người dùng hệ thống</a></li>
+            <li><a><i class="fa fa-list"></i> Bình luận</a></li>
+
             <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="form.html">General Form</a></li>
@@ -30,12 +42,6 @@
                     <li><a href="invoice.html">Invoice</a></li>
                     <li><a href="inbox.html">Inbox</a></li>
                     <li><a href="calendar.html">Calendar</a></li>
-                </ul>
-            </li>
-            <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                    <li><a href="tables.html">Tables</a></li>
-                    <li><a href="tables_dynamic.html">Table Dynamic</a></li>
                 </ul>
             </li>
             <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation <span class="fa fa-chevron-down"></span></a>

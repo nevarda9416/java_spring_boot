@@ -12,7 +12,7 @@ public class NiitIproductApplication implements WebMvcConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         //ref: https://www.logicbig.com/tutorials/spring-framework/spring-boot/boot-serve-static.html
         registry
-                .addResourceHandler("/vendors/**")
+                .addResourceHandler("/public/**", "/vendors/**")
                 .addResourceLocations("/resources/", "classpath:/vendors/", "classpath:/build/", "classpath:/public/");
     }
 
