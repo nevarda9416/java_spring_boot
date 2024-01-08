@@ -1,0 +1,100 @@
+<div id="layouts-partials-header" th:replace="admin/layouts/header::layouts-header"></div>
+<!-- page content -->
+<div class="right_col" role="main">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Hệ thống đại lý</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Làm mới</a>
+                                <a class="dropdown-item" href="#">Xuất ra excel</a>
+                            </div>
+                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="table-responsive">
+                        <table class="table table-striped jambo_table bulk_action">
+                            <thead>
+                            <tr class="headings">
+                                <th class="column-title">Tên đại lý</th>
+                                <th class="column-title">Khu vực</th>
+                                <th class="column-title">Thành phố</th>
+                                <th class="column-title">Đường dây nóng</th>
+                                <th class="column-title no-link last"><span class="nobr">Thao tác</span></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="even pointer">
+                                <td>SHOWROOM 15 XÃ ĐÀN</td>
+                                <td>Phía Bắc</td>
+                                <td>Hà Nội</td>
+                                <td>(024) 3968 9966 (ext 1)</td>
+                                <td class=" last"><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Xem</a>
+                                    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title" id="myModalLabel">Thông tin đại lý</h4>
+                                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <table class="table table-striped">
+                                                        <tr>
+                                                            <td>Tên đại lý:</td>
+                                                            <td>SHOWROOM 15 XÃ ĐÀN</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Khu vực:</td>
+                                                            <td>Phía Bắc</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Thành phố:</td>
+                                                            <td>Hà Nội</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Quận/Huyện:</td>
+                                                            <td>Đống Đa</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Phường/Xã:</td>
+                                                            <td>Kim Liên</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Địa chỉ:</td>
+                                                            <td>15 Xã Đàn</td>
+                                                        <tr>
+                                                            <td>Đường dây nóng:</td>
+                                                            <td>(024) 3968 9966 (ext 1)</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /page content -->
+<div id="layouts-partials-footer" th:replace="admin/layouts/footer::layouts-footer"></div>
