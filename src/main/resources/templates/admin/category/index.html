@@ -23,90 +23,45 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    <form class="" action="" method="post" novalidate>
+                    <form class="" action="/admin/categories" method="post" novalidate>
                         <span class="section">Thông tin danh mục cha</span>
                         <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">Name<span
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">Tên danh mục<span
                                     class="required">*</span></label>
                             <div class="col-md-9 col-sm-9">
-                                <input class="form-control" data-validate-length-range="6" data-validate-words="2"
-                                       name="name" placeholder="ex. John f. Kennedy" required="required"/>
+                                <input class="form-control" name="name" type="text" placeholder="Tủ mạng"
+                                       required="required"/>
                             </div>
                         </div>
                         <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">Occupation<span
-                                    class="required">*</span></label>
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">Ảnh danh mục</label>
                             <div class="col-md-9 col-sm-9">
-                                <input class="form-control optional" name="occupation" data-validate-length-range="5,15"
-                                       type="text"/></div>
+                                <input class="form-control optional" name="image" type="file"/></div>
                         </div>
                         <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">email<span
-                                    class="required">*</span></label>
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">Tóm tắt</label>
                             <div class="col-md-9 col-sm-9">
-                                <input class="form-control email" name="email" required="required" type="email"/></div>
+                                <input class="form-control" name="summary" type="text"/></div>
                         </div>
                         <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">Confirm email address<span
-                                    class="required">*</span></label>
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">Mô tả</label>
                             <div class="col-md-9 col-sm-9">
-                                <input class="form-control email" type="email" name="confirm_email"
-                                       data-validate-linked="email" required="required"/></div>
+                                <textarea required="required" name="description"></textarea></div>
                         </div>
                         <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">Number <span
-                                    class="required">*</span></label>
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">Cho phép hiển thị</label>
                             <div class="col-md-9 col-sm-9">
-                                <input class="form-control number" type="number" name="number"
-                                       data-validate-minmax="10,100" required="required"></div>
-                        </div>
-                        <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">Date<span
-                                    class="required">*</span></label>
-                            <div class="col-md-9 col-sm-9">
-                                <input class="form-control date" type="date" name="date" required="required"></div>
-                        </div>
-                        <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">Time<span
-                                    class="required">*</span></label>
-                            <div class="col-md-9 col-sm-9">
-                                <input class="form-control time" type="time" name="time" required="required"></div>
-                        </div>
-
-                        <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">Password<span class="required">*</span></label>
-                            <div class="col-md-9 col-sm-9">
-                                <input class="form-control" type="password" id="password1" name="password"
-                                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}"
-                                       title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character"
-                                       required/>
-
-                                <span style="position: absolute;right:15px;top:7px;" onclick="hideshow()">
-													<i id="slash" class="fa fa-eye-slash"></i>
-													<i id="eye" class="fa fa-eye"></i>
-												</span>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="flat" name="is_actived" type="checkbox" checked="checked">
+                                    </label>
+                                </div>
                             </div>
                         </div>
-
                         <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">Repeat password<span
-                                    class="required">*</span></label>
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">Thứ tự hiển thị</label>
                             <div class="col-md-9 col-sm-9">
-                                <input class="form-control" type="password" name="password2"
-                                       data-validate-linked="password" required="required"/></div>
-                        </div>
-                        <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">Telephone<span
-                                    class="required">*</span></label>
-                            <div class="col-md-9 col-sm-9">
-                                <input class="form-control tel" type="tel" name="phone" required="required"
-                                       data-validate-length-range="8,20"/></div>
-                        </div>
-                        <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">message<span
-                                    class="required">*</span></label>
-                            <div class="col-md-9 col-sm-9">
-                                <textarea required="required" name="message"></textarea></div>
+                                <input class="form-control number" name="display_order" type="number" min="0"></div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-6 offset-md-3">
@@ -138,9 +93,7 @@
                     </ul>
                     <div class="clearfix"></div>
                 </div>
-
                 <div class="x_content">
-
                     <div class="table-responsive">
                         <table class="table table-striped jambo_table bulk_action">
                             <thead>
@@ -159,7 +112,66 @@
                                     <span th:if="${s.is_actived==1}" class="badge badge-success">Hiển thị</span>
                                     <span th:if="${s.is_actived==0}" class="badge badge-secondary">Ẩn</span>
                                 </td>
-                                <td class="last"><a href="#">Xem</a></td>
+                                <td class="last"><a href="#" data-toggle="modal"
+                                                    th:attr="data-target=${'#bs-example-modal-lg-'+s.id}">Xem</a>
+                                    <div class="modal fade bs-example-modal-lg" th:attr="id=${'bs-example-modal-lg-'+s.id}" tabindex="-1" role="dialog"
+                                         aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title" id="myModalLabel">Thông tin danh mục</h4>
+                                                    <button type="button" class="close" data-dismiss="modal"><span
+                                                            aria-hidden="true">×</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <table class="table table-striped">
+                                                        <tr>
+                                                            <td>Tên danh mục:</td>
+                                                            <td th:text="${s.name}"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Ảnh danh mục:</td>
+                                                            <td><img th:attr="src=${s.image},alt=${s.name}"/></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tóm tắt:</td>
+                                                            <td th:text="${s.summary}"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Mô tả:</td>
+                                                            <td th:text="${s.description}"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Thứ tự hiển thị:</td>
+                                                            <td th:text="${s.display_order}"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Trạng thái:</td>
+                                                            <td>
+                                                                <span th:if="${s.is_actived==1}" class="badge badge-success">Hiển thị</span>
+                                                                <span th:if="${s.is_actived==0}" class="badge badge-secondary">Ẩn</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Ngày tạo:</td>
+                                                            <td th:text="${s.created_at}"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Người tạo:</td>
+                                                            <td th:text="${s.created_by}"></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Đóng
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
                             </tbody>
                         </table>
