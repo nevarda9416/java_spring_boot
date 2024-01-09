@@ -24,14 +24,21 @@
                 </div>
                 <div class="x_content">
                     <form class="" action="" method="post" novalidate>
-                        </p>
                         <span class="section">Thông tin danh mục con</span>
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Tên danh mục<span
                                     class="required">*</span></label>
                             <div class="col-md-9 col-sm-9">
-                                <input class="form-control" name="name" type="text" placeholder="Tủ mạng"
-                                       required="required"/>
+                                <input class="form-control" name="name" type="text" required="required"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label col-md-3 col-sm-3 ">Danh mục cha</label>
+                            <div class="col-md-9 col-sm-9 ">
+                                <select class="form-control" name="category_id" th:each="c: ${categories}">
+                                    <option value="0">Không</option>
+                                    <option th:attr="value=${c.id}" th:text="${c.name}"></option>
+                                </select>
                             </div>
                         </div>
                         <div class="field item form-group">
@@ -47,15 +54,7 @@
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Mô tả</label>
                             <div class="col-md-9 col-sm-9">
-                                <textarea required="required" name="description"></textarea></div>
-                        </div>
-                        <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">Danh mục cha</label>
-                            <div class="col-md-9 col-sm-9">
-                                <select class="select2_group form-control">
-                                    <option value="HI">Bộ phát wifi</option>
-                                    <option value="AK">Bộ phát wifi 4G</option>
-                                </select>
+                                <textarea id="message" required="required" class="form-control" name="description" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.." data-parsley-validation-threshold="10"></textarea>
                             </div>
                         </div>
                         <div class="field item form-group">
@@ -103,31 +102,90 @@
                     </ul>
                     <div class="clearfix"></div>
                 </div>
-
                 <div class="x_content">
-
                     <div class="table-responsive">
                         <table class="table table-striped jambo_table bulk_action">
                             <thead>
                             <tr class="headings">
                                 <th class="column-title">Tên danh mục</th>
+                                <th class="column-title">Thứ tự hiển thị</th>
                                 <th class="column-title">Trạng thái</th>
                                 <th class="column-title no-link last"><span class="nobr">Thao tác</span></th>
                             </tr>
                             </thead>
-
                             <tbody>
-                            <tr class="even pointer">
-                                <td class=" ">Tủ mạng</td>
-                                <td class=" ">Hiển thị</td>
-                                <td class=" last"><a href="#">Sửa</a> | <a href="#">Xóa</a></td>
+                            <tr class="even pointer" th:each="s: ${subCategories}">
+                                <td th:text="${s.name}"></td>
+                                <td th:text="${s.display_order}"></td>
+                                <td>
+                                    <span th:if="${s.is_actived==1}" class="badge badge-success">Hiển thị</span>
+                                    <span th:if="${s.is_actived==0}" class="badge badge-secondary">Ẩn</span>
+                                </td>
+                                <td class="last"><a href="#" data-toggle="modal"
+                                                    th:attr="data-target=${'#bs-example-modal-lg-'+s.id}">Xem</a>
+                                    <div class="modal fade bs-example-modal-lg" th:attr="id=${'bs-example-modal-lg-'+s.id}" tabindex="-1" role="dialog"
+                                         aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title" id="myModalLabel">Thông tin danh mục</h4>
+                                                    <button type="button" class="close" data-dismiss="modal"><span
+                                                            aria-hidden="true">×</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <table class="table table-striped">
+                                                        <tr>
+                                                            <td>Tên danh mục:</td>
+                                                            <td th:text="${s.name}"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Ảnh danh mục:</td>
+                                                            <td><img th:attr="src=${s.image},alt=${s.name}"/></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tóm tắt:</td>
+                                                            <td th:text="${s.summary}"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Mô tả:</td>
+                                                            <td th:text="${s.description}"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Thứ tự hiển thị:</td>
+                                                            <td th:text="${s.display_order}"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Trạng thái:</td>
+                                                            <td>
+                                                                <span th:if="${s.is_actived==1}" class="badge badge-success">Hiển thị</span>
+                                                                <span th:if="${s.is_actived==0}" class="badge badge-secondary">Ẩn</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Ngày tạo:</td>
+                                                            <td th:text="${s.created_at}"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Người tạo:</td>
+                                                            <td th:text="${s.created_by}"></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Đóng
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>

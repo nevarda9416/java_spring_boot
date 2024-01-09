@@ -29,8 +29,7 @@
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Tên danh mục<span
                                     class="required">*</span></label>
                             <div class="col-md-9 col-sm-9">
-                                <input class="form-control" name="name" type="text" placeholder="Tủ mạng"
-                                       required="required"/>
+                                <input class="form-control" name="name" type="text" required="required"/>
                             </div>
                         </div>
                         <div class="field item form-group">
@@ -46,7 +45,8 @@
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Mô tả</label>
                             <div class="col-md-9 col-sm-9">
-                                <textarea required="required" name="description"></textarea></div>
+                                <textarea id="message" required="required" class="form-control" name="description" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.." data-parsley-validation-threshold="10"></textarea>
+                            </div>
                         </div>
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Cho phép hiển thị</label>
@@ -105,16 +105,16 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr class="even pointer" th:each="s: ${categories}">
-                                <td th:text="${s.name}"></td>
-                                <td th:text="${s.display_order}"></td>
+                            <tr class="even pointer" th:each="c: ${categories}">
+                                <td th:text="${c.name}"></td>
+                                <td th:text="${c.display_order}"></td>
                                 <td>
-                                    <span th:if="${s.is_actived==1}" class="badge badge-success">Hiển thị</span>
-                                    <span th:if="${s.is_actived==0}" class="badge badge-secondary">Ẩn</span>
+                                    <span th:if="${c.is_actived==1}" class="badge badge-success">Hiển thị</span>
+                                    <span th:if="${c.is_actived==0}" class="badge badge-secondary">Ẩn</span>
                                 </td>
                                 <td class="last"><a href="#" data-toggle="modal"
-                                                    th:attr="data-target=${'#bs-example-modal-lg-'+s.id}">Xem</a>
-                                    <div class="modal fade bs-example-modal-lg" th:attr="id=${'bs-example-modal-lg-'+s.id}" tabindex="-1" role="dialog"
+                                                    th:attr="data-target=${'#bs-example-modal-lg-'+c.id}">Xem</a>
+                                    <div class="modal fade bs-example-modal-lg" th:attr="id=${'bs-example-modal-lg-'+c.id}" tabindex="-1" role="dialog"
                                          aria-hidden="true">
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
@@ -128,38 +128,38 @@
                                                     <table class="table table-striped">
                                                         <tr>
                                                             <td>Tên danh mục:</td>
-                                                            <td th:text="${s.name}"></td>
+                                                            <td th:text="${c.name}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Ảnh danh mục:</td>
-                                                            <td><img th:attr="src=${s.image},alt=${s.name}"/></td>
+                                                            <td><img th:attr="src=${c.image},alt=${c.name}"/></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Tóm tắt:</td>
-                                                            <td th:text="${s.summary}"></td>
+                                                            <td th:text="${c.summary}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Mô tả:</td>
-                                                            <td th:text="${s.description}"></td>
+                                                            <td th:text="${c.description}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Thứ tự hiển thị:</td>
-                                                            <td th:text="${s.display_order}"></td>
+                                                            <td th:text="${c.display_order}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Trạng thái:</td>
                                                             <td>
-                                                                <span th:if="${s.is_actived==1}" class="badge badge-success">Hiển thị</span>
-                                                                <span th:if="${s.is_actived==0}" class="badge badge-secondary">Ẩn</span>
+                                                                <span th:if="${c.is_actived==1}" class="badge badge-success">Hiển thị</span>
+                                                                <span th:if="${c.is_actived==0}" class="badge badge-secondary">Ẩn</span>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td>Ngày tạo:</td>
-                                                            <td th:text="${s.created_at}"></td>
+                                                            <td th:text="${c.created_at}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Người tạo:</td>
-                                                            <td th:text="${s.created_by}"></td>
+                                                            <td th:text="${c.created_by}"></td>
                                                         </tr>
                                                     </table>
                                                 </div>

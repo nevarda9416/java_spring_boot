@@ -1,13 +1,13 @@
 package com.example.niitiproduct.mapper;
 
-import com.example.niitiproduct.dto.CategoryDTO;
-import com.example.niitiproduct.models.Category;
+import com.example.niitiproduct.dto.SubCategoryDTO;
+import com.example.niitiproduct.models.SubCategory;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CategoryMapper {
-    public CategoryDTO toDTO(Category category) {
-        return CategoryDTO.builder(
+public class SubCategoryMapper {
+    public SubCategoryDTO toDTO(SubCategory category) {
+        return SubCategoryDTO.builder(
                 ).id(category.getId())
                 .name(category.getName())
                 .image(category.getImage())
@@ -15,6 +15,7 @@ public class CategoryMapper {
                 .description(category.getDescription())
                 .display_order(category.getDisplay_order())
                 .is_actived(category.getIs_actived())
+                .category_id(category.getCategory_id())
                 .created_at(category.getCreated_at())
                 .created_by(category.getCreated_by())
                 .updated_at(category.getUpdated_at())
