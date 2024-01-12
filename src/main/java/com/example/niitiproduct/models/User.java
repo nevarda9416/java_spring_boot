@@ -1,16 +1,31 @@
 package com.example.niitiproduct.models;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Collection;
 
 @Entity
+@Getter
+@Setter
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;
-    String username;
+    String name;
+    String email;
+    String email_verified_at;
+    @Getter
     String password;
+    String remember_token;
+    String created_at;
+    String created_by;
+    String updated_at;
+    String updated_by;
+    String deleted_at;
+    String deleted_by;
+    @Getter
     @ManyToMany
     @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private Collection<Role> roles;
@@ -19,33 +34,14 @@ public class User {
 
     }
 
-    public User(String username, String password, Collection<Role> roles) {
-        this.username = username;
+    public User(String email, String password, Collection<Role> roles) {
+        this.email = email;
         this.password = password;
         this.roles = roles;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public Collection<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Collection<Role> roles) {
-        this.roles = roles;
-    }
 }

@@ -34,13 +34,13 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr class="even pointer">
-                                <td>Nguyễn Văn A</td>
-                                <td>nguyenvana@gmail.com</td>
+                            <tr class="even pointer" th:each="u:${users}">
+                                <td th:text="${u.name}"></td>
+                                <td th:text="${u.email}"></td>
                                 <td>admin</td>
                                 <td class=" last"><a href="#" data-toggle="modal"
-                                                     data-target=".bs-example-modal-lg">Xem</a>
-                                    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
+                                                     th:attr="data-target=${'#bs-example-modal-lg-'+u.id}">Xem</a>
+                                    <div class="modal fade bs-example-modal-lg" th:attr="id=${'bs-example-modal-lg-'+u.id}" tabindex="-1" role="dialog"
                                          aria-hidden="true">
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
@@ -54,11 +54,11 @@
                                                     <table class="table table-striped">
                                                         <tr>
                                                             <td>Họ và tên:</td>
-                                                            <td>Nguyễn Văn A</td>
+                                                            <td  th:text="${u.name}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Email:</td>
-                                                            <td>nguyenvana@gmail.com</td>
+                                                            <td th:text="${u.email}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Quyền:</td>
