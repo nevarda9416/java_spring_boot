@@ -37,13 +37,16 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr class="even pointer">
-                                <td>nguyenvana@gmail.com</td>
-                                <td>Nguyễn Văn A</td>
-                                <td>01/01/1990</td>
-                                <td>Nam</td>
-                                <td>0987654321</td>
-                                <td>Hoạt động</td>
+                            <tr class="even pointer" th:each="c:${customers}">
+                                <td th:text="${c.email}"></td>
+                                <td th:text="${c.first_name}+' '+${c.last_name}"></td>
+                                <td th:text="${c.birthday}"></td>
+                                <td th:text="${c.gender}"></td>
+                                <td th:text="${c.telephone}"></td>
+                                <td>
+                                    <span th:if="${c.is_actived==1}" class="badge badge-success">Hiển thị</span>
+                                    <span th:if="${c.is_actived==0}" class="badge badge-secondary">Ẩn</span>
+                                </td>
                                 <td class=" last"><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Xem</a> | <a href="#">Khóa tài khoản</a>
                                     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
                                         <div class="modal-dialog modal-lg">
@@ -57,27 +60,42 @@
                                                     <table class="table table-striped">
                                                         <tr>
                                                             <td>Tên tài khoản:</td>
-                                                            <td>nguyenvana@gmail.com</td>
+                                                            <td th:text="${c.email}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Họ và tên:</td>
-                                                            <td>Nguyễn Văn A</td>
+                                                            <td th:text="${c.first_name}+' '+${c.last_name}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Ngày sinh:</td>
-                                                            <td>01/01/1990</td>
+                                                            <td th:text="${c.birthday}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Giới tính:</td>
-                                                            <td>Nam</td>
+                                                            <td th:text="${c.gender}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Số điện thoại:</td>
-                                                            <td>0987654321</td>
+                                                            <td th:text="${c.telephone}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Địa chỉ:</td>
-                                                            <td>Quận Thủ Đức, Thành phố Hồ Chí Minh</td>
+                                                            <td th:text="${c.address}"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Trạng thái:</td>
+                                                            <td>
+                                                                <span th:if="${c.is_actived==1}" class="badge badge-success">Hiển thị</span>
+                                                                <span th:if="${c.is_actived==0}" class="badge badge-secondary">Ẩn</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Ngày tạo:</td>
+                                                            <td th:text="${c.created_at}"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Người tạo:</td>
+                                                            <td th:text="${c.created_by}"></td>
                                                         </tr>
                                                     </table>
                                                 </div>

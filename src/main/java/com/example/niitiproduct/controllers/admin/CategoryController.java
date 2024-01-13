@@ -15,14 +15,16 @@ import java.util.List;
 @Controller
 @RequestMapping("admin")
 public class CategoryController {
-@Autowired
-private CategoryService categoryService;
+    @Autowired
+    private CategoryService categoryService;
+
     @GetMapping("/categories")
     public String index(Model model) {
         List<CategoryDTO> categories = categoryService.getAll();
         model.addAttribute("categories", categories);
         return "admin/category/index";
     }
+
     @GetMapping("/categories/all")
     public ResponseEntity<List<CategoryDTO>> getAll() {
         List<CategoryDTO> categories = categoryService.getAll();
