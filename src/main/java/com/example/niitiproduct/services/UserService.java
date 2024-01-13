@@ -1,10 +1,8 @@
 package com.example.niitiproduct.services;
 
 import com.example.niitiproduct.dto.UserDTO;
-import com.example.niitiproduct.mapper.CategoryMapper;
 import com.example.niitiproduct.mapper.UserMapper;
 import com.example.niitiproduct.models.User;
-import com.example.niitiproduct.repositories.CategoryRepository;
 import com.example.niitiproduct.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

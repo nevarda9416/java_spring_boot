@@ -1,7 +1,6 @@
 package com.example.niitiproduct.controllers.admin;
 
 import com.example.niitiproduct.dto.UserDTO;
-import com.example.niitiproduct.services.CategoryService;
 import com.example.niitiproduct.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

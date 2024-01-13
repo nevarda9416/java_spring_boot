@@ -1,7 +1,6 @@
 package com.example.niitiproduct.controllers.admin;
 
 import com.example.niitiproduct.dto.CategoryDTO;
-import com.example.niitiproduct.models.Category;
 import com.example.niitiproduct.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
