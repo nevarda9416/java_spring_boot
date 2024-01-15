@@ -105,6 +105,7 @@
                             </tr>
                             </thead>
                             <tbody>
+                            <tr th:text="${promotionList}"></tr>
                             <tr class="even pointer" th:each="c: ${categories}">
                                 <td th:text="${c.name}"></td>
                                 <td th:text="${c.display_order}"></td>

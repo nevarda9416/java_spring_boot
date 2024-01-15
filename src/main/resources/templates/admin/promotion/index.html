@@ -37,14 +37,17 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr class="even pointer">
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>2 năm</td>
+                            <tr class="even pointer" th:each="p:${promotions}">
+                                <td th:text="${p.id}"></td>
+                                <td></td>
+                                <td th:text="${p.discount_type}"></td>
+                                <td th:text="${p.discount_price}"> VNĐ</td>
+                                <td th:text="${p.discount_rate}"> %</td>
+                                <td>Còn được sử dụng</td>
                                 <td class=" last"><a href="#" data-toggle="modal"
-                                                     data-target=".bs-example-modal-lg">Xem</a>
-                                    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
+                                                     th:attr="data-target=${'#bs-example-modal-lg-'+p.id}">Xem</a>
+                                    <div class="modal fade bs-example-modal-lg"
+                                         th:attr="id=${'bs-example-modal-lg-'+p.id}" tabindex="-1" role="dialog"
                                          aria-hidden="true">
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
@@ -58,7 +61,7 @@
                                                     <table class="table table-striped">
                                                         <tr>
                                                             <td>Mã khuyến mãi:</td>
-                                                            <td>1</td>
+                                                            <td th:text="${p.id}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Mã sản phẩm:</td>
@@ -66,23 +69,23 @@
                                                         </tr>
                                                         <tr>
                                                             <td>Loại khuyến mãi:</td>
-                                                            <td>Giảm giá trên từng sản phẩm</td>
+                                                            <td th:text="${p.discount_type}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Giá giảm:</td>
-                                                            <td>15000 VNĐ</td>
+                                                            <td th:text="${p.discount_price}"> VNĐ</td>
                                                         </tr>
                                                         <tr>
                                                             <td>% giảm:</td>
-                                                            <td>Vân Đồn, Quảng Ninh</td>
+                                                            <td th:text="${p.discount_rate}"> %</td>
                                                         </tr>
                                                         <tr>
                                                             <td>Thời gian bắt đầu:</td>
-                                                            <td>01/12/2023</td>
+                                                            <td th:text="${p.start_time}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Thời gian kết thúc:</td>
-                                                            <td>01/12/2024</td>
+                                                            <td th:text="${p.end_time}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Trạng thái:</td>

@@ -47,8 +47,9 @@
                                     <span th:if="${c.is_actived==1}" class="badge badge-success">Hiển thị</span>
                                     <span th:if="${c.is_actived==0}" class="badge badge-secondary">Ẩn</span>
                                 </td>
-                                <td class=" last"><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Xem</a> | <a href="#">Khóa tài khoản</a>
-                                    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                                <td class=" last"><a href="#" data-toggle="modal"
+                                                     th:attr="data-target=${'#bs-example-modal-lg-'+c.id}">Xem</a> | <a href="#">Khóa tài khoản</a>
+                                    <div class="modal fade bs-example-modal-lg" th:attr="id=${'bs-example-modal-lg-'+c.id}" tabindex="-1" role="dialog" aria-hidden="true">
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
                                                 <div class="modal-header">
