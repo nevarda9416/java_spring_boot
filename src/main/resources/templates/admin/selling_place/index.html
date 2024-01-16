@@ -35,13 +35,15 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr class="even pointer">
-                                <td>SHOWROOM 15 XÃ ĐÀN</td>
-                                <td>Phía Bắc</td>
-                                <td>Hà Nội</td>
-                                <td>(024) 3968 9966 (ext 1)</td>
-                                <td class=" last"><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Xem</a>
-                                    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                            <tr class="even pointer" th:each="s:${sellingPlaces}">
+                                <td th:text="${s.name}"></td>
+                                <td th:text="${s.area}"></td>
+                                <td th:text="${s.city}"></td>
+                                <td th:text="${s.hotline}"></td>
+                                <td class=" last"><a href="#" data-toggle="modal"
+                                                     th:attr="data-target=${'#bs-example-modal-lg-'+s.id}">Xem</a>
+                                    <div class="modal fade bs-example-modal-lg"
+                                         th:attr="id=${'bs-example-modal-lg-'+s.id}" tabindex="-1" role="dialog" aria-hidden="true">
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -53,30 +55,30 @@
                                                     <table class="table table-striped">
                                                         <tr>
                                                             <td>Tên đại lý:</td>
-                                                            <td>SHOWROOM 15 XÃ ĐÀN</td>
+                                                            <td th:text="${s.name}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Khu vực:</td>
-                                                            <td>Phía Bắc</td>
+                                                            <td th:text="${s.area}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Thành phố:</td>
-                                                            <td>Hà Nội</td>
+                                                            <td th:text="${s.city}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Quận/Huyện:</td>
-                                                            <td>Đống Đa</td>
+                                                            <td th:text="${s.district}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Phường/Xã:</td>
-                                                            <td>Kim Liên</td>
+                                                            <td th:text="${s.sub_district}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Địa chỉ:</td>
-                                                            <td>15 Xã Đàn</td>
+                                                            <td th:text="${s.address}"></td>
                                                         <tr>
                                                             <td>Đường dây nóng:</td>
-                                                            <td>(024) 3968 9966 (ext 1)</td>
+                                                            <td th:text="${s.hotline}"></td>
                                                         </tr>
                                                     </table>
                                                 </div>
