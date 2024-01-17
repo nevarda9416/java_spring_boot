@@ -34,10 +34,13 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr class="even pointer">
-                                <td>Banner top đầu trang chủ</td>
-                                <td><img src="" alt=""/></td>
-                                <td>Hiển thị</td>
+                            <tr class="even pointer" th:each="b:${banners}">
+                                <td th:text="${b.name}"></td>
+                                <td><img th:attr="src=${b.thumbnail_url},alt=${b.name}" width="300px"/></td>
+                                <td>
+                                    <span th:if="${b.is_actived==1}" class="badge badge-success">Hiển thị</span>
+                                    <span th:if="${b.is_actived==0}" class="badge badge-secondary">Ẩn</span>
+                                </td>
                                 <td class=" last"><a href="#" data-toggle="modal"
                                                      data-target=".bs-example-modal-lg">Xem</a>
                                     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
@@ -54,27 +57,33 @@
                                                     <table class="table table-striped">
                                                         <tr>
                                                             <td>Tên quảng cáo:</td>
-                                                            <td>Banner top đầu trang chủ</td>
+                                                            <td th:text="${b.name}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Mô tả:</td>
-                                                            <td>Banner top đầu trang chủ</td>
+                                                            <td th:text="${b.description}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Hình ảnh quảng cáo:</td>
-                                                            <td><img src="" alt=""/></td>
+                                                            <td><img th:attr="src=${b.thumbnail_url},alt=${b.name}" width="400px"/></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Đường dẫn quảng cáo:</td>
-                                                            <td>https://www.</td>
+                                                            <td th:text="${b.banner_url}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Là quảng cáo mặc định:</td>
-                                                            <td>Có</td>
+                                                            <td>
+                                                                <span th:if="${b.is_default==1}" class="badge badge-success">Có</span>
+                                                                <span th:if="${b.is_default==0}" class="badge badge-secondary">Không</span>
+                                                            </td>
                                                         </tr>
                                                         <tr>
                                                             <td>Trạng thái:</td>
-                                                            <td>Hiển thị</td>
+                                                            <td>
+                                                                <span th:if="${b.is_actived==1}" class="badge badge-success">Hiển thị</span>
+                                                                <span th:if="${b.is_actived==0}" class="badge badge-secondary">Ẩn</span>
+                                                            </td>
                                                         </tr>
                                                     </table>
                                                 </div>
