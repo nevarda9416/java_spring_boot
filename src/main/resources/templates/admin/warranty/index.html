@@ -35,14 +35,14 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr class="even pointer">
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>2 năm</td>
+                            <tr class="even pointer" th:each="w:${warranties}">
+                                <td th:text="${w.customer_id}"></td>
+                                <td th:text="${w.order_id}"></td>
+                                <td th:text="${w.product_id}"></td>
+                                <td th:text="${w.period}"></td>
                                 <td class=" last"><a href="#" data-toggle="modal"
-                                                     data-target=".bs-example-modal-lg">Xem</a>
-                                    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
+                                                     th:attr="data-target=${'#bs-example-modal-lg-'+w.id}">Xem</a>
+                                    <div class="modal fade bs-example-modal-lg" th:attr="id=${'bs-example-modal-lg-'+w.id}" tabindex="-1" role="dialog"
                                          aria-hidden="true">
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
@@ -56,23 +56,23 @@
                                                     <table class="table table-striped">
                                                         <tr>
                                                             <td>Mã khách hàng:</td>
-                                                            <td>1</td>
+                                                            <td th:text="${w.customer_id}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Mã đơn hàng:</td>
-                                                            <td>1</td>
+                                                            <td th:text="${w.order_id}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Mã sản phẩm:</td>
-                                                            <td>1</td>
+                                                            <td th:text="${w.product_id}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Thời hạn bảo hành:</td>
-                                                            <td>2 năm</td>
+                                                            <td th:text="${w.period}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Mô tả:</td>
-                                                            <td>Tín hiệu bộ phát wifi chập chờn, không ổn định</td>
+                                                            <td th:text="${w.description}"></td>
                                                         </tr>
                                                     </table>
                                                 </div>
