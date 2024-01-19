@@ -1,6 +1,8 @@
 package com.example.niitiproduct.controllers.admin;
 
 import com.example.niitiproduct.dto.CategoryDTO;
+import com.example.niitiproduct.models.Category;
+import com.example.niitiproduct.repositories.CategoryRepository;
 import com.example.niitiproduct.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,12 +18,21 @@ import java.util.List;
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     @GetMapping("/categories")
     public String index(Model model) {
         List<CategoryDTO> categories = categoryService.getAll();
         model.addAttribute("categories", categories);
+        model.addAttribute("category", new CategoryDTO());
         return "admin/category/index";
+    }
+
+    @PostMapping(value = "/categories/store")
+    public String store(@ModelAttribute Category category) {
+        categoryService.save(category);
+        return "redirect:/admin/categories";
     }
 
     @GetMapping("/categories/all")
