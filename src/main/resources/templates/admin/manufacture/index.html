@@ -27,15 +27,15 @@
                         <table class="table table-striped jambo_table bulk_action">
                             <thead>
                             <tr class="headings">
-                                <th class="column-title">Tên sản phẩm</th>
+                                <th class="column-title">Mô tả:</th>
                                 <th class="column-title">Tên nhà cung cấp</th>
                                 <th class="column-title no-link last"><span class="nobr">Thao tác</span></th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr class="even pointer">
-                                <td>Tủ mạng</td>
-                                <td>Trung Quốc</td>
+                            <tr class="even pointer" th:each="m:${manufactures}">
+                                <td th:text="${m.name}"></td>
+                                <td th:text="${m.description}"></td>
                                 <td class=" last"><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Xem</a>
                                     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
                                         <div class="modal-dialog modal-lg">
@@ -48,16 +48,20 @@
                                                 <div class="modal-body">
                                                     <table class="table table-striped">
                                                         <tr>
-                                                            <td>Tên sản phẩm:</td>
-                                                            <td>Tủ mạng</td>
-                                                        </tr>
-                                                        <tr>
                                                             <td>Tên nhà cung cấp:</td>
-                                                            <td>Trung Quốc</td>
+                                                            <td th:text="${m.name}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Mô tả:</td>
-                                                            <td>Xuất xứ: Đài Loan. Sản xuất tại Trung Quốc</td>
+                                                            <td th:text="${m.description}"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Ngày tạo:</td>
+                                                            <td th:text="${m.created_at}"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Người tạo:</td>
+                                                            <td th:text="${m.created_by}"></td>
                                                         </tr>
                                                     </table>
                                                 </div>
