@@ -29,7 +29,7 @@
                             <tr class="headings">
                                 <th class="column-title">Mã sản phẩm</th>
                                 <th class="column-title">Người bình luận</th>
-                                <th class="column-title">Sốdiện thoại</th>
+                                <th class="column-title">Số điện thoại</th>
                                 <th class="column-title">Email</th>
                                 <th class="column-title">Trạng thái</th>
                                 <th class="column-title">Thời gian đăng</th>
@@ -37,16 +37,16 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr class="even pointer">
-                                <td>1</td>
-                                <td>Nguyễn Văn A</td>
-                                <td>0987654321</td>
-                                <td>nguyenvana@gmail.com</td>
-                                <td>Được duyệt</td>
-                                <td>01/01/2024 01:01:01</td>
+                            <tr class="even pointer" th:each="c:${comments}">
+                                <td></td>
+                                <td th:text="${c.author_name}"></td>
+                                <td th:text="${c.author_phone}"></td>
+                                <td th:text="${c.author_email}"></td>
+                                <td th:text="${c.status}"></td>
+                                <td th:text="${c.published_at}"></td>
                                 <td class=" last"><a href="#" data-toggle="modal"
-                                                     data-target=".bs-example-modal-lg">Xem</a>
-                                    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
+                                                     th:attr="data-target=${'#bs-example-modal-lg-'+c.id}">Xem</a>
+                                    <div class="modal fade bs-example-modal-lg" th:attr="id=${'bs-example-modal-lg-'+c.id}" tabindex="-1" role="dialog"
                                          aria-hidden="true">
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
@@ -60,51 +60,60 @@
                                                     <table class="table table-striped">
                                                         <tr>
                                                             <td>Mã sản phẩm:</td>
-                                                            <td>1</td>
+                                                            <td></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Người bình luận:</td>
-                                                            <td>Nguyễn Văn A</td>
+                                                            <td th:text="${c.author_name}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Sốdiện thoại:</td>
-                                                            <td>0987654321</td>
+                                                            <td th:text="${c.author_phone}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Email:</td>
-                                                            <td>nguyenvana@gmail.com</td>
+                                                            <td th:text="${c.author_email}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Địa chỉ IP:</td>
-                                                            <td>127.0.0.1</td>
+                                                            <td th:text="${c.author_ip}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Thông tin trình duyệt:</td>
-                                                            <td>Mozilla Firefox</td>
+                                                            <td th:text="${c.author_agent}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Nội dung:</td>
-                                                            <td>Sản phẩm giá rẻ nhưng chất lượng không tồi. Giao hàng hơi chậm</td>
+                                                            <td th:text="${c.content}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Trạng thái:</td>
-                                                            <td>Được duyệt</td>
+                                                            <td th:text="${c.status}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Thời gian đăng:</td>
-                                                            <td>01/01/2024 01:01:01</td>
+                                                            <td th:text="${c.published_at}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Bình luận nổi bật:</td>
-                                                            <td>Không</td>
+                                                            <td>
+                                                                <span th:if="${c.is_highlight==1}" class="badge badge-success">Có</span>
+                                                                <span th:if="${c.is_highlight==0}" class="badge badge-secondary">Không</span>
+                                                            </td>
                                                         </tr>
                                                         <tr>
                                                             <td>Bình luận được đánh dấu lên đầu:</td>
-                                                            <td>Không</td>
+                                                            <td>
+                                                                <span th:if="${c.is_sticky==1}" class="badge badge-success">Có</span>
+                                                                <span th:if="${c.is_sticky==0}" class="badge badge-secondary">Không</span>
+                                                            </td>
                                                         </tr>
                                                         <tr>
                                                             <td>Bình luận đã đóng:</td>
-                                                            <td>Không</td>
+                                                            <td>
+                                                                <span th:if="${c.is_closed==1}" class="badge badge-danger">Có</span>
+                                                                <span th:if="${c.is_closed==0}" class="badge badge-success">Không</span>
+                                                            </td>
                                                         </tr>
                                                     </table>
                                                 </div>
