@@ -18,7 +18,7 @@ public class CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
     public List<CategoryDTO> getAll() {
-        return categoryRepository.findAll().stream().map(e->categoryMapper.toDTO(e)).toList();
+        return categoryRepository.findAllByOrderByIdDesc().stream().map(e->categoryMapper.toDTO(e)).toList();
     }
     public boolean save(Category category) {
         try {

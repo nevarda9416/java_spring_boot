@@ -23,38 +23,45 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    <form class="" action="" method="post" novalidate>
+                    <form class="" action="/admin/subcategories/store" method="post" validate th:object="${subCategory}"
+                          enctype="multipart/form-data">
                         <span class="section">Thông tin danh mục con</span>
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Tên danh mục<span
                                     class="required">*</span></label>
                             <div class="col-md-9 col-sm-9">
-                                <input class="form-control" name="name" type="text" required="required"/>
+                                <input class="form-control" name="name" type="text" required="required"
+                                       th:field="*{name}"/>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="control-label col-md-3 col-sm-3 ">Danh mục cha</label>
                             <div class="col-md-9 col-sm-9 ">
-                                <select class="form-control" name="category_id" th:each="c: ${categories}">
-                                    <option value="0">Không</option>
-                                    <option th:attr="value=${c.id}" th:text="${c.name}"></option>
+                                <select class="form-control" name="category_id" th:field="*{category_id}"/>
+                                <option value="0">Không</option>
+                                <option th:each="c: ${categories}" th:value="${c.id}" th:text="${c.name}"></option>
                                 </select>
                             </div>
                         </div>
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Ảnh danh mục</label>
                             <div class="col-md-9 col-sm-9">
-                                <input class="form-control optional" name="image" type="file"/></div>
+                                <input class="form-control optional" name="image" type="text" th:field="*{image}"/>
+                            </div>
                         </div>
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Tóm tắt</label>
                             <div class="col-md-9 col-sm-9">
-                                <input class="form-control" name="summary" type="text"/></div>
+                                <input class="form-control" name="summary" type="text" th:field="*{summary}"/></div>
                         </div>
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Mô tả</label>
                             <div class="col-md-9 col-sm-9">
-                                <textarea id="description" required="required" class="form-control" name="description" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.." data-parsley-validation-threshold="10"></textarea>
+                                <textarea id="description" required="required" class="form-control" name="description"
+                                          data-parsley-trigger="keyup" data-parsley-minlength="20"
+                                          data-parsley-maxlength="100"
+                                          data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
+                                          data-parsley-validation-threshold="10" th:field="*{description}"></textarea>
                             </div>
                         </div>
                         <div class="field item form-group">
@@ -62,7 +69,8 @@
                             <div class="col-md-9 col-sm-9">
                                 <div class="checkbox">
                                     <label>
-                                        <input class="flat" name="is_actived" type="checkbox" checked="checked">
+                                        <input class="flat" name="is_actived" type="checkbox" checked="checked"
+                                               value="1" th:field="*{is_actived}">
                                     </label>
                                 </div>
                             </div>
@@ -70,7 +78,8 @@
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Thứ tự hiển thị</label>
                             <div class="col-md-9 col-sm-9">
-                                <input class="form-control number" name="display_order" type="number" min="0"></div>
+                                <input class="form-control number" name="display_order" type="number" min="0"
+                                       th:field="*{display_order}"></div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-6 offset-md-3">
@@ -123,7 +132,8 @@
                                 </td>
                                 <td class="last"><a href="#" data-toggle="modal"
                                                     th:attr="data-target=${'#bs-example-modal-lg-'+s.id}">Xem</a>
-                                    <div class="modal fade bs-example-modal-lg" th:attr="id=${'bs-example-modal-lg-'+s.id}" tabindex="-1" role="dialog"
+                                    <div class="modal fade bs-example-modal-lg"
+                                         th:attr="id=${'bs-example-modal-lg-'+s.id}" tabindex="-1" role="dialog"
                                          aria-hidden="true">
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
@@ -158,8 +168,10 @@
                                                         <tr>
                                                             <td>Trạng thái:</td>
                                                             <td>
-                                                                <span th:if="${s.is_actived==1}" class="badge badge-success">Hiển thị</span>
-                                                                <span th:if="${s.is_actived==0}" class="badge badge-secondary">Ẩn</span>
+                                                                <span th:if="${s.is_actived==1}"
+                                                                      class="badge badge-success">Hiển thị</span>
+                                                                <span th:if="${s.is_actived==0}"
+                                                                      class="badge badge-secondary">Ẩn</span>
                                                             </td>
                                                         </tr>
                                                         <tr>
