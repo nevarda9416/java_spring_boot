@@ -35,14 +35,14 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr class="even pointer">
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>2 năm</td>
+                            <tr class="even pointer" th:each="i:${inventories}">
+                                <td th:text="${i.id}"></td>
+                                <td th:text="${i.name}"></td>
+                                <td></td>
+                                <td></td>
                                 <td class=" last"><a href="#" data-toggle="modal"
-                                                     data-target=".bs-example-modal-lg">Xem</a>
-                                    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
+                                                     th:attr="data-target=${'#bs-example-modal-lg-'+i.id}">Xem</a>
+                                    <div class="modal fade bs-example-modal-lg" th:attr="id=${'bs-example-modal-lg-'+i.id}" tabindex="-1" role="dialog"
                                          aria-hidden="true">
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
@@ -54,29 +54,25 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <table class="table table-striped">
-                                                        <th class="column-title"></th>
-                                                        <th class="column-title"></th>
-                                                        <th class="column-title"></th>
-                                                        <th class="column-title"></th>
                                                         <tr>
                                                             <td>Mã kho:</td>
-                                                            <td>1</td>
+                                                            <td th:text="${i.id}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Tên kho:</td>
-                                                            <td>Kho A</td>
+                                                            <td th:text="${i.name}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Mã sản phẩm:</td>
-                                                            <td>1</td>
+                                                            <td></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Số lượng:</td>
-                                                            <td>2066</td>
+                                                            <td></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Đia chỉ:</td>
-                                                            <td>Vân Đồn, Quảng Ninh</td>
+                                                            <td th:text="${i.address}"></td>
                                                         </tr>
                                                     </table>
                                                 </div>
