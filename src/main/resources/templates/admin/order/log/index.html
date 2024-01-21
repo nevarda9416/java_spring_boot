@@ -31,21 +31,20 @@
                                 <th class="column-title">Ngày đặt hàng</th>
                                 <th class="column-title">Mã khách hàng</th>
                                 <th class="column-title">Giá trị đơn hàng</th>
-                                <th class="column-title">Trạng thái đơn hàng</th>
                                 <th class="column-title">Phương thức thanh toán</th>
                                 <th class="column-title no-link last"><span class="nobr">Thao tác</span></th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr class="even pointer">
-                                <td>1</td>
-                                <td>01/01/2024</td>
-                                <td>1</td>
-                                <td>190.000 VNĐ</td>
-                                <td>Chưa thanh toán</td>
-                                <td>Tiền mặt trả trực tiếp</td>
-                                <td class=" last"><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Xem</a>
-                                    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                            <tr class="even pointer" th:each="o:${orderLogs}">
+                                <td th:text="${o.order_id}"></td>
+                                <td th:text="${o.created_at}"></td>
+                                <td th:text="${o.customer_id}"></td>
+                                <td th:text="${o.order_value} + ' VNĐ'"></td>
+                                <td th:text="${o.payment_method}"></td>
+                                <td class=" last"><a href="#" data-toggle="modal"
+                                                     th:attr="data-target=${'#bs-example-modal-lg-'+o.id}">Xem</a>
+                                    <div class="modal fade bs-example-modal-lg" th:attr="id=${'bs-example-modal-lg-'+o.id}" tabindex="-1" role="dialog" aria-hidden="true">
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -57,27 +56,23 @@
                                                     <table class="table table-striped">
                                                         <tr>
                                                             <td>Mã đơn hàng:</td>
-                                                            <td>1</td>
+                                                            <td th:text="${o.order_id}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Ngày đặt hàng:</td>
-                                                            <td>01/01/2024</td>
+                                                            <td th:text="${o.created_at}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Mã khách hàng</td>
-                                                            <td>1</td>
+                                                            <td th:text="${o.customer_id}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Giá trị đơn hàng:</td>
-                                                            <td>190.000 VNĐ</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Trạng thái đơn hàng:</td>
-                                                            <td>Chưa thanh toán</td>
+                                                            <td th:text="${o.order_value} + ' VNĐ'"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Phương thức thanh toán:</td>
-                                                            <td>Tiền mặt trả trực tiếp</td>
+                                                            <td th:text="${o.payment_method}"></td>
                                                         </tr>
                                                     </table>
                                                 </div>
