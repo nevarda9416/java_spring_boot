@@ -1,6 +1,85 @@
 <div id="layouts-partials-header" th:replace="admin/layouts/header::layouts-header"></div>
 <!-- page content -->
 <div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <a href="#" class="btn btn-success" data-toggle="modal"
+               th:attr="data-target=${'#bs-user-modal-lg-add'}"><i class="fa fa-plus"></i> Thêm người dùng</a>
+            <div class="modal fade bs-example-modal-lg" th:attr="id=${'bs-user-modal-lg-add'}" tabindex="-1" role="dialog"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Thêm người quản trị</h4>
+                            <button type="button" class="close" data-dismiss="modal"><span
+                                    aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="" action="/admin/categories/store" method="post" validate enctype="multipart/form-data">
+                                <div class="field item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3  label-align">Họ và Tên<span
+                                            class="required">*</span></label>
+                                    <div class="col-md-9 col-sm-9">
+                                        <input class="form-control" name="name" type="text" required="required"/>
+                                    </div>
+                                </div>
+                                <div class="field item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3  label-align">Email<span
+                                            class="required">*</span></label>
+                                    <div class="col-md-9 col-sm-9">
+                                        <input class="form-control" name="email" type="email" required="required"/></div>
+                                </div>
+                                <div class="field item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3  label-align">Tóm tắt</label>
+                                    <div class="col-md-9 col-sm-9">
+                                        <input class="form-control" name="summary" type="text"/></div>
+                                </div>
+                                <div class="field item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3  label-align">Mô tả</label>
+                                    <div class="col-md-9 col-sm-9">
+                                        <textarea id="description" required="required" class="form-control" name="description" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.." data-parsley-validation-threshold="10"></textarea>
+                                    </div>
+                                </div>
+                                <div class="field item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3  label-align">Cho phép hiển thị</label>
+                                    <div class="col-md-9 col-sm-9">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input class="flat" name="is_actived" type="checkbox" checked="checked" value="1">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3  label-align">Thứ tự hiển thị</label>
+                                    <div class="col-md-9 col-sm-9">
+                                        <input class="form-control number" name="display_order" type="number" min="0"></div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary">Lưu</button>
+                                    <button type="reset" class="btn btn-success">Làm lại</button>
+                                    <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Đóng
+                                    </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="title_right">
+            <div class="col-md-5 col-sm-5   form-group pull-right top_search">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="keyword">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Tìm kiếm</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-12 col-sm-12">
             <div class="x_panel">
