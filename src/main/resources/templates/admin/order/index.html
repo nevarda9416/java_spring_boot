@@ -36,12 +36,12 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr class="even pointer">
-                                <td>1</td>
-                                <td>01/01/2024</td>
-                                <td>Nguyễn Văn A</td>
-                                <td>190.000 VNĐ</td>
-                                <td>Chưa thanh toán</td>
+                            <tr class="even pointer" th:each="o:${orders}">
+                                <td th:text="${o.id}"></td>
+                                <td th:text="${o.created_at}"></td>
+                                <td></td>
+                                <td th:text="${o.total_price} + ' VNĐ'"></td>
+                                <td th:text="${o.status}"></td>
                                 <td class=" last"><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Xem</a>
                                     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
                                         <div class="modal-dialog modal-lg">
@@ -54,28 +54,32 @@
                                                 <div class="modal-body">
                                                     <table class="table table-striped">
                                                         <tr>
+                                                            <td>Mã đơn hàng:</td>
+                                                            <td th:text="${o.id}"></td>
+                                                        </tr>
+                                                        <tr>
                                                             <td>Tên khách hàng:</td>
-                                                            <td>Nguyễn Văn A</td>
+                                                            <td></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Tổng tiền:</td>
-                                                            <td>190.000 VNĐ</td>
+                                                            <td th:text="${o.total_price} + ' VNĐ'"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Trạng thái</td>
-                                                            <td>Chưa thanh toán</td>
+                                                            <td th:text="${o.status}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Mã sản phẩm:</td>
-                                                            <td>1</td>
+                                                            <td></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Số lượng:</td>
-                                                            <td>2</td>
+                                                            <td></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Đơn giá:</td>
-                                                            <td>95.000 VNĐ</td>
+                                                            <td></td>
                                                         </tr>
                                                     </table>
                                                 </div>
