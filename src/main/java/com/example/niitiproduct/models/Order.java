@@ -11,7 +11,7 @@ import lombok.*;
 @Setter
 public class Order {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     Integer user_id;
     Float total_price;

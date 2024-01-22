@@ -11,7 +11,7 @@ import lombok.*;
 @Setter
 public class OrderLog {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     Integer customer_id;
     Integer order_id;

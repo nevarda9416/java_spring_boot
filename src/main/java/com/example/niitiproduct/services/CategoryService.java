@@ -23,16 +23,16 @@ public class CategoryService {
     public boolean save(Category category) {
         try {
             Category categoryData = new Category();
-            categoryData.setName(category.getName());
-            categoryData.setImage(category.getImage());
-            categoryData.setSummary(category.getSummary());
-            categoryData.setDescription(category.getDescription());
-            categoryData.setIs_actived(category.getIs_actived() != null ? category.getIs_actived() : 0);
-            categoryData.setDisplay_order(category.getDisplay_order());
-            categoryData.setCreated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-            categoryData.setCreated_by(String.valueOf(1));
-            categoryData.setUpdated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-            categoryData.setUpdated_by(String.valueOf(1));
+            categoryData.setA_name(category.getA_name());
+            categoryData.setB_image(category.getB_image());
+            categoryData.setC_summary(category.getC_summary());
+            categoryData.setD_description(category.getD_description());
+            categoryData.setF_is_actived(category.getF_is_actived() != null ? category.getF_is_actived() : 0);
+            categoryData.setE_display_order(category.getE_display_order());
+            categoryData.setG_created_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+            categoryData.setH_created_by(String.valueOf(1));
+            categoryData.setI_updated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+            categoryData.setJ_updated_by(String.valueOf(1));
             categoryRepository.save(categoryData);
             return true;
         } catch (Exception e) {

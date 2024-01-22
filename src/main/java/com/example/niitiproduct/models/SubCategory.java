@@ -11,7 +11,7 @@ import lombok.*;
 @Setter
 public class SubCategory {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     String name;
     String image;
