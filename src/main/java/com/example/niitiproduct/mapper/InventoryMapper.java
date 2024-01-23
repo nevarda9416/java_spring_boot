@@ -9,14 +9,14 @@ public class InventoryMapper {
     public InventoryDTO toDTO(Inventory inventory) {
         return InventoryDTO.builder(
                 ).id(inventory.getId())
-                .name(inventory.getName())
-                .address(inventory.getAddress())
-                .created_at(inventory.getCreated_at())
-                .created_by(inventory.getCreated_by())
-                .updated_at(inventory.getUpdated_at())
-                .updated_by(inventory.getUpdated_by())
-                .deleted_at(inventory.getDeleted_at())
-                .deleted_by(inventory.getDeleted_by())
+                .name(inventory.getI00_name())
+                .address(inventory.getI01_address())
+                .created_at(inventory.getI02_created_at())
+                .created_by(inventory.getI03_created_by())
+                .updated_at(inventory.getI04_updated_at())
+                .updated_by(inventory.getI05_updated_by())
+                .deleted_at(inventory.getI06_deleted_at())
+                .deleted_by(inventory.getI07_deleted_by())
                 .build();
     }
 }

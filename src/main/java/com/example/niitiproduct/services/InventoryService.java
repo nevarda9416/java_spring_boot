@@ -23,12 +23,12 @@ public class InventoryService {
     public boolean save(Inventory inventory) {
         try {
             Inventory inventoryData = new Inventory();
-            inventoryData.setName(inventory.getName());
-            inventoryData.setAddress(inventory.getAddress());
-            inventoryData.setCreated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-            inventoryData.setCreated_by(String.valueOf(1));
-            inventoryData.setUpdated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-            inventoryData.setUpdated_by(String.valueOf(1));
+            inventoryData.setI00_name(inventory.getI00_name());
+            inventoryData.setI01_address(inventory.getI01_address());
+            inventoryData.setI02_created_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+            inventoryData.setI03_created_by(String.valueOf(1));
+            inventoryData.setI04_updated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+            inventoryData.setI05_updated_by(String.valueOf(1));
             inventoryRepository.save(inventoryData);
             return true;
         } catch (Exception e) {

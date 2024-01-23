@@ -13,16 +13,28 @@ public class Banner {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    String name;
-    String description;
-    String thumbnail_url;
-    String banner_url;
-    Integer is_default;
-    Integer is_actived;
-    String created_at;
-    String created_by;
-    String updated_at;
-    String updated_by;
-    String deleted_at;
-    String deleted_by;
+    @Column(name = "name")
+    String b00_name;
+    @Column(name = "description")
+    String b01_description;
+    @Column(name = "thumbnail_url")
+    String b02_thumbnail_url;
+    @Column(name = "banner_url")
+    String b03_banner_url;
+    @Column(name = "is_default")
+    Integer b04_is_default;
+    @Column(name = "is_actived")
+    Integer b05_is_actived;
+    @Column(name = "created_at")
+    String b06_created_at;
+    @Column(name = "created_by")
+    String b07_created_by;
+    @Column(name = "updated_at")
+    String b08_updated_at;
+    @Column(name = "updated_by")
+    String b09_updated_by;
+    @Column(name = "deleted_at")
+    String b10_deleted_at;
+    @Column(name = "deleted_by")
+    String b11_deleted_by;
 }

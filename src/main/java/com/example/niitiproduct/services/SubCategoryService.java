@@ -24,17 +24,17 @@ public class SubCategoryService {
     public boolean save(SubCategory subCategory) {
         try {
             SubCategory subCategoryData = new SubCategory();
-            subCategoryData.setName(subCategory.getName());
-            subCategoryData.setImage(subCategory.getImage());
-            subCategoryData.setSummary(subCategory.getSummary());
-            subCategoryData.setDescription(subCategory.getDescription());
-            subCategoryData.setDisplay_order(subCategory.getDisplay_order());
-            subCategoryData.setIs_actived(subCategory.getIs_actived() != null ? subCategory.getIs_actived() : 0);
-            subCategoryData.setCategory_id(subCategory.getCategory_id());
-            subCategoryData.setCreated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-            subCategoryData.setCreated_by(String.valueOf(1));
-            subCategoryData.setUpdated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-            subCategoryData.setUpdated_by(String.valueOf(1));
+            subCategoryData.setS00_name(subCategory.getS00_name());
+            subCategoryData.setS01_image(subCategory.getS01_image());
+            subCategoryData.setS02_summary(subCategory.getS02_summary());
+            subCategoryData.setS03_description(subCategory.getS03_description());
+            subCategoryData.setS04_display_order(subCategory.getS04_display_order());
+            subCategoryData.setS05_is_actived(subCategory.getS05_is_actived() != null ? subCategory.getS05_is_actived() : 0);
+            subCategoryData.setS06_category_id(subCategory.getS06_category_id());
+            subCategoryData.setS07_created_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+            subCategoryData.setS08_created_by(String.valueOf(1));
+            subCategoryData.setS09_updated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+            subCategoryData.setS10_updated_by(String.valueOf(1));
             subCategoryRepository.save(subCategoryData);
             return true;
         } catch (Exception e) {

@@ -23,12 +23,12 @@ public class ManufactureService {
     public boolean save(Manufacture  manufacture) {
         try {
             Manufacture manufactureData = new Manufacture();
-            manufactureData.setName(manufacture.getName());
-            manufactureData.setDescription(manufacture.getDescription());
-            manufactureData.setCreated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-            manufactureData.setCreated_by(String.valueOf(1));
-            manufactureData.setUpdated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-            manufactureData.setUpdated_by(String.valueOf(1));
+            manufactureData.setM00_name(manufacture.getM00_name());
+            manufactureData.setM01_description(manufacture.getM01_description());
+            manufactureData.setM02_created_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+            manufactureData.setM03_created_by(String.valueOf(1));
+            manufactureData.setM04_updated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+            manufactureData.setM05_updated_by(String.valueOf(1));
             manufactureRepository.save(manufactureData);
             return true;
         } catch (Exception e) {

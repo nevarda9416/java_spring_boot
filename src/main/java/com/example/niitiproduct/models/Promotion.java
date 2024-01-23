@@ -13,18 +13,32 @@ public class Promotion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    String name;
-    String description;
-    String discount_type;
-    String discount_price;
-    String discount_rate;
-    String start_time;
-    String end_time;
-    Integer is_actived;
-    String created_at;
-    String created_by;
-    String updated_at;
-    String updated_by;
-    String deleted_at;
-    String deleted_by;
+    @Column(name = "name")
+    String p00_name;
+    @Column(name = "description")
+    String p01_description;
+    @Column(name = "discount_type")
+    String p02_discount_type;
+    @Column(name = "discount_price")
+    String p03_discount_price;
+    @Column(name = "discount_rate")
+    String p04_discount_rate;
+    @Column(name = "start_time")
+    String p05_start_time;
+    @Column(name = "end_time")
+    String p06_end_time;
+    @Column(name = "is_actived")
+    Integer p07_is_actived;
+    @Column(name = "created_at")
+    String p08_created_at;
+    @Column(name = "created_by")
+    String p09_created_by;
+    @Column(name = "updated_at")
+    String p10_updated_at;
+    @Column(name = "updated_by")
+    String p11_updated_by;
+    @Column(name = "deleted_at")
+    String p12_deleted_at;
+    @Column(name = "deleted_by")
+    String p13_deleted_by;
 }

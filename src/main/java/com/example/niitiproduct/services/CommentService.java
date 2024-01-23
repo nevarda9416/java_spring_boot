@@ -23,10 +23,10 @@ public class CommentService {
     public boolean save(Comment comment) {
         try {
             Comment commentData = new Comment();
-            commentData.setCreated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-            commentData.setCreated_by(String.valueOf(1));
-            commentData.setUpdated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-            commentData.setUpdated_by(String.valueOf(1));
+            commentData.setC16_created_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+            commentData.setC17_created_by(String.valueOf(1));
+            commentData.setC18_updated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+            commentData.setC19_updated_by(String.valueOf(1));
             commentRepository.save(commentData);
             return true;
         } catch (Exception e) {
