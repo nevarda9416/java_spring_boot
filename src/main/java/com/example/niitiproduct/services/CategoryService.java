@@ -20,24 +20,39 @@ public class CategoryService {
     public List<CategoryDTO> getAll() {
         return categoryRepository.findAllByOrderByIdDesc().stream().map(e->categoryMapper.toDTO(e)).toList();
     }
+    public List<Category> searchByName(String name) {
+        return categoryRepository.findByNameContaining(name);
+    }
+    public Category findById(Long id) {
+        return categoryRepository.findById(Math.toIntExact(id)).get();
+    }
     public boolean save(Category category) {
         try {
             Category categoryData = new Category();
-            categoryData.setC00_name(category.getC00_name());
-            categoryData.setC01_image(category.getC01_image());
-            categoryData.setC02_summary(category.getC02_summary());
-            categoryData.setC03_description(category.getC03_description());
-            categoryData.setC04_display_order(category.getC04_display_order());
-            categoryData.setC05_is_actived(category.getC05_is_actived() != null ? category.getC05_is_actived() : 0);
-            categoryData.setC06_created_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-            categoryData.setC07_created_by(String.valueOf(1));
-            categoryData.setC08_updated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-            categoryData.setC09_updated_by(String.valueOf(1));
+            categoryData.setId(category.getId());
+            categoryData.setName(category.getName());
+            categoryData.setImage(category.getImage());
+            categoryData.setSummary(category.getSummary());
+            categoryData.setDescription(category.getDescription());
+            categoryData.setDisplay_order(category.getDisplay_order());
+            categoryData.setIs_actived(category.getIs_actived() != null ? category.getIs_actived() : 0);
+            categoryData.setCreated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+            categoryData.setCreated_by(String.valueOf(1));
+            categoryData.setUpdated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+            categoryData.setUpdated_by(String.valueOf(1));
             categoryRepository.save(categoryData);
             return true;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return false;
+        }
+    }
+
+    public void delete(Long id) {
+        try {
+        categoryRepository.deleteById(Math.toIntExact(id));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 }

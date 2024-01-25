@@ -131,7 +131,7 @@ function init_sidebar() {
         setContentHeight();
     });
 
-    //setContentHeight();
+    setContentHeight();
 
     // fixed sidebar
     if ($.fn.mCustomScrollbar) {

@@ -14,14 +14,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("admin")
+@RequestMapping("admin/categories")
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
-    @Autowired
-    private CategoryRepository categoryRepository;
 
-    @GetMapping("/categories")
+    @GetMapping("")
     public String index(Model model) {
         List<CategoryDTO> categories = categoryService.getAll();
         model.addAttribute("categories", categories);
@@ -29,13 +27,51 @@ public class CategoryController {
         return "admin/category/index";
     }
 
-    @PostMapping(value = "/categories/store")
+    @GetMapping("/search")
+    public String search(Model model, @RequestParam("keyword") String keyword) {
+        if (keyword.isEmpty()) {
+            List<CategoryDTO> categories = categoryService.getAll();
+            model.addAttribute("categories", categories);
+        } else {
+            List<Category> categories = categoryService.searchByName(keyword);
+            model.addAttribute("keyword", keyword);
+            model.addAttribute("categories", categories);
+        }
+        model.addAttribute("category", new CategoryDTO());
+        return "admin/category/index";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String edit(Model model, @PathVariable("id") Long id) {
+        List<CategoryDTO> categories = categoryService.getAll();
+        model.addAttribute("categories", categories);
+        Category category = categoryService.findById(id);
+        model.addAttribute("category", category);
+        return "admin/category/form";
+    }
+
+    @PostMapping(value = "/update")
+    public String update(@ModelAttribute Category category) {
+        categoryService.save(category);
+        return "redirect:/admin/categories/edit/" + category.getId();
+    }
+
+    @PostMapping(value = "/store")
     public String store(@ModelAttribute Category category) {
         categoryService.save(category);
         return "redirect:/admin/categories";
     }
 
-    @GetMapping("/categories/all")
+    @GetMapping("/delete/{id}")
+    public String delete(Model model, @PathVariable("id") Long id) {
+        categoryService.delete(id);
+        List<CategoryDTO> categories = categoryService.getAll();
+        model.addAttribute("categories", categories);
+        model.addAttribute("category", new CategoryDTO());
+        return "redirect:/admin/categories";
+    }
+
+    @GetMapping("/all")
     public ResponseEntity<List<CategoryDTO>> getAll() {
         List<CategoryDTO> categories = categoryService.getAll();
         System.out.println("Danh mục sản phẩm: " + categories);
