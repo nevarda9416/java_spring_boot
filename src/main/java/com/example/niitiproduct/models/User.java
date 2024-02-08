@@ -14,28 +14,28 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     @Column(name = "name")
-    String u00_name;
+    String name;
     @Column(name = "email")
-    String u01_email;
+    String email;
     @Column(name = "email_verified_at")
-    String u02_email_verified_at;
+    String email_verified_at;
     @Getter
     @Column(name = "password")
-    String u03_password;
+    String password;
     @Column(name = "remember_token")
-    String u04_remember_token;
+    String remember_token;
     @Column(name = "created_at")
-    String u05_created_at;
+    String created_at;
     @Column(name = "created_by")
-    String u06_created_by;
+    String created_by;
     @Column(name = "updated_at")
-    String u07_updated_at;
+    String updated_at;
     @Column(name = "updated_by")
-    String u08_updated_by;
+    String updated_by;
     @Column(name = "deleted_at")
-    String u09_deleted_at;
+    String deleted_at;
     @Column(name = "deleted_by")
-    String u10_deleted_by;
+    String deleted_by;
     @Getter
     @ManyToMany
     @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
@@ -46,13 +46,13 @@ public class User {
     }
 
     public User(String email, String password, Collection<Role> roles) {
-        this.u01_email = email;
-        this.u03_password = password;
+        this.email = email;
+        this.password = password;
         this.roles = roles;
     }
 
     public void setPassword(String password) {
-        this.u03_password = password;
+        this.password = password;
     }
 
 }

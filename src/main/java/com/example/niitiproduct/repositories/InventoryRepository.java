@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface InventoryRepository extends JpaRepository<Inventory, Integer> {
     public List<Inventory> findAllByOrderByIdDesc();
+
+    List<Inventory> findByNameContaining(String name);
 }

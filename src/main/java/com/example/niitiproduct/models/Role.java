@@ -19,8 +19,8 @@ public class Role {
         this.name = name;
     }
 
-    public Role() { // TODO Auto-generated constructor stub }
-
+    public Role() {
+        // TODO Auto-generated constructor stub }
     }
 
     public String getName() {

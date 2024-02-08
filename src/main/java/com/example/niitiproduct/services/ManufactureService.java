@@ -17,23 +17,64 @@ public class ManufactureService {
     ManufactureMapper manufactureMapper;
     @Autowired
     private ManufactureRepository manufactureRepository;
+
+    /**
+     * Get all manufactures
+     * @return
+     */
     public List<ManufactureDTO> getAll() {
         return manufactureRepository.findAllByOrderByIdDesc().stream().map(e->manufactureMapper.toDTO(e)).toList();
     }
+
+    /**
+     * Search by manufacture name
+     * @param name
+     * @return
+     */
+    public List<Manufacture> searchByName(String name) {
+        return manufactureRepository.findByNameContaining(name);
+    }
+
+    /**
+     * Edit manufacture
+     * @param id
+     * @return
+     */
+    public Manufacture findById(Long id) {
+        return manufactureRepository.findById(Math.toIntExact(id)).get();
+    }
+
+    /**
+     * Insert/Update manufacture
+     * @param manufacture
+     * @return
+     */
     public boolean save(Manufacture  manufacture) {
         try {
             Manufacture manufactureData = new Manufacture();
-            manufactureData.setM00_name(manufacture.getM00_name());
-            manufactureData.setM01_description(manufacture.getM01_description());
-            manufactureData.setM02_created_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-            manufactureData.setM03_created_by(String.valueOf(1));
-            manufactureData.setM04_updated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-            manufactureData.setM05_updated_by(String.valueOf(1));
+            manufactureData.setName(manufacture.getName());
+            manufactureData.setDescription(manufacture.getDescription());
+            manufactureData.setCreated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+            manufactureData.setCreated_by(String.valueOf(1));
+            manufactureData.setUpdated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+            manufactureData.setUpdated_by(String.valueOf(1));
             manufactureRepository.save(manufactureData);
             return true;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return false;
+        }
+    }
+
+    /**
+     * Delete manufacture
+     * @param id
+     */
+    public void delete(Long id) {
+        try {
+            manufactureRepository.deleteById(Math.toIntExact(id));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 }

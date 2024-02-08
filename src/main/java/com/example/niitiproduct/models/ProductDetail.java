@@ -4,27 +4,29 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name="orders")
+@Table(name="product_details")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class Order {
+public class ProductDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    @Column(name = "code")
-    String code;
-    @Column(name = "total_price")
-    Float total_price;
-    @Column(name = "total_amount")
-    Integer total_amount;
-    @Column(name = "total_tax")
-    Float total_tax;
+    @Column(name = "attribute_value")
+    String attribute_value;
+    @Column(name = "original_price")
+    Float original_price;
+    @Column(name = "sale_price")
+    Float sale_price;
+    @Column(name = "product_id")
+    Integer product_id;
+    @Column(name = "sku")
+    String sku;
+    @Column(name = "thumbnail_url")
+    String thumbnail_url;
     @Column(name = "status")
     String status;
-    @Column(name = "accounts_receivable")
-    Float accounts_receivable;
     @Column(name = "created_at")
     String created_at;
     @Column(name = "created_by")

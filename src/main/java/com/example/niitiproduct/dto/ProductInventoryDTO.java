@@ -7,14 +7,11 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class OrderDTO {
+public class ProductInventoryDTO {
     private Integer id;
-    private String code;
-    private Float total_price;
-    private Integer total_amount;
-    private Float total_tax;
-    private String status;
-    private Float accounts_receivable;
+    private String product_code;
+    private Integer inventory_id;
+    private Integer quantity;
     private String created_at;
     private String created_by;
     private String updated_at;

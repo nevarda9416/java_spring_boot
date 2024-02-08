@@ -14,19 +14,19 @@ public class Manufacture {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     @Column(name = "name")
-    String m00_name;
+    String name;
     @Column(name = "description")
-    String m01_description;
+    String description;
     @Column(name = "created_at")
-    String m02_created_at;
+    String created_at;
     @Column(name = "created_by")
-    String m03_created_by;
+    String created_by;
     @Column(name = "updated_at")
-    String m04_updated_at;
+    String updated_at;
     @Column(name = "updated_by")
-    String m05_updated_by;
+    String updated_by;
     @Column(name = "deleted_at")
-    String m06_deleted_at;
+    String deleted_at;
     @Column(name = "deleted_by")
-    String m07_deleted_by;
+    String deleted_by;
 }

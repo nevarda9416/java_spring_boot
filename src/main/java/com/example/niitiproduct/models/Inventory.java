@@ -14,19 +14,19 @@ public class Inventory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     @Column(name = "name")
-    String i00_name;
+    String name;
     @Column(name = "address")
-    String i01_address;
+    String address;
     @Column(name = "created_at")
-    String i02_created_at;
+    String created_at;
     @Column(name = "created_by")
-    String i03_created_by;
+    String created_by;
     @Column(name = "updated_at")
-    String i04_updated_at;
+    String updated_at;
     @Column(name = "updated_by")
-    String i05_updated_by;
+    String updated_by;
     @Column(name = "deleted_at")
-    String i06_deleted_at;
+    String deleted_at;
     @Column(name = "deleted_by")
-    String i07_deleted_by;
+    String deleted_by;
 }

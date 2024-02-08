@@ -9,19 +9,19 @@ public class SubCategoryMapper {
     public SubCategoryDTO toDTO(SubCategory category) {
         return SubCategoryDTO.builder(
                 ).id(category.getId())
-                .name(category.getS00_name())
-                .image(category.getS01_image())
-                .summary(category.getS02_summary())
-                .description(category.getS03_description())
-                .display_order(category.getS04_display_order())
-                .is_actived(category.getS05_is_actived())
-                .category_id(category.getS06_category_id())
-                .created_at(category.getS07_created_at())
-                .created_by(category.getS08_created_by())
-                .updated_at(category.getS09_updated_at())
-                .updated_by(category.getS10_updated_by())
-                .deleted_at(category.getS11_deleted_at())
-                .deleted_by(category.getS12_deleted_by())
+                .name(category.getName())
+                .image(category.getImage())
+                .summary(category.getSummary())
+                .description(category.getDescription())
+                .display_order(category.getDisplay_order())
+                .is_actived(category.getIs_actived())
+                .category_id(category.getCategory_id())
+                .created_at(category.getCreated_at())
+                .created_by(category.getCreated_by())
+                .updated_at(category.getUpdated_at())
+                .updated_by(category.getUpdated_by())
+                .deleted_at(category.getDeleted_at())
+                .deleted_by(category.getDeleted_by())
                 .build();
     }
 }

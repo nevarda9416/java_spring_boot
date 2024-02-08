@@ -17,23 +17,64 @@ public class InventoryService {
     InventoryMapper inventoryMapper;
     @Autowired
     private InventoryRepository inventoryRepository;
+
+    /**
+     * Get all products
+     * @return
+     */
     public List<InventoryDTO> getAll() {
         return inventoryRepository.findAllByOrderByIdDesc().stream().map(e->inventoryMapper.toDTO(e)).toList();
     }
+
+    /**
+     * Search by product name
+     * @param name
+     * @return
+     */
+    public List<Inventory> searchByName(String name) {
+        return inventoryRepository.findByNameContaining(name);
+    }
+
+    /**
+     * Edit product
+     * @param id
+     * @return
+     */
+    public Inventory findById(Long id) {
+        return inventoryRepository.findById(Math.toIntExact(id)).get();
+    }
+
+    /**
+     * Insert/Update inventory
+     * @param inventory
+     * @return
+     */
     public boolean save(Inventory inventory) {
         try {
             Inventory inventoryData = new Inventory();
-            inventoryData.setI00_name(inventory.getI00_name());
-            inventoryData.setI01_address(inventory.getI01_address());
-            inventoryData.setI02_created_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-            inventoryData.setI03_created_by(String.valueOf(1));
-            inventoryData.setI04_updated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-            inventoryData.setI05_updated_by(String.valueOf(1));
+            inventoryData.setName(inventory.getName());
+            inventoryData.setAddress(inventory.getAddress());
+            inventoryData.setCreated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+            inventoryData.setCreated_by(String.valueOf(1));
+            inventoryData.setUpdated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+            inventoryData.setUpdated_by(String.valueOf(1));
             inventoryRepository.save(inventoryData);
             return true;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return false;
+        }
+    }
+
+    /**
+     * Delete product
+     * @param id
+     */
+    public void delete(Long id) {
+        try {
+            inventoryRepository.deleteById(Math.toIntExact(id));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 }

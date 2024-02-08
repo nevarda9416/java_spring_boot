@@ -5,7 +5,6 @@ import com.example.niitiproduct.mapper.SubCategoryMapper;
 import com.example.niitiproduct.models.SubCategory;
 import com.example.niitiproduct.repositories.SubCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -18,28 +17,69 @@ public class SubCategoryService {
     SubCategoryMapper subCategoryMapper;
     @Autowired
     private SubCategoryRepository subCategoryRepository;
+
+    /**
+     * Get all sub categories
+     * @return
+     */
     public List<SubCategoryDTO> getAll() {
         return subCategoryRepository.findAllByOrderByIdDesc().stream().map(e->subCategoryMapper.toDTO(e)).toList();
     }
+
+    /**
+     * Search by sub category name
+     * @param name
+     * @return
+     */
+    public List<SubCategory> searchByName(String name) {
+        return subCategoryRepository.findByNameContaining(name);
+    }
+
+    /**
+     * Edit sub category
+     * @param id
+     * @return
+     */
+    public SubCategory findById(Long id) {
+        return subCategoryRepository.findById(Math.toIntExact(id)).get();
+    }
+
+    /**
+     * Insert/Update sub category
+     * @param sub category
+     * @return
+     */
     public boolean save(SubCategory subCategory) {
         try {
             SubCategory subCategoryData = new SubCategory();
-            subCategoryData.setS00_name(subCategory.getS00_name());
-            subCategoryData.setS01_image(subCategory.getS01_image());
-            subCategoryData.setS02_summary(subCategory.getS02_summary());
-            subCategoryData.setS03_description(subCategory.getS03_description());
-            subCategoryData.setS04_display_order(subCategory.getS04_display_order());
-            subCategoryData.setS05_is_actived(subCategory.getS05_is_actived() != null ? subCategory.getS05_is_actived() : 0);
-            subCategoryData.setS06_category_id(subCategory.getS06_category_id());
-            subCategoryData.setS07_created_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-            subCategoryData.setS08_created_by(String.valueOf(1));
-            subCategoryData.setS09_updated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-            subCategoryData.setS10_updated_by(String.valueOf(1));
+            subCategoryData.setName(subCategory.getName());
+            subCategoryData.setImage(subCategory.getImage());
+            subCategoryData.setSummary(subCategory.getSummary());
+            subCategoryData.setDescription(subCategory.getDescription());
+            subCategoryData.setDisplay_order(subCategory.getDisplay_order());
+            subCategoryData.setIs_actived(subCategory.getIs_actived() != null ? subCategory.getIs_actived() : 0);
+            subCategoryData.setCategory_id(subCategory.getCategory_id());
+            subCategoryData.setCreated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+            subCategoryData.setCreated_by(String.valueOf(1));
+            subCategoryData.setUpdated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+            subCategoryData.setUpdated_by(String.valueOf(1));
             subCategoryRepository.save(subCategoryData);
             return true;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return false;
+        }
+    }
+
+    /**
+     * Delete sub category
+     * @param id
+     */
+    public void delete(Long id) {
+        try {
+            subCategoryRepository.deleteById(Math.toIntExact(id));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 }

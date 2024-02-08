@@ -9,16 +9,16 @@ public class UserMapper {
     public UserDTO toDTO(User user) {
         return UserDTO.builder(
                 ).id(user.getId())
-                .name(user.getU00_name())
-                .email(user.getU01_email())
-                .email_verified_at(user.getU02_email_verified_at())
-                .remember_token(user.getU04_remember_token())
-                .created_at(user.getU05_created_at())
-                .created_by(user.getU06_created_by())
-                .updated_at(user.getU07_updated_at())
-                .updated_by(user.getU08_updated_by())
-                .deleted_at(user.getU09_deleted_at())
-                .deleted_by(user.getU10_deleted_by())
+                .name(user.getName())
+                .email(user.getEmail())
+                .email_verified_at(user.getEmail_verified_at())
+                .remember_token(user.getRemember_token())
+                .created_at(user.getCreated_at())
+                .created_by(user.getCreated_by())
+                .updated_at(user.getUpdated_at())
+                .updated_by(user.getUpdated_by())
+                .deleted_at(user.getDeleted_at())
+                .deleted_by(user.getDeleted_by())
                 .build();
     }
 }

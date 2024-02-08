@@ -7,14 +7,15 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class OrderDTO {
+public class ProductDetailDTO {
     private Integer id;
-    private String code;
-    private Float total_price;
-    private Integer total_amount;
-    private Float total_tax;
+    private String attribute_value;
+    private Float original_price;
+    private Float sale_price;
+    private Integer product_id;
+    private String sku;
+    private String thumbnail_url;
     private String status;
-    private Float accounts_receivable;
     private String created_at;
     private String created_by;
     private String updated_at;
