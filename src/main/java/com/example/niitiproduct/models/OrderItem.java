@@ -4,27 +4,23 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name="orders")
+@Table(name="order_items")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class Order {
+public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    @Column(name = "order_code")
-    String order_code;
-    @Column(name = "total_price")
-    Float total_price;
-    @Column(name = "total_amount")
-    Integer total_amount;
-    @Column(name = "total_tax")
-    Float total_tax;
-    @Column(name = "status")
-    String status;
-    @Column(name = "accounts_receivable")
-    Float accounts_receivable;
+    @Column(name = "order_id")
+    Integer order_id;
+    @Column(name = "product_id")
+    Integer product_id;
+    @Column(name = "quantity")
+    Integer quantity;
+    @Column(name = "price")
+    Float price;
     @Column(name = "created_at")
     String created_at;
     @Column(name = "created_by")
@@ -38,3 +34,4 @@ public class Order {
     @Column(name = "deleted_by")
     String deleted_by;
 }
+
