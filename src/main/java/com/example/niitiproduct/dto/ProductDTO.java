@@ -27,4 +27,5 @@ public class ProductDTO {
     private String updated_by;
     private String deleted_at;
     private String deleted_by;
+    private PromotionDTO promotionList;
 }

@@ -3,6 +3,8 @@ package com.example.niitiproduct.models;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "promotions")
 @AllArgsConstructor
@@ -41,4 +43,6 @@ public class Promotion {
     String deleted_at;
     @Column(name = "deleted_by")
     String deleted_by;
+//    @ManyToMany(mappedBy = "promotionList")
+//    List<Product> productList;
 }

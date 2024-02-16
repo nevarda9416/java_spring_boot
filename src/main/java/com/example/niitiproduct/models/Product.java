@@ -3,6 +3,10 @@ package com.example.niitiproduct.models;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 @Entity
 @Table(name="products")
 @AllArgsConstructor
@@ -43,4 +47,9 @@ public class Product {
     String deleted_at;
     @Column(name = "deleted_by")
     String deleted_by;
+//    @ManyToMany
+//    @JoinTable(name="products_promotions",
+//    joinColumns = {@JoinColumn(name="product_id")},
+//    inverseJoinColumns = {@JoinColumn(name = "promotion_id")})
+//    Set<Promotion> promotionList = new HashSet<>();
 }

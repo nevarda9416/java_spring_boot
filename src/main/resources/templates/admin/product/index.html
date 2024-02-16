@@ -53,6 +53,9 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                <tr th:if="${products.isEmpty()}">
+                                    <td colspan="6"> Không có sản phẩm nào</td>
+                                </tr>
                                 <tr class="even pointer" th:each="p: ${products}">
                                     <td th:text="${p.sku}"></td>
                                     <td th:text="${p.name}"></td>
@@ -61,7 +64,8 @@
                                     <td th:text="${p.status}"></td>
                                     <td class=" last"><a href="#" data-toggle="modal"
                                                          th:attr="data-target=${'#bs-example-modal-lg-'+p.id}">Xem</a>
-                                        <div class="modal fade bs-example-modal-lg" th:attr="id=${'bs-example-modal-lg-'+p.id}" tabindex="-1" role="dialog"
+                                        <div class="modal fade bs-example-modal-lg"
+                                             th:attr="id=${'bs-example-modal-lg-'+p.id}" tabindex="-1" role="dialog"
                                              aria-hidden="true">
                                             <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
@@ -74,6 +78,14 @@
                                                     </div>
                                                     <div class="modal-body">
                                                         <table class="table table-striped">
+                                                            <tr th:each="pro: ${promotion}">
+                                                                <td>Tên khuyến mãi:</td>
+                                                                <td th:text="${pro.promotion.name}"></td>
+                                                            </tr>
+                                                            <tr th:each="pro: ${promotion}">
+                                                                <td>Nội dung khuyến mãi:</td>
+                                                                <td th:text="${pro.promotion.description}"></td>
+                                                            </tr>
                                                             <tr>
                                                                 <td>Mã sản phẩm:</td>
                                                                 <td th:text="${p.sku}"></td>
@@ -92,7 +104,9 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>Ảnh đại diện:</td>
-                                                                <td><img th:attr="src=${p.thumbnail_url},alt=${p.name}"/></td>
+                                                                <td><img
+                                                                        th:attr="src=${p.thumbnail_url},alt=${p.name}"/>
+                                                                </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>Đơn vị:</td>

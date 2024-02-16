@@ -1,7 +1,9 @@
 package com.example.niitiproduct.mapper;
 
 import com.example.niitiproduct.dto.ProductDTO;
+import com.example.niitiproduct.dto.PromotionDTO;
 import com.example.niitiproduct.models.Product;
+import com.example.niitiproduct.models.Promotion;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -23,6 +25,7 @@ public class ProductMapper {
                 .updated_by(product.getUpdated_by())
                 .deleted_at(product.getDeleted_at())
                 .deleted_by(product.getDeleted_by())
+                .promotionList(new PromotionDTO())
                 .build();
     }
 }

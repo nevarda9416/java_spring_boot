@@ -1,8 +1,11 @@
 package com.example.niitiproduct.controllers.admin;
 
 import com.example.niitiproduct.dto.ProductDTO;
+import com.example.niitiproduct.dto.PromotionDTO;
 import com.example.niitiproduct.models.Product;
+import com.example.niitiproduct.models.ProductPromotion;
 import com.example.niitiproduct.services.ProductService;
+import com.example.niitiproduct.services.PromotionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +17,8 @@ import java.util.List;
 public class ProductController {
     @Autowired
     private ProductService productService;
+    @Autowired
+    private PromotionService promotionService;
 
     /**
      * Get all products
@@ -23,7 +28,9 @@ public class ProductController {
     @GetMapping("")
     public String index(Model model) {
         List<ProductDTO> products = productService.getAll();
+        List<PromotionDTO> promotions = promotionService.getAll();
         model.addAttribute("products", products);
+        model.addAttribute("promotions", promotions);
         return "admin/product/index";
     }
 
@@ -57,9 +64,9 @@ public class ProductController {
     public String edit(Model model, @PathVariable("id") Long id) {
         List<ProductDTO> products = productService.getAll();
         model.addAttribute("products", products);
-        Product product = productService.findById(id);
-        model.addAttribute("product", product);
-        return "admin/product/form";
+        List<ProductPromotion> promotion = productService.findById(id);
+        model.addAttribute("promotion", promotion);
+        return "admin/product/index";
     }
 
     /**

@@ -3,6 +3,8 @@ package com.example.niitiproduct.services;
 import com.example.niitiproduct.dto.ProductDTO;
 import com.example.niitiproduct.mapper.ProductMapper;
 import com.example.niitiproduct.models.Product;
+import com.example.niitiproduct.models.ProductPromotion;
+import com.example.niitiproduct.repositories.ProductPromotionRepository;
 import com.example.niitiproduct.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,8 @@ public class ProductService {
     ProductMapper productMapper;
     @Autowired
     private ProductRepository productRepository;
+    @Autowired
+    private ProductPromotionRepository productPromotionRepository;
 
     /**
      * Get all products
@@ -37,11 +41,12 @@ public class ProductService {
 
     /**
      * Edit product
+     *
      * @param id
      * @return
      */
-    public Product findById(Long id) {
-        return productRepository.findById(Math.toIntExact(id)).get();
+    public List<ProductPromotion> findById(Long id) {
+        return productPromotionRepository.findFirstByProduct_IdOrderByIdDesc(Math.toIntExact(id));
     }
 
     /**
