@@ -27,6 +27,8 @@ public class Product {
     String status;
     @Column(name = "category_id")
     Integer category_id;
+    @Column(name = "manufacture_id")
+    Integer manufacture_id;
     @Column(name = "display_order")
     Integer display_order;
     @Column(name = "meta_title")
