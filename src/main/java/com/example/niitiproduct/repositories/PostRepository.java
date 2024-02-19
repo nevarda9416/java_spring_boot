@@ -1,4 +1,15 @@
 package com.example.niitiproduct.repositories;
 
-public class PostRepository {
+import com.example.niitiproduct.models.Post;
+import com.example.niitiproduct.models.Product;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface PostRepository extends JpaRepository<Post, Integer> {
+    List<Post> findAllByOrderByIdDesc();
+
+    List<Post> findByTitleContaining(String title);
 }

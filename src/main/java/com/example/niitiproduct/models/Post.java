@@ -45,8 +45,8 @@ public class Post {
     Integer is_deleted;
     @Column(name = "is_highlight")
     Integer is_highlight;
-    @Column(name = "showon_homepage")
-    Integer showon_homepage;
+    @Column(name = "show_on_homepage")
+    Integer show_on_homepage;
     @Column(name = "meta_title")
     String meta_title;
     @Column(name = "meta_keyword")
