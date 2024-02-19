@@ -2,9 +2,12 @@ package com.example.niitiproduct.services;
 
 import com.example.niitiproduct.dto.SubCategoryDTO;
 import com.example.niitiproduct.mapper.SubCategoryMapper;
+import com.example.niitiproduct.models.Product;
 import com.example.niitiproduct.models.SubCategory;
 import com.example.niitiproduct.repositories.SubCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -81,5 +84,10 @@ public class SubCategoryService {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public ResponseEntity<Object> getAllSubCategories() {
+        List<SubCategory> subCategoryList = subCategoryRepository.findAll();
+        return new ResponseEntity<>(subCategoryList, HttpStatus.OK);
     }
 }

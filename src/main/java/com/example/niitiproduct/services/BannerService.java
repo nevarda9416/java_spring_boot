@@ -3,8 +3,11 @@ package com.example.niitiproduct.services;
 import com.example.niitiproduct.dto.BannerDTO;
 import com.example.niitiproduct.mapper.BannerMapper;
 import com.example.niitiproduct.models.Banner;
+import com.example.niitiproduct.models.Category;
 import com.example.niitiproduct.repositories.BannerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -77,5 +80,10 @@ public class BannerService {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public ResponseEntity<Object> getAllBanners() {
+        List<Banner> bannerList = bannerRepository.findAll();
+        return new ResponseEntity<>(bannerList, HttpStatus.OK);
     }
 }

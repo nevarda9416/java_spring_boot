@@ -2,9 +2,12 @@ package com.example.niitiproduct.services;
 
 import com.example.niitiproduct.dto.PromotionDTO;
 import com.example.niitiproduct.mapper.PromotionMapper;
+import com.example.niitiproduct.models.Product;
 import com.example.niitiproduct.models.Promotion;
 import com.example.niitiproduct.repositories.PromotionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -83,5 +86,10 @@ public class PromotionService {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public ResponseEntity<Object> getAllPromotions() {
+        List<Promotion> promotionList = promotionRepository.findAll();
+        return new ResponseEntity<>(promotionList, HttpStatus.OK);
     }
 }

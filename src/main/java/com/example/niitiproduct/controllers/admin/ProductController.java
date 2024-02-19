@@ -85,7 +85,7 @@ public class ProductController {
      * @param model
      * @return
      */
-    @GetMapping("/products/add")
+    @GetMapping("/add")
     public String add(Model model) {
         List<ProductDTO> products = productService.getAll();
         model.addAttribute("products", products);

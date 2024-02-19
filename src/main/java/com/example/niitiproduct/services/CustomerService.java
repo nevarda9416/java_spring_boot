@@ -2,9 +2,12 @@ package com.example.niitiproduct.services;
 
 import com.example.niitiproduct.dto.CustomerDTO;
 import com.example.niitiproduct.mapper.CustomerMapper;
+import com.example.niitiproduct.models.Comment;
 import com.example.niitiproduct.models.Customer;
 import com.example.niitiproduct.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -84,5 +87,10 @@ public class CustomerService {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public ResponseEntity<Object> getAllCustomers() {
+        List<Customer> customerList = customerRepository.findAll();
+        return new ResponseEntity<>(customerList, HttpStatus.OK);
     }
 }

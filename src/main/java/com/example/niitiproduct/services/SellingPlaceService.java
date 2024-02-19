@@ -2,9 +2,12 @@ package com.example.niitiproduct.services;
 
 import com.example.niitiproduct.dto.SellingPlaceDTO;
 import com.example.niitiproduct.mapper.SellingPlaceMapper;
+import com.example.niitiproduct.models.Product;
 import com.example.niitiproduct.models.SellingPlace;
 import com.example.niitiproduct.repositories.SellingPlaceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -82,5 +85,10 @@ public class SellingPlaceService {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public ResponseEntity<Object> getAllSellingPlaces() {
+        List<SellingPlace> sellingPlaceList = sellingPlaceRepository.findAll();
+        return new ResponseEntity<>(sellingPlaceList, HttpStatus.OK);
     }
 }

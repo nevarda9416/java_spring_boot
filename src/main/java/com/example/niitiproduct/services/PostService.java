@@ -2,9 +2,12 @@ package com.example.niitiproduct.services;
 
 import com.example.niitiproduct.dto.PostDTO;
 import com.example.niitiproduct.mapper.PostMapper;
+import com.example.niitiproduct.models.Customer;
 import com.example.niitiproduct.models.Post;
 import com.example.niitiproduct.repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -81,5 +84,10 @@ public class PostService {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public ResponseEntity<Object> getAllPosts() {
+        List<Post> postList = postRepository.findAll();
+        return new ResponseEntity<>(postList, HttpStatus.OK);
     }
 }

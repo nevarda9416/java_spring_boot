@@ -2,9 +2,12 @@ package com.example.niitiproduct.services;
 
 import com.example.niitiproduct.dto.WarrantyDTO;
 import com.example.niitiproduct.mapper.WarrantyMapper;
+import com.example.niitiproduct.models.SubCategory;
 import com.example.niitiproduct.models.Warranty;
 import com.example.niitiproduct.repositories.WarrantyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -71,5 +74,10 @@ public class WarrantyService {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public ResponseEntity<Object> getAllWarranties() {
+        List<Warranty> warrantyList = warrantyRepository.findAll();
+        return new ResponseEntity<>(warrantyList, HttpStatus.OK);
     }
 }
