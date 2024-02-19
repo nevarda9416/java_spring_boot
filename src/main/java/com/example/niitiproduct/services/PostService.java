@@ -56,10 +56,10 @@ public class PostService {
             postData.setIs_deleted(post.getIs_deleted());
             postData.setIs_highlight(post.getIs_highlight());
             postData.setShow_on_homepage(post.getShow_on_homepage());
-            postData.setTitle(post.getMeta_title());
-            postData.setTitle(post.getMeta_keyword());
-            postData.setTitle(post.getMeta_description());
-            postData.setTitle(post.getMeta_image());
+            postData.setMeta_title(post.getMeta_title());
+            postData.setMeta_keyword(post.getMeta_keyword());
+            postData.setMeta_description(post.getMeta_description());
+            postData.setMeta_image(post.getMeta_image());
             postData.setCreated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
             postData.setCreated_by(String.valueOf(1));
             postData.setUpdated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));

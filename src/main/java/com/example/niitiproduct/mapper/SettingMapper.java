@@ -2,7 +2,9 @@ package com.example.niitiproduct.mapper;
 
 import com.example.niitiproduct.dto.SettingDTO;
 import com.example.niitiproduct.models.Setting;
+import org.springframework.stereotype.Component;
 
+@Component
 public class SettingMapper {
     public SettingDTO toDTO(Setting setting) {
         return SettingDTO.builder(
