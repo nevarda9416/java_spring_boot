@@ -22,9 +22,6 @@ public class UserService {
 
     public ResponseEntity<Object> getAllUsers() {
         List<User> userList = userRepository.findAll();
-        if (userList.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
         return new ResponseEntity<>(userList, HttpStatus.OK);
     }
 

@@ -3,8 +3,11 @@ package com.example.niitiproduct.services;
 import com.example.niitiproduct.dto.CategoryDTO;
 import com.example.niitiproduct.mapper.CategoryMapper;
 import com.example.niitiproduct.models.Category;
+import com.example.niitiproduct.models.User;
 import com.example.niitiproduct.repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -54,6 +57,11 @@ public class CategoryService {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public ResponseEntity<Object> getAllCategories() {
+        List<Category> categoryList = categoryRepository.findAll();
+        return new ResponseEntity<>(categoryList, HttpStatus.OK);
     }
 }
 
