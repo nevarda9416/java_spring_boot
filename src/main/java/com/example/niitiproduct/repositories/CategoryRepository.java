@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Integer> {
-    public List<Category> findAllByOrderByIdDesc();
+    List<Category> findAllByOrderByIdDesc();
 
     List<Category> findByNameContaining(String name);
 }

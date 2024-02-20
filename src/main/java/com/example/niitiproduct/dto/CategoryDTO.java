@@ -21,6 +21,9 @@ public class CategoryDTO {
     private String updated_by;
     private String deleted_at;
     private String deleted_by;
+
+    public CategoryDTO(String number, String number1, String number2, String number3, String number4, String number5, String number6, String number7, String number8, String number9, String number10, String number11) {
+    }
 }
 
 

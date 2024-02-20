@@ -5,7 +5,6 @@ import lombok.*;
 
 @Entity
 @Table(name="categories")
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
@@ -36,5 +35,21 @@ public class Category {
     @Column(name = "deleted_at")
     String  deleted_at;
     @Column(name = "deleted_by")
-    String  deleted_by;
+    String deleted_by;
+
+    public Category(Integer id, String name, String image, String summary, String description, Integer display_order, Integer is_actived, String created_at, String created_by, String updated_at, String updated_by, String deleted_at, String deleted_by) {
+        this.id = id;
+        this.name = name;
+        this.image = image;
+        this.summary = summary;
+        this.description = description;
+        this.display_order = display_order;
+        this.is_actived = is_actived;
+        this.created_at = created_at;
+        this.created_by = created_by;
+        this.updated_at = updated_at;
+        this.updated_by = updated_by;
+        this.deleted_at = deleted_at;
+        this.deleted_by = deleted_by;
+    }
 }
