@@ -3,7 +3,6 @@ package com.example.niitiproduct.services;
 import com.example.niitiproduct.dto.BannerDTO;
 import com.example.niitiproduct.mapper.BannerMapper;
 import com.example.niitiproduct.models.Banner;
-import com.example.niitiproduct.models.Category;
 import com.example.niitiproduct.repositories.BannerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

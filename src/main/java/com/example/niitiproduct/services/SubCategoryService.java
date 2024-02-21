@@ -2,7 +2,6 @@ package com.example.niitiproduct.services;
 
 import com.example.niitiproduct.dto.SubCategoryDTO;
 import com.example.niitiproduct.mapper.SubCategoryMapper;
-import com.example.niitiproduct.models.Product;
 import com.example.niitiproduct.models.SubCategory;
 import com.example.niitiproduct.repositories.SubCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;

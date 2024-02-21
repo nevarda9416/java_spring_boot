@@ -3,8 +3,6 @@ package com.example.niitiproduct.models;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
-
 @Entity
 @Table(name = "promotions")
 @AllArgsConstructor

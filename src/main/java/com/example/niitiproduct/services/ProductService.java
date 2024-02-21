@@ -2,7 +2,6 @@ package com.example.niitiproduct.services;
 
 import com.example.niitiproduct.dto.ProductDTO;
 import com.example.niitiproduct.mapper.ProductMapper;
-import com.example.niitiproduct.models.Post;
 import com.example.niitiproduct.models.Product;
 import com.example.niitiproduct.models.ProductPromotion;
 import com.example.niitiproduct.repositories.ProductPromotionRepository;

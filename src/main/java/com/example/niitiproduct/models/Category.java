@@ -52,4 +52,7 @@ public class Category {
         this.deleted_at = deleted_at;
         this.deleted_by = deleted_by;
     }
+
+    public Category(String name, String summary, String description, Integer displayOrder, Integer isActived) {
+    }
 }

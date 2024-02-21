@@ -1,16 +1,17 @@
-package com.example.niitiproduct.dto;
+package com.example.niitiproduct.models;
 
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CategoryDTO {
+public class CategoryData {
     private Integer id;
     private String name;
-    private String image;
+    private MultipartFile image;
     private String summary;
     private String description;
     private Integer display_order;

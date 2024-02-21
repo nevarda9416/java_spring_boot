@@ -2,7 +2,6 @@ package com.example.niitiproduct.services;
 
 import com.example.niitiproduct.dto.CommentDTO;
 import com.example.niitiproduct.mapper.CommentMapper;
-import com.example.niitiproduct.models.Banner;
 import com.example.niitiproduct.models.Comment;
 import com.example.niitiproduct.repositories.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;

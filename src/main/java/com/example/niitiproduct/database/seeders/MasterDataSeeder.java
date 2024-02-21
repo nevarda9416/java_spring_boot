@@ -1,17 +1,12 @@
 package com.example.niitiproduct.database.seeders;
 
-import com.example.niitiproduct.dto.CategoryDTO;
-import com.example.niitiproduct.dto.SettingDTO;
-import com.example.niitiproduct.models.Banner;
 import com.example.niitiproduct.models.Category;
-import com.example.niitiproduct.repositories.BannerRepository;
 import com.example.niitiproduct.repositories.CategoryRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -55,7 +50,6 @@ public class MasterDataSeeder {
     public ResponseEntity<Object> insertMasterData() {
         this.truncateAllTables();
         this.insertCategoryData();
-        List<Category> categoryList = categoryRepository.findAll();
         return new ResponseEntity<>("Đã thêm dữ liệu danh mục cha<br/>Đã thêm dữ liệu danh mục con", HttpStatus.OK);
     }
 }

@@ -3,7 +3,6 @@ package com.example.niitiproduct.services;
 import com.example.niitiproduct.dto.CategoryDTO;
 import com.example.niitiproduct.mapper.CategoryMapper;
 import com.example.niitiproduct.models.Category;
-import com.example.niitiproduct.models.User;
 import com.example.niitiproduct.repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,12 +28,17 @@ public class CategoryService {
     public Category findById(Long id) {
         return categoryRepository.findById(Math.toIntExact(id)).get();
     }
+
+    public boolean store(Category category) {
+        categoryRepository.save(category);
+        return true;
+    }
     public boolean save(Category category) {
         try {
             Category categoryData = new Category();
             categoryData.setId(category.getId());
             categoryData.setName(category.getName());
-            categoryData.setImage(category.getImage());
+            categoryData.setImage(String.valueOf(category.getImage()));
             categoryData.setSummary(category.getSummary());
             categoryData.setDescription(category.getDescription());
             categoryData.setDisplay_order(category.getDisplay_order());

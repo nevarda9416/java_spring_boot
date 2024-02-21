@@ -2,7 +2,6 @@ package com.example.niitiproduct.services;
 
 import com.example.niitiproduct.dto.PromotionDTO;
 import com.example.niitiproduct.mapper.PromotionMapper;
-import com.example.niitiproduct.models.Product;
 import com.example.niitiproduct.models.Promotion;
 import com.example.niitiproduct.repositories.PromotionRepository;
 import org.springframework.beans.factory.annotation.Autowired;

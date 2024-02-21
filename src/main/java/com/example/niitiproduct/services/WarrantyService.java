@@ -2,7 +2,6 @@ package com.example.niitiproduct.services;
 
 import com.example.niitiproduct.dto.WarrantyDTO;
 import com.example.niitiproduct.mapper.WarrantyMapper;
-import com.example.niitiproduct.models.SubCategory;
 import com.example.niitiproduct.models.Warranty;
 import com.example.niitiproduct.repositories.WarrantyRepository;
 import org.springframework.beans.factory.annotation.Autowired;

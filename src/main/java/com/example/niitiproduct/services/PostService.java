@@ -2,7 +2,6 @@ package com.example.niitiproduct.services;
 
 import com.example.niitiproduct.dto.PostDTO;
 import com.example.niitiproduct.mapper.PostMapper;
-import com.example.niitiproduct.models.Customer;
 import com.example.niitiproduct.models.Post;
 import com.example.niitiproduct.repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
