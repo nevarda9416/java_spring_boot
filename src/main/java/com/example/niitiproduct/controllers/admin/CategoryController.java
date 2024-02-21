@@ -1,7 +1,7 @@
 package com.example.niitiproduct.controllers.admin;
 
 import com.example.niitiproduct.dto.CategoryDTO;
-import com.example.niitiproduct.dto.CategoryData;
+import com.example.niitiproduct.forms.CategoryData;
 import com.example.niitiproduct.models.Category;
 import com.example.niitiproduct.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +25,9 @@ import java.util.List;
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
+
+    @Value("${upload.path}category\\")
+    private String fileUpload;
 
     @GetMapping("")
     public String index(Model model) {
@@ -57,9 +60,6 @@ public class CategoryController {
         return "admin/category/form";
     }
 
-    @Value("${upload.path}")
-    private String fileUpload;
-
     @PostMapping(value = "/update")
     public String update(@ModelAttribute Category category) {
         categoryService.save(category);
@@ -67,27 +67,26 @@ public class CategoryController {
     }
 
     @RequestMapping(path = "/store", method = RequestMethod.POST, consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
-    public String store(@ModelAttribute CategoryData category) throws IOException {
-        Category category1 = new Category();
-        MultipartFile multipartFile = category.getImage();
+    public String store(@ModelAttribute CategoryData categoryData) throws IOException {
+        Category category = new Category();
+        MultipartFile multipartFile = categoryData.getImage();
         String fileName = multipartFile.getOriginalFilename();
         try {
-            FileCopyUtils.copy(category.getImage().getBytes(), new File(this.fileUpload + fileName));
+            FileCopyUtils.copy(categoryData.getImage().getBytes(), new File(this.fileUpload + fileName));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        category1.setName(category.getName());
-        category1.setSummary(category.getSummary());
-        category1.setDescription(category.getDescription());
-        category1.setDisplay_order(category.getDisplay_order());
-        category1.setIs_actived(category.getIs_actived());
-        category1.setImage(fileName);
-        category1.setCreated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-        category1.setCreated_by("admin");
-        category1.setUpdated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-        category1.setUpdated_by("admin");
-        System.out.println(category1);
-        categoryService.store(category1);
+        category.setName(categoryData.getName());
+        category.setSummary(categoryData.getSummary());
+        category.setDescription(categoryData.getDescription());
+        category.setDisplay_order(categoryData.getDisplay_order());
+        category.setIs_actived(categoryData.getIs_actived());
+        category.setImage(fileName);
+        category.setCreated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        category.setCreated_by("admin");
+        category.setUpdated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        category.setUpdated_by("admin");
+        categoryService.store(category);
         return "redirect:/admin/categories";
     }
 

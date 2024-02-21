@@ -2,14 +2,23 @@ package com.example.niitiproduct.controllers.admin;
 
 import com.example.niitiproduct.dto.CategoryDTO;
 import com.example.niitiproduct.dto.SubCategoryDTO;
+import com.example.niitiproduct.forms.SubCategoryData;
 import com.example.niitiproduct.models.SubCategory;
 import com.example.niitiproduct.services.CategoryService;
 import com.example.niitiproduct.services.SubCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -20,8 +29,12 @@ public class SubCategoryController {
     @Autowired
     private CategoryService categoryService;
 
+    @Value("${upload.path}subcategory\\")
+    private String fileUpload;
+
     /**
      * Get all sub categories
+     *
      * @param model
      * @return
      */
@@ -36,7 +49,8 @@ public class SubCategoryController {
     }
 
     /**
-     * Search by subCategory name
+     * Search by sub category name
+     *
      * @param model
      * @param keyword
      * @return
@@ -52,11 +66,12 @@ public class SubCategoryController {
             model.addAttribute("subCategories", subCategories);
         }
         model.addAttribute("subCategory", new SubCategoryDTO());
-        return "admin/subCategory/index";
+        return "admin/subcategory/index";
     }
 
     /**
-     * Edit subCategory
+     * Edit sub category
+     *
      * @param model
      * @param id
      * @return
@@ -67,22 +82,24 @@ public class SubCategoryController {
         model.addAttribute("subCategories", subCategories);
         SubCategory subCategory = subCategoryService.findById(id);
         model.addAttribute("subCategory", subCategory);
-        return "admin/subCategory/form";
+        return "admin/subcategory/form";
     }
 
     /**
-     * Update subCategory
+     * Update sub category
+     *
      * @param subCategory
      * @return
      */
     @PostMapping(value = "/update")
     public String update(@ModelAttribute SubCategory subCategory) {
         subCategoryService.save(subCategory);
-        return "redirect:/admin/subCategories/edit/" + subCategory.getId();
+        return "redirect:/admin/subcategories/edit/" + subCategory.getId();
     }
 
     /**
-     * Add subCategory
+     * Add sub category
+     *
      * @param model
      * @return
      */
@@ -90,22 +107,43 @@ public class SubCategoryController {
     public String add(Model model) {
         List<SubCategoryDTO> subCategories = subCategoryService.getAll();
         model.addAttribute("subCategories", subCategories);
-        return "admin/subCategory/add";
+        return "admin/subcategory/add";
     }
 
     /**
-     * Insert subCategory
-     * @param subCategory
+     * Insert sub category
+     *
+     * @param subCategoryData
      * @return
      */
-    @PostMapping(value = "/store")
-    public String store(@ModelAttribute SubCategory subCategory) {
-        subCategoryService.save(subCategory);
+    @RequestMapping(path = "/store", method = RequestMethod.POST, consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    public String store(@ModelAttribute SubCategoryData subCategoryData) throws IOException {
+        SubCategory subCategory = new SubCategory();
+        MultipartFile multipartFile = subCategoryData.getImage();
+        String fileName = multipartFile.getOriginalFilename();
+        try {
+            FileCopyUtils.copy(subCategoryData.getImage().getBytes(), new File(this.fileUpload + fileName));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        subCategory.setName(subCategoryData.getName());
+        subCategory.setSummary(subCategoryData.getSummary());
+        subCategory.setDescription(subCategoryData.getDescription());
+        subCategory.setDisplay_order(subCategoryData.getDisplay_order());
+        subCategory.setIs_actived(subCategoryData.getIs_actived());
+        subCategory.setImage(fileName);
+        subCategory.setCategory_id(subCategoryData.getCategory_id());
+        subCategory.setCreated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        subCategory.setCreated_by("admin");
+        subCategory.setUpdated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        subCategory.setUpdated_by("admin");
+        subCategoryService.store(subCategory);
         return "redirect:/admin/subcategories";
     }
 
     /**
-     * Delete subCategory
+     * Delete sub category
+     *
      * @param model
      * @param id
      * @return
@@ -116,6 +154,6 @@ public class SubCategoryController {
         List<SubCategoryDTO> subCategories = subCategoryService.getAll();
         model.addAttribute("subCategories", subCategories);
         model.addAttribute("subCategory", new SubCategoryDTO());
-        return "redirect:/admin/categories";
+        return "redirect:/admin/subcategories";
     }
 }

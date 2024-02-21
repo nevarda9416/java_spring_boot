@@ -2,6 +2,7 @@ package com.example.niitiproduct.services;
 
 import com.example.niitiproduct.dto.SubCategoryDTO;
 import com.example.niitiproduct.mapper.SubCategoryMapper;
+import com.example.niitiproduct.models.Category;
 import com.example.niitiproduct.models.SubCategory;
 import com.example.niitiproduct.repositories.SubCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,11 @@ public class SubCategoryService {
      */
     public SubCategory findById(Long id) {
         return subCategoryRepository.findById(Math.toIntExact(id)).get();
+    }
+
+    public boolean store(SubCategory subCategory) {
+        subCategoryRepository.save(subCategory);
+        return true;
     }
 
     /**

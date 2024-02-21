@@ -33,6 +33,7 @@ public class CategoryService {
         categoryRepository.save(category);
         return true;
     }
+
     public boolean save(Category category) {
         try {
             Category categoryData = new Category();

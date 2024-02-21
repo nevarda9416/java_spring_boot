@@ -1,4 +1,4 @@
-package com.example.niitiproduct.models;
+package com.example.niitiproduct.forms;
 
 import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
