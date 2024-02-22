@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name="subcategories")
+@Table(name="subcategories", indexes={@Index(name="index_sub_category_id", columnList="id,category_id")})
 @NoArgsConstructor
 @Getter
 @Setter
