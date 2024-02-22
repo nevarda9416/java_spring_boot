@@ -5,7 +5,6 @@ import lombok.*;
 
 @Entity
 @Table(name="customers")
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
@@ -43,4 +42,23 @@ public class Customer {
     String deleted_at;
     @Column(name = "deleted_by")
     String deleted_by;
+
+    public Customer(Integer id, String email, String password, Integer is_actived, String first_name, String last_name, String birthday, String gender, String telephone, String address, String created_at, String created_by, String updated_at, String updated_by, String deleted_at, String deleted_by) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+        this.is_actived = is_actived;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.birthday = birthday;
+        this.gender = gender;
+        this.telephone = telephone;
+        this.address = address;
+        this.created_at = created_at;
+        this.created_by = created_by;
+        this.updated_at = updated_at;
+        this.updated_by = updated_by;
+        this.deleted_at = deleted_at;
+        this.deleted_by = deleted_by;
+    }
 }
