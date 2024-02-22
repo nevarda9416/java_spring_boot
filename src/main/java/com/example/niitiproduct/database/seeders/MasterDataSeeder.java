@@ -1,13 +1,7 @@
 package com.example.niitiproduct.database.seeders;
 
-import com.example.niitiproduct.models.Banner;
-import com.example.niitiproduct.models.Category;
-import com.example.niitiproduct.models.Customer;
-import com.example.niitiproduct.models.SubCategory;
-import com.example.niitiproduct.repositories.BannerRepository;
-import com.example.niitiproduct.repositories.CategoryRepository;
-import com.example.niitiproduct.repositories.CustomerRepository;
-import com.example.niitiproduct.repositories.SubCategoryRepository;
+import com.example.niitiproduct.models.*;
+import com.example.niitiproduct.repositories.*;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,6 +27,8 @@ public class MasterDataSeeder {
     @Autowired
     private CustomerRepository customerRepository;
     @Autowired
+    private CommentRepository commentRepository;
+    @Autowired
     private SubCategoryRepository subCategoryRepository;
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -44,11 +40,13 @@ public class MasterDataSeeder {
         String sql1 = "TRUNCATE TABLE banners";
         String sql2 = "TRUNCATE TABLE categories";
         String sql3 = "TRUNCATE TABLE customers";
-        String sql4 = "TRUNCATE TABLE subcategories";
+        String sql4 = "TRUNCATE TABLE comments";
+        String sql5 = "TRUNCATE TABLE subcategories";
         jdbcTemplate.execute(sql1);
         jdbcTemplate.execute(sql2);
         jdbcTemplate.execute(sql3);
         jdbcTemplate.execute(sql4);
+        jdbcTemplate.execute(sql5);
     }
 
     public void insertBannerData() {
@@ -79,6 +77,15 @@ public class MasterDataSeeder {
         customerRepository.saveAll(customers);
     }
 
+    public void insertCommentData() {
+        Comment c1 = new Comment(1, 1, "product", "product", "Nguyễn Văn A", "0987654321", "nguyenvana@gmail.com", "Hà Nội", "192.168.172.143", "Google Chrome", "Sản phẩm tốt giá vừa phải", "publish", "2024-02-20 01:02:00", 1, 0, 0, 0, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Comment c2 = new Comment(2, 2, "product", "product", "Nguyễn Văn B", "0987654321", "nguyenvanb@gmail.com", "Hà Nội", "192.168.182.143", "Mozilla Firefox", "Sản phẩm tốt giá thành hơi cao", "publish", "2024-02-20 01:02:00", 1, 0, 0, 0, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Comment c3 = new Comment(3, 3, "product", "product", "Nguyễn Văn C", "0987654321", "nguyenvanc@gmail.com", "Hà Nội", "192.168.192.143", "Internet Explorer", "Sản phẩm phải đổi trả", "waiting_review", "2024-02-20 01:02:00", 1, 0, 0, 0, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        List<Comment> comments = Arrays.asList(c1, c2, c3);
+        // This exposes a saveAll method for us, which will batch several inserts into one.
+        commentRepository.saveAll(comments);
+    }
+
     public void insertSubCategoryData() {
         SubCategory s2 = new SubCategory(1, "Bộ phát wifi", "/images/category/c002.png", "Bộ phát wifi", "Bộ phát wifi", 2, 1, 2, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         SubCategory s3 = new SubCategory(2, "Bộ phát wifi 4G", "/images/category/c003.png", "Bộ phát wifi 4G", "Bộ phát wifi 4G", 3, 1, 2, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
@@ -97,11 +104,13 @@ public class MasterDataSeeder {
         this.insertBannerData();
         this.insertCategoryData();
         this.insertCustomerData();
+        this.insertCommentData();
         this.insertSubCategoryData();
         return new ResponseEntity<>(
                 "Đã thêm dữ liệu quảng cáo.<br/>" +
                 "Đã thêm dữ liệu danh mục cha.<br/>" +
                 "Đã thêm dữ liệu khách hàng.<br/>" +
+                "Đã thêm dữ liệu bình luận.<br/>" +
                 "Đã thêm dữ liệu danh mục con."
                 , HttpStatus.OK);
     }
