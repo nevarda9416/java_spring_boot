@@ -1,8 +1,10 @@
 package com.example.niitiproduct.database.seeders;
 
+import com.example.niitiproduct.models.Banner;
 import com.example.niitiproduct.models.Category;
 import com.example.niitiproduct.models.Customer;
 import com.example.niitiproduct.models.SubCategory;
+import com.example.niitiproduct.repositories.BannerRepository;
 import com.example.niitiproduct.repositories.CategoryRepository;
 import com.example.niitiproduct.repositories.CustomerRepository;
 import com.example.niitiproduct.repositories.SubCategoryRepository;
@@ -25,6 +27,8 @@ import java.util.List;
 @RequestMapping("data/master")
 public class MasterDataSeeder {
     @Autowired
+    private BannerRepository bannerRepository;
+    @Autowired
     private CategoryRepository categoryRepository;
     @Autowired
     private CustomerRepository customerRepository;
@@ -37,8 +41,23 @@ public class MasterDataSeeder {
     public void truncateAllTables() {
         // The jdbcTemplate is another component of Spring Data that provides a high-level way to interact with databases over JDBC.
         // We can use exposed methods to execute our custom queries.
-        String sql1 = "TRUNCATE TABLE categories";
+        String sql1 = "TRUNCATE TABLE banners";
+        String sql2 = "TRUNCATE TABLE categories";
+        String sql3 = "TRUNCATE TABLE customers";
+        String sql4 = "TRUNCATE TABLE subcategories";
         jdbcTemplate.execute(sql1);
+        jdbcTemplate.execute(sql2);
+        jdbcTemplate.execute(sql3);
+        jdbcTemplate.execute(sql4);
+    }
+
+    public void insertBannerData() {
+        Banner b1 = new Banner(1, "Banner trang chủ", "Banner trang chủ", "/images/banner/b001.png", "/", 1, 1, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Banner b2 = new Banner(2, "Banner trang danh mục", "Banner trang danh mục", "/images/banner/b002.png", "/", 1, 1, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Banner b3 = new Banner(3, "Banner trang sản phẩm", "Banner trang sản phẩm", "/images/banner/b003.png", "/", 1, 1, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        List<Banner> banners = Arrays.asList(b1, b2, b3);
+        // This exposes a saveAll method for us, which will batch several inserts into one.
+        bannerRepository.saveAll(banners);
     }
 
     public void insertCategoryData() {
@@ -75,10 +94,13 @@ public class MasterDataSeeder {
     @GetMapping("")
     public ResponseEntity<Object> insertMasterData() {
         this.truncateAllTables();
+        this.insertBannerData();
         this.insertCategoryData();
         this.insertCustomerData();
         this.insertSubCategoryData();
-        return new ResponseEntity<>("Đã thêm dữ liệu danh mục cha.<br/>" +
+        return new ResponseEntity<>(
+                "Đã thêm dữ liệu quảng cáo.<br/>" +
+                "Đã thêm dữ liệu danh mục cha.<br/>" +
                 "Đã thêm dữ liệu khách hàng.<br/>" +
                 "Đã thêm dữ liệu danh mục con."
                 , HttpStatus.OK);
