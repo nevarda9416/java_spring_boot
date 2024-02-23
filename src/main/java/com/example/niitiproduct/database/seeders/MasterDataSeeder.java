@@ -31,6 +31,8 @@ public class MasterDataSeeder {
     @Autowired
     private SubCategoryRepository subCategoryRepository;
     @Autowired
+    private InventoryRepository inventoryRepository;
+    @Autowired
     private JdbcTemplate jdbcTemplate;
 
     @Transactional
@@ -41,12 +43,14 @@ public class MasterDataSeeder {
         String sql2 = "TRUNCATE TABLE categories";
         String sql3 = "TRUNCATE TABLE customers";
         String sql4 = "TRUNCATE TABLE comments";
-        String sql5 = "TRUNCATE TABLE subcategories";
+        String sql5 = "TRUNCATE TABLE inventories";
+        String sql6 = "TRUNCATE TABLE subcategories";
         jdbcTemplate.execute(sql1);
         jdbcTemplate.execute(sql2);
         jdbcTemplate.execute(sql3);
         jdbcTemplate.execute(sql4);
         jdbcTemplate.execute(sql5);
+        jdbcTemplate.execute(sql6);
     }
 
     public void insertBannerData() {
@@ -86,6 +90,16 @@ public class MasterDataSeeder {
         commentRepository.saveAll(comments);
     }
 
+    public void insertInventoryData() {
+        Inventory i1 = new Inventory(1, "Kho A", "Hà Nội", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Inventory i2 = new Inventory(2, "Kho B", "Đà Nẵng", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Inventory i3 = new Inventory(3, "Kho C", "Hồ Chí Minh", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        List<Inventory> inventories = Arrays.asList(i1, i2, i3);
+        // This exposes a saveAll method for us, which will batch several inserts into one.
+        inventoryRepository.saveAll(inventories);
+    }
+
+
     public void insertSubCategoryData() {
         SubCategory s2 = new SubCategory(1, "Bộ phát wifi", "/images/category/c002.png", "Bộ phát wifi", "Bộ phát wifi", 2, 1, 2, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         SubCategory s3 = new SubCategory(2, "Bộ phát wifi 4G", "/images/category/c003.png", "Bộ phát wifi 4G", "Bộ phát wifi 4G", 3, 1, 2, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
@@ -105,12 +119,14 @@ public class MasterDataSeeder {
         this.insertCategoryData();
         this.insertCustomerData();
         this.insertCommentData();
+        this.insertInventoryData();
         this.insertSubCategoryData();
         return new ResponseEntity<>(
                 "Đã thêm dữ liệu quảng cáo.<br/>" +
                 "Đã thêm dữ liệu danh mục cha.<br/>" +
                 "Đã thêm dữ liệu khách hàng.<br/>" +
                 "Đã thêm dữ liệu bình luận.<br/>" +
+                "Đã thêm dữ liệu kho.<br/>" +
                 "Đã thêm dữ liệu danh mục con."
                 , HttpStatus.OK);
     }

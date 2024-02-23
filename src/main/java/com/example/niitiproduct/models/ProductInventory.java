@@ -13,12 +13,16 @@ public class ProductInventory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    @Column(name = "product_code")
-    String product_code;
+    @Column(name = "product_detail_id")
+    Integer product_detail_id;
     @Column(name = "inventory_id")
     Integer inventory_id;
-    @Column(name = "quantity")
-    Integer quantity;
+    @Column(name = "quantity_inventory")
+    Integer quantity_inventory;
+    @Column(name = "selling_place_id")
+    Integer selling_place_id;
+    @Column(name = "quantity_selling_place")
+    Integer quantity_selling_place;
     @Column(name = "created_at")
     String created_at;
     @Column(name = "created_by")

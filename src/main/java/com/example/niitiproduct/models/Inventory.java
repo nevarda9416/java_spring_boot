@@ -5,7 +5,6 @@ import lombok.*;
 
 @Entity
 @Table(name="inventories")
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
@@ -29,4 +28,16 @@ public class Inventory {
     String deleted_at;
     @Column(name = "deleted_by")
     String deleted_by;
+
+    public Inventory(Integer id, String name, String address, String created_at, String created_by, String updated_at, String updated_by, String deleted_at, String deleted_by) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.created_at = created_at;
+        this.created_by = created_by;
+        this.updated_at = updated_at;
+        this.updated_by = updated_by;
+        this.deleted_at = deleted_at;
+        this.deleted_by = deleted_by;
+    }
 }

@@ -12,10 +12,6 @@ public class ProductDTO {
     private String name;
     private String short_description;
     private String long_description;
-    private String thumbnail_url;
-    private String unit;
-    private String status;
-    private String sku;
     private Integer category_id;
     private Integer display_order;
     private String meta_title;
