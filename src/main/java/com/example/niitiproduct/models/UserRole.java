@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "users_roles")
+@Table(name="users_roles", indexes={@Index(name="index_user_role_id", columnList="id,user_id,role_id")})
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

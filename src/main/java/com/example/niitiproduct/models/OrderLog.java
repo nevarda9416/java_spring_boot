@@ -6,7 +6,7 @@ import org.springframework.data.redis.core.RedisHash;
 import org.springframework.data.redis.core.index.Indexed;
 
 @Entity
-@Table(name="order_logs")
+@Table(name="order_logs", indexes={@Index(name="index_order_log_id", columnList="id,customer_id,order_id")})
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

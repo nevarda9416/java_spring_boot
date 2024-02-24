@@ -7,6 +7,7 @@ import lombok.Setter;
 import java.util.Collection;
 
 @Entity
+@Table(name="users", indexes={@Index(name="index_user_id", columnList="id")})
 @Getter
 @Setter
 public class User {

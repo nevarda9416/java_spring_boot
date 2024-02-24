@@ -29,9 +29,11 @@ public class MasterDataSeeder {
     @Autowired
     private CommentRepository commentRepository;
     @Autowired
-    private SubCategoryRepository subCategoryRepository;
+    private ManufactureRepository manufactureRepository;
     @Autowired
     private InventoryRepository inventoryRepository;
+    @Autowired
+    private SubCategoryRepository subCategoryRepository;
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
@@ -43,14 +45,16 @@ public class MasterDataSeeder {
         String sql2 = "TRUNCATE TABLE categories";
         String sql3 = "TRUNCATE TABLE customers";
         String sql4 = "TRUNCATE TABLE comments";
-        String sql5 = "TRUNCATE TABLE inventories";
-        String sql6 = "TRUNCATE TABLE subcategories";
+        String sql5 = "TRUNCATE TABLE manufactures";
+        String sql6 = "TRUNCATE TABLE inventories";
+        String sql7 = "TRUNCATE TABLE subcategories";
         jdbcTemplate.execute(sql1);
         jdbcTemplate.execute(sql2);
         jdbcTemplate.execute(sql3);
         jdbcTemplate.execute(sql4);
         jdbcTemplate.execute(sql5);
         jdbcTemplate.execute(sql6);
+        jdbcTemplate.execute(sql7);
     }
 
     public void insertBannerData() {
@@ -99,6 +103,19 @@ public class MasterDataSeeder {
         inventoryRepository.saveAll(inventories);
     }
 
+    public void insertManufactureData() {
+        Manufacture m1 = new Manufacture(1, "Asus ", "Asus", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Manufacture m2 = new Manufacture(2, "TP-Link ", "TP-Link", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Manufacture m3 = new Manufacture(3, "Cisco", "Cisco", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Manufacture m4 = new Manufacture(4, "Linksys", "Linksys", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Manufacture m5 = new Manufacture(5, "Draytek", "Draytek", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Manufacture m6 = new Manufacture(6, "TotoLink ", "Totolink", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Manufacture m7 = new Manufacture(7, "Commscope ", "Commscope", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+
+        List<Manufacture> manufactures = Arrays.asList(m1, m2, m3, m4, m5, m6, m7);
+        // This exposes a saveAll method for us, which will batch several inserts into one.
+        manufactureRepository.saveAll(manufactures);
+    }
 
     public void insertSubCategoryData() {
         SubCategory s2 = new SubCategory(1, "Bộ phát wifi", "/images/category/c002.png", "Bộ phát wifi", "Bộ phát wifi", 2, 1, 2, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
@@ -120,6 +137,7 @@ public class MasterDataSeeder {
         this.insertCustomerData();
         this.insertCommentData();
         this.insertInventoryData();
+        this.insertManufactureData();
         this.insertSubCategoryData();
         return new ResponseEntity<>(
                 "Đã thêm dữ liệu quảng cáo.<br/>" +
@@ -127,6 +145,7 @@ public class MasterDataSeeder {
                 "Đã thêm dữ liệu khách hàng.<br/>" +
                 "Đã thêm dữ liệu bình luận.<br/>" +
                 "Đã thêm dữ liệu kho.<br/>" +
+                "Đã thêm dữ liệu hãng sản xuất.<br/>" +
                 "Đã thêm dữ liệu danh mục con."
                 , HttpStatus.OK);
     }

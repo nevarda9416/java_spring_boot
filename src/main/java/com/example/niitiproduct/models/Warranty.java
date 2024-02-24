@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name="warranties")
+@Table(name="warranties", indexes={@Index(name="index_warranty_id", columnList="id,customer_id,order_id,product_id")})
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
