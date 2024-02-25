@@ -37,6 +37,8 @@ public class MasterDataSeeder {
     @Autowired
     private OrderItemRepository orderItemRepository;
     @Autowired
+    private PostRepository postRepository;
+    @Autowired
     private SubCategoryRepository subCategoryRepository;
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -53,7 +55,8 @@ public class MasterDataSeeder {
         String sql6 = "TRUNCATE TABLE inventories";
         String sql7 = "TRUNCATE TABLE orders";
         String sql8 = "TRUNCATE TABLE order_items";
-        String sql9 = "TRUNCATE TABLE subcategories";
+        String sql9 = "TRUNCATE TABLE posts";
+        String sql10 = "TRUNCATE TABLE subcategories";
         jdbcTemplate.execute(sql1);
         jdbcTemplate.execute(sql2);
         jdbcTemplate.execute(sql3);
@@ -63,6 +66,7 @@ public class MasterDataSeeder {
         jdbcTemplate.execute(sql7);
         jdbcTemplate.execute(sql8);
         jdbcTemplate.execute(sql9);
+        jdbcTemplate.execute(sql10);
     }
 
     public void insertBannerData() {
@@ -143,6 +147,25 @@ public class MasterDataSeeder {
         orderItemRepository.saveAll(orderItems);
     }
 
+    public void insertPostData() {
+        Post p1 = new Post(1, "IMOU Bullet 3C S3EP: camera an ninh ngoài trời 5Mpx, nhận diện người, xe bằng AI", "/review-imou-bullet-3c-s3ep-camera-an-ninh-ngoai-troi-5mpx-nhan-dien-nguoi-xe-bang-ai.html", "review-imou-bullet-3c-s3ep-camera-an-ninh-ngoai-troi-5mpx-nhan-dien-nguoi-xe-bang-ai",
+               "Camera IMOU BULLET 3C S3EP là dòng camera an ninh ngoài trời, trợ thủ đắc lực giúp bảo vệ ngôi nhà của bạn ở ngoài trời một cách an toàn nhất. Được trang bị ống kính có độ phân giải lên đến 5Mpx (3K), công nghệ an ninh IMOU SENSE sử dụng trí tuệ AI để nhận biết hoạt cảnh một cách chính xác và nhanh chóng nhất, tích hợp đèn LED quay hình ảnh có màu vào ban đêm và rất nhiều các công nghệ xịn sò khác.", "Camera IMOU BULLET 3C S3EP là dòng camera an ninh ngoài trời, trợ thủ đắc lực giúp bảo vệ ngôi nhà của bạn ở ngoài trời một cách an toàn nhất. Được trang bị ống kính có độ phân giải lên đến 5Mpx (3K), công nghệ an ninh IMOU SENSE sử dụng trí tuệ AI để nhận biết hoạt cảnh một cách chính xác và nhanh chóng nhất, tích hợp đèn LED quay hình ảnh có màu vào ban đêm và rất nhiều các công nghệ xịn sò khác.", "Camera IMOU BULLET 3C S3EP là dòng camera an ninh ngoài trời, trợ thủ đắc lực giúp bảo vệ ngôi nhà của bạn ở ngoài trời một cách an toàn nhất. Được trang bị ống kính có độ phân giải lên đến 5Mpx (3K), công nghệ an ninh IMOU SENSE sử dụng trí tuệ AI để nhận biết hoạt cảnh một cách chính xác và nhanh chóng nhất, tích hợp đèn LED quay hình ảnh có màu vào ban đêm và rất nhiều các công nghệ xịn sò khác.",
+                "Editor A", 2, "publish", "2024-02-24 01:10:06", 1, 0, "product", 7, 0, 0, 1, "IMOU Bullet 3C S3EP", "IMOU Bullet", "IMOU Bullet 3C S3EP", "/images/post/p001.png",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Post p2 = new Post(2, "Camera Quay Quét Ngoài trời Ezviz C8C 4M: Cải tiến liệu còn NGON", "/review-imou-bullet-3c-s3ep-camera-an-ninh-ngoai-troi-5mpx-nhan-dien-nguoi-xe-bang-ai.html", "review-imou-bullet-3c-s3ep-camera-an-ninh-ngoai-troi-5mpx-nhan-dien-nguoi-xe-bang-ai",
+                "Camera Ezviz C8C 2K+ (4M) là dòng camera an ninh ngoài trời có khả năng quay quét 360 độ, thích hợp cho người dùng là hộ gia đình hoặc các shop, cửa hàng tiện ích gắn để quan sát khu vực được rộng hơn các camera an ninh thông thường. Đây cũng là phiên bản mới được nâng cấp từ dòng Ezivz C8W ở thế hệ tiền nhiệm.",
+                "Camera Ezviz C8C 2K+ (4M) là dòng camera an ninh ngoài trời có khả năng quay quét 360 độ, thích hợp cho người dùng là hộ gia đình hoặc các shop, cửa hàng tiện ích gắn để quan sát khu vực được rộng hơn các camera an ninh thông thường. Đây cũng là phiên bản mới được nâng cấp từ dòng Ezivz C8W ở thế hệ tiền nhiệm.",
+                "Camera Ezviz C8C 2K+ (4M) là dòng camera an ninh ngoài trời có khả năng quay quét 360 độ, thích hợp cho người dùng là hộ gia đình hoặc các shop, cửa hàng tiện ích gắn để quan sát khu vực được rộng hơn các camera an ninh thông thường. Đây cũng là phiên bản mới được nâng cấp từ dòng Ezivz C8W ở thế hệ tiền nhiệm.",
+                "Editor B", 3, "publish", "2024-02-24 01:10:06", 1, 0, "product", 7, 0, 0, 1, "IMOU Bullet 3C S3EP", "IMOU Bullet", "IMOU Bullet 3C S3EP", "/images/post/p002.png",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Post p3 = new Post(3, "IMOU Cruiser 2 3K GS7EP | Camera không dây ngoài trời tích hợp AI thông minh", "/review-imou-bullet-3c-s3ep-camera-an-ninh-ngoai-troi-5mpx-nhan-dien-nguoi-xe-bang-ai.html", "review-imou-bullet-3c-s3ep-camera-an-ninh-ngoai-troi-5mpx-nhan-dien-nguoi-xe-bang-ai",
+                "Camera iMOU Cruiser 2 3K GS7EP là chiếc camera ngoài trời có độ phân giải lên đến 5mp, xoay 360 độ không góc chết, tích hợp AI cùng công nghệ IMOU SENSE đoạt giải camera AI xuất sắc nhất năm 2023 do camera AI Tech Award 2023 bình chọn. Hãy cùng Phúc Anh kỹ hơn về chiếc camera này xem còn điều gì đặc sắc nhé.",
+                "Camera iMOU Cruiser 2 3K GS7EP là chiếc camera ngoài trời có độ phân giải lên đến 5mp, xoay 360 độ không góc chết, tích hợp AI cùng công nghệ IMOU SENSE đoạt giải camera AI xuất sắc nhất năm 2023 do camera AI Tech Award 2023 bình chọn. Hãy cùng Phúc Anh kỹ hơn về chiếc camera này xem còn điều gì đặc sắc nhé.",
+                "Camera iMOU Cruiser 2 3K GS7EP là chiếc camera ngoài trời có độ phân giải lên đến 5mp, xoay 360 độ không góc chết, tích hợp AI cùng công nghệ IMOU SENSE đoạt giải camera AI xuất sắc nhất năm 2023 do camera AI Tech Award 2023 bình chọn. Hãy cùng Phúc Anh kỹ hơn về chiếc camera này xem còn điều gì đặc sắc nhé.",
+                "Editor C", 4, "publish", "2024-02-24 01:10:06", 1, 0, "product", 7, 0, 0, 1, "IMOU Bullet 3C S3EP", "IMOU Bullet", "IMOU Bullet 3C S3EP", "/images/post/p003.png",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        List<Post> posts = Arrays.asList(p1, p2, p3);
+        // This exposes a saveAll method for us, which will batch several inserts into one.
+        postRepository.saveAll(posts);
+    }
+
     public void insertSubCategoryData() {
         SubCategory s2 = new SubCategory(1, "Bộ phát wifi", "/images/category/c002.png", "Bộ phát wifi", "Bộ phát wifi", 2, 1, 2, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         SubCategory s3 = new SubCategory(2, "Bộ phát wifi 4G", "/images/category/c003.png", "Bộ phát wifi 4G", "Bộ phát wifi 4G", 3, 1, 2, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
@@ -166,6 +189,7 @@ public class MasterDataSeeder {
         this.insertManufactureData();
         this.insertOrderData();
         this.insertOrderItemData();
+        this.insertPostData();
         this.insertSubCategoryData();
         return new ResponseEntity<>(
                 "Đã thêm dữ liệu quảng cáo.<br/>" +
@@ -176,6 +200,7 @@ public class MasterDataSeeder {
                 "Đã thêm dữ liệu hãng sản xuất.<br/>" +
                 "Đã thêm dữ liệu đơn hàng.<br/>" +
                 "Đã thêm dữ liệu sản phẩm trong đơn hàng.<br/>" +
+                "Đã thêm dữ liệu bài viết.<br/>" +
                 "Đã thêm dữ liệu danh mục con."
                 , HttpStatus.OK);
     }
