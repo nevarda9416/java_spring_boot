@@ -35,6 +35,8 @@ public class MasterDataSeeder {
     @Autowired
     private OrderRepository orderRepository;
     @Autowired
+    private OrderItemRepository orderItemRepository;
+    @Autowired
     private SubCategoryRepository subCategoryRepository;
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -50,7 +52,8 @@ public class MasterDataSeeder {
         String sql5 = "TRUNCATE TABLE manufactures";
         String sql6 = "TRUNCATE TABLE inventories";
         String sql7 = "TRUNCATE TABLE orders";
-        String sql8 = "TRUNCATE TABLE subcategories";
+        String sql8 = "TRUNCATE TABLE order_items";
+        String sql9 = "TRUNCATE TABLE subcategories";
         jdbcTemplate.execute(sql1);
         jdbcTemplate.execute(sql2);
         jdbcTemplate.execute(sql3);
@@ -59,6 +62,7 @@ public class MasterDataSeeder {
         jdbcTemplate.execute(sql6);
         jdbcTemplate.execute(sql7);
         jdbcTemplate.execute(sql8);
+        jdbcTemplate.execute(sql9);
     }
 
     public void insertBannerData() {
@@ -130,6 +134,15 @@ public class MasterDataSeeder {
         orderRepository.saveAll(orders);
     }
 
+    public void insertOrderItemData() {
+        OrderItem o1 = new OrderItem(1, 1, 1, 3, 3500000F, "CODE202401WF", 50000F, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        OrderItem o2 = new OrderItem(2, 1, 2, 2, 2500000F, "CODE202402WF", 50000F, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        OrderItem o3 = new OrderItem(3, 1, 3, 1, 1500000F, "CODE202403WF", 50000F, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        List<OrderItem> orderItems = Arrays.asList(o1, o2, o3);
+        // This exposes a saveAll method for us, which will batch several inserts into one.
+        orderItemRepository.saveAll(orderItems);
+    }
+
     public void insertSubCategoryData() {
         SubCategory s2 = new SubCategory(1, "Bộ phát wifi", "/images/category/c002.png", "Bộ phát wifi", "Bộ phát wifi", 2, 1, 2, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         SubCategory s3 = new SubCategory(2, "Bộ phát wifi 4G", "/images/category/c003.png", "Bộ phát wifi 4G", "Bộ phát wifi 4G", 3, 1, 2, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
@@ -152,6 +165,7 @@ public class MasterDataSeeder {
         this.insertInventoryData();
         this.insertManufactureData();
         this.insertOrderData();
+        this.insertOrderItemData();
         this.insertSubCategoryData();
         return new ResponseEntity<>(
                 "Đã thêm dữ liệu quảng cáo.<br/>" +
@@ -161,6 +175,7 @@ public class MasterDataSeeder {
                 "Đã thêm dữ liệu kho.<br/>" +
                 "Đã thêm dữ liệu hãng sản xuất.<br/>" +
                 "Đã thêm dữ liệu đơn hàng.<br/>" +
+                "Đã thêm dữ liệu sản phẩm trong đơn hàng.<br/>" +
                 "Đã thêm dữ liệu danh mục con."
                 , HttpStatus.OK);
     }
