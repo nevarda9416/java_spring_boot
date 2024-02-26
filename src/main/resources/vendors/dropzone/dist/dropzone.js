@@ -559,10 +559,10 @@
             }
             _this.hiddenFileInput.style.visibility = "hidden";
             _this.hiddenFileInput.style.position = "absolute";
-            _this.hiddenFileInput.style.top = "0";
-            _this.hiddenFileInput.style.left = "0";
-            _this.hiddenFileInput.style.height = "0";
-            _this.hiddenFileInput.style.width = "0";
+            _this.hiddenFileInput.style.top = Pagination.defaultPage;
+            _this.hiddenFileInput.style.left = Pagination.defaultPage;
+            _this.hiddenFileInput.style.height = Pagination.defaultPage;
+            _this.hiddenFileInput.style.width = Pagination.defaultPage;
             document.querySelector(_this.options.hiddenInputContainer).appendChild(_this.hiddenFileInput);
             return _this.hiddenFileInput.addEventListener("change", function() {
               var file, files, _i, _len;

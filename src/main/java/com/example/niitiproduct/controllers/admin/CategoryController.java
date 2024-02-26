@@ -1,11 +1,13 @@
 package com.example.niitiproduct.controllers.admin;
 
 import com.example.niitiproduct.dto.CategoryDTO;
+import com.example.niitiproduct.config.constants.Pagination;
 import com.example.niitiproduct.forms.CategoryData;
 import com.example.niitiproduct.models.Category;
 import com.example.niitiproduct.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.data.domain.Pageable;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -30,30 +33,36 @@ public class CategoryController {
     private String fileUpload;
 
     @GetMapping("")
-    public String index(Model model) {
-        List<CategoryDTO> categories = categoryService.getAll();
-        model.addAttribute("categories", categories);
-        model.addAttribute("category", new CategoryDTO());
-        return "admin/category/index";
-    }
-
-    @GetMapping("/search")
-    public String search(Model model, @RequestParam("keyword") String keyword) {
-        if (keyword.isEmpty()) {
-            List<CategoryDTO> categories = categoryService.getAll();
+    public String index(Model model, @RequestParam(value = "search", required = false) String keyword,
+                        @RequestParam(name="page", required = false, defaultValue = Pagination.defaultPage) Integer page,
+                        @RequestParam(name="size", required = false, defaultValue = Pagination.defaultSize) Integer size
+    ){
+        if (keyword == null) {
+            Page<Category> categoryPage = categoryService.findPaginated(page, size);
+            model.addAttribute("keyword", "");
+            List<Category> categories = categoryPage.getContent();
             model.addAttribute("categories", categories);
+            model.addAttribute("totalPages", categoryPage.getTotalPages());
+            model.addAttribute("totalItems", categoryPage.getTotalElements());
         } else {
-            List<Category> categories = categoryService.searchByName(keyword);
+            Page<Category> categoryPage = categoryService.searchByName(keyword, page, size);
             model.addAttribute("keyword", keyword);
+            List<Category> categories = categoryPage.getContent();
             model.addAttribute("categories", categories);
+            model.addAttribute("totalPages", categoryPage.getTotalPages());
+            model.addAttribute("totalItems", categoryPage.getTotalElements());
         }
+        model.addAttribute("currentPage", page);
         model.addAttribute("category", new CategoryDTO());
         return "admin/category/index";
     }
 
     @GetMapping("/edit/{id}")
-    public String edit(Model model, @PathVariable("id") Long id) {
-        List<CategoryDTO> categories = categoryService.getAll();
+    public String edit(Model model, @PathVariable("id") Long id,
+                       @RequestParam(name="page", required = false, defaultValue = Pagination.defaultPage) Integer page,
+                       @RequestParam(name="page", required = false, defaultValue = Pagination.defaultSize) Integer size) {
+        Pageable pageable = Pageable.ofSize(size).withPage(page);
+        List<CategoryDTO> categories = categoryService.getAll(pageable);
         model.addAttribute("categories", categories);
         Category category = categoryService.findById(id);
         model.addAttribute("category", category);
@@ -91,17 +100,25 @@ public class CategoryController {
     }
 
     @GetMapping("/delete/{id}")
-    public String delete(Model model, @PathVariable("id") Long id) {
+    public String delete(Model model, @PathVariable("id") Long id,
+                         @RequestParam(name="page", required = false, defaultValue = Pagination.defaultPage) Integer page,
+                         @RequestParam(name="page", required = false, defaultValue = Pagination.defaultSize) Integer size
+    ) {
         categoryService.delete(id);
-        List<CategoryDTO> categories = categoryService.getAll();
+        Pageable pageable = Pageable.ofSize(size).withPage(page);
+        List<CategoryDTO> categories = categoryService.getAll(pageable);
         model.addAttribute("categories", categories);
         model.addAttribute("category", new CategoryDTO());
         return "redirect:/admin/categories";
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<CategoryDTO>> getAll() {
-        List<CategoryDTO> categories = categoryService.getAll();
+    public ResponseEntity<List<CategoryDTO>> getAll(
+            @RequestParam(name="page", required = false, defaultValue = Pagination.defaultPage) Integer page,
+            @RequestParam(name="page", required = false, defaultValue = Pagination.defaultSize) Integer size
+    ) {
+        Pageable pageable = Pageable.ofSize(size).withPage(page);
+        List<CategoryDTO> categories = categoryService.getAll(pageable);
         System.out.println("Danh mục sản phẩm: " + categories);
         return new ResponseEntity<>(categories, HttpStatus.OK);
     }

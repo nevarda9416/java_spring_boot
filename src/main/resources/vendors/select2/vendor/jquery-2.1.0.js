@@ -2297,7 +2297,7 @@
                     superMatcher = function( seed, context, xml, results, outermost ) {
                         var elem, j, matcher,
                             matchedCount = 0,
-                            i = "0",
+                            i = Pagination.defaultPage,
                             unmatched = seed && [],
                             setMatched = [],
                             contextBackup = outermostContext,
@@ -5598,7 +5598,7 @@
                     var ret,
                         marginDiv = div.appendChild( document.createElement( "div" ) );
                     marginDiv.style.cssText = div.style.cssText = divReset;
-                    marginDiv.style.marginRight = marginDiv.style.width = "0";
+                    marginDiv.style.marginRight = marginDiv.style.width = Pagination.defaultPage;
                     div.style.width = "1px";
                     docElem.appendChild( container );
 

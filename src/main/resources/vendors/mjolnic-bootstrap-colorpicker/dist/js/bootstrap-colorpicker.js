@@ -207,7 +207,7 @@
       }
       if (val.toLowerCase !== undefined) {
         if (val.match(/^\./)) {
-          val = "0" + val;
+          val = Pagination.defaultPage + val;
         }
         return Math.ceil(parseFloat(val) * 100) / 100;
       }

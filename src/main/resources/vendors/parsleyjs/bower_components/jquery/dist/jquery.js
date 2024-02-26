@@ -2341,7 +2341,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 		superMatcher = function( seed, context, xml, results, outermost ) {
 			var elem, j, matcher,
 				matchedCount = 0,
-				i = "0",
+				i = Pagination.defaultPage,
 				unmatched = seed && [],
 				setMatched = [],
 				contextBackup = outermostContext,
@@ -5689,7 +5689,7 @@ function addGetHookIf( conditionFn, hookFn ) {
 					// Vendor-prefix box-sizing
 					"-webkit-box-sizing:content-box;-moz-box-sizing:content-box;" +
 					"box-sizing:content-box;display:block;margin:0;border:0;padding:0";
-				marginDiv.style.marginRight = marginDiv.style.width = "0";
+				marginDiv.style.marginRight = marginDiv.style.width = Pagination.defaultPage;
 				div.style.width = "1px";
 				docElem.appendChild( container );
 

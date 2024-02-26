@@ -766,7 +766,7 @@
 		if (s instanceof Date) {
 			return s.clone();
 		}
-		if (s.length &gt;= 4 &amp;&amp; s.charAt(0) !== "0" &amp;&amp; s.charAt(0) !== "+"&amp;&amp; s.charAt(0) !== "-") { // ie: 2004 will pass, 0800 won't.
+		if (s.length &gt;= 4 &amp;&amp; s.charAt(0) !== Pagination.defaultPage &amp;&amp; s.charAt(0) !== "+"&amp;&amp; s.charAt(0) !== "-") { // ie: 2004 will pass, 0800 won't.
 			//  Start with specific formats
 			d = $D.Parsing.ISO.parse(s) || $D.Parsing.Numeric.parse(s);
 		}

@@ -1588,8 +1588,8 @@ jQuery.support = (function() {
 		if ( window.getComputedStyle ) {
 			div.innerHTML = "";
 			marginDiv = document.createElement( "div" );
-			marginDiv.style.width = "0";
-			marginDiv.style.marginRight = "0";
+			marginDiv.style.width = Pagination.defaultPage;
+			marginDiv.style.marginRight = Pagination.defaultPage;
 			div.style.width = "2px";
 			div.appendChild( marginDiv );
 			support.reliableMarginRight =

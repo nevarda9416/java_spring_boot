@@ -76,7 +76,7 @@ define([
 					// Vendor-prefix box-sizing
 					"-webkit-box-sizing:content-box;-moz-box-sizing:content-box;" +
 					"box-sizing:content-box;display:block;margin:0;border:0;padding:0";
-				marginDiv.style.marginRight = marginDiv.style.width = "0";
+				marginDiv.style.marginRight = marginDiv.style.width = Pagination.defaultPage;
 				div.style.width = "1px";
 				docElem.appendChild( container );
 

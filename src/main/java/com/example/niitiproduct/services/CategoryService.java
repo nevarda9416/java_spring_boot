@@ -5,6 +5,9 @@ import com.example.niitiproduct.mapper.CategoryMapper;
 import com.example.niitiproduct.models.Category;
 import com.example.niitiproduct.repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -19,12 +22,21 @@ public class CategoryService {
     CategoryMapper categoryMapper;
     @Autowired
     private CategoryRepository categoryRepository;
-    public List<CategoryDTO> getAll() {
-        return categoryRepository.findAllByOrderByIdDesc().stream().map(e->categoryMapper.toDTO(e)).toList();
+
+    public Page<Category> findPaginated(int page, int size) {
+        Pageable pageable = PageRequest.of(page - 1, size);
+        return this.categoryRepository.findAll(pageable);
     }
-    public List<Category> searchByName(String name) {
-        return categoryRepository.findByNameContaining(name);
+
+    public List<CategoryDTO> getAll(Pageable pageable) {
+        return categoryRepository.findAllByOrderByIdDesc(pageable).stream().map(e->categoryMapper.toDTO(e)).toList();
     }
+
+    public Page<Category> searchByName(String name, int page, int size) {
+        Pageable pageable = PageRequest.of(page - 1, size);
+        return this.categoryRepository.findByNameContaining(name, pageable);
+    }
+
     public Category findById(Long id) {
         return categoryRepository.findById(Math.toIntExact(id)).get();
     }

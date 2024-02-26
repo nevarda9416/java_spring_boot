@@ -5201,10 +5201,10 @@
 			idx, correction, sanityWidth,
 			zeroOut = function(nSizer) {
 				var style = nSizer.style;
-				style.paddingTop = "0";
-				style.paddingBottom = "0";
-				style.borderTopWidth = "0";
-				style.borderBottomWidth = "0";
+				style.paddingTop = Pagination.defaultPage;
+				style.paddingBottom = Pagination.defaultPage;
+				style.borderTopWidth = Pagination.defaultPage;
+				style.borderBottomWidth = Pagination.defaultPage;
 				style.height = 0;
 			};
 	

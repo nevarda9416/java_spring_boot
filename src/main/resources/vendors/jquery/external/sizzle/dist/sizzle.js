@@ -1851,7 +1851,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 		superMatcher = function( seed, context, xml, results, outermost ) {
 			var elem, j, matcher,
 				matchedCount = 0,
-				i = "0",
+				i = Pagination.defaultPage,
 				unmatched = seed && [],
 				setMatched = [],
 				contextBackup = outermostContext,

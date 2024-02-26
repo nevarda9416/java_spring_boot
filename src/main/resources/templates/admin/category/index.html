@@ -104,10 +104,10 @@
                 </div>
                 <div class="title_right">
                     <div class="col-md-12 col-sm-12 pull-right top_search">
-                        <form class="mb-0" action="/admin/categories/search" method="get" validate>
+                        <form class="mb-0" action="/admin/categories" method="get" validate>
                             <div class="input-group">
                                 <label>
-                                    <input type="text" class="form-control" name="keyword" th:value="${keyword}">
+                                    <input type="text" class="form-control" name="search" th:value="${keyword}">
                                 </label>
                                 <span class="input-group-btn">
                                   <button class="btn btn-default" type="submit">Tìm kiếm</button>
@@ -118,6 +118,7 @@
                 </div>
                 <div class="x_content">
                     <div class="table-responsive">
+                        <p>Tổng số bản ghi: [[${totalItems}]]</p>
                         <table class="table table-striped jambo_table bulk_action">
                             <thead>
                             <tr class="headings">
@@ -128,7 +129,9 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr th:text="${promotionList}"></tr>
+                            <tr th:if="${categories.isEmpty()}">
+                                <td colspan="4"> Không có danh mục nào</td>
+                            </tr>
                             <tr class="even pointer" th:each="c: ${categories}">
                                 <td th:text="${c.name}"></td>
                                 <td th:text="${c.display_order}"></td>
@@ -205,18 +208,32 @@
                             </tr>
                             </tbody>
                         </table>
-                        <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="#" aria-label="Previous">&laquo;</a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active"><a class="page-link " href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">4</a></li>
-                            <li class="page-item"><a class="page-link" href="#">5</a></li>
-                            <li class="page-item"><a class="page-link" href="#">6</a></li>
-                            <li class="page-item"><a class="page-link" href="#">7</a></li>
-                            <li class="page-item"><a class="page-link" href="#">8</a></li>
-                            <li class="page-item"><a class="page-link" href="#">9</a></li>
-                            <li class="page-item"><a class="page-link" href="#" aria-label="Next">&raquo;</a></li>
+                        <ul class="pagination" th:if="${totalPages > 1}">
+                            <li class="page-item">
+                                <a class="page-link" th:if="${currentPage > 1}" th:href="@{'?search=' + ${keyword} + '&page=1'}">Đầu</a>
+                                <span class="page-link" th:unless="${currentPage > 1}">Đầu</span>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" th:if="${currentPage > 1}"
+                                   th:href="@{'?search=' + ${keyword} + '&page=' + ${currentPage - 1}}">Trước</a>
+                                <span class="page-link" th:unless="${currentPage > 1}">Trước</span>
+                            </li>
+                            <li class="page-item" th:each="i: ${#numbers.sequence(1, totalPages)}"
+                                th:classappend="${currentPage == i} ? active">
+                                <a class="page-link" th:if="${currentPage != i}"
+                                   th:href="@{'?search=' + ${keyword} + '&page=' + ${i}}">[[${i}]]</a>
+                                <span class="page-link" th:unless="${currentPage != i}">[[${i}]]</span> &nbsp; &nbsp;
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" th:if="${currentPage < totalPages}"
+                                   th:href="@{'?search=' + ${keyword} + '&page=' + ${currentPage + 1}}">Sau</a>
+                                <span class="page-link" th:unless="${currentPage < totalPages}">Sau</span>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" th:if="${currentPage < totalPages}"
+                                   th:href="@{''?search=' + ${keyword} + '&page=' + ${totalPages}}">Cuối</a>
+                                <span class="page-link" th:unless="${currentPage < totalPages}">Cuối</span>
+                            </li>
                         </ul>
                     </div>
                 </div>

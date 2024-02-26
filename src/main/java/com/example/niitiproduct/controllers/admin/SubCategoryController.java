@@ -2,12 +2,14 @@ package com.example.niitiproduct.controllers.admin;
 
 import com.example.niitiproduct.dto.CategoryDTO;
 import com.example.niitiproduct.dto.SubCategoryDTO;
+import com.example.niitiproduct.config.constants.Pagination;
 import com.example.niitiproduct.forms.SubCategoryData;
 import com.example.niitiproduct.models.SubCategory;
 import com.example.niitiproduct.services.CategoryService;
 import com.example.niitiproduct.services.SubCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,8 +41,12 @@ public class SubCategoryController {
      * @return
      */
     @GetMapping("")
-    public String index(Model model) {
-        List<CategoryDTO> categories = categoryService.getAll();
+    public String index(Model model,
+                        @RequestParam(name="page", required = false, defaultValue = Pagination.defaultPage) Integer page,
+                        @RequestParam(name="page", required = false, defaultValue = Pagination.defaultSize) Integer size
+    ) {
+        Pageable pageable = Pageable.ofSize(size).withPage(page);
+        List<CategoryDTO> categories = categoryService.getAll(pageable);
         model.addAttribute("categories", categories);
         List<SubCategoryDTO> subCategories = subCategoryService.getAll();
         model.addAttribute("subCategories", subCategories);

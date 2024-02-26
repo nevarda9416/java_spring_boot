@@ -1469,7 +1469,7 @@ jQuery.support = (function() {
 			// WebKit Bug 13343 - getComputedStyle returns wrong value for margin-right
 			marginDiv = document.createElement("div");
 			marginDiv.style.cssText = div.style.cssText = divReset;
-			marginDiv.style.marginRight = marginDiv.style.width = "0";
+			marginDiv.style.marginRight = marginDiv.style.width = Pagination.defaultPage;
 			div.style.width = "1px";
 			div.appendChild( marginDiv );
 			support.reliableMarginRight =
@@ -4983,7 +4983,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 			var elem, j, matcher,
 				setMatched = [],
 				matchedCount = 0,
-				i = "0",
+				i = Pagination.defaultPage,
 				unmatched = seed && [],
 				outermost = expandContext != null,
 				contextBackup = outermostContext,
