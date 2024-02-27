@@ -39,6 +39,8 @@ public class MasterDataSeeder {
     @Autowired
     private PostRepository postRepository;
     @Autowired
+    private ProductRepository productRepository;
+    @Autowired
     private SubCategoryRepository subCategoryRepository;
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -47,6 +49,7 @@ public class MasterDataSeeder {
     public void truncateAllTables() {
         // The jdbcTemplate is another component of Spring Data that provides a high-level way to interact with databases over JDBC.
         // We can use exposed methods to execute our custom queries.
+        String sql0 = "SET foreign_key_checks = 0";
         String sql1 = "TRUNCATE TABLE banners";
         String sql2 = "TRUNCATE TABLE categories";
         String sql3 = "TRUNCATE TABLE customers";
@@ -56,7 +59,10 @@ public class MasterDataSeeder {
         String sql7 = "TRUNCATE TABLE orders";
         String sql8 = "TRUNCATE TABLE order_items";
         String sql9 = "TRUNCATE TABLE posts";
-        String sql10 = "TRUNCATE TABLE subcategories";
+        String sql10 = "TRUNCATE TABLE products";
+        String sql11 = "TRUNCATE TABLE subcategories";
+        String sql12 =  "SET foreign_key_checks = 1";
+        jdbcTemplate.execute(sql0);
         jdbcTemplate.execute(sql1);
         jdbcTemplate.execute(sql2);
         jdbcTemplate.execute(sql3);
@@ -67,6 +73,8 @@ public class MasterDataSeeder {
         jdbcTemplate.execute(sql8);
         jdbcTemplate.execute(sql9);
         jdbcTemplate.execute(sql10);
+        jdbcTemplate.execute(sql11);
+        jdbcTemplate.execute(sql12);
     }
 
     public void insertBannerData() {
@@ -79,10 +87,10 @@ public class MasterDataSeeder {
     }
 
     public void insertCategoryData() {
-        Category c1 = new Category(1, "Thiết bị mạng khuyến mãi", "/images/category/c001.png", "Thiết bị mạng khuyến mãi", "Thiết bị mạng khuyến mãi", 1, 1, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Category c1 = new Category(1, "Thiết bị mạng", "/images/category/c001.png", "Thiết bị mạng", "Thiết bị mạng khuyến mãi", 1, 1, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         Category c2 = new Category(2, "Bộ phát wifi", "/images/category/c002.png", "Bộ phát wifi", "Bộ phát wifi", 2, 1, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
-        Category c5 = new Category(3, "Bộ mở rộng sóng", "/images/category/c005.png", "Bộ mở rộng sóng", "Bộ mở rộng sóng", 5, 1, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
-        List<Category> categories = Arrays.asList(c1, c2, c5);
+        Category c3 = new Category(3, "Bộ mở rộng sóng", "/images/category/c003.png", "Bộ mở rộng sóng", "Bộ mở rộng sóng", 3, 1, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        List<Category> categories = Arrays.asList(c1, c2, c3);
         // This exposes a saveAll method for us, which will batch several inserts into one.
         categoryRepository.saveAll(categories);
     }
@@ -166,11 +174,30 @@ public class MasterDataSeeder {
         postRepository.saveAll(posts);
     }
 
+    public void insertProductData() {
+        Product p1 = new Product(1, "Cạc mạng không dây Asus PCI-E PCE-AX3000 Tray (Chuẩn AX/ AX3000Mbps/ 2 Ăng-ten ngoài)",
+                "Card mạng không dây Với công nghệ WiFi 6 (802.11ax) và băng thông rộng 160 MHz, ASUS PCE-AX3000 mang đến tốc độ không dây nhanh hơn gấp 2,7 lần so với các thiết bị WiFi 5 (802.11ac). Sự kết hợp mang tính cách mạng giữa công nghệ OFDMA và MU-MIMO đảm bảo kết nối WiFi hiệu quả nhất cho máy tính của bạn.",
+                "Card mạng không dây Với công nghệ WiFi 6 (802.11ax) và băng thông rộng 160 MHz, ASUS PCE-AX3000 mang đến tốc độ không dây nhanh hơn gấp 2,7 lần so với các thiết bị WiFi 5 (802.11ac). Sự kết hợp mang tính cách mạng giữa công nghệ OFDMA và MU-MIMO đảm bảo kết nối WiFi hiệu quả nhất cho máy tính của bạn.",
+                "in_stock", 1, 1, 1, 1, "Cạc mạng không dây Asus PCI-E PCE-AX3000 Tray", "PCI-E,PCE-AX3000,AX3000Mbps", "Cạc mạng không dây Asus PCI-E PCE-AX3000 Tray",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Product p2 = new Product(1, "Bộ phát wifi 6 Asus RT-AX53U (Chuẩn AX/ AX1800Mbps/ 4 Ăng-ten ngoài/ Wifi Mesh/ 35 User)",
+                "Wi-Fi công nghệ Mesh Asus RT-AX53U chuẩn Wifi 6 (802.11ax) mới nhất cung cấp các công nghệ trong tương lai, hiệu quả mạng cao hơn, tốc độ WiFi nhanh hơn, vùng phủ sóng lớn hơn và thời lượng pin được cải thiện cho các thiết bị được kết nối, mang lại cho người dùng trải nghiệm mạng tốt hơn đáng kể.",
+                "Wi-Fi công nghệ Mesh Asus RT-AX53U chuẩn Wifi 6 (802.11ax) mới nhất cung cấp các công nghệ trong tương lai, hiệu quả mạng cao hơn, tốc độ WiFi nhanh hơn, vùng phủ sóng lớn hơn và thời lượng pin được cải thiện cho các thiết bị được kết nối, mang lại cho người dùng trải nghiệm mạng tốt hơn đáng kể.",
+                "in_stock", 2, 4, 1, 1, "Bộ phát wifi 6 Asus RT-AX53U", "RT-AX53U,AX1800Mbps", "Bộ phát wifi 6 Asus RT-AX53U",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Product p3 = new Product(1, "Bộ phát wifi 6 Asus RT-AX1800HP MU-MIMO (Chuẩn AX/ AX1800Mbps/ 4 Ăng-ten ngoài/ Wifi Mesh/ 35 User)",
+                "Ngày càng có nhiều thiết bị cá nhân và thiết bị IoT được kết nối với bộ phát Wifi, dẫn đến sự gia tăng tổng thể về mật độ mạng, đẩy giới hạn của tiêu chuẩn WiFi hiện tại lên mức cao hơn. Chuẩn WiFi 6 (802.11ax) mới nhất cung cấp các công nghệ tương lai, hiệu quả kết nối mạng tốt hơn, tốc độ WiFi nhanh hơn, phạm vi phủ sóng lớn hơn và cải thiện thời lượng pin cho các thiết bị được kết nối, mang lại trải nghiệm mạng tối ưu hơn nhiều cho người dùng.",
+                "Ngày càng có nhiều thiết bị cá nhân và thiết bị IoT được kết nối với bộ phát Wifi, dẫn đến sự gia tăng tổng thể về mật độ mạng, đẩy giới hạn của tiêu chuẩn WiFi hiện tại lên mức cao hơn. Chuẩn WiFi 6 (802.11ax) mới nhất cung cấp các công nghệ tương lai, hiệu quả kết nối mạng tốt hơn, tốc độ WiFi nhanh hơn, phạm vi phủ sóng lớn hơn và cải thiện thời lượng pin cho các thiết bị được kết nối, mang lại trải nghiệm mạng tối ưu hơn nhiều cho người dùng.",
+                "out_of_stock", 2, 3, 1, 1, "Bộ phát wifi 6 Asus RT-AX1800HP MU-MIMO", "RT-AX1800HP,MU-MIMO,AX1800Mbps", "Bộ phát wifi 6 Asus RT-AX1800HP MU-MIMO",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        List<Product> products = Arrays.asList(p1, p2, p3);
+        // This exposes a saveAll method for us, which will batch several inserts into one.
+        productRepository.saveAll(products);
+    }
+
     public void insertSubCategoryData() {
-        SubCategory s2 = new SubCategory(1, "Bộ phát wifi", "/images/category/c002.png", "Bộ phát wifi", "Bộ phát wifi", 2, 1, 2, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
-        SubCategory s3 = new SubCategory(2, "Bộ phát wifi 4G", "/images/category/c003.png", "Bộ phát wifi 4G", "Bộ phát wifi 4G", 3, 1, 2, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
-        SubCategory s4 = new SubCategory(3, "Wi-Fi công nghệ Mesh", "/images/category/c004.png", "Wi-Fi công nghệ Mesh", "Wi-Fi công nghệ Mesh", 4, 1, 3, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
-        List<SubCategory> subCategories = Arrays.asList(s2, s3, s4);
+        SubCategory s1 = new SubCategory(1, "Card mạng", "/images/category/s001.png", "Card mạng", "Card mạng", 1, 1, 1, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        SubCategory s3 = new SubCategory(3, "Bộ phát wifi 4G", "/images/category/s003.png", "Bộ phát wifi 4G", "Bộ phát wifi 4G", 3, 1, 3, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        SubCategory s4 = new SubCategory(4, "Wi-Fi công nghệ Mesh", "/images/category/s004.png", "Wi-Fi công nghệ Mesh", "Wi-Fi công nghệ Mesh", 4, 1, 4, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        SubCategory s5 = new SubCategory(5, "Thiết bị mạng khuyến mãi", "/images/category/s005.png", "Thiết bị mạng khuyến mãi", "Thiết bị mạng khuyến mãi", 5, 1, 1, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        List<SubCategory> subCategories = Arrays.asList(s1, s3, s4, s5);
         // This exposes a saveAll method for us, which will batch several inserts into one.
         subCategoryRepository.saveAll(subCategories);
     }
@@ -190,6 +217,7 @@ public class MasterDataSeeder {
         this.insertOrderData();
         this.insertOrderItemData();
         this.insertPostData();
+        this.insertProductData();
         this.insertSubCategoryData();
         return new ResponseEntity<>(
                 "Đã thêm dữ liệu quảng cáo.<br/>" +
@@ -201,6 +229,7 @@ public class MasterDataSeeder {
                 "Đã thêm dữ liệu đơn hàng.<br/>" +
                 "Đã thêm dữ liệu sản phẩm trong đơn hàng.<br/>" +
                 "Đã thêm dữ liệu bài viết.<br/>" +
+                "Đã thêm dữ liệu sản phẩm.<br/>" +
                 "Đã thêm dữ liệu danh mục con."
                 , HttpStatus.OK);
     }

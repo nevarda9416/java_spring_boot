@@ -14,6 +14,7 @@ public class ProductMapper {
                 .short_description(product.getShort_description())
                 .long_description(product.getLong_description())
                 .category_id(product.getCategory_id())
+                .sub_category_id(product.getSub_category_id())
                 .display_order(product.getDisplay_order())
                 .meta_title(product.getMeta_title())
                 .meta_keyword(product.getMeta_keyword())

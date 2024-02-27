@@ -13,6 +13,7 @@ public class ProductDTO {
     private String short_description;
     private String long_description;
     private Integer category_id;
+    private Integer sub_category_id;
     private Integer display_order;
     private String meta_title;
     private String meta_keyword;
