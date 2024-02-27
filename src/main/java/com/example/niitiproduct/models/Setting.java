@@ -5,7 +5,6 @@ import lombok.*;
 
 @Entity
 @Table(name="settings", indexes={@Index(name="index_setting_id", columnList="id")})
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
@@ -73,4 +72,38 @@ public class Setting {
     String deleted_at;
     @Column(name = "deleted_by")
     String deleted_by;
+
+    public Setting(Integer id, String company_contact, String telephone_contact, String fax_contact, String website_name, String website_contact, String email_contact, String address_contact, String link_google_map, String timer_support, String logo_header_company, String logo_company, String copyright_left, String copyright_right, String facebook, String youtube, String instagram, String twitter, String google, String tiktok, String slogan_register, String meta_title, String meta_keyword, String meta_description, String meta_image, String created_at, String created_by, String updated_at, String updated_by, String deleted_at, String deleted_by) {
+        this.id = id;
+        this.company_contact = company_contact;
+        this.telephone_contact = telephone_contact;
+        this.fax_contact = fax_contact;
+        this.website_name = website_name;
+        this.website_contact = website_contact;
+        this.email_contact = email_contact;
+        this.address_contact = address_contact;
+        this.link_google_map = link_google_map;
+        this.timer_support = timer_support;
+        this.logo_header_company = logo_header_company;
+        this.logo_company = logo_company;
+        this.copyright_left = copyright_left;
+        this.copyright_right = copyright_right;
+        this.facebook = facebook;
+        this.youtube = youtube;
+        this.instagram = instagram;
+        this.twitter = twitter;
+        this.google = google;
+        this.tiktok = tiktok;
+        this.slogan_register = slogan_register;
+        this.meta_title = meta_title;
+        this.meta_keyword = meta_keyword;
+        this.meta_description = meta_description;
+        this.meta_image = meta_image;
+        this.created_at = created_at;
+        this.created_by = created_by;
+        this.updated_at = updated_at;
+        this.updated_by = updated_by;
+        this.deleted_at = deleted_at;
+        this.deleted_by = deleted_by;
+    }
 }

@@ -5,7 +5,6 @@ import lombok.*;
 
 @Entity
 @Table(name="warranties", indexes={@Index(name="index_warranty_id", columnList="id,customer_id,order_id,product_id")})
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
@@ -35,4 +34,19 @@ public class Warranty {
     String deleted_at;
     @Column(name = "deleted_by")
     String deleted_by;
+
+    public Warranty(Integer id, Integer customer_id, Integer order_id, Integer product_id, String period, String description, String created_at, String created_by, String updated_at, String updated_by, String deleted_at, String deleted_by) {
+        this.id = id;
+        this.customer_id = customer_id;
+        this.order_id = order_id;
+        this.product_id = product_id;
+        this.period = period;
+        this.description = description;
+        this.created_at = created_at;
+        this.created_by = created_by;
+        this.updated_at = updated_at;
+        this.updated_by = updated_by;
+        this.deleted_at = deleted_at;
+        this.deleted_by = deleted_by;
+    }
 }

@@ -5,7 +5,6 @@ import lombok.*;
 
 @Entity
 @Table(name="promotions", indexes={@Index(name="index_promotion_id", columnList="id")})
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
@@ -43,4 +42,23 @@ public class Promotion {
     String deleted_by;
 //    @ManyToMany(mappedBy = "promotionList")
 //    List<Product> productList;
+
+
+    public Promotion(Integer id, String name, String description, String discount_type, String discount_price, String discount_rate, String start_time, String end_time, Integer is_actived, String created_at, String created_by, String updated_at, String updated_by, String deleted_at, String deleted_by) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.discount_type = discount_type;
+        this.discount_price = discount_price;
+        this.discount_rate = discount_rate;
+        this.start_time = start_time;
+        this.end_time = end_time;
+        this.is_actived = is_actived;
+        this.created_at = created_at;
+        this.created_by = created_by;
+        this.updated_at = updated_at;
+        this.updated_by = updated_by;
+        this.deleted_at = deleted_at;
+        this.deleted_by = deleted_by;
+    }
 }

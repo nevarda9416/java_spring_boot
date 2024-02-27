@@ -5,7 +5,6 @@ import lombok.*;
 
 @Entity
 @Table(name="users_roles", indexes={@Index(name="index_user_role_id", columnList="id,user_id,role_id")})
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
@@ -17,4 +16,10 @@ public class UserRole {
     User user;
     @ManyToOne
     Role role;
+
+    public UserRole(Long id, User user, Role role) {
+        this.id = id;
+        this.user = user;
+        this.role = role;
+    }
 }

@@ -5,7 +5,6 @@ import lombok.*;
 
 @Entity
 @Table(name="product_details", indexes={@Index(name="index_product_detail_id", columnList="id,product_id")})
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
@@ -39,4 +38,21 @@ public class ProductDetail {
     String deleted_at;
     @Column(name = "deleted_by")
     String deleted_by;
+
+    public ProductDetail(Integer id, String attribute_value, Float original_price, Float sale_price, Integer product_id, String sku, String thumbnail_url, String status, String created_at, String created_by, String updated_at, String updated_by, String deleted_at, String deleted_by) {
+        this.id = id;
+        this.attribute_value = attribute_value;
+        this.original_price = original_price;
+        this.sale_price = sale_price;
+        this.product_id = product_id;
+        this.sku = sku;
+        this.thumbnail_url = thumbnail_url;
+        this.status = status;
+        this.created_at = created_at;
+        this.created_by = created_by;
+        this.updated_at = updated_at;
+        this.updated_by = updated_by;
+        this.deleted_at = deleted_at;
+        this.deleted_by = deleted_by;
+    }
 }
