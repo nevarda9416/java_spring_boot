@@ -47,6 +47,8 @@ public class MasterDataSeeder {
     @Autowired
     private SellingPlaceRepository sellingPlaceRepository;
     @Autowired
+    private WarrantyRepository warrantyRepository;
+    @Autowired
     private JdbcTemplate jdbcTemplate;
 
     @Transactional
@@ -67,7 +69,9 @@ public class MasterDataSeeder {
         String sql11 = "TRUNCATE TABLE subcategories";
         String sql12 = "TRUNCATE TABLE roles";
         String sql13 = "TRUNCATE TABLE selling_places";
-        String sql14 =  "SET foreign_key_checks = 1";
+        String sql14 = "TRUNCATE TABLE users_roles";
+        String sql15 = "TRUNCATE TABLE warranties";
+        String sql16 =  "SET foreign_key_checks = 1";
         jdbcTemplate.execute(sql0);
         jdbcTemplate.execute(sql1);
         jdbcTemplate.execute(sql2);
@@ -83,6 +87,8 @@ public class MasterDataSeeder {
         jdbcTemplate.execute(sql12);
         jdbcTemplate.execute(sql13);
         jdbcTemplate.execute(sql14);
+        jdbcTemplate.execute(sql15);
+        jdbcTemplate.execute(sql16);
     }
 
     public void insertBannerData() {
@@ -228,6 +234,15 @@ public class MasterDataSeeder {
         subCategoryRepository.saveAll(subCategories);
     }
 
+    public void insertWarrantyData() {
+        Warranty w1 = new Warranty(1, 1, 1, 1, "2 năm", "Bảo hành lỗi 1 đổi 1", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Warranty w2 = new Warranty(2, 2, 2, 2, "1 năm", "Bảo hành lỗi 1 đổi 1", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Warranty w3 = new Warranty(3, 3, 3, 3, "1 năm", "Bảo hành lỗi 1 đổi 1", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        List<Warranty> warranties = Arrays.asList(w1, w2, w3);
+        // This exposes a saveAll method for us, which will batch several inserts into one
+        warrantyRepository.saveAll(warranties);
+    }
+
     /**
      * Run insert master data
      */
@@ -247,6 +262,7 @@ public class MasterDataSeeder {
         this.insertRoleData();
         this.insertSellingPlaceData();
         this.insertSubCategoryData();
+        this.insertWarrantyData();
         return new ResponseEntity<>(
                 "Đã thêm dữ liệu quảng cáo.<br/>" +
                 "Đã thêm dữ liệu danh mục cha.<br/>" +
@@ -260,7 +276,8 @@ public class MasterDataSeeder {
                 "Đã thêm dữ liệu sản phẩm.<br/>" +
                 "Đã thêm dữ liệu phân quyền.<br/>" +
                 "Đã thêm dữ liệu nơi bán.<br/>" +
-                "Đã thêm dữ liệu danh mục con."
+                "Đã thêm dữ liệu danh mục con.<br/>" +
+                "Đã thêm dữ liệu bảo hành."
                 , HttpStatus.OK);
     }
 }
