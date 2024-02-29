@@ -56,7 +56,7 @@ public class User {
         this.password = password;
     }
 
-    public User(Integer id, String name, String email, String email_verified_at, String password, String remember_token, String created_at, String created_by, String updated_at, String updated_by, String deleted_at, String deleted_by, Collection<Role> roles) {
+    public User(Integer id, String name, String email, String email_verified_at, String password, String remember_token, String created_at, String created_by, String updated_at, String updated_by, String deleted_at, String deleted_by) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -69,6 +69,5 @@ public class User {
         this.updated_by = updated_by;
         this.deleted_at = deleted_at;
         this.deleted_by = deleted_by;
-        this.roles = roles;
     }
 }

@@ -49,6 +49,8 @@ public class MasterDataSeeder {
     @Autowired
     private SettingRepository settingRepository;
     @Autowired
+    private UserRepository userRepository;
+    @Autowired
     private WarrantyRepository warrantyRepository;
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -72,7 +74,7 @@ public class MasterDataSeeder {
         String sql12 = "TRUNCATE TABLE roles";
         String sql13 = "TRUNCATE TABLE selling_places";
         String sql14 = "TRUNCATE TABLE settings";
-        String sql15 = "TRUNCATE TABLE users_roles";
+        String sql15 = "TRUNCATE TABLE users";
         String sql16 = "TRUNCATE TABLE warranties";
         String sql17 =  "SET foreign_key_checks = 1";
         jdbcTemplate.execute(sql0);
@@ -246,6 +248,15 @@ public class MasterDataSeeder {
         subCategoryRepository.saveAll(subCategories);
     }
 
+    public void insertUserData() {
+        User u1 = new User(1, "Admin", "admin@gmail.com", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "1234567890", "", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        User u2 = new User(2, "Sale", "sale@gmail.com", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "1234567890", "", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        User u3 = new User(3, "Shipper", "shipper@gmail.com", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "1234567890", "", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        List<User> users = Arrays.asList(u1, u2, u3);
+        // This exposes a saveAll method for us, which will batch several inserts into one
+        userRepository.saveAll(users);
+    }
+
     public void insertWarrantyData() {
         Warranty w1 = new Warranty(1, 1, 1, 1, "2 năm", "Bảo hành lỗi 1 đổi 1", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         Warranty w2 = new Warranty(2, 2, 2, 2, "1 năm", "Bảo hành lỗi 1 đổi 1", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
@@ -275,6 +286,7 @@ public class MasterDataSeeder {
         this.insertSellingPlaceData();
         this.insertSettingData();
         this.insertSubCategoryData();
+        this.insertUserData();
         this.insertWarrantyData();
         return new ResponseEntity<>(
                 "Đã thêm dữ liệu quảng cáo.<br/>" +
@@ -291,6 +303,7 @@ public class MasterDataSeeder {
                 "Đã thêm dữ liệu nơi bán.<br/>" +
                 "Đã thêm dữ liệu cài đặt.<br/>" +
                 "Đã thêm dữ liệu danh mục con.<br/>" +
+                "Đã thêm dữ liệu người quản trị.<br/>" +
                 "Đã thêm dữ liệu bảo hành."
                 , HttpStatus.OK);
     }
