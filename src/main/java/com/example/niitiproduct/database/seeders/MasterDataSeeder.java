@@ -45,6 +45,8 @@ public class MasterDataSeeder {
     @Autowired
     private SubCategoryRepository subCategoryRepository;
     @Autowired
+    private SellingPlaceRepository sellingPlaceRepository;
+    @Autowired
     private JdbcTemplate jdbcTemplate;
 
     @Transactional
@@ -62,9 +64,10 @@ public class MasterDataSeeder {
         String sql8 = "TRUNCATE TABLE order_items";
         String sql9 = "TRUNCATE TABLE posts";
         String sql10 = "TRUNCATE TABLE products";
-        String sql13 = "TRUNCATE TABLE roles";
         String sql11 = "TRUNCATE TABLE subcategories";
-        String sql12 =  "SET foreign_key_checks = 1";
+        String sql12 = "TRUNCATE TABLE roles";
+        String sql13 = "TRUNCATE TABLE selling_places";
+        String sql14 =  "SET foreign_key_checks = 1";
         jdbcTemplate.execute(sql0);
         jdbcTemplate.execute(sql1);
         jdbcTemplate.execute(sql2);
@@ -79,6 +82,7 @@ public class MasterDataSeeder {
         jdbcTemplate.execute(sql11);
         jdbcTemplate.execute(sql12);
         jdbcTemplate.execute(sql13);
+        jdbcTemplate.execute(sql14);
     }
 
     public void insertBannerData() {
@@ -205,6 +209,15 @@ public class MasterDataSeeder {
         roleRepository.saveAll(roles);
     }
 
+    public void insertSellingPlaceData() {
+        SellingPlace s1 = new SellingPlace(1, "SHOWROOM XÃ ĐÀN", "Xã Đàn, Đống Đa, Hà Nội", "Hà Nội", "Đống Đa", "Xã Đàn", "Xã Đàn, Đống Đa, Hà Nội", "(024) 3968 9966 (ext 1)", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        SellingPlace s2 = new SellingPlace(2, "SHOWROOM TRẦN DUY HƯNG", "Trần Duy Hưng, Cầu Giấy, Hà Nội", "Hà Nội", "Cầu Giấy", "Trần Duy Hưng", "Trần Duy Hưng, Cầu Giấy, Hà Nội", "(024) 3968 9966 (ext 2)", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        SellingPlace s3 = new SellingPlace(3, "SHOWROOM THÁI HÀ", "Thái Hà, Đống Đa, Hà Nội", "Hà Nội", "Đống Đa", "Thái Hà", "Thái Hà, Đống Đa, Hà Nội", "(024) 3968 9966 (ext 3)", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        List<SellingPlace> sellingPlaces = Arrays.asList(s1, s2, s3);
+        // This exposes a saveAll method for us, which will batch several inserts into one.
+        sellingPlaceRepository.saveAll(sellingPlaces);
+    }
+
     public void insertSubCategoryData() {
         SubCategory s1 = new SubCategory(1, "Card mạng", "/images/category/s001.png", "Card mạng", "Card mạng", 1, 1, 1, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         SubCategory s3 = new SubCategory(3, "Bộ phát wifi 4G", "/images/category/s003.png", "Bộ phát wifi 4G", "Bộ phát wifi 4G", 3, 1, 3, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
@@ -232,6 +245,7 @@ public class MasterDataSeeder {
         this.insertPostData();
         this.insertProductData();
         this.insertRoleData();
+        this.insertSellingPlaceData();
         this.insertSubCategoryData();
         return new ResponseEntity<>(
                 "Đã thêm dữ liệu quảng cáo.<br/>" +
@@ -245,6 +259,7 @@ public class MasterDataSeeder {
                 "Đã thêm dữ liệu bài viết.<br/>" +
                 "Đã thêm dữ liệu sản phẩm.<br/>" +
                 "Đã thêm dữ liệu phân quyền.<br/>" +
+                "Đã thêm dữ liệu nơi bán.<br/>" +
                 "Đã thêm dữ liệu danh mục con."
                 , HttpStatus.OK);
     }
