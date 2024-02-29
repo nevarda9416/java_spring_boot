@@ -41,6 +41,8 @@ public class MasterDataSeeder {
     @Autowired
     private ProductRepository productRepository;
     @Autowired
+    private ProductInventoryRepository productInventoryRepository;
+    @Autowired
     private PromotionRepository promotionRepository;
     @Autowired
     private RoleRepository roleRepository;
@@ -72,14 +74,15 @@ public class MasterDataSeeder {
         String sql8 = "TRUNCATE TABLE order_items";
         String sql9 = "TRUNCATE TABLE posts";
         String sql10 = "TRUNCATE TABLE products";
-        String sql11 = "TRUNCATE TABLE promotions";
-        String sql12 = "TRUNCATE TABLE subcategories";
-        String sql13 = "TRUNCATE TABLE roles";
-        String sql14 = "TRUNCATE TABLE selling_places";
-        String sql15 = "TRUNCATE TABLE settings";
-        String sql16 = "TRUNCATE TABLE users";
-        String sql17 = "TRUNCATE TABLE warranties";
-        String sql18 =  "SET foreign_key_checks = 1";
+        String sql11 = "TRUNCATE TABLE product_inventories";
+        String sql12 = "TRUNCATE TABLE promotions";
+        String sql13 = "TRUNCATE TABLE subcategories";
+        String sql14 = "TRUNCATE TABLE roles";
+        String sql15 = "TRUNCATE TABLE selling_places";
+        String sql16 = "TRUNCATE TABLE settings";
+        String sql17 = "TRUNCATE TABLE users";
+        String sql18 = "TRUNCATE TABLE warranties";
+        String sql19 =  "SET foreign_key_checks = 1";
         jdbcTemplate.execute(sql0);
         jdbcTemplate.execute(sql1);
         jdbcTemplate.execute(sql2);
@@ -99,6 +102,7 @@ public class MasterDataSeeder {
         jdbcTemplate.execute(sql16);
         jdbcTemplate.execute(sql17);
         jdbcTemplate.execute(sql18);
+        jdbcTemplate.execute(sql19);
     }
 
     public void insertBannerData() {
@@ -216,6 +220,18 @@ public class MasterDataSeeder {
         productRepository.saveAll(products);
     }
 
+    public void insertProductInventoryData() {
+        ProductInventory p1 = new ProductInventory(1, 1, 1, 998, 1, 2
+                ,new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        ProductInventory p2 = new ProductInventory(1, 2, 2, 997, 2, 3
+                ,new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        ProductInventory p3 = new ProductInventory(1, 3, 3, 996, 3, 4
+                ,new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        List<ProductInventory> productInventories = Arrays.asList(p1, p2, p3);
+        // This exposes a saveAll method for us, which will batch several inserts into one.
+        productInventoryRepository.saveAll(productInventories);
+    }
+
     public void insertPromotionData() {
         Promotion p1 = new Promotion(1, "CODE202401WF", "Khuyến mãi trên sản phẩm", "product", "30000", "", "2024-01-01", "2025-01-01", 1
                 ,new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
@@ -298,6 +314,7 @@ public class MasterDataSeeder {
         this.insertOrderItemData();
         this.insertPostData();
         this.insertProductData();
+        this.insertProductInventoryData();
         this.insertPromotionData();
         this.insertRoleData();
         this.insertSellingPlaceData();
@@ -316,6 +333,7 @@ public class MasterDataSeeder {
                 "Đã thêm dữ liệu sản phẩm trong đơn hàng.<br/>" +
                 "Đã thêm dữ liệu bài viết.<br/>" +
                 "Đã thêm dữ liệu sản phẩm.<br/>" +
+                "Đã thêm dữ liệu kho sản phẩm.<br/>" +
                 "Đã thêm dữ liệu khuyến mãi.<br/>" +
                 "Đã thêm dữ liệu phân quyền.<br/>" +
                 "Đã thêm dữ liệu nơi bán.<br/>" +
