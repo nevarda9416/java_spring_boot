@@ -47,6 +47,8 @@ public class MasterDataSeeder {
     @Autowired
     private SellingPlaceRepository sellingPlaceRepository;
     @Autowired
+    private SettingRepository settingRepository;
+    @Autowired
     private WarrantyRepository warrantyRepository;
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -69,9 +71,10 @@ public class MasterDataSeeder {
         String sql11 = "TRUNCATE TABLE subcategories";
         String sql12 = "TRUNCATE TABLE roles";
         String sql13 = "TRUNCATE TABLE selling_places";
-        String sql14 = "TRUNCATE TABLE users_roles";
-        String sql15 = "TRUNCATE TABLE warranties";
-        String sql16 =  "SET foreign_key_checks = 1";
+        String sql14 = "TRUNCATE TABLE settings";
+        String sql15 = "TRUNCATE TABLE users_roles";
+        String sql16 = "TRUNCATE TABLE warranties";
+        String sql17 =  "SET foreign_key_checks = 1";
         jdbcTemplate.execute(sql0);
         jdbcTemplate.execute(sql1);
         jdbcTemplate.execute(sql2);
@@ -89,6 +92,7 @@ public class MasterDataSeeder {
         jdbcTemplate.execute(sql14);
         jdbcTemplate.execute(sql15);
         jdbcTemplate.execute(sql16);
+        jdbcTemplate.execute(sql17);
     }
 
     public void insertBannerData() {
@@ -224,6 +228,14 @@ public class MasterDataSeeder {
         sellingPlaceRepository.saveAll(sellingPlaces);
     }
 
+    public void insertSettingData() {
+        Setting s1 = new Setting(1, "Công ty TNHH Kỹ Thuật NIIT-ICT", "0987654321", "", "Thiết bị mạng NIIT-ICT", "niithanoi.edu.vn", "hello@niithanoi.edu.vn", "Tầng 3, 25T2, N05, Nguyễn Thị Thập, Cầu Giấy, Hà Nội", "https://www.google.com/maps/place/3+P.+Nguy%E1%BB%85n+Th%E1%BB%8B+Th%E1%BA%ADp,+Trung+Ho%C3%A0,+C%E1%BA%A7u+Gi%E1%BA%A5y,+H%C3%A0+N%E1%BB%99i,+Vietnam/data=!4m2!3m1!1s0x3135aca167369b09:0x2430ccbe8a5f8a0d?sa=X&ved=1t:242&ictx=111", "9:00 - 18:00", "https://niithanoi.edu.vn/pic/banner/log_636686424391527334.png", "https://niithanoi.edu.vn/pic/banner/log_636686424391527334.png", "", "", "https://www.facebook.com/NIIT.ICT/", "https://www.youtube.com/channel/UCqWcReCheBF-O6dlRf2CDRw", "", "https://twitter.com/day_ict", "", "", "https://niithanoi.edu.vn/img/boCongThuong.png",
+                "Thiết bị mạng NIIT-ICT", "Thiết bị mạng", "Thiết bị mạng NIIT-ICT", "", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        List<Setting> settings = Arrays.asList(s1);
+        // This exposes a saveAll method for us, which will batch several inserts into one.
+        settingRepository.saveAll(settings);
+    }
+
     public void insertSubCategoryData() {
         SubCategory s1 = new SubCategory(1, "Card mạng", "/images/category/s001.png", "Card mạng", "Card mạng", 1, 1, 1, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         SubCategory s3 = new SubCategory(3, "Bộ phát wifi 4G", "/images/category/s003.png", "Bộ phát wifi 4G", "Bộ phát wifi 4G", 3, 1, 3, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
@@ -261,6 +273,7 @@ public class MasterDataSeeder {
         this.insertProductData();
         this.insertRoleData();
         this.insertSellingPlaceData();
+        this.insertSettingData();
         this.insertSubCategoryData();
         this.insertWarrantyData();
         return new ResponseEntity<>(
@@ -276,6 +289,7 @@ public class MasterDataSeeder {
                 "Đã thêm dữ liệu sản phẩm.<br/>" +
                 "Đã thêm dữ liệu phân quyền.<br/>" +
                 "Đã thêm dữ liệu nơi bán.<br/>" +
+                "Đã thêm dữ liệu cài đặt.<br/>" +
                 "Đã thêm dữ liệu danh mục con.<br/>" +
                 "Đã thêm dữ liệu bảo hành."
                 , HttpStatus.OK);
