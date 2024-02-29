@@ -41,6 +41,8 @@ public class MasterDataSeeder {
     @Autowired
     private ProductRepository productRepository;
     @Autowired
+    private ProductDetailRepository productDetailRepository;
+    @Autowired
     private ProductInventoryRepository productInventoryRepository;
     @Autowired
     private PromotionRepository promotionRepository;
@@ -74,15 +76,16 @@ public class MasterDataSeeder {
         String sql8 = "TRUNCATE TABLE order_items";
         String sql9 = "TRUNCATE TABLE posts";
         String sql10 = "TRUNCATE TABLE products";
-        String sql11 = "TRUNCATE TABLE product_inventories";
-        String sql12 = "TRUNCATE TABLE promotions";
-        String sql13 = "TRUNCATE TABLE subcategories";
-        String sql14 = "TRUNCATE TABLE roles";
-        String sql15 = "TRUNCATE TABLE selling_places";
-        String sql16 = "TRUNCATE TABLE settings";
-        String sql17 = "TRUNCATE TABLE users";
-        String sql18 = "TRUNCATE TABLE warranties";
-        String sql19 =  "SET foreign_key_checks = 1";
+        String sql11 = "TRUNCATE TABLE product_details";
+        String sql12 = "TRUNCATE TABLE product_inventories";
+        String sql13 = "TRUNCATE TABLE promotions";
+        String sql14 = "TRUNCATE TABLE subcategories";
+        String sql15 = "TRUNCATE TABLE roles";
+        String sql16 = "TRUNCATE TABLE selling_places";
+        String sql17 = "TRUNCATE TABLE settings";
+        String sql18 = "TRUNCATE TABLE users";
+        String sql19 = "TRUNCATE TABLE warranties";
+        String sql20 =  "SET foreign_key_checks = 1";
         jdbcTemplate.execute(sql0);
         jdbcTemplate.execute(sql1);
         jdbcTemplate.execute(sql2);
@@ -103,6 +106,7 @@ public class MasterDataSeeder {
         jdbcTemplate.execute(sql17);
         jdbcTemplate.execute(sql18);
         jdbcTemplate.execute(sql19);
+        jdbcTemplate.execute(sql20);
     }
 
     public void insertBannerData() {
@@ -220,6 +224,15 @@ public class MasterDataSeeder {
         productRepository.saveAll(products);
     }
 
+    public void insertProductDetailData() {
+        ProductDetail p1 = new ProductDetail(1, "Chuẩn AX", 1800000F, 1600000F, 1, "SKUAX001", "/images/product/p001.png", "publish", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        ProductDetail p2 = new ProductDetail(2, "AX3000Mbps", 1900000F, 1800000F, 1, "SKUAX002", "/images/product/p002.png", "publish", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        ProductDetail p3 = new ProductDetail(3, "2 Ăng-ten", 1500000F, 1500000F, 1, "SKUAX003", "/images/product/p003.png", "publish", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        List<ProductDetail> productDetails = Arrays.asList(p1, p2, p3);
+        // This exposes a saveAll method for us, which will batch several inserts into one.
+        productDetailRepository.saveAll(productDetails);
+    }
+
     public void insertProductInventoryData() {
         ProductInventory p1 = new ProductInventory(1, 1, 1, 998, 1, 2
                 ,new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
@@ -314,6 +327,7 @@ public class MasterDataSeeder {
         this.insertOrderItemData();
         this.insertPostData();
         this.insertProductData();
+        this.insertProductDetailData();
         this.insertProductInventoryData();
         this.insertPromotionData();
         this.insertRoleData();
@@ -333,6 +347,7 @@ public class MasterDataSeeder {
                 "Đã thêm dữ liệu sản phẩm trong đơn hàng.<br/>" +
                 "Đã thêm dữ liệu bài viết.<br/>" +
                 "Đã thêm dữ liệu sản phẩm.<br/>" +
+                "Đã thêm dữ liệu chi tiết sản phẩm.<br/>" +
                 "Đã thêm dữ liệu kho sản phẩm.<br/>" +
                 "Đã thêm dữ liệu khuyến mãi.<br/>" +
                 "Đã thêm dữ liệu phân quyền.<br/>" +
