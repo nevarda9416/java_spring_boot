@@ -41,6 +41,8 @@ public class MasterDataSeeder {
     @Autowired
     private ProductRepository productRepository;
     @Autowired
+    private PromotionRepository promotionRepository;
+    @Autowired
     private RoleRepository roleRepository;
     @Autowired
     private SubCategoryRepository subCategoryRepository;
@@ -70,13 +72,14 @@ public class MasterDataSeeder {
         String sql8 = "TRUNCATE TABLE order_items";
         String sql9 = "TRUNCATE TABLE posts";
         String sql10 = "TRUNCATE TABLE products";
-        String sql11 = "TRUNCATE TABLE subcategories";
-        String sql12 = "TRUNCATE TABLE roles";
-        String sql13 = "TRUNCATE TABLE selling_places";
-        String sql14 = "TRUNCATE TABLE settings";
-        String sql15 = "TRUNCATE TABLE users";
-        String sql16 = "TRUNCATE TABLE warranties";
-        String sql17 =  "SET foreign_key_checks = 1";
+        String sql11 = "TRUNCATE TABLE promotions";
+        String sql12 = "TRUNCATE TABLE subcategories";
+        String sql13 = "TRUNCATE TABLE roles";
+        String sql14 = "TRUNCATE TABLE selling_places";
+        String sql15 = "TRUNCATE TABLE settings";
+        String sql16 = "TRUNCATE TABLE users";
+        String sql17 = "TRUNCATE TABLE warranties";
+        String sql18 =  "SET foreign_key_checks = 1";
         jdbcTemplate.execute(sql0);
         jdbcTemplate.execute(sql1);
         jdbcTemplate.execute(sql2);
@@ -95,6 +98,7 @@ public class MasterDataSeeder {
         jdbcTemplate.execute(sql15);
         jdbcTemplate.execute(sql16);
         jdbcTemplate.execute(sql17);
+        jdbcTemplate.execute(sql18);
     }
 
     public void insertBannerData() {
@@ -212,6 +216,18 @@ public class MasterDataSeeder {
         productRepository.saveAll(products);
     }
 
+    public void insertPromotionData() {
+        Promotion p1 = new Promotion(1, "CODE202401WF", "Khuyến mãi trên sản phẩm", "product", "30000", "", "2024-01-01", "2025-01-01", 1
+                ,new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Promotion p2 = new Promotion(2, "CODE202402WF", "Khuyến mãi trên đơn hàng", "order", "50000", "", "2024-01-01", "2025-01-01", 1
+                ,new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Promotion p3 = new Promotion(3, "CODE202403WF", "Khuyến mãi trên khách hàng thân thiết", "vip_1", "10000", "", "2024-01-01", "2025-01-01", 1
+                ,new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        List<Promotion> promotions = Arrays.asList(p1, p2, p3);
+        // This exposes a saveAll method for us, which will batch several inserts into one.
+        promotionRepository.saveAll(promotions);
+    }
+
     public void insertRoleData() {
         Role r1 = new Role(1, "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         Role r2 = new Role(2, "sale", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
@@ -282,6 +298,7 @@ public class MasterDataSeeder {
         this.insertOrderItemData();
         this.insertPostData();
         this.insertProductData();
+        this.insertPromotionData();
         this.insertRoleData();
         this.insertSellingPlaceData();
         this.insertSettingData();
@@ -299,6 +316,7 @@ public class MasterDataSeeder {
                 "Đã thêm dữ liệu sản phẩm trong đơn hàng.<br/>" +
                 "Đã thêm dữ liệu bài viết.<br/>" +
                 "Đã thêm dữ liệu sản phẩm.<br/>" +
+                "Đã thêm dữ liệu khuyến mãi.<br/>" +
                 "Đã thêm dữ liệu phân quyền.<br/>" +
                 "Đã thêm dữ liệu nơi bán.<br/>" +
                 "Đã thêm dữ liệu cài đặt.<br/>" +
