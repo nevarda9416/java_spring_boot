@@ -1,12 +1,16 @@
 package com.example.niitiproduct.controllers.admin;
 
+import com.example.niitiproduct.config.constants.Pagination;
+import com.example.niitiproduct.dto.CategoryDTO;
 import com.example.niitiproduct.dto.ProductDTO;
 import com.example.niitiproduct.dto.PromotionDTO;
 import com.example.niitiproduct.models.Product;
 import com.example.niitiproduct.models.ProductPromotion;
+import com.example.niitiproduct.services.CategoryService;
 import com.example.niitiproduct.services.ProductService;
 import com.example.niitiproduct.services.PromotionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +19,8 @@ import java.util.List;
 @Controller
 @RequestMapping("admin/products")
 public class ProductController {
+    @Autowired
+    private CategoryService categoryService;
     @Autowired
     private ProductService productService;
     @Autowired
@@ -87,6 +93,10 @@ public class ProductController {
      */
     @GetMapping("/add")
     public String add(Model model) {
+        Pageable pageable = Pageable.ofSize(Integer.parseInt(Pagination.largeSize)).withPage(Integer.parseInt(Pagination.defaultPage) - 1);
+        List<CategoryDTO> categories = categoryService.getAll(pageable);
+        model.addAttribute("categories", categories);
+        model.addAttribute("product", new ProductDTO());
         List<ProductDTO> products = productService.getAll();
         model.addAttribute("products", products);
         return "admin/product/add";
@@ -99,6 +109,7 @@ public class ProductController {
      */
     @PostMapping(value = "/store")
     public String store(@ModelAttribute Product product) {
+        System.out.println(product.getName());
         productService.save(product);
         return "redirect:/admin/products";
     }
