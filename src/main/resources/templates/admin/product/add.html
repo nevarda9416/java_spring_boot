@@ -22,13 +22,14 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <form class="" action="/admin/categories" method="post" novalidate>
+                        <form class="" action="/admin/products/store" method="post" novalidate
+                              enctype="multipart/form-data">
                             <span class="section">Thông tin sản phẩm</span>
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Tên sản phẩm<span
                                         class="required">*</span></label>
                                 <div class="col-md-9 col-sm-9">
-                                    <input class="form-control" name="name" type="text" required="required"/>
+                                    <input class="form-control" name="name" type="text" required="required" th:field="*{name}"/>
                                 </div>
                             </div>
                             <div class="field item form-group">
@@ -140,7 +141,7 @@
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Ảnh sản phẩm</label>
                                 <div class="col-md-9 col-sm-9">
-                                    <input class="form-control optional" name="thumbnail_url" type="file"/></div>
+                                    <input class="form-control optional" name="thumbnail_url" type="text"/></div>
                             </div>
                             <div class="form-group row">
                                 <label class="control-label col-md-3 col-sm-3  label-align">Trạng thái</label>
@@ -164,9 +165,9 @@
                             <div class="form-group row">
                                 <label class="control-label col-md-3 col-sm-3  label-align">Danh mục sản phẩm</label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <select class="form-control" name="category_id" th:each="c: ${categories}">
+                                    <select class="form-control" name="category_id" th:field="*{category_id}"/>
                                         <option value="0">Không</option>
-                                        <option th:attr="value=${c.id}" th:text="${c.name}"></option>
+                                        <option th:each="c: ${categories}" th:value="${c.id}" th:text="${c.name}"></option>
                                     </select>
                                 </div>
                             </div>
