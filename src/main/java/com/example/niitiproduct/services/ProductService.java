@@ -29,7 +29,7 @@ public class ProductService {
      * @return
      */
     public List<ProductDTO> getAll() {
-        return productRepository.findAll().stream().map(e->productMapper.toDTO(e)).toList();
+        return productRepository.findAllByOrderByIdDesc().stream().map(e->productMapper.toDTO(e)).toList();
     }
 
     /**

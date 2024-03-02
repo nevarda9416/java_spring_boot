@@ -44,11 +44,11 @@
                             <table class="table table-striped jambo_table bulk_action">
                                 <thead>
                                 <tr class="headings">
-                                    <th class="column-title">Mã sản phẩm</th>
+<!--                                    <th class="column-title">Mã sản phẩm</th>-->
                                     <th class="column-title">Tên sản phẩm</th>
                                     <th class="column-title">Danh mục</th>
-                                    <th class="column-title">Ảnh đại diện</th>
-                                    <th class="column-title">Trạng thái</th>
+<!--                                    <th class="column-title">Ảnh đại diện</th>-->
+<!--                                    <th class="column-title">Trạng thái</th>-->
                                     <th class="column-title no-link last"><span class="nobr">Thao tác</span></th>
                                 </tr>
                                 </thead>
@@ -57,11 +57,11 @@
                                     <td colspan="6"> Không có sản phẩm nào</td>
                                 </tr>
                                 <tr class="even pointer" th:each="p: ${products}">
-                                    <td th:text="${p.sku}"></td>
+<!--                                    <td th:text="${p.sku}"></td>-->
                                     <td th:text="${p.name}"></td>
                                     <td th:text="${p.category_id}"></td>
-                                    <td><img th:attr="src=${p.thumbnail_url},alt=${p.name}"/></td>
-                                    <td th:text="${p.status}"></td>
+<!--                                    <td><img th:attr="src=${p.thumbnail_url},alt=${p.name}"/></td>-->
+<!--                                    <td th:text="${p.status}"></td>-->
                                     <td class=" last"><a href="#" data-toggle="modal"
                                                          th:attr="data-target=${'#bs-example-modal-lg-'+p.id}">Xem</a>
                                         <div class="modal fade bs-example-modal-lg"
@@ -86,10 +86,10 @@
                                                                 <td>Nội dung khuyến mãi:</td>
                                                                 <td th:text="${pro.promotion.description}"></td>
                                                             </tr>
-                                                            <tr>
-                                                                <td>Mã sản phẩm:</td>
-                                                                <td th:text="${p.sku}"></td>
-                                                            </tr>
+<!--                                                            <tr>-->
+<!--                                                                <td>Mã sản phẩm:</td>-->
+<!--                                                                <td th:text="${p.sku}"></td>-->
+<!--                                                            </tr>-->
                                                             <tr>
                                                                 <td>Tên sản phẩm:</td>
                                                                 <td th:text="${p.name}"></td>
@@ -102,20 +102,20 @@
                                                                 <td>Mô tả dài:</td>
                                                                 <td th:text="${p.long_description}"></td>
                                                             </tr>
-                                                            <tr>
-                                                                <td>Ảnh đại diện:</td>
-                                                                <td><img
-                                                                        th:attr="src=${p.thumbnail_url},alt=${p.name}"/>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Đơn vị:</td>
-                                                                <td th:text="${p.unit}"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Trạng thái:</td>
-                                                                <td th:text="${p.status}"></td>
-                                                            </tr>
+<!--                                                            <tr>-->
+<!--                                                                <td>Ảnh đại diện:</td>-->
+<!--                                                                <td><img-->
+<!--                                                                        th:attr="src=${p.thumbnail_url},alt=${p.name}"/>-->
+<!--                                                                </td>-->
+<!--                                                            </tr>-->
+<!--                                                            <tr>-->
+<!--                                                                <td>Đơn vị:</td>-->
+<!--                                                                <td th:text="${p.unit}"></td>-->
+<!--                                                            </tr>-->
+<!--                                                            <tr>-->
+<!--                                                                <td>Trạng thái:</td>-->
+<!--                                                                <td th:text="${p.status}"></td>-->
+<!--                                                            </tr>-->
                                                             <tr>
                                                                 <td>Danh mục:</td>
                                                                 <td th:text="${p.category_id}"></td>
