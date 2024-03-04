@@ -32,14 +32,17 @@
                                 </div>
                             </div>
                             <div class="field item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Tóm tắt</label>
+                                <div class="col-md-9 col-sm-9">
+                                    <textarea id="summary" required="required" class="form-control"
+                                              name="summary"></textarea>
+                                </div>
+                            </div>
+                            <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Mô tả ngắn</label>
                                 <div class="col-md-9 col-sm-9">
                                     <textarea id="short_description" required="required" class="form-control"
-                                              name="short_description"
-                                              data-parsley-trigger="keyup" data-parsley-minlength="20"
-                                              data-parsley-maxlength="100"
-                                              data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
-                                              data-parsley-validation-threshold="10"></textarea>
+                                              name="short_description"></textarea>
                                 </div>
                             </div>
                             <div class="field item form-group">
@@ -75,9 +78,9 @@
                             <div class="form-group row">
                                 <label class="control-label col-md-3 col-sm-3  label-align">Danh mục sản phẩm</label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <select class="form-control" name="category_id" th:each="c: ${categories}">
+                                    <select class="form-control" name="category_id">
                                         <option value="0">Không</option>
-                                        <option th:attr="value=${c.id}" th:text="${c.name}"></option>
+                                        <option th:each="c: ${categories}" th:attr="value=${c.id}" th:text="${c.name}"></option>
                                     </select>
                                 </div>
                             </div>

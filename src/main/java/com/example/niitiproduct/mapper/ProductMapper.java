@@ -11,6 +11,7 @@ public class ProductMapper {
         return ProductDTO.builder(
                 ).id(product.getId())
                 .name(product.getName())
+                .summary(product.getSummary())
                 .short_description(product.getShort_description())
                 .long_description(product.getLong_description())
                 .category_id(product.getCategory_id())

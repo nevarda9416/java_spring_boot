@@ -39,6 +39,8 @@
 <!-- CKEditor -->
 <script th:src="@{/vendors/ckeditor/ckeditor.js}"></script>
 <script>
+    CKEDITOR.replace("summary");
+    CKEDITOR.replace("short_description");
     CKEDITOR.replace("long_description");
 </script>
 <!-- Custom Theme Scripts -->

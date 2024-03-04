@@ -6,9 +6,11 @@ import com.example.niitiproduct.dto.ProductDTO;
 import com.example.niitiproduct.dto.PromotionDTO;
 import com.example.niitiproduct.models.Product;
 import com.example.niitiproduct.models.ProductPromotion;
+import com.example.niitiproduct.services.CategoryService;
 import com.example.niitiproduct.services.ProductService;
 import com.example.niitiproduct.services.PromotionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +19,8 @@ import java.util.List;
 @Controller
 @RequestMapping("admin/products")
 public class ProductController {
+    @Autowired
+    private CategoryService categoryService;
     @Autowired
     private ProductService productService;
     @Autowired

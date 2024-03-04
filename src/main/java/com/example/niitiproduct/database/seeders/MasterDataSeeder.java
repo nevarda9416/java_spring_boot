@@ -208,14 +208,47 @@ public class MasterDataSeeder {
 
     public void insertProductData() {
         Product p1 = new Product(1, "Cạc mạng không dây Asus PCI-E PCE-AX3000 Tray (Chuẩn AX/ AX3000Mbps/ 2 Ăng-ten ngoài)",
+                "<ul class=\"ul\">\n" +
+                        "                      \n" +
+                        "                <li><i class=\"before\"></i><span><h3>Tốc độ WIFI: AX3000Mbps</h3></span></li>\n" +
+                        "                <li><i class=\"before\"></i><span><h3>Angten: 2 Ăng-ten ngoài</h3></span></li>\n" +
+                        "                <li><i class=\"before\"></i><span><h3>Chuẩn kết nối: Chuẩn AX (Wifi 6)</h3></span></li>\n" +
+                        "                <li><i class=\"before\"></i><span><h3>Chuẩn cắm: PCI-E</h3></span></li>\n" +
+                        "                <li><i class=\"before\"></i><span><h3>Mô tả khác: PCI-E AX3000 WiFi 6 (802.11ax) băng tần kép. Hỗ trợ 160 MHz, Bluetooth 5.0, bảo mật mạng WPA3, OFDMA và MU-MIMO Tiêu chuẩn Wi-Fi thế hệ mới - Chuẩn WiFi 6 (802.11ax) cho hiệu suất và thông lượng tốt hơn. Tốc độ Wi-Fi siêu nhanh - Tốc độ WiFi 3000Mbps để xử lý ngay cả mạng bận nhất một cách dễ dàng. Công nghệ 802.11ax — Với OFDMA và MU-MIMO, WiFi 6 cho khả năng truyền dữ liệu hiệu quả, ổn định và nhanh hơn, ngay cả khi có nhiều thiết bị cùng truyền dữ liệu một lúc. Bluetooth 5.0 để kết nối nhanh hơn, phủ sóng rộ</h3></span></li>\n" +
+                        "                \n" +
+                        "                \n" +
+                        "                <div id=\"tabtem\"><a href=\"#tab2\" style=\"color: #f00;\">Xem chi tiết</a></div>\n" +
+                        "            </ul>",
                 "Card mạng không dây Với công nghệ WiFi 6 (802.11ax) và băng thông rộng 160 MHz, ASUS PCE-AX3000 mang đến tốc độ không dây nhanh hơn gấp 2,7 lần so với các thiết bị WiFi 5 (802.11ac). Sự kết hợp mang tính cách mạng giữa công nghệ OFDMA và MU-MIMO đảm bảo kết nối WiFi hiệu quả nhất cho máy tính của bạn.",
                 "Card mạng không dây Với công nghệ WiFi 6 (802.11ax) và băng thông rộng 160 MHz, ASUS PCE-AX3000 mang đến tốc độ không dây nhanh hơn gấp 2,7 lần so với các thiết bị WiFi 5 (802.11ac). Sự kết hợp mang tính cách mạng giữa công nghệ OFDMA và MU-MIMO đảm bảo kết nối WiFi hiệu quả nhất cho máy tính của bạn.",
                 "in_stock", 1, 1, 1, 1, "Cạc mạng không dây Asus PCI-E PCE-AX3000 Tray", "PCI-E,PCE-AX3000,AX3000Mbps", "Cạc mạng không dây Asus PCI-E PCE-AX3000 Tray",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         Product p2 = new Product(1, "Bộ phát wifi 6 Asus RT-AX53U (Chuẩn AX/ AX1800Mbps/ 4 Ăng-ten ngoài/ Wifi Mesh/ 35 User)",
+                "<ul class=\"ul\">\n" +
+                        "                      \n" +
+                        "                <li><i class=\"before\"></i><span><h3>Tốc độ WIFI: AX1800Mbps</h3></span></li>\n" +
+                        "                <li><i class=\"before\"></i><span><h3>Chuẩn kết nối: Chuẩn AX (Wifi 6)</h3></span></li>\n" +
+                        "                <li><i class=\"before\"></i><span><h3>Angten: 4 Ăng-ten ngoài</h3></span></li>\n" +
+                        "                <li><i class=\"before\"></i><span><h3>Cổng giao tiếp: 3 port x Giga Lan, 1x Giga Wan, 1 x USb 3.1, RAM 256MB, 128 Flash.</h3></span></li>\n" +
+                        "                <li><i class=\"before\"></i><span><h3>Tốc độ LAN: 10/100/1000Mbps</h3></span></li>\n" +
+                        "                \n" +
+                        "                \n" +
+                        "                <div id=\"tabtem\"><a href=\"#tab2\" style=\"color: #f00;\">Xem chi tiết</a></div>\n" +
+                        "            </ul>",
                 "Wi-Fi công nghệ Mesh Asus RT-AX53U chuẩn Wifi 6 (802.11ax) mới nhất cung cấp các công nghệ trong tương lai, hiệu quả mạng cao hơn, tốc độ WiFi nhanh hơn, vùng phủ sóng lớn hơn và thời lượng pin được cải thiện cho các thiết bị được kết nối, mang lại cho người dùng trải nghiệm mạng tốt hơn đáng kể.",
                 "Wi-Fi công nghệ Mesh Asus RT-AX53U chuẩn Wifi 6 (802.11ax) mới nhất cung cấp các công nghệ trong tương lai, hiệu quả mạng cao hơn, tốc độ WiFi nhanh hơn, vùng phủ sóng lớn hơn và thời lượng pin được cải thiện cho các thiết bị được kết nối, mang lại cho người dùng trải nghiệm mạng tốt hơn đáng kể.",
                 "in_stock", 2, 4, 1, 1, "Bộ phát wifi 6 Asus RT-AX53U", "RT-AX53U,AX1800Mbps", "Bộ phát wifi 6 Asus RT-AX53U",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         Product p3 = new Product(1, "Bộ phát wifi 6 Asus RT-AX1800HP MU-MIMO (Chuẩn AX/ AX1800Mbps/ 4 Ăng-ten ngoài/ Wifi Mesh/ 35 User)",
+                "<ul class=\"ul\">\n" +
+                        "                      \n" +
+                        "                <li><i class=\"before\"></i><span><h3>Tốc độ WIFI: AX1800Mbps</h3></span></li>\n" +
+                        "                <li><i class=\"before\"></i><span><h3>Chuẩn kết nối: Chuẩn AX (Wifi 6)</h3></span></li>\n" +
+                        "                <li><i class=\"before\"></i><span><h3>Angten: 4 Ăng-ten ngoài</h3></span></li>\n" +
+                        "                <li><i class=\"before\"></i><span><h3>Cổng giao tiếp: RJ45 for Gigabits BaseT for WAN x 1, RJ45 for Gigabits BaseT for LAN x 4</h3></span></li>\n" +
+                        "                <li><i class=\"before\"></i><span><h3>Tốc độ LAN: 10/100/1000Mbps</h3></span></li>\n" +
+                        "                \n" +
+                        "                \n" +
+                        "                <div id=\"tabtem\"><a href=\"#tab2\" style=\"color: #f00;\">Xem chi tiết</a></div>\n" +
+                        "            </ul>",
                 "Ngày càng có nhiều thiết bị cá nhân và thiết bị IoT được kết nối với bộ phát Wifi, dẫn đến sự gia tăng tổng thể về mật độ mạng, đẩy giới hạn của tiêu chuẩn WiFi hiện tại lên mức cao hơn. Chuẩn WiFi 6 (802.11ax) mới nhất cung cấp các công nghệ tương lai, hiệu quả kết nối mạng tốt hơn, tốc độ WiFi nhanh hơn, phạm vi phủ sóng lớn hơn và cải thiện thời lượng pin cho các thiết bị được kết nối, mang lại trải nghiệm mạng tối ưu hơn nhiều cho người dùng.",
                 "Ngày càng có nhiều thiết bị cá nhân và thiết bị IoT được kết nối với bộ phát Wifi, dẫn đến sự gia tăng tổng thể về mật độ mạng, đẩy giới hạn của tiêu chuẩn WiFi hiện tại lên mức cao hơn. Chuẩn WiFi 6 (802.11ax) mới nhất cung cấp các công nghệ tương lai, hiệu quả kết nối mạng tốt hơn, tốc độ WiFi nhanh hơn, phạm vi phủ sóng lớn hơn và cải thiện thời lượng pin cho các thiết bị được kết nối, mang lại trải nghiệm mạng tối ưu hơn nhiều cho người dùng.",
                 "out_of_stock", 2, 3, 1, 1, "Bộ phát wifi 6 Asus RT-AX1800HP MU-MIMO", "RT-AX1800HP,MU-MIMO,AX1800Mbps", "Bộ phát wifi 6 Asus RT-AX1800HP MU-MIMO",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
