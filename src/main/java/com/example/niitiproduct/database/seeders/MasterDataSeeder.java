@@ -222,7 +222,7 @@ public class MasterDataSeeder {
                 "Card mạng không dây Với công nghệ WiFi 6 (802.11ax) và băng thông rộng 160 MHz, ASUS PCE-AX3000 mang đến tốc độ không dây nhanh hơn gấp 2,7 lần so với các thiết bị WiFi 5 (802.11ac). Sự kết hợp mang tính cách mạng giữa công nghệ OFDMA và MU-MIMO đảm bảo kết nối WiFi hiệu quả nhất cho máy tính của bạn.",
                 "Card mạng không dây Với công nghệ WiFi 6 (802.11ax) và băng thông rộng 160 MHz, ASUS PCE-AX3000 mang đến tốc độ không dây nhanh hơn gấp 2,7 lần so với các thiết bị WiFi 5 (802.11ac). Sự kết hợp mang tính cách mạng giữa công nghệ OFDMA và MU-MIMO đảm bảo kết nối WiFi hiệu quả nhất cho máy tính của bạn.",
                 "in_stock", 1, 1, 1, 1, "Cạc mạng không dây Asus PCI-E PCE-AX3000 Tray", "PCI-E,PCE-AX3000,AX3000Mbps", "Cạc mạng không dây Asus PCI-E PCE-AX3000 Tray",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
-        Product p2 = new Product(1, "Bộ phát wifi 6 Asus RT-AX53U (Chuẩn AX/ AX1800Mbps/ 4 Ăng-ten ngoài/ Wifi Mesh/ 35 User)",
+        Product p2 = new Product(2, "Bộ phát wifi 6 Asus RT-AX53U (Chuẩn AX/ AX1800Mbps/ 4 Ăng-ten ngoài/ Wifi Mesh/ 35 User)",
                 "<ul class=\"ul\">\n" +
                         "                      \n" +
                         "                <li><i class=\"before\"></i><span><h3>Tốc độ WIFI: AX1800Mbps</h3></span></li>\n" +
@@ -237,7 +237,7 @@ public class MasterDataSeeder {
                 "Wi-Fi công nghệ Mesh Asus RT-AX53U chuẩn Wifi 6 (802.11ax) mới nhất cung cấp các công nghệ trong tương lai, hiệu quả mạng cao hơn, tốc độ WiFi nhanh hơn, vùng phủ sóng lớn hơn và thời lượng pin được cải thiện cho các thiết bị được kết nối, mang lại cho người dùng trải nghiệm mạng tốt hơn đáng kể.",
                 "Wi-Fi công nghệ Mesh Asus RT-AX53U chuẩn Wifi 6 (802.11ax) mới nhất cung cấp các công nghệ trong tương lai, hiệu quả mạng cao hơn, tốc độ WiFi nhanh hơn, vùng phủ sóng lớn hơn và thời lượng pin được cải thiện cho các thiết bị được kết nối, mang lại cho người dùng trải nghiệm mạng tốt hơn đáng kể.",
                 "in_stock", 2, 4, 1, 1, "Bộ phát wifi 6 Asus RT-AX53U", "RT-AX53U,AX1800Mbps", "Bộ phát wifi 6 Asus RT-AX53U",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
-        Product p3 = new Product(1, "Bộ phát wifi 6 Asus RT-AX1800HP MU-MIMO (Chuẩn AX/ AX1800Mbps/ 4 Ăng-ten ngoài/ Wifi Mesh/ 35 User)",
+        Product p3 = new Product(3, "Bộ phát wifi 6 Asus RT-AX1800HP MU-MIMO (Chuẩn AX/ AX1800Mbps/ 4 Ăng-ten ngoài/ Wifi Mesh/ 35 User)",
                 "<ul class=\"ul\">\n" +
                         "                      \n" +
                         "                <li><i class=\"before\"></i><span><h3>Tốc độ WIFI: AX1800Mbps</h3></span></li>\n" +
