@@ -11,9 +11,15 @@ public class ResponseHandler {
     public static ResponseEntity<Object> generateResponse(HttpStatus status, String message, Object responseObject) {
         Map<String, Object> map = new HashMap<>();
         map.put("time", new Date());
-        map.put("status", status.value());
-        map.put("message", message);
-        map.put("data", responseObject);
+        try {
+            map.put("status", status.value());
+            map.put("message", message);
+            map.put("data", responseObject);
+        } catch (Exception exception) {
+            map.put("status", HttpStatus.INTERNAL_SERVER_ERROR.value());
+            map.put("message", exception.getMessage());
+            map.put("data", null);
+        }
         return new ResponseEntity<>(map, status);
     }
 }
