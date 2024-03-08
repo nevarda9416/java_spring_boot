@@ -29,7 +29,7 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-    @Value("${upload.path}category\\")
+    @Value("${upload.path}\\category\\")
     private String fileUpload;
 
     @GetMapping("")

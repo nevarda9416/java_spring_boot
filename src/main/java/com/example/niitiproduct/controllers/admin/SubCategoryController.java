@@ -31,7 +31,7 @@ public class SubCategoryController {
     @Autowired
     private CategoryService categoryService;
 
-    @Value("${upload.path}subcategory\\")
+    @Value("${upload.path}\\subcategory\\")
     private String fileUpload;
 
     /**
