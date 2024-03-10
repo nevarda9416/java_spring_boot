@@ -1,6 +1,6 @@
 package com.example.niitiproduct.controllers.api;
 
-import com.example.niitiproduct.services.SubCategoryService;
+import com.example.niitiproduct.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
-public class SubCategoryDataController {
+public class PostRestController {
     @Autowired
-    private SubCategoryService subCategoryService;
+    private PostService postService;
 
-    @GetMapping("/sub_categories/all")
+    @GetMapping("/posts/all")
     public ResponseEntity<Object> index() {
-        return subCategoryService.getAllSubCategories();
+        return postService.getAllPosts();
     }
 }

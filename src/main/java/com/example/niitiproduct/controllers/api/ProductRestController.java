@@ -15,14 +15,16 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("/api")
-public class ProductDataController {
+public class ProductRestController {
     Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     private ProductService productService;
 
     @GetMapping("/products/all")
-    public ResponseEntity<Object> index() {
+    public ResponseEntity<Object> getAllProducts() {
         logger.info("Product list fetched");
         return ResponseHandler.generateResponse(HttpStatus.OK, "Success", Objects.requireNonNull(productService.getAllProducts().getBody()));
     }
+
+    
 }

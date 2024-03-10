@@ -1,6 +1,6 @@
 package com.example.niitiproduct.controllers.api;
 
-import com.example.niitiproduct.services.UserService;
+import com.example.niitiproduct.services.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
-public class UserDataController {
+public class CommentRestController {
     @Autowired
-    private UserService userService;
+    private CommentService commentService;
 
-    @GetMapping("/users/all")
+    @GetMapping("/comments/all")
     public ResponseEntity<Object> index() {
-        return userService.getAllUsers();
+        return commentService.getAllComments();
     }
 }
