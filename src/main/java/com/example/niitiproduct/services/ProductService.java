@@ -96,4 +96,9 @@ public class ProductService {
         List<Product> productList = productRepository.findAll();
         return new ResponseEntity<>(productList, HttpStatus.OK);
     }
+
+    public ResponseEntity<Object> getProductsByCategoryId(Integer categoryId) {
+        List<Product> productList = productRepository.findProductsByCategory_id(categoryId);
+        return new ResponseEntity<>(productList, HttpStatus.OK);
+    }
 }
