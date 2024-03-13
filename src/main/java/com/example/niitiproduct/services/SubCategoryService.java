@@ -2,7 +2,6 @@ package com.example.niitiproduct.services;
 
 import com.example.niitiproduct.dto.SubCategoryDTO;
 import com.example.niitiproduct.mapper.SubCategoryMapper;
-import com.example.niitiproduct.models.Category;
 import com.example.niitiproduct.models.SubCategory;
 import com.example.niitiproduct.repositories.SubCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -93,6 +92,11 @@ public class SubCategoryService {
 
     public ResponseEntity<Object> getAllSubCategories() {
         List<SubCategory> subCategoryList = subCategoryRepository.findAll();
+        return new ResponseEntity<>(subCategoryList, HttpStatus.OK);
+    }
+
+    public ResponseEntity<Object> getListSubCategoriesByCategoryId(Integer categoryId) {
+        List<SubCategory> subCategoryList = subCategoryRepository.findSubCategoriesByCategoryId(categoryId);
         return new ResponseEntity<>(subCategoryList, HttpStatus.OK);
     }
 }
