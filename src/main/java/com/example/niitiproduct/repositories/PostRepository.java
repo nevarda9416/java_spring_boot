@@ -1,7 +1,9 @@
 package com.example.niitiproduct.repositories;
 
 import com.example.niitiproduct.models.Post;
+import com.example.niitiproduct.models.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -11,4 +13,7 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
     List<Post> findAllByOrderByIdDesc();
 
     List<Post> findByTitleContaining(String title);
+
+    @Query("SELECT p FROM Post p WHERE p.category_id = ?1")
+    List<Post> findPostsByCategory_id(Integer categoryId);
 }

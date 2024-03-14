@@ -3,6 +3,7 @@ package com.example.niitiproduct.services;
 import com.example.niitiproduct.dto.PostDTO;
 import com.example.niitiproduct.mapper.PostMapper;
 import com.example.niitiproduct.models.Post;
+import com.example.niitiproduct.models.Product;
 import com.example.niitiproduct.repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -87,6 +88,11 @@ public class PostService {
 
     public ResponseEntity<Object> getAllPosts() {
         List<Post> postList = postRepository.findAll();
+        return new ResponseEntity<>(postList, HttpStatus.OK);
+    }
+
+    public ResponseEntity<Object> getPostsByCategoryId(Integer categoryId) {
+        List<Post> postList = postRepository.findPostsByCategory_id(categoryId);
         return new ResponseEntity<>(postList, HttpStatus.OK);
     }
 }
