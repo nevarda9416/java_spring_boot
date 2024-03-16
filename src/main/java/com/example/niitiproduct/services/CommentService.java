@@ -94,4 +94,9 @@ public class CommentService {
         List<Comment> commentList = commentRepository.findAll();
         return new ResponseEntity<>(commentList, HttpStatus.OK);
     }
+
+    public ResponseEntity<Object> getCommentsByProductId(Integer productId) {
+        List<Comment> commentList = commentRepository.findCommentsByProductId(productId);
+        return new ResponseEntity<>(commentList, HttpStatus.OK);
+    }
 }
