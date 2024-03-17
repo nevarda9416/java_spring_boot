@@ -51,6 +51,8 @@ public class MasterDataSeeder {
     @Autowired
     private SubCategoryRepository subCategoryRepository;
     @Autowired
+    private ShoppingCartRepository shoppingCartRepository;
+    @Autowired
     private SellingPlaceRepository sellingPlaceRepository;
     @Autowired
     private SettingRepository settingRepository;
@@ -79,13 +81,14 @@ public class MasterDataSeeder {
         String sql11 = "TRUNCATE TABLE product_details";
         String sql12 = "TRUNCATE TABLE product_inventories";
         String sql13 = "TRUNCATE TABLE promotions";
-        String sql14 = "TRUNCATE TABLE subcategories";
-        String sql15 = "TRUNCATE TABLE roles";
-        String sql16 = "TRUNCATE TABLE selling_places";
-        String sql17 = "TRUNCATE TABLE settings";
-        String sql18 = "TRUNCATE TABLE users";
-        String sql19 = "TRUNCATE TABLE warranties";
-        String sql20 =  "SET foreign_key_checks = 1";
+        String sql14 = "TRUNCATE TABLE roles";
+        String sql15 = "TRUNCATE TABLE shopping_carts";
+        String sql16 = "TRUNCATE TABLE subcategories";
+        String sql17 = "TRUNCATE TABLE selling_places";
+        String sql18 = "TRUNCATE TABLE settings";
+        String sql19 = "TRUNCATE TABLE users";
+        String sql20 = "TRUNCATE TABLE warranties";
+        String sql21 =  "SET foreign_key_checks = 1";
         jdbcTemplate.execute(sql0);
         jdbcTemplate.execute(sql1);
         jdbcTemplate.execute(sql2);
@@ -107,6 +110,7 @@ public class MasterDataSeeder {
         jdbcTemplate.execute(sql18);
         jdbcTemplate.execute(sql19);
         jdbcTemplate.execute(sql20);
+        jdbcTemplate.execute(sql21);
     }
 
     public void insertBannerData() {
@@ -299,6 +303,15 @@ public class MasterDataSeeder {
         roleRepository.saveAll(roles);
     }
 
+    public void insertShoppingCartData() {
+        ShoppingCart s1 = new ShoppingCart(1, "sc-202403172346-1-pc", "Nhận hàng mới thanh toán", 1, "Viettel Post", "2024-03-30", "Đào Văn A", "Hà Nội", "daovana@gmail.com", "20000", "0987654321", 1, "Hà Nội", 1, "Hai Bà Trưng", 1, "Bạch Đằng", "Giao hàng trong giờ hành chính", "COD", "2024-03-30", "CODE202401WF", 30000F, 150000F, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        ShoppingCart s2 = new ShoppingCart(2, "sc-202403172347-2-pc", "Nhận hàng mới thanh toán", 2, "Viettel Post", "2024-03-30", "Đào Văn B", "Hà Nội", "daovanb@gmail.com", "20000", "0987654321", 1, "Hà Nội", 1, "Hai Bà Trưng", 1, "Bạch Đằng", "Giao hàng trong giờ hành chính", "COD", "2024-03-30", "CODE202401WF", 30000F, 150000F, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        ShoppingCart s3 = new ShoppingCart(3, "sc-202403172356-3-pc", "Nhận hàng mới thanh toán", 3, "Viettel Post", "2024-03-30", "Đào Văn C", "Hà Nội", "daovanc@gmail.com", "20000", "0987654321", 1, "Hà Nội", 1, "Hai Bà Trưng", 1, "Bạch Đằng", "Giao hàng trong giờ hành chính", "COD", "2024-03-30", "CODE202401WF", 30000F, 150000F, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        List<ShoppingCart> shoppingCarts = Arrays.asList(s1, s2, s3);
+        // This exposes a saveAll method for us, which will batch several inserts into one.
+        shoppingCartRepository.saveAll(shoppingCarts);
+    }
+
     public void insertSellingPlaceData() {
         SellingPlace s1 = new SellingPlace(1, "SHOWROOM XÃ ĐÀN", "Xã Đàn, Đống Đa, Hà Nội", "Hà Nội", "Đống Đa", "Xã Đàn", "Xã Đàn, Đống Đa, Hà Nội", "(024) 3968 9966 (ext 1)", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         SellingPlace s2 = new SellingPlace(2, "SHOWROOM TRẦN DUY HƯNG", "Trần Duy Hưng, Cầu Giấy, Hà Nội", "Hà Nội", "Cầu Giấy", "Trần Duy Hưng", "Trần Duy Hưng, Cầu Giấy, Hà Nội", "(024) 3968 9966 (ext 2)", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
@@ -364,6 +377,7 @@ public class MasterDataSeeder {
         this.insertProductInventoryData();
         this.insertPromotionData();
         this.insertRoleData();
+        this.insertShoppingCartData();
         this.insertSellingPlaceData();
         this.insertSettingData();
         this.insertSubCategoryData();
@@ -384,6 +398,7 @@ public class MasterDataSeeder {
                 "Đã thêm dữ liệu kho sản phẩm.<br/>" +
                 "Đã thêm dữ liệu khuyến mãi.<br/>" +
                 "Đã thêm dữ liệu phân quyền.<br/>" +
+                "Đã thêm dữ liệu giỏ hàng.<br/>" +
                 "Đã thêm dữ liệu nơi bán.<br/>" +
                 "Đã thêm dữ liệu cài đặt.<br/>" +
                 "Đã thêm dữ liệu danh mục con.<br/>" +
