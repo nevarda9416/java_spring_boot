@@ -16,7 +16,6 @@ public class ProvinceService {
 
     public ResponseEntity<Object> getAllProvinces() {
         List<Province> provinceList = provinceRepository.findAll();
-        System.out.println(provinceList);
         return new ResponseEntity<>(provinceList, HttpStatus.OK);
     }
 
