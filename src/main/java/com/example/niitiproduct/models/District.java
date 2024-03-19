@@ -24,9 +24,9 @@ public class District {
     String full_name_en;
     @Column(name = "code_name")
     String code_name;
-    @Column(name = "province_code  ")
+    @Column(name = "province_code")
     String province_code ;
-    @Column(name = "administrative_unit_id ")
+    @Column(name = "administrative_unit_id")
     Integer administrative_unit_id;
 }
 

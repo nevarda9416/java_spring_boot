@@ -6,11 +6,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="provinces", indexes={@Index(name="index_province_code", columnList="code")})
+@Table(name="wards", indexes={@Index(name="index_ward_code", columnList="code")})
 @NoArgsConstructor
 @Getter
 @Setter
-public class Province {
+public class Ward {
     @Id
     @Column(name = "code")
     String code;
@@ -24,8 +24,9 @@ public class Province {
     String full_name_en;
     @Column(name = "code_name")
     String code_name;
+    @Column(name = "district_code")
+    String district_code;
     @Column(name = "administrative_unit_id")
     Integer administrative_unit_id;
-    @Column(name = "administrative_region_id")
-    Integer administrative_region_id ;
 }
+
