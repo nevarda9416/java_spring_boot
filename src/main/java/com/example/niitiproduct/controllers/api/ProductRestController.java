@@ -7,29 +7,32 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Objects;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/products")
 public class ProductRestController {
     Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     private ProductService productService;
 
-    @GetMapping("/products/all")
+    @GetMapping("/all")
     public ResponseEntity<Object> getAllProducts() {
         logger.info("Product list fetched");
         return ResponseHandler.generateResponse(HttpStatus.OK, "Success", Objects.requireNonNull(productService.getAllProducts().getBody()));
     }
 
-    @GetMapping("/products/category/{id}")
-    public ResponseEntity<Object> getProductsByCategoryId(@PathVariable("id") Integer categoryId) {
-        logger.info("Product list fetched by category");
-        return ResponseHandler.generateResponse(HttpStatus.OK, "Success", Objects.requireNonNull(productService.getProductsByCategoryId(categoryId).getBody()));
+    @GetMapping("/category/id/{id}")
+    public ResponseEntity<Object> getProductsByCategoryId(@PathVariable("id") Integer id) {
+        logger.info("Product list fetched by category ID");
+        return ResponseHandler.generateResponse(HttpStatus.OK, "Success", Objects.requireNonNull(productService.getProductsByCategoryId(id).getBody()));
+    }
+
+    @GetMapping("/category/slug/{slug}")
+    public ResponseEntity<Object> getProductsByCategorySlug(@PathVariable("slug") String slug) {
+        logger.info("Product list fetched by category slug");
+        return ResponseHandler.generateResponse(HttpStatus.OK, "Success", Objects.requireNonNull(productService.getProductsByCategorySlug(slug).getBody()));
     }
 }

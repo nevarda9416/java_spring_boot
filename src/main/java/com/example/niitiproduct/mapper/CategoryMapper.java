@@ -10,6 +10,7 @@ public class CategoryMapper {
         return CategoryDTO.builder(
                 ).id(category.getId())
                 .name(category.getName())
+                .slug(category.getSlug())
                 .image(category.getImage())
                 .summary(category.getSummary())
                 .description(category.getDescription())

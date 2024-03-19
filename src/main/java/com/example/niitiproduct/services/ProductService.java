@@ -101,4 +101,9 @@ public class ProductService {
         List<Product> productList = productRepository.findProductsByCategory_id(categoryId);
         return new ResponseEntity<>(productList, HttpStatus.OK);
     }
+
+    public ResponseEntity<Object> getProductsByCategorySlug(String categorySlug) {
+        List<Product> productList = productRepository.findProductsByCategory_slug(categorySlug);
+        return new ResponseEntity<>(productList, HttpStatus.OK);
+    }
 }

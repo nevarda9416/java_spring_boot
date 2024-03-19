@@ -10,6 +10,7 @@ import lombok.*;
 public class CategoryDTO {
     private Integer id;
     private String name;
+    private String slug;
     private String image;
     private String summary;
     private String description;

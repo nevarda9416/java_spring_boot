@@ -15,4 +15,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     @Query("SELECT p FROM Product p WHERE p.category_id = ?1")
     List<Product> findProductsByCategory_id(Integer categoryId);
+
+    @Query("SELECT p FROM Product p INNER JOIN Category c ON c.id = p.category_id WHERE c.slug = ?1")
+    List<Product> findProductsByCategory_slug(String categorySlug);
 }

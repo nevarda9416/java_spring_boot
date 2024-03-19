@@ -14,6 +14,8 @@ public class Category {
     Integer id;
     @Column(name = "name")
     String name;
+    @Column(name = "slug")
+    String slug;
     @Column(name = "image")
     String image;
     @Column(name = "summary")
@@ -37,9 +39,10 @@ public class Category {
     @Column(name = "deleted_by")
     String deleted_by;
 
-    public Category(Integer id, String name, String image, String summary, String description, Integer display_order, Integer is_actived, String created_at, String created_by, String updated_at, String updated_by, String deleted_at, String deleted_by) {
+    public Category(Integer id, String name, String slug, String image, String summary, String description, Integer display_order, Integer is_actived, String created_at, String created_by, String updated_at, String updated_by, String deleted_at, String deleted_by) {
         this.id = id;
         this.name = name;
+        this.slug = slug;
         this.image = image;
         this.summary = summary;
         this.description = description;
