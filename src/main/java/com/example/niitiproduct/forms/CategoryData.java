@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class CategoryData {
     private Integer id;
     private String name;
+    private String slug;
     private MultipartFile image;
     private String summary;
     private String description;

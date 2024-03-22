@@ -86,6 +86,7 @@ public class CategoryController {
             e.printStackTrace();
         }
         category.setName(categoryData.getName());
+        category.setSlug(categoryData.getSlug());
         category.setSummary(categoryData.getSummary());
         category.setDescription(categoryData.getDescription());
         category.setDisplay_order(categoryData.getDisplay_order());

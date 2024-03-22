@@ -27,12 +27,18 @@
                           enctype="multipart/form-data">
                         <span class="section">Thông tin danh mục cha</span>
                         <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">Tên danh mục<span
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">Tên danh mục <span
                                     class="required">*</span></label>
                             <div class="col-md-9 col-sm-9">
                                 <input class="form-control" name="name" type="text" required="required"
                                        th:field="*{name}"/>
                             </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">Slug <span
+                                    class="required">*</span></label>
+                            <div class="col-md-9 col-sm-9">
+                                <input class="form-control" name="slug" type="text" required="required" th:field="*{slug}" placeholder="bo-phat-wifi"/></div>
                         </div>
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Hình ảnh minh họa</label>
