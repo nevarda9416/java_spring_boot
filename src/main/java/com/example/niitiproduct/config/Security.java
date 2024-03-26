@@ -1,5 +1,6 @@
 package com.example.niitiproduct.config;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -17,6 +18,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
+@OpenAPIDefinition
 public class Security {
 
     // User Creation
@@ -42,7 +44,13 @@ public class Security {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/**", "/data/**", "/admin/**", "/public/**", "/vendors/**", "/images/**")
+                        .requestMatchers("/api/**", "/data/**",
+                                "/authenticate/**", //Swagger
+                                "/swagger-resources/**", //Swagger
+                                "/swagger-ui/**", //Swagger
+                                "/v3/api-docs/**", //Swagger
+                                "/api/v1/app/user/auth/**", //Swagger
+                                "/admin/**", "/public/**", "/vendors/**", "/images/**")
                         .permitAll()
                         .requestMatchers("/auth/user/**").authenticated()
                         .requestMatchers("/auth/admin/**").authenticated()
