@@ -61,9 +61,12 @@ public class CategoryController {
     public String edit(Model model, @PathVariable("id") Long id,
                        @RequestParam(name="page", required = false, defaultValue = Pagination.defaultPage) Integer page,
                        @RequestParam(name="page", required = false, defaultValue = Pagination.defaultSize) Integer size) {
-        Pageable pageable = Pageable.ofSize(size).withPage(page);
-        List<CategoryDTO> categories = categoryService.getAll(pageable);
+        Page<Category> categoryPage = categoryService.findPaginated(page, size);
+        model.addAttribute("keyword", "");
+        List<Category> categories = categoryPage.getContent();
         model.addAttribute("categories", categories);
+        model.addAttribute("totalPages", categoryPage.getTotalPages());
+        model.addAttribute("totalItems", categoryPage.getTotalElements());
         Category category = categoryService.findById(id);
         model.addAttribute("category", category);
         return "admin/category/form";
