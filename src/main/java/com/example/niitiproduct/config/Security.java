@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -39,6 +40,13 @@ public class Security {
         return new InMemoryUserDetailsManager(admin, user);
     }
 
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return (web) -> web.ignoring().requestMatchers("/public/**",
+                "/favicon.ico", "/health.html", "/robots.txt"
+        );
+    }
+
     // Configuring HttpSecurity
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -50,7 +58,7 @@ public class Security {
                                 "/swagger-ui/**", //Swagger
                                 "/v3/api-docs/**", //Swagger
                                 "/api/v1/app/user/auth/**", //Swagger
-                                "/admin/**", "/public/**", "/vendors/**", "/images/**")
+                                "/admin/**",  "/vendors/**", "/images/**")
                         .permitAll()
                         .requestMatchers("/auth/user/**").authenticated()
                         .requestMatchers("/auth/admin/**").authenticated()

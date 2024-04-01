@@ -42,7 +42,7 @@
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Hình ảnh minh họa</label>
                             <div class="col-md-9 col-sm-9">
-                                <img th:src="*{image}"  th:alt="*{name}"/></div>
+                                <img th:src="@{${'/public/uploads' + category.image}}"  th:alt="*{name}" width="100px"/></div>
                         </div>
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Tóm tắt</label>
@@ -142,7 +142,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td>Ảnh danh mục:</td>
-                                                            <td><img th:attr="src=${c.image},alt=${c.name}"/></td>
+                                                            <td><img th:attr="src=@{${'/public/uploads' + c.image}},alt=${c.name}"/></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Tóm tắt:</td>
@@ -185,18 +185,32 @@
                             </tr>
                             </tbody>
                         </table>
-                        <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="#" aria-label="Previous">&laquo;</a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active"><a class="page-link " href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">4</a></li>
-                            <li class="page-item"><a class="page-link" href="#">5</a></li>
-                            <li class="page-item"><a class="page-link" href="#">6</a></li>
-                            <li class="page-item"><a class="page-link" href="#">7</a></li>
-                            <li class="page-item"><a class="page-link" href="#">8</a></li>
-                            <li class="page-item"><a class="page-link" href="#">9</a></li>
-                            <li class="page-item"><a class="page-link" href="#" aria-label="Next">&raquo;</a></li>
+                        <ul class="pagination" th:if="${totalPages > 1}">
+                            <li class="page-item">
+                                <a class="page-link" th:if="${currentPage > 1}" th:href="@{'?search=' + ${keyword} + '&page=1'}">Đầu</a>
+                                <span class="page-link" th:unless="${currentPage > 1}">Đầu</span>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" th:if="${currentPage > 1}"
+                                   th:href="@{'?search=' + ${keyword} + '&page=' + ${currentPage - 1}}">Trước</a>
+                                <span class="page-link" th:unless="${currentPage > 1}">Trước</span>
+                            </li>
+                            <li class="page-item" th:each="i: ${#numbers.sequence(1, totalPages)}"
+                                th:classappend="${currentPage == i} ? active">
+                                <a class="page-link" th:if="${currentPage != i}"
+                                   th:href="@{'?search=' + ${keyword} + '&page=' + ${i}}">[[${i}]]</a>
+                                <span class="page-link" th:unless="${currentPage != i}">[[${i}]]</span> &nbsp; &nbsp;
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" th:if="${currentPage < totalPages}"
+                                   th:href="@{'?search=' + ${keyword} + '&page=' + ${currentPage + 1}}">Sau</a>
+                                <span class="page-link" th:unless="${currentPage < totalPages}">Sau</span>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" th:if="${currentPage < totalPages}"
+                                   th:href="@{''?search=' + ${keyword} + '&page=' + ${totalPages}}">Cuối</a>
+                                <span class="page-link" th:unless="${currentPage < totalPages}">Cuối</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
