@@ -44,8 +44,8 @@
                                 <td th:text="${c.gender}"></td>
                                 <td th:text="${c.telephone}"></td>
                                 <td>
-                                    <span th:if="${c.is_actived==1}" class="badge badge-success">Hiển thị</span>
-                                    <span th:if="${c.is_actived==0}" class="badge badge-secondary">Ẩn</span>
+                                    <span th:if="${c.is_actived==1}" class="badge badge-success">Hoạt động</span>
+                                    <span th:if="${c.is_actived==0}" class="badge badge-secondary">Tạm dừng</span>
                                 </td>
                                 <td class=" last"><a href="#" data-toggle="modal"
                                                      th:attr="data-target=${'#bs-example-modal-lg-'+c.id}">Xem</a> | <a href="#">Khóa tài khoản</a>
