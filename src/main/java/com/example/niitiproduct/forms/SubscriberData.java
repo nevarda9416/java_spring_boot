@@ -1,13 +1,14 @@
-package com.example.niitiproduct.dto;
+package com.example.niitiproduct.forms;
 
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class SubscriberDTO {
+public class SubscriberData {
     private Integer id;
     private String email;
     private String status;
