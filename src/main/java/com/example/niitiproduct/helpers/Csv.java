@@ -36,10 +36,11 @@ public class Csv {
             for (CSVRecord csvRecord: csvRecords) {
                 Category category = new Category();
                 category.setName(csvRecord.get("Tên danh mục"));
-                category.setImage("");
+                category.setSlug(csvRecord.get("Slug"));
+                category.setImage(csvRecord.get("Hình ảnh minh họa"));
                 category.setSummary(csvRecord.get("Tóm tắt"));
                 category.setDescription(csvRecord.get("Mô tả"));
-                category.setDisplay_order(0);
+                category.setDisplay_order(null);
                 category.setIs_actived(1);
                 category.setCreated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
                 category.setCreated_by(String.valueOf(1));

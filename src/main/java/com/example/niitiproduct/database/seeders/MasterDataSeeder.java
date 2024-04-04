@@ -1,5 +1,6 @@
 package com.example.niitiproduct.database.seeders;
 
+import com.example.niitiproduct.exceptions.ResponseHandler;
 import com.example.niitiproduct.helpers.Csv;
 import com.example.niitiproduct.models.*;
 import com.example.niitiproduct.repositories.*;
@@ -421,8 +422,6 @@ public class MasterDataSeeder {
         jdbcTemplate.execute(sql2);
         List<Category> categoryList = Csv.csvToCategoryList(file.getInputStream());
         categoryRepository.saveAll(categoryList);
-        return new ResponseEntity<>(
-                        "Đã import dữ liệu danh mục cha.<br/>"
-                , HttpStatus.OK);
+        return ResponseHandler.generateResponse(HttpStatus.OK, "Đã import dữ liệu thành công.", null);
     }
 }
