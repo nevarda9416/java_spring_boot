@@ -5,7 +5,7 @@ import com.example.niitiproduct.dto.SubCategoryDTO;
 import com.example.niitiproduct.config.constants.Pagination;
 import com.example.niitiproduct.forms.SubCategoryData;
 import com.example.niitiproduct.models.SubCategory;
-import com.example.niitiproduct.services.CategoryService;
+import com.example.niitiproduct.services.Category.CategoryService;
 import com.example.niitiproduct.services.SubCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

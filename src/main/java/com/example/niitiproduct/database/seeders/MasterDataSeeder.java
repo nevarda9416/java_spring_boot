@@ -1,5 +1,6 @@
 package com.example.niitiproduct.database.seeders;
 
+import com.example.niitiproduct.helpers.Csv;
 import com.example.niitiproduct.models.*;
 import com.example.niitiproduct.repositories.*;
 import jakarta.transaction.Transactional;
@@ -8,10 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -360,7 +361,7 @@ public class MasterDataSeeder {
     /**
      * Run insert master data
      */
-    @GetMapping("")
+    @GetMapping("/insert")
     public ResponseEntity<Object> insertMasterData() {
         this.truncateAllTables();
         this.insertBannerData();
@@ -404,6 +405,24 @@ public class MasterDataSeeder {
                 "Đã thêm dữ liệu danh mục con.<br/>" +
                 "Đã thêm dữ liệu người quản trị.<br/>" +
                 "Đã thêm dữ liệu bảo hành."
+                , HttpStatus.OK);
+    }
+
+    /**
+     * Run import master data
+     */
+    @PostMapping("/import")
+    public ResponseEntity<Object> importMasterData(@RequestParam("file") MultipartFile file) throws IOException {
+        String sql0 = "SET foreign_key_checks = 0";
+        String sql1 = "TRUNCATE TABLE categories";
+        String sql2 =  "SET foreign_key_checks = 1";
+        jdbcTemplate.execute(sql0);
+        jdbcTemplate.execute(sql1);
+        jdbcTemplate.execute(sql2);
+        List<Category> categoryList = Csv.csvToCategoryList(file.getInputStream());
+        categoryRepository.saveAll(categoryList);
+        return new ResponseEntity<>(
+                        "Đã import dữ liệu danh mục cha.<br/>"
                 , HttpStatus.OK);
     }
 }

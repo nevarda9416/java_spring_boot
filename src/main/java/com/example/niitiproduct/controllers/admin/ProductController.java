@@ -6,7 +6,7 @@ import com.example.niitiproduct.dto.ProductDTO;
 import com.example.niitiproduct.dto.PromotionDTO;
 import com.example.niitiproduct.models.Product;
 import com.example.niitiproduct.models.ProductPromotion;
-import com.example.niitiproduct.services.CategoryService;
+import com.example.niitiproduct.services.Category.CategoryService;
 import com.example.niitiproduct.services.ProductService;
 import com.example.niitiproduct.services.PromotionService;
 import org.springframework.beans.factory.annotation.Autowired;

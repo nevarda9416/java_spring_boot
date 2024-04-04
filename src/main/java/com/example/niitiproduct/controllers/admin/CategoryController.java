@@ -4,7 +4,7 @@ import com.example.niitiproduct.dto.CategoryDTO;
 import com.example.niitiproduct.config.constants.Pagination;
 import com.example.niitiproduct.forms.CategoryData;
 import com.example.niitiproduct.models.Category;
-import com.example.niitiproduct.services.CategoryService;
+import com.example.niitiproduct.services.Category.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;

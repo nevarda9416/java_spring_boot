@@ -1,4 +1,4 @@
-package com.example.niitiproduct.services;
+package com.example.niitiproduct.services.Category;
 
 import com.example.niitiproduct.dto.CategoryDTO;
 import com.example.niitiproduct.mapper.CategoryMapper;
@@ -17,7 +17,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class CategoryService {
+public class CategoryService implements ICategoryService {
     @Autowired
     CategoryMapper categoryMapper;
     @Autowired

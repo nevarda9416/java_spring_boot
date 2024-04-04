@@ -1,6 +1,6 @@
 package com.example.niitiproduct.controllers.api;
 
-import com.example.niitiproduct.services.CategoryService;
+import com.example.niitiproduct.services.Category.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
