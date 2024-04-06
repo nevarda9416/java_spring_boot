@@ -60,13 +60,14 @@ public class CategoryController {
     @GetMapping("/edit/{id}")
     public String edit(Model model, @PathVariable("id") Long id,
                        @RequestParam(name="page", required = false, defaultValue = Pagination.defaultPage) Integer page,
-                       @RequestParam(name="page", required = false, defaultValue = Pagination.defaultSize) Integer size) {
+                       @RequestParam(name="size", required = false, defaultValue = Pagination.defaultSize) Integer size) {
         Page<Category> categoryPage = categoryService.findPaginated(page, size);
         model.addAttribute("keyword", "");
         List<Category> categories = categoryPage.getContent();
         model.addAttribute("categories", categories);
         model.addAttribute("totalPages", categoryPage.getTotalPages());
         model.addAttribute("totalItems", categoryPage.getTotalElements());
+        model.addAttribute("currentPage", page);
         Category category = categoryService.findById(id);
         model.addAttribute("category", category);
         return "admin/category/form";
@@ -84,6 +85,7 @@ public class CategoryController {
         MultipartFile multipartFile = categoryData.getImage();
         String fileName = multipartFile.getOriginalFilename();
         try {
+            System.out.println(this.fileUpload + fileName);
             FileCopyUtils.copy(categoryData.getImage().getBytes(), new File(this.fileUpload + fileName));
         } catch (IOException e) {
             e.printStackTrace();
@@ -94,19 +96,19 @@ public class CategoryController {
         category.setDescription(categoryData.getDescription());
         category.setDisplay_order(categoryData.getDisplay_order());
         category.setIs_actived(categoryData.getIs_actived());
-        category.setImage(fileName);
+        category.setImage("/images/category/" + fileName);
         category.setCreated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         category.setCreated_by("admin");
         category.setUpdated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         category.setUpdated_by("admin");
         categoryService.store(category);
-        return "redirect:/admin/categories";
+        return "redirect:/admin/categories/edit/" + category.getId();
     }
 
     @GetMapping("/delete/{id}")
     public String delete(Model model, @PathVariable("id") Long id,
                          @RequestParam(name="page", required = false, defaultValue = Pagination.defaultPage) Integer page,
-                         @RequestParam(name="page", required = false, defaultValue = Pagination.defaultSize) Integer size
+                         @RequestParam(name="size", required = false, defaultValue = Pagination.defaultSize) Integer size
     ) {
         categoryService.delete(id);
         Pageable pageable = Pageable.ofSize(size).withPage(page);
@@ -119,7 +121,7 @@ public class CategoryController {
     @GetMapping("/all")
     public ResponseEntity<List<CategoryDTO>> getAll(
             @RequestParam(name="page", required = false, defaultValue = Pagination.defaultPage) Integer page,
-            @RequestParam(name="page", required = false, defaultValue = Pagination.defaultSize) Integer size
+            @RequestParam(name="size", required = false, defaultValue = Pagination.defaultSize) Integer size
     ) {
         Pageable pageable = Pageable.ofSize(size).withPage(page);
         List<CategoryDTO> categories = categoryService.getAll(pageable);

@@ -5,7 +5,7 @@
         <div class="col-md-6 col-sm-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Cập nhật danh mục sản phẩm cha</h2>
+                    <a href="/admin/categories" class="btn btn-success"><i class="fa fa-plus"></i> Thêm danh mục sản phẩm cha</a>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -24,7 +24,7 @@
                 </div>
                 <div class="x_content">
                     <form class="" action="/admin/categories/update" method="post" validate th:object="${category}" enctype="multipart/form-data">
-                        <span class="section">Thông tin danh mục cha</span>
+                        <span class="section">Sửa thông tin danh mục cha</span>
                         <input class="form-control" name="id" type="hidden" required="required" th:field="*{id}"/>
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Tên danh mục<span
@@ -208,7 +208,7 @@
                             </li>
                             <li class="page-item">
                                 <a class="page-link" th:if="${currentPage < totalPages}"
-                                   th:href="@{''?search=' + ${keyword} + '&page=' + ${totalPages}}">Cuối</a>
+                                   th:href="@{'?search=' + ${keyword} + '&page=' + ${totalPages}}">Cuối</a>
                                 <span class="page-link" th:unless="${currentPage < totalPages}">Cuối</span>
                             </li>
                         </ul>

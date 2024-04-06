@@ -25,7 +25,7 @@
                 <div class="x_content">
                     <form class="" action="/admin/categories/store" method="post" validate th:object="${category}"
                           enctype="multipart/form-data">
-                        <span class="section">Thông tin danh mục cha</span>
+                        <span class="section">Thêm thông tin danh mục cha</span>
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Tên danh mục <span
                                     class="required">*</span></label>
@@ -43,7 +43,7 @@
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Hình ảnh minh họa</label>
                             <div class="col-md-9 col-sm-9">
-                                <input class="form-control optional" name="image" type="file" th:field="*{image}"/>
+                                <input class="form-control optional" name="image" type="file" th:field="*{image}" accept="image/*"/>
                             </div>
                         </div>
                         <div class="field item form-group">
@@ -237,7 +237,7 @@
                             </li>
                             <li class="page-item">
                                 <a class="page-link" th:if="${currentPage < totalPages}"
-                                   th:href="@{''?search=' + ${keyword} + '&page=' + ${totalPages}}">Cuối</a>
+                                   th:href="@{'?search=' + ${keyword} + '&page=' + ${totalPages}}">Cuối</a>
                                 <span class="page-link" th:unless="${currentPage < totalPages}">Cuối</span>
                             </li>
                         </ul>
