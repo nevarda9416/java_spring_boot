@@ -5,6 +5,7 @@ import com.example.niitiproduct.config.constants.Pagination;
 import com.example.niitiproduct.forms.CategoryData;
 import com.example.niitiproduct.models.Category;
 import com.example.niitiproduct.services.Category.CategoryService;
+import com.example.niitiproduct.services.Category.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
@@ -27,7 +28,7 @@ import java.util.List;
 @RequestMapping("admin/categories")
 public class CategoryController {
     @Autowired
-    private CategoryService categoryService;
+    private ICategoryService categoryService;
 
     @Value("${upload.path}\\category\\")
     private String fileUpload;
