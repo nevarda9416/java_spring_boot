@@ -1,9 +1,10 @@
 package com.example.niitiproduct.services.ShoppingCart;
 
+import com.example.niitiproduct.models.ShoppingCart;
 import org.springframework.http.ResponseEntity;
 
 public interface IShoppingCartService {
-    public boolean addShoppingCart();
+    boolean store(ShoppingCart shoppingCart);
 
-    public ResponseEntity<Object> getShoppingCart();
+    ResponseEntity<Object> getShoppingCart();
 }
