@@ -10,6 +10,7 @@ import lombok.*;
 public class ProductDTO {
     private Integer id;
     private String name;
+    private String slug;
     private String summary;
     private String short_description;
     private String long_description;

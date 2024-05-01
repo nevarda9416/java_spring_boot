@@ -14,6 +14,8 @@ public class Product {
     Integer id;
     @Column(name = "name")
     String name;
+    @Column(name = "slug")
+    String slug;
     @Column(name = "summary", columnDefinition = "TEXT")
     String summary;
     @Column(name = "short_description", columnDefinition = "TEXT")
@@ -54,9 +56,10 @@ public class Product {
 //    inverseJoinColumns = {@JoinColumn(name = "promotion_id")})
 //    Set<Promotion> promotionList = new HashSet<>();
 
-    public Product(Integer id, String name, String summary, String short_description, String long_description, String status, Integer category_id, Integer sub_category_id, Integer manufacture_id, Integer display_order, String meta_title, String meta_keyword, String meta_description, String created_at, String created_by, String updated_at, String updated_by, String deleted_at, String deleted_by) {
+    public Product(Integer id, String name, String slug, String summary, String short_description, String long_description, String status, Integer category_id, Integer sub_category_id, Integer manufacture_id, Integer display_order, String meta_title, String meta_keyword, String meta_description, String created_at, String created_by, String updated_at, String updated_by, String deleted_at, String deleted_by) {
         this.id = id;
         this.name = name;
+        this.slug = slug;
         this.summary = summary;
         this.short_description = short_description;
         this.long_description = long_description;

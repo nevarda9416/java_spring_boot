@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -97,6 +98,14 @@ public class ProductService {
         return new ResponseEntity<>(productList, HttpStatus.OK);
     }
 
+    /**
+     * Get list product details
+     */
+    public ResponseEntity<Object> getListProductDetails(List<Integer> listProductIds) {
+        List<Product> productList = productRepository.getListProductDetails(listProductIds);
+        return new ResponseEntity<>(productList, HttpStatus.OK);
+    }
+
     public ResponseEntity<Object> getProductsByCategoryId(Integer categoryId) {
         List<Product> productList = productRepository.findProductsByCategory_id(categoryId);
         return new ResponseEntity<>(productList, HttpStatus.OK);
@@ -105,5 +114,15 @@ public class ProductService {
     public ResponseEntity<Object> getProductsByCategorySlug(String categorySlug) {
         List<Product> productList = productRepository.findProductsByCategory_slug(categorySlug);
         return new ResponseEntity<>(productList, HttpStatus.OK);
+    }
+
+    public ResponseEntity<Object> getProductById(Integer id) {
+        Optional<Product> productDetail = productRepository.findById(id);
+        return new ResponseEntity<>(productDetail, HttpStatus.OK);
+    }
+
+    public ResponseEntity<Object> getProductBySlug(String slug) {
+        List<Product> productDetail = productRepository.findBySlug(slug);
+        return new ResponseEntity<>(productDetail, HttpStatus.OK);
     }
 }

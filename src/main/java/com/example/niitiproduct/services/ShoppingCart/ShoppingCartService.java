@@ -1,6 +1,5 @@
 package com.example.niitiproduct.services.ShoppingCart;
 
-import com.example.niitiproduct.models.Category;
 import com.example.niitiproduct.models.ShoppingCart;
 import com.example.niitiproduct.repositories.ShoppingCartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
