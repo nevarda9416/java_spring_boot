@@ -5,6 +5,8 @@ import com.example.niitiproduct.mapper.OrderMapper;
 import com.example.niitiproduct.models.Order;
 import com.example.niitiproduct.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -79,6 +81,27 @@ public class OrderService {
             orderRepository.deleteById(Math.toIntExact(id));
         } catch (Exception e) {
             System.out.println(e.getMessage());
+        }
+    }
+
+    public boolean saveOrder(Order orderData) {
+        try {
+            Order order = new Order();
+            order.setCode(orderData.getCode());
+            order.setTotal_price(orderData.getTotal_price());
+            order.setTotal_amount(orderData.getTotal_amount());
+            order.setTotal_tax(orderData.getTotal_tax());
+            order.setStatus(orderData.getStatus());
+            order.setAccounts_receivable(orderData.getAccounts_receivable());
+            order.setCreated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+            order.setCreated_by(String.valueOf(1));
+            order.setUpdated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+            order.setUpdated_by(String.valueOf(1));
+            orderRepository.save(order);
+            return new ResponseEntity<>(orderData, HttpStatus.OK).hasBody();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
         }
     }
 }
