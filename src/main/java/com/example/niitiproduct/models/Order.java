@@ -3,6 +3,8 @@ package com.example.niitiproduct.models;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "orders", indexes = {@Index(name = "index_order_id", columnList = "id")})
 @NoArgsConstructor

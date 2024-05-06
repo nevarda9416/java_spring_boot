@@ -27,4 +27,8 @@ public class ProductDTO {
     private String deleted_at;
     private String deleted_by;
     private PromotionDTO promotionList;
+    private Float price;
+    private Integer quantity;
+    private String discount_code;
+    private Float discount_amount;
 }

@@ -1,8 +1,11 @@
 package com.example.niitiproduct.services;
 
 import com.example.niitiproduct.dto.OrderDTO;
+import com.example.niitiproduct.dto.ProductDTO;
 import com.example.niitiproduct.mapper.OrderMapper;
 import com.example.niitiproduct.models.Order;
+import com.example.niitiproduct.models.OrderItem;
+import com.example.niitiproduct.repositories.OrderItemRepository;
 import com.example.niitiproduct.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,6 +22,8 @@ public class OrderService {
     OrderMapper orderMapper;
     @Autowired
     private OrderRepository orderRepository;
+    @Autowired
+    private OrderItemRepository orderItemRepository;
 
     /**
      * Get all orders
@@ -90,7 +95,7 @@ public class OrderService {
         }
     }
 
-    public boolean saveOrder(Order orderData) {
+    public boolean saveOrder(OrderDTO orderData) {
         try {
             Order order = new Order();
             order.setCode(orderData.getCode());
@@ -122,7 +127,22 @@ public class OrderService {
             order.setCreated_by(String.valueOf(1));
             order.setUpdated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
             order.setUpdated_by(String.valueOf(1));
-            orderRepository.save(order);
+            order = orderRepository.save(order);
+            for (ProductDTO product: orderData.getProductList()) {
+                System.out.println(product);
+                OrderItem orderItem = new OrderItem();
+                orderItem.setOrder_id(order.getId());
+                orderItem.setProduct_id(product.getId());
+                orderItem.setPrice(product.getPrice());
+                orderItem.setQuantity(product.getQuantity());
+                orderItem.setDiscount_code(product.getDiscount_code());
+                orderItem.setDiscount_amount(product.getDiscount_amount());
+                orderItem.setCreated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+                orderItem.setCreated_by(String.valueOf(1));
+                orderItem.setUpdated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+                orderItem.setUpdated_by(String.valueOf(1));
+                orderItemRepository.save(orderItem);
+            }
             return new ResponseEntity<>(orderData, HttpStatus.OK).hasBody();
         } catch (Exception e) {
             System.out.println(e.getMessage());

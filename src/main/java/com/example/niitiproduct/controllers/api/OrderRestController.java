@@ -1,5 +1,6 @@
 package com.example.niitiproduct.controllers.api;
 
+import com.example.niitiproduct.dto.OrderDTO;
 import com.example.niitiproduct.exceptions.ResponseHandler;
 import com.example.niitiproduct.models.Order;
 import com.example.niitiproduct.services.OrderService;
@@ -22,7 +23,7 @@ public class OrderRestController {
     @Autowired
     private OrderService orderService;
     @PostMapping("/save")
-    public ResponseEntity<Object> saveOrder(@RequestBody Order order) {
+    public ResponseEntity<Object> saveOrder(@RequestBody OrderDTO order) {
         logger.info("List product details fetched");
         return ResponseHandler.generateResponse(HttpStatus.OK, "Success", Objects.requireNonNull(orderService.saveOrder(order)));
     }
