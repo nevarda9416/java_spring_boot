@@ -90,7 +90,7 @@ public class MasterDataSeeder {
         String sql18 = "TRUNCATE TABLE settings";
         String sql19 = "TRUNCATE TABLE users";
         String sql20 = "TRUNCATE TABLE warranties";
-        String sql21 =  "SET foreign_key_checks = 1";
+        String sql21 = "SET foreign_key_checks = 1";
         jdbcTemplate.execute(sql0);
         jdbcTemplate.execute(sql1);
         jdbcTemplate.execute(sql2);
@@ -176,9 +176,15 @@ public class MasterDataSeeder {
     }
 
     public void insertOrderData() {
-        Order o1 = new Order(1, "20240208TBM1", 2500000F, 2, (float) 0, "Chưa thanh toán", 2500000F, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
-        Order o2 = new Order(2, "20240209TBM1", 1500000F, 1, (float) 0, "Đã thanh toán", (float) 0, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
-        Order o3 = new Order(3, "20240309TBM1", 4600000F, 3, (float) 0, "Chưa thanh toán", 4600000F, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Order o1 = new Order(1, "20240208TBM1", 2500000F, 2, (float) 0, "Chưa thanh toán", 2500000F,
+                "Nhận hàng thanh toán", 1, "Viettel post", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "Đào Văn A", "Duy Tân, Cầu Giấy, Hà Nội", "daovana@gmail.com", 20000F, "0987654321", "01", "Hà Nội", "007", "Quận Hai Bà Trưng", "00244", "Bạch Đằng", "COD", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "", 0F,
+                new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Order o2 = new Order(2, "20240209TBM1", 1500000F, 1, (float) 0, "Đã thanh toán", (float) 0,
+                "Nhận hàng thanh toán", 1, "Viettel post", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "Đào Văn A", "Duy Tân, Cầu Giấy, Hà Nội", "daovana@gmail.com", 20000F, "0987654321", "01", "Hà Nội", "007", "Quận Hai Bà Trưng", "00244", "Bạch Đằng", "COD", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "", 0F,
+                new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Order o3 = new Order(3, "20240309TBM1", 4600000F, 3, (float) 0, "Chưa thanh toán", 4600000F,
+                "Nhận hàng thanh toán", 1, "Viettel post", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "Đào Văn A", "Duy Tân, Cầu Giấy, Hà Nội", "daovana@gmail.com", 20000F, "0987654321", "01", "Hà Nội", "007", "Quận Hai Bà Trưng", "00244", "Bạch Đằng", "COD", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "", 0F,
+                new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         List<Order> orders = Arrays.asList(o1, o2, o3);
         // This exposes a saveAll method for us, which will batch several inserts into one.
         orderRepository.saveAll(orders);
@@ -195,18 +201,18 @@ public class MasterDataSeeder {
 
     public void insertPostData() {
         Post p1 = new Post(1, "IMOU Bullet 3C S3EP: camera an ninh ngoài trời 5Mpx, nhận diện người, xe bằng AI", "/review-imou-bullet-3c-s3ep-camera-an-ninh-ngoai-troi-5mpx-nhan-dien-nguoi-xe-bang-ai.html", "review-imou-bullet-3c-s3ep-camera-an-ninh-ngoai-troi-5mpx-nhan-dien-nguoi-xe-bang-ai",
-               "Camera IMOU BULLET 3C S3EP là dòng camera an ninh ngoài trời, trợ thủ đắc lực giúp bảo vệ ngôi nhà của bạn ở ngoài trời một cách an toàn nhất. Được trang bị ống kính có độ phân giải lên đến 5Mpx (3K), công nghệ an ninh IMOU SENSE sử dụng trí tuệ AI để nhận biết hoạt cảnh một cách chính xác và nhanh chóng nhất, tích hợp đèn LED quay hình ảnh có màu vào ban đêm và rất nhiều các công nghệ xịn sò khác.", "Camera IMOU BULLET 3C S3EP là dòng camera an ninh ngoài trời, trợ thủ đắc lực giúp bảo vệ ngôi nhà của bạn ở ngoài trời một cách an toàn nhất. Được trang bị ống kính có độ phân giải lên đến 5Mpx (3K), công nghệ an ninh IMOU SENSE sử dụng trí tuệ AI để nhận biết hoạt cảnh một cách chính xác và nhanh chóng nhất, tích hợp đèn LED quay hình ảnh có màu vào ban đêm và rất nhiều các công nghệ xịn sò khác.", "Camera IMOU BULLET 3C S3EP là dòng camera an ninh ngoài trời, trợ thủ đắc lực giúp bảo vệ ngôi nhà của bạn ở ngoài trời một cách an toàn nhất. Được trang bị ống kính có độ phân giải lên đến 5Mpx (3K), công nghệ an ninh IMOU SENSE sử dụng trí tuệ AI để nhận biết hoạt cảnh một cách chính xác và nhanh chóng nhất, tích hợp đèn LED quay hình ảnh có màu vào ban đêm và rất nhiều các công nghệ xịn sò khác.",
-                "Editor A", 2, "publish", "2024-02-24 01:10:06", 1, 0, "product", 7, 0, 0, 1, "IMOU Bullet 3C S3EP", "IMOU Bullet", "IMOU Bullet 3C S3EP", "/images/post/p001.png",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+                "Camera IMOU BULLET 3C S3EP là dòng camera an ninh ngoài trời, trợ thủ đắc lực giúp bảo vệ ngôi nhà của bạn ở ngoài trời một cách an toàn nhất. Được trang bị ống kính có độ phân giải lên đến 5Mpx (3K), công nghệ an ninh IMOU SENSE sử dụng trí tuệ AI để nhận biết hoạt cảnh một cách chính xác và nhanh chóng nhất, tích hợp đèn LED quay hình ảnh có màu vào ban đêm và rất nhiều các công nghệ xịn sò khác.", "Camera IMOU BULLET 3C S3EP là dòng camera an ninh ngoài trời, trợ thủ đắc lực giúp bảo vệ ngôi nhà của bạn ở ngoài trời một cách an toàn nhất. Được trang bị ống kính có độ phân giải lên đến 5Mpx (3K), công nghệ an ninh IMOU SENSE sử dụng trí tuệ AI để nhận biết hoạt cảnh một cách chính xác và nhanh chóng nhất, tích hợp đèn LED quay hình ảnh có màu vào ban đêm và rất nhiều các công nghệ xịn sò khác.", "Camera IMOU BULLET 3C S3EP là dòng camera an ninh ngoài trời, trợ thủ đắc lực giúp bảo vệ ngôi nhà của bạn ở ngoài trời một cách an toàn nhất. Được trang bị ống kính có độ phân giải lên đến 5Mpx (3K), công nghệ an ninh IMOU SENSE sử dụng trí tuệ AI để nhận biết hoạt cảnh một cách chính xác và nhanh chóng nhất, tích hợp đèn LED quay hình ảnh có màu vào ban đêm và rất nhiều các công nghệ xịn sò khác.",
+                "Editor A", 2, "publish", "2024-02-24 01:10:06", 1, 0, "product", 7, 0, 0, 1, "IMOU Bullet 3C S3EP", "IMOU Bullet", "IMOU Bullet 3C S3EP", "/images/post/p001.png", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         Post p2 = new Post(2, "Camera Quay Quét Ngoài trời Ezviz C8C 4M: Cải tiến liệu còn NGON", "/review-imou-bullet-3c-s3ep-camera-an-ninh-ngoai-troi-5mpx-nhan-dien-nguoi-xe-bang-ai.html", "review-imou-bullet-3c-s3ep-camera-an-ninh-ngoai-troi-5mpx-nhan-dien-nguoi-xe-bang-ai",
                 "Camera Ezviz C8C 2K+ (4M) là dòng camera an ninh ngoài trời có khả năng quay quét 360 độ, thích hợp cho người dùng là hộ gia đình hoặc các shop, cửa hàng tiện ích gắn để quan sát khu vực được rộng hơn các camera an ninh thông thường. Đây cũng là phiên bản mới được nâng cấp từ dòng Ezivz C8W ở thế hệ tiền nhiệm.",
                 "Camera Ezviz C8C 2K+ (4M) là dòng camera an ninh ngoài trời có khả năng quay quét 360 độ, thích hợp cho người dùng là hộ gia đình hoặc các shop, cửa hàng tiện ích gắn để quan sát khu vực được rộng hơn các camera an ninh thông thường. Đây cũng là phiên bản mới được nâng cấp từ dòng Ezivz C8W ở thế hệ tiền nhiệm.",
                 "Camera Ezviz C8C 2K+ (4M) là dòng camera an ninh ngoài trời có khả năng quay quét 360 độ, thích hợp cho người dùng là hộ gia đình hoặc các shop, cửa hàng tiện ích gắn để quan sát khu vực được rộng hơn các camera an ninh thông thường. Đây cũng là phiên bản mới được nâng cấp từ dòng Ezivz C8W ở thế hệ tiền nhiệm.",
-                "Editor B", 3, "publish", "2024-02-24 01:10:06", 1, 0, "product", 7, 0, 0, 1, "IMOU Bullet 3C S3EP", "IMOU Bullet", "IMOU Bullet 3C S3EP", "/images/post/p002.png",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+                "Editor B", 3, "publish", "2024-02-24 01:10:06", 1, 0, "product", 7, 0, 0, 1, "IMOU Bullet 3C S3EP", "IMOU Bullet", "IMOU Bullet 3C S3EP", "/images/post/p002.png", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         Post p3 = new Post(3, "IMOU Cruiser 2 3K GS7EP | Camera không dây ngoài trời tích hợp AI thông minh", "/review-imou-bullet-3c-s3ep-camera-an-ninh-ngoai-troi-5mpx-nhan-dien-nguoi-xe-bang-ai.html", "review-imou-bullet-3c-s3ep-camera-an-ninh-ngoai-troi-5mpx-nhan-dien-nguoi-xe-bang-ai",
                 "Camera iMOU Cruiser 2 3K GS7EP là chiếc camera ngoài trời có độ phân giải lên đến 5mp, xoay 360 độ không góc chết, tích hợp AI cùng công nghệ IMOU SENSE đoạt giải camera AI xuất sắc nhất năm 2023 do camera AI Tech Award 2023 bình chọn. Hãy cùng Phúc Anh kỹ hơn về chiếc camera này xem còn điều gì đặc sắc nhé.",
                 "Camera iMOU Cruiser 2 3K GS7EP là chiếc camera ngoài trời có độ phân giải lên đến 5mp, xoay 360 độ không góc chết, tích hợp AI cùng công nghệ IMOU SENSE đoạt giải camera AI xuất sắc nhất năm 2023 do camera AI Tech Award 2023 bình chọn. Hãy cùng Phúc Anh kỹ hơn về chiếc camera này xem còn điều gì đặc sắc nhé.",
                 "Camera iMOU Cruiser 2 3K GS7EP là chiếc camera ngoài trời có độ phân giải lên đến 5mp, xoay 360 độ không góc chết, tích hợp AI cùng công nghệ IMOU SENSE đoạt giải camera AI xuất sắc nhất năm 2023 do camera AI Tech Award 2023 bình chọn. Hãy cùng Phúc Anh kỹ hơn về chiếc camera này xem còn điều gì đặc sắc nhé.",
-                "Editor C", 4, "publish", "2024-02-24 01:10:06", 1, 0, "product", 7, 0, 0, 1, "IMOU Bullet 3C S3EP", "IMOU Bullet", "IMOU Bullet 3C S3EP", "/images/post/p003.png",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+                "Editor C", 4, "publish", "2024-02-24 01:10:06", 1, 0, "product", 7, 0, 0, 1, "IMOU Bullet 3C S3EP", "IMOU Bullet", "IMOU Bullet 3C S3EP", "/images/post/p003.png", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         List<Post> posts = Arrays.asList(p1, p2, p3);
         // This exposes a saveAll method for us, which will batch several inserts into one.
         postRepository.saveAll(posts);
@@ -228,7 +234,7 @@ public class MasterDataSeeder {
                         "            </ul>",
                 "Card mạng không dây Với công nghệ WiFi 6 (802.11ax) và băng thông rộng 160 MHz, ASUS PCE-AX3000 mang đến tốc độ không dây nhanh hơn gấp 2,7 lần so với các thiết bị WiFi 5 (802.11ac). Sự kết hợp mang tính cách mạng giữa công nghệ OFDMA và MU-MIMO đảm bảo kết nối WiFi hiệu quả nhất cho máy tính của bạn.",
                 "Card mạng không dây Với công nghệ WiFi 6 (802.11ax) và băng thông rộng 160 MHz, ASUS PCE-AX3000 mang đến tốc độ không dây nhanh hơn gấp 2,7 lần so với các thiết bị WiFi 5 (802.11ac). Sự kết hợp mang tính cách mạng giữa công nghệ OFDMA và MU-MIMO đảm bảo kết nối WiFi hiệu quả nhất cho máy tính của bạn.",
-                "in_stock", 1, 1, 1, 1, "Cạc mạng không dây Asus PCI-E PCE-AX3000 Tray", "PCI-E,PCE-AX3000,AX3000Mbps", "Cạc mạng không dây Asus PCI-E PCE-AX3000 Tray",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+                "in_stock", 1, 1, 1, 1, "Cạc mạng không dây Asus PCI-E PCE-AX3000 Tray", "PCI-E,PCE-AX3000,AX3000Mbps", "Cạc mạng không dây Asus PCI-E PCE-AX3000 Tray", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         Product p2 = new Product(2, "Bộ phát wifi 6 Asus RT-AX53U (Chuẩn AX/ AX1800Mbps/ 4 Ăng-ten ngoài/ Wifi Mesh/ 35 User)",
                 "bo-phat-wifi-6-asus-rt-ax53u-chuan-ax-ax1800mbps-4-ang-ten-ngoai-wifi-mesh-35-user",
                 "<ul class=\"ul\">\n" +
@@ -244,7 +250,7 @@ public class MasterDataSeeder {
                         "            </ul>",
                 "Wi-Fi công nghệ Mesh Asus RT-AX53U chuẩn Wifi 6 (802.11ax) mới nhất cung cấp các công nghệ trong tương lai, hiệu quả mạng cao hơn, tốc độ WiFi nhanh hơn, vùng phủ sóng lớn hơn và thời lượng pin được cải thiện cho các thiết bị được kết nối, mang lại cho người dùng trải nghiệm mạng tốt hơn đáng kể.",
                 "Wi-Fi công nghệ Mesh Asus RT-AX53U chuẩn Wifi 6 (802.11ax) mới nhất cung cấp các công nghệ trong tương lai, hiệu quả mạng cao hơn, tốc độ WiFi nhanh hơn, vùng phủ sóng lớn hơn và thời lượng pin được cải thiện cho các thiết bị được kết nối, mang lại cho người dùng trải nghiệm mạng tốt hơn đáng kể.",
-                "in_stock", 2, 4, 1, 1, "Bộ phát wifi 6 Asus RT-AX53U", "RT-AX53U,AX1800Mbps", "Bộ phát wifi 6 Asus RT-AX53U",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+                "in_stock", 2, 4, 1, 1, "Bộ phát wifi 6 Asus RT-AX53U", "RT-AX53U,AX1800Mbps", "Bộ phát wifi 6 Asus RT-AX53U", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         Product p3 = new Product(3, "Bộ phát wifi 6 Asus RT-AX1800HP MU-MIMO (Chuẩn AX/ AX1800Mbps/ 4 Ăng-ten ngoài/ Wifi Mesh/ 35 User)",
                 "bo-phat-wifi-6-asus-rt-ax1800hp-mu-mimo-chuan-ax-ax1800mbps-4-ang-ten-ngoai-wifi-mesh-35-user",
                 "<ul class=\"ul\">\n" +
@@ -260,7 +266,7 @@ public class MasterDataSeeder {
                         "            </ul>",
                 "Ngày càng có nhiều thiết bị cá nhân và thiết bị IoT được kết nối với bộ phát Wifi, dẫn đến sự gia tăng tổng thể về mật độ mạng, đẩy giới hạn của tiêu chuẩn WiFi hiện tại lên mức cao hơn. Chuẩn WiFi 6 (802.11ax) mới nhất cung cấp các công nghệ tương lai, hiệu quả kết nối mạng tốt hơn, tốc độ WiFi nhanh hơn, phạm vi phủ sóng lớn hơn và cải thiện thời lượng pin cho các thiết bị được kết nối, mang lại trải nghiệm mạng tối ưu hơn nhiều cho người dùng.",
                 "Ngày càng có nhiều thiết bị cá nhân và thiết bị IoT được kết nối với bộ phát Wifi, dẫn đến sự gia tăng tổng thể về mật độ mạng, đẩy giới hạn của tiêu chuẩn WiFi hiện tại lên mức cao hơn. Chuẩn WiFi 6 (802.11ax) mới nhất cung cấp các công nghệ tương lai, hiệu quả kết nối mạng tốt hơn, tốc độ WiFi nhanh hơn, phạm vi phủ sóng lớn hơn và cải thiện thời lượng pin cho các thiết bị được kết nối, mang lại trải nghiệm mạng tối ưu hơn nhiều cho người dùng.",
-                "out_of_stock", 2, 3, 1, 1, "Bộ phát wifi 6 Asus RT-AX1800HP MU-MIMO", "RT-AX1800HP,MU-MIMO,AX1800Mbps", "Bộ phát wifi 6 Asus RT-AX1800HP MU-MIMO",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+                "out_of_stock", 2, 3, 1, 1, "Bộ phát wifi 6 Asus RT-AX1800HP MU-MIMO", "RT-AX1800HP,MU-MIMO,AX1800Mbps", "Bộ phát wifi 6 Asus RT-AX1800HP MU-MIMO", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         List<Product> products = Arrays.asList(p1, p2, p3);
         // This exposes a saveAll method for us, which will batch several inserts into one.
         productRepository.saveAll(products);
@@ -277,11 +283,11 @@ public class MasterDataSeeder {
 
     public void insertProductInventoryData() {
         ProductInventory p1 = new ProductInventory(1, 1, 1, 998, 1, 2
-                ,new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+                , new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         ProductInventory p2 = new ProductInventory(1, 2, 2, 997, 2, 3
-                ,new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+                , new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         ProductInventory p3 = new ProductInventory(1, 3, 3, 996, 3, 4
-                ,new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+                , new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         List<ProductInventory> productInventories = Arrays.asList(p1, p2, p3);
         // This exposes a saveAll method for us, which will batch several inserts into one.
         productInventoryRepository.saveAll(productInventories);
@@ -289,11 +295,11 @@ public class MasterDataSeeder {
 
     public void insertPromotionData() {
         Promotion p1 = new Promotion(1, "CODE202401WF", "Khuyến mãi trên sản phẩm", "product", "30000", "", "2024-01-01", "2025-01-01", 1
-                ,new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+                , new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         Promotion p2 = new Promotion(2, "CODE202402WF", "Khuyến mãi trên đơn hàng", "order", "50000", "", "2024-01-01", "2025-01-01", 1
-                ,new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+                , new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         Promotion p3 = new Promotion(3, "CODE202403WF", "Khuyến mãi trên khách hàng thân thiết", "vip_1", "10000", "", "2024-01-01", "2025-01-01", 1
-                ,new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+                , new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         List<Promotion> promotions = Arrays.asList(p1, p2, p3);
         // This exposes a saveAll method for us, which will batch several inserts into one.
         promotionRepository.saveAll(promotions);
@@ -302,7 +308,7 @@ public class MasterDataSeeder {
     public void insertRoleData() {
         Role r1 = new Role(1, "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         Role r2 = new Role(2, "sale", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
-        Role r3 = new Role(3, "shipper",  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Role r3 = new Role(3, "shipper", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         List<Role> roles = Arrays.asList(r1, r2, r3);
         // This exposes a saveAll method for us, which will batch several inserts into one.
         roleRepository.saveAll(roles);
@@ -390,25 +396,25 @@ public class MasterDataSeeder {
         this.insertWarrantyData();
         return new ResponseEntity<>(
                 "Đã thêm dữ liệu quảng cáo.<br/>" +
-                "Đã thêm dữ liệu danh mục cha.<br/>" +
-                "Đã thêm dữ liệu khách hàng.<br/>" +
-                "Đã thêm dữ liệu bình luận.<br/>" +
-                "Đã thêm dữ liệu kho.<br/>" +
-                "Đã thêm dữ liệu hãng sản xuất.<br/>" +
-                "Đã thêm dữ liệu đơn hàng.<br/>" +
-                "Đã thêm dữ liệu sản phẩm trong đơn hàng.<br/>" +
-                "Đã thêm dữ liệu bài viết.<br/>" +
-                "Đã thêm dữ liệu sản phẩm.<br/>" +
-                "Đã thêm dữ liệu chi tiết sản phẩm.<br/>" +
-                "Đã thêm dữ liệu kho sản phẩm.<br/>" +
-                "Đã thêm dữ liệu khuyến mãi.<br/>" +
-                "Đã thêm dữ liệu phân quyền.<br/>" +
-                "Đã thêm dữ liệu giỏ hàng.<br/>" +
-                "Đã thêm dữ liệu nơi bán.<br/>" +
-                "Đã thêm dữ liệu cài đặt.<br/>" +
-                "Đã thêm dữ liệu danh mục con.<br/>" +
-                "Đã thêm dữ liệu người quản trị.<br/>" +
-                "Đã thêm dữ liệu bảo hành."
+                        "Đã thêm dữ liệu danh mục cha.<br/>" +
+                        "Đã thêm dữ liệu khách hàng.<br/>" +
+                        "Đã thêm dữ liệu bình luận.<br/>" +
+                        "Đã thêm dữ liệu kho.<br/>" +
+                        "Đã thêm dữ liệu hãng sản xuất.<br/>" +
+                        "Đã thêm dữ liệu đơn hàng.<br/>" +
+                        "Đã thêm dữ liệu sản phẩm trong đơn hàng.<br/>" +
+                        "Đã thêm dữ liệu bài viết.<br/>" +
+                        "Đã thêm dữ liệu sản phẩm.<br/>" +
+                        "Đã thêm dữ liệu chi tiết sản phẩm.<br/>" +
+                        "Đã thêm dữ liệu kho sản phẩm.<br/>" +
+                        "Đã thêm dữ liệu khuyến mãi.<br/>" +
+                        "Đã thêm dữ liệu phân quyền.<br/>" +
+                        "Đã thêm dữ liệu giỏ hàng.<br/>" +
+                        "Đã thêm dữ liệu nơi bán.<br/>" +
+                        "Đã thêm dữ liệu cài đặt.<br/>" +
+                        "Đã thêm dữ liệu danh mục con.<br/>" +
+                        "Đã thêm dữ liệu người quản trị.<br/>" +
+                        "Đã thêm dữ liệu bảo hành."
                 , HttpStatus.OK);
     }
 
@@ -419,7 +425,7 @@ public class MasterDataSeeder {
     public ResponseEntity<Object> importMasterData(@RequestParam("file") MultipartFile file) throws IOException {
         String sql0 = "SET foreign_key_checks = 0";
         String sql1 = "TRUNCATE TABLE categories";
-        String sql2 =  "SET foreign_key_checks = 1";
+        String sql2 = "SET foreign_key_checks = 1";
         jdbcTemplate.execute(sql0);
         jdbcTemplate.execute(sql1);
         jdbcTemplate.execute(sql2);

@@ -22,13 +22,16 @@ public class OrderService {
 
     /**
      * Get all orders
+     *
      * @return
      */
     public List<OrderDTO> getAll() {
-        return orderRepository.findAllByOrderByIdDesc().stream().map(e->orderMapper.toDTO(e)).toList();
+        return orderRepository.findAllByOrderByIdDesc().stream().map(e -> orderMapper.toDTO(e)).toList();
     }
+
     /**
      * Search by order_code
+     *
      * @param order_code
      * @return
      */
@@ -38,6 +41,7 @@ public class OrderService {
 
     /**
      * Edit product
+     *
      * @param id
      * @return
      */
@@ -47,6 +51,7 @@ public class OrderService {
 
     /**
      * Insert/Update order
+     *
      * @param order
      * @return
      */
@@ -74,6 +79,7 @@ public class OrderService {
 
     /**
      * Delete order
+     *
      * @param id
      */
     public void delete(Long id) {
@@ -93,6 +99,25 @@ public class OrderService {
             order.setTotal_tax(orderData.getTotal_tax());
             order.setStatus(orderData.getStatus());
             order.setAccounts_receivable(orderData.getAccounts_receivable());
+            order.setNote(orderData.getNote());
+            order.setCustomer_id(orderData.getCustomer_id());
+            order.setShipping_method(orderData.getShipping_method());
+            order.setShipping_date(orderData.getShipping_date());
+            order.setShipping_fullname(orderData.getShipping_fullname());
+            order.setShipping_address(orderData.getShipping_address());
+            order.setShipping_email(orderData.getShipping_email());
+            order.setShipping_fee(orderData.getShipping_fee());
+            order.setShipping_phone(orderData.getShipping_phone());
+            order.setProvince_code(orderData.getProvince_code());
+            order.setProvince_name(orderData.getProvince_name());
+            order.setDistrict_code(orderData.getDistrict_code());
+            order.setDistrict_name(orderData.getDistrict_name());
+            order.setSub_district_code(orderData.getSub_district_code());
+            order.setSub_district_name(orderData.getSub_district_name());
+            order.setPayment_method(orderData.getPayment_method());
+            order.setPayment_date(orderData.getPayment_date());
+            order.setTotal_discount_code(orderData.getTotal_discount_code());
+            order.setTotal_discount_amount(orderData.getTotal_discount_amount());
             order.setCreated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
             order.setCreated_by(String.valueOf(1));
             order.setUpdated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
