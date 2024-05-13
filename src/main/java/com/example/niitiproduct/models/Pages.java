@@ -30,8 +30,6 @@ public class Pages {
     String status;
     @Column(name = "category_id")
     Integer category_id;
-    @Column(name = "thumbnail_url")
-    String thumbnail_url;
     @Column(name = "page_type")
     String page_type;
     @Column(name = "meta_title")
@@ -55,7 +53,7 @@ public class Pages {
     @Column(name = "deleted_by")
     String deleted_by;
 
-    public Pages(Integer id, String title, String slug, String excerpt, String plain_text, String content, String author_name, Integer user_id, String status, Integer category_id, String thumbnail_url, String page_type, String meta_title, String meta_keyword, String meta_description, String meta_image, String created_at, String created_by, String updated_at, String updated_by, String deleted_at, String deleted_by) {
+    public Pages(Integer id, String title, String slug, String excerpt, String plain_text, String content, String author_name, Integer user_id, String status, Integer category_id, String page_type, String meta_title, String meta_keyword, String meta_description, String meta_image, String created_at, String created_by, String updated_at, String updated_by, String deleted_at, String deleted_by) {
         this.id = id;
         this.title = title;
         this.slug = slug;
@@ -66,7 +64,6 @@ public class Pages {
         this.user_id = user_id;
         this.status = status;
         this.category_id = category_id;
-        this.thumbnail_url = thumbnail_url;
         this.page_type = page_type;
         this.meta_title = meta_title;
         this.meta_keyword = meta_keyword;

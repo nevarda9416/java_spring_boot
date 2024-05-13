@@ -18,7 +18,6 @@ public class PageMapper {
                 .user_id(page.getUser_id())
                 .status(page.getStatus())
                 .category_id(page.getCategory_id())
-                .thumbnail_url(page.getThumbnail_url())
                 .page_type(page.getPage_type())
                 .meta_title(page.getMeta_title())
                 .meta_keyword(page.getMeta_keyword())

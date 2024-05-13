@@ -59,7 +59,7 @@ public class PageController {
         model.addAttribute("currentPage", page);
         Pages pages1 = pageService.findById(id);
         model.addAttribute("page", pages1);
-        return "admin/pages/index";
+        return "admin/pages/form";
     }
 
     /**
@@ -74,9 +74,8 @@ public class PageController {
     /**
      * Add post
      */
-    @GetMapping("/pages/add")
-    public String add(Model model, @PathVariable("id") Long id,
-                      @RequestParam(name="page", required = false, defaultValue = Pagination.defaultPage) Integer page,
+    @GetMapping("/add")
+    public String add(Model model, @RequestParam(name="page", required = false, defaultValue = Pagination.defaultPage) Integer page,
                       @RequestParam(name="size", required = false, defaultValue = Pagination.defaultSize) Integer size) {
         Page<Pages> pagesPage = pageService.findPaginated(page, size);
         model.addAttribute("keyword", "");
@@ -85,8 +84,7 @@ public class PageController {
         model.addAttribute("totalPages", pagesPage.getTotalPages());
         model.addAttribute("totalItems", pagesPage.getTotalElements());
         model.addAttribute("currentPage", page);
-        Pages pages1 = pageService.findById(id);
-        model.addAttribute("page", pages1);
+        model.addAttribute("page", new PageDTO());
         return "admin/pages/add";
     }
 

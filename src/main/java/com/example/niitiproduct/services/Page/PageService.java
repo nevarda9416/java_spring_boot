@@ -65,7 +65,6 @@ public class PageService implements IPageService {
             pageData.setUser_id(page.getUser_id());
             pageData.setStatus(page.getStatus());
             pageData.setCategory_id(page.getCategory_id());
-            pageData.setThumbnail_url(page.getThumbnail_url());
             pageData.setPage_type(page.getPage_type());
             pageData.setMeta_title(page.getMeta_title());
             pageData.setMeta_keyword(page.getMeta_keyword());
