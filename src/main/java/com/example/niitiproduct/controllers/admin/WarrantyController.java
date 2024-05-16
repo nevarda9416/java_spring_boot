@@ -54,7 +54,7 @@ public class WarrantyController {
     @PostMapping(value = "/update")
     public String update(@ModelAttribute Warranty warranty) {
         warrantyService.save(warranty);
-        return "redirect:/admin/warrantys/edit/" + warranty.getId();
+        return "redirect:/admin/warranties/edit/" + warranty.getId();
     }
 
     /**

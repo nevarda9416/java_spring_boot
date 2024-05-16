@@ -13,7 +13,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-expanded="false"><i class="fa fa-wrench"></i></a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Cập nhật</a>
+                                <a class="dropdown-item" href="#">Sửa</a>
                                 <a class="dropdown-item" href="#">Xóa</a>
                             </div>
                         </li>
@@ -146,8 +146,8 @@
                                     <span th:if="${c.is_actived==0}" class="badge badge-secondary">Ẩn</span>
                                 </td>
                                 <td class="last"><a href="#" data-toggle="modal"
-                                                    th:attr="data-target=${'#bs-example-modal-lg-'+c.id}">Xem chi tiết</a> |
-                                    <a th:attr="href='../admin/categories/edit/'+${c.id}">Cập nhật</a> |
+                                                    th:attr="data-target=${'#bs-example-modal-lg-'+c.id}">Xem</a> |
+                                    <a th:attr="href='../admin/categories/edit/'+${c.id}">Sửa</a> |
                                     <a th:attr="href='../admin/categories/delete/'+${c.id}"
                                        onclick="return confirm('Bạn muốn xóa danh mục cha này chứ?')">Xóa</a>
                                     <div class="modal fade bs-example-modal-lg"
@@ -177,7 +177,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td>Mô tả:</td>
-                                                            <td th:text="${c.description}"></td>
+                                                            <td th:utext="${c.description}"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Thứ tự hiển thị:</td>
