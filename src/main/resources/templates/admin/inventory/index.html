@@ -41,7 +41,8 @@
                                 <td></td>
                                 <td></td>
                                 <td class=" last"><a href="#" data-toggle="modal"
-                                                     th:attr="data-target=${'#bs-example-modal-lg-'+i.id}">Xem</a>
+                                                     th:attr="data-target=${'#bs-example-modal-lg-'+i.id}">Xem chi tiết</a> |
+                                    <a th:attr="href='../admin/inventories/edit/'+${i.id}">Cập nhật</a>
                                     <div class="modal fade bs-example-modal-lg" th:attr="id=${'bs-example-modal-lg-'+i.id}" tabindex="-1" role="dialog"
                                          aria-hidden="true">
                                         <div class="modal-dialog modal-lg">

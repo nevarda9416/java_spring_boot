@@ -58,7 +58,7 @@ public class BannerController {
         model.addAttribute("banners", banners);
         Banner banner = bannerService.findById(id);
         model.addAttribute("banner", banner);
-        return "admin/banner/form";
+        return "edit";
     }
 
     /**

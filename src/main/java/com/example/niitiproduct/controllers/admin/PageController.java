@@ -59,7 +59,7 @@ public class PageController {
         model.addAttribute("currentPage", page);
         Pages pages1 = pageService.findById(id);
         model.addAttribute("page", pages1);
-        return "admin/pages/form";
+        return "edit";
     }
 
     /**

@@ -60,7 +60,7 @@ public class InventoryController {
         model.addAttribute("inventorys", inventorys);
         Inventory inventory = inventoryService.findById(id);
         model.addAttribute("inventory", inventory);
-        return "admin/inventory/form";
+        return "edit";
     }
 
     /**

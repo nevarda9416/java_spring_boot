@@ -41,7 +41,8 @@
                                 <td th:text="${w.product_id}"></td>
                                 <td th:text="${w.period}"></td>
                                 <td class=" last"><a href="#" data-toggle="modal"
-                                                     th:attr="data-target=${'#bs-example-modal-lg-'+w.id}">Xem</a>
+                                                     th:attr="data-target=${'#bs-example-modal-lg-'+w.id}">Xem chi tiết</a> |
+                                    <a th:attr="href='../admin/warranties/edit/'+${w.id}">Cập nhật</a>
                                     <div class="modal fade bs-example-modal-lg" th:attr="id=${'bs-example-modal-lg-'+w.id}" tabindex="-1" role="dialog"
                                          aria-hidden="true">
                                         <div class="modal-dialog modal-lg">

@@ -42,7 +42,8 @@
                                     <span th:if="${b.is_actived==0}" class="badge badge-secondary">Ẩn</span>
                                 </td>
                                 <td class=" last"><a href="#" data-toggle="modal"
-                                                     data-target=".bs-example-modal-lg">Xem</a>
+                                                     data-target=".bs-example-modal-lg">Xem chi tiết</a> |
+                                    <a th:attr="href='../admin/banners/edit/'+${b.id}">Cập nhật</a>
                                     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
                                          aria-hidden="true">
                                         <div class="modal-dialog modal-lg">

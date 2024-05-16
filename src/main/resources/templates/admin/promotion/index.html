@@ -45,7 +45,8 @@
                                 <td th:text="${p.discount_rate}"> %</td>
                                 <td>Còn được sử dụng</td>
                                 <td class=" last"><a href="#" data-toggle="modal"
-                                                     th:attr="data-target=${'#bs-example-modal-lg-'+p.id}">Xem</a>
+                                                     th:attr="data-target=${'#bs-example-modal-lg-'+p.id}">Xem chi tiết</a> |
+                                    <a th:attr="href='../admin/promotions/edit/'+${p.id}">Cập nhật</a>
                                     <div class="modal fade bs-example-modal-lg"
                                          th:attr="id=${'bs-example-modal-lg-'+p.id}" tabindex="-1" role="dialog"
                                          aria-hidden="true">

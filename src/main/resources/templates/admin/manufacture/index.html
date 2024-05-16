@@ -36,7 +36,8 @@
                             <tr class="even pointer" th:each="m:${manufactures}">
                                 <td th:text="${m.name}"></td>
                                 <td th:text="${m.description}"></td>
-                                <td class=" last"><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Xem</a>
+                                <td class=" last"><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Xem chi tiết</a> |
+                                    <a th:attr="href='../admin/manufactures/edit/'+${m.id}">Cập nhật</a>
                                     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">

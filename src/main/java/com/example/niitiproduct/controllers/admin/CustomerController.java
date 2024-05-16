@@ -111,4 +111,14 @@ public class CustomerController {
         model.addAttribute("customer", new CustomerDTO());
         return "redirect:/admin/customers";
     }
+
+    /**
+     * Thao tác khóa tài khoản ở màn list
+     * @return
+     */
+    @GetMapping(value = "/inactive/{id}")
+    public String inactive(Model model, @PathVariable("id") Long id) {
+        System.out.println("Customer ID: " + id);
+        return "redirect:/admin/customers";
+    }
 }

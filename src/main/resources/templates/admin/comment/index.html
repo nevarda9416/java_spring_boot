@@ -45,7 +45,9 @@
                                 <td th:text="${c.status}"></td>
                                 <td th:text="${c.published_at}"></td>
                                 <td class=" last"><a href="#" data-toggle="modal"
-                                                     th:attr="data-target=${'#bs-example-modal-lg-'+c.id}">Xem</a>
+                                                     th:attr="data-target=${'#bs-example-modal-lg-'+c.id}">Xem</a> |
+                                    <a th:attr="href='../admin/comments/inactive/'+${c.id}">Khóa bình luận</a> |
+                                    <a th:attr="href='../admin/comments/edit/'+${c.id}">Phê duyệt</a>
                                     <div class="modal fade bs-example-modal-lg" th:attr="id=${'bs-example-modal-lg-'+c.id}" tabindex="-1" role="dialog"
                                          aria-hidden="true">
                                         <div class="modal-dialog modal-lg">
