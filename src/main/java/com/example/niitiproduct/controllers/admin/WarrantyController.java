@@ -26,7 +26,7 @@ public class WarrantyController {
     public String index(Model model) {
         List<WarrantyDTO> warranties = warrantyService.getAll();
         model.addAttribute("warranties", warranties);
-        return "admin/warranty/index";
+        return "admin/warranties/index";
     }
 
     /**
@@ -42,7 +42,7 @@ public class WarrantyController {
         model.addAttribute("warrantys", warrantys);
         Warranty warranty = warrantyService.findById(id);
         model.addAttribute("warranty", warranty);
-        return "admin/warranty/form";
+        return "admin/warranties/form";
     }
 
     /**
@@ -67,7 +67,7 @@ public class WarrantyController {
     public String add(Model model) {
         List<WarrantyDTO> warrantys = warrantyService.getAll();
         model.addAttribute("warrantys", warrantys);
-        return "admin/warranty/add";
+        return "admin/warranties/add";
     }
 
     /**

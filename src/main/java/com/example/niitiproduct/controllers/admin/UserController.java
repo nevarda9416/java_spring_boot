@@ -25,7 +25,7 @@ public class UserController {
     public String index(Model model) {
         List<UserDTO> users = userService.getAll();
         model.addAttribute("users", users);
-        return "admin/user/index";
+        return "admin/users/index";
     }
 
     /**
@@ -45,7 +45,7 @@ public class UserController {
             model.addAttribute("users", users);
         }
         model.addAttribute("user", new UserDTO());
-        return "admin/user/index";
+        return "admin/users/index";
     }
 
     /**
@@ -60,7 +60,7 @@ public class UserController {
         model.addAttribute("users", users);
         User user = userService.findById(id);
         model.addAttribute("user", user);
-        return "admin/user/form";
+        return "admin/users/edit";
     }
 
     /**
@@ -79,11 +79,11 @@ public class UserController {
      * @param model
      * @return
      */
-    @GetMapping("/users/add")
+    @GetMapping("/add")
     public String add(Model model) {
         List<UserDTO> users = userService.getAll();
-        model.addAttribute("users", users);
-        return "admin/user/add";
+        model.addAttribute("user", new UserDTO());
+        return "admin/users/add";
     }
 
     /**
