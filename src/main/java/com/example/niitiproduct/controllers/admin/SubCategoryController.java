@@ -51,7 +51,7 @@ public class SubCategoryController {
         List<SubCategoryDTO> subCategories = subCategoryService.getAll();
         model.addAttribute("subCategories", subCategories);
         model.addAttribute("subCategory", new SubCategoryDTO());
-        return "admin/subcategory/index";
+        return "admin/subcategories/index";
     }
 
     /**
@@ -72,7 +72,7 @@ public class SubCategoryController {
             model.addAttribute("subCategories", subCategories);
         }
         model.addAttribute("subCategory", new SubCategoryDTO());
-        return "admin/subcategory/index";
+        return "admin/subcategories/index";
     }
 
     /**
@@ -88,7 +88,7 @@ public class SubCategoryController {
         model.addAttribute("subCategories", subCategories);
         SubCategory subCategory = subCategoryService.findById(id);
         model.addAttribute("subCategory", subCategory);
-        return "admin/subcategory/form";
+        return "admin/subcategories/index";
     }
 
     /**
@@ -113,7 +113,7 @@ public class SubCategoryController {
     public String add(Model model) {
         List<SubCategoryDTO> subCategories = subCategoryService.getAll();
         model.addAttribute("subCategories", subCategories);
-        return "admin/subcategory/add";
+        return "admin/subcategories/add";
     }
 
     /**

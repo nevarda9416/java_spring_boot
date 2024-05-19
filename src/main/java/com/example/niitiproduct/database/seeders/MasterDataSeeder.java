@@ -59,6 +59,8 @@ public class MasterDataSeeder {
     @Autowired
     private SettingRepository settingRepository;
     @Autowired
+    private SubscriberRepository subscriberRepository;
+    @Autowired
     private UserRepository userRepository;
     @Autowired
     private WarrantyRepository warrantyRepository;
@@ -88,9 +90,10 @@ public class MasterDataSeeder {
         String sql16 = "TRUNCATE TABLE subcategories";
         String sql17 = "TRUNCATE TABLE selling_places";
         String sql18 = "TRUNCATE TABLE settings";
-        String sql19 = "TRUNCATE TABLE users";
-        String sql20 = "TRUNCATE TABLE warranties";
-        String sql21 = "SET foreign_key_checks = 1";
+        String sql19 = "TRUNCATE TABLE subscribers";
+        String sql20 = "TRUNCATE TABLE users";
+        String sql21 = "TRUNCATE TABLE warranties";
+        String sql22 = "SET foreign_key_checks = 1";
         jdbcTemplate.execute(sql0);
         jdbcTemplate.execute(sql1);
         jdbcTemplate.execute(sql2);
@@ -113,6 +116,7 @@ public class MasterDataSeeder {
         jdbcTemplate.execute(sql19);
         jdbcTemplate.execute(sql20);
         jdbcTemplate.execute(sql21);
+        jdbcTemplate.execute(sql22);
     }
 
     public void insertBannerData() {
@@ -350,6 +354,15 @@ public class MasterDataSeeder {
         subCategoryRepository.saveAll(subCategories);
     }
 
+    public void insertSubscriberData() {
+        Subscriber s1 = new Subscriber(1, "admin@gmail.com", "random", "ACTIVE", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Subscriber s2 = new Subscriber(2, "sale@gmail.com", "", "PENDING", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Subscriber s3 = new Subscriber(3, "shipper@gmail.com", "random", "STOPPING", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        List<Subscriber> subscribers = Arrays.asList(s1, s2, s3);
+        // This exposes a saveAll method for us, which will batch several inserts into one
+        subscriberRepository.saveAll(subscribers);
+    }
+
     public void insertUserData() {
         User u1 = new User(1, "Admin", "admin@gmail.com", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "1234567890", "", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         User u2 = new User(2, "Sale", "sale@gmail.com", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "1234567890", "", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
@@ -392,6 +405,7 @@ public class MasterDataSeeder {
         this.insertSellingPlaceData();
         this.insertSettingData();
         this.insertSubCategoryData();
+        this.insertSubscriberData();
         this.insertUserData();
         this.insertWarrantyData();
         return new ResponseEntity<>(
@@ -413,6 +427,7 @@ public class MasterDataSeeder {
                         "Đã thêm dữ liệu nơi bán.<br/>" +
                         "Đã thêm dữ liệu cài đặt.<br/>" +
                         "Đã thêm dữ liệu danh mục con.<br/>" +
+                        "Đã thêm dữ liệu đăng ký nhận tin.<br/>" +
                         "Đã thêm dữ liệu người quản trị.<br/>" +
                         "Đã thêm dữ liệu bảo hành."
                 , HttpStatus.OK);

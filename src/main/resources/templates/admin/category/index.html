@@ -30,7 +30,7 @@
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Tên danh mục <span
                                     class="required">*</span></label>
                             <div class="col-md-9 col-sm-9">
-                                <input class="form-control" name="name" type="text" required="required"
+                                <input class="form-control" name="name" type="text" required
                                        th:field="*{name}"/>
                             </div>
                         </div>
@@ -38,7 +38,7 @@
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Slug <span
                                     class="required">*</span></label>
                             <div class="col-md-9 col-sm-9">
-                                <input class="form-control" name="slug" type="text" required="required" th:field="*{slug}" placeholder="bo-phat-wifi"/></div>
+                                <input class="form-control" name="slug" type="text" required th:field="*{slug}" placeholder="bo-phat-wifi"/></div>
                         </div>
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Hình ảnh minh họa</label>
@@ -54,7 +54,7 @@
                         <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Mô tả</label>
                             <div class="col-md-9 col-sm-9">
-                                <textarea id="description" required="required" class="form-control" name="description"
+                                <textarea id="description" required class="form-control" name="description"
                                           data-parsley-trigger="keyup" data-parsley-minlength="20"
                                           data-parsley-maxlength="100"
                                           data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
