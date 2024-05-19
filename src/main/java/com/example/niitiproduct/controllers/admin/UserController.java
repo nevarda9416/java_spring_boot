@@ -81,7 +81,6 @@ public class UserController {
      */
     @GetMapping("/add")
     public String add(Model model) {
-        List<UserDTO> users = userService.getAll();
         model.addAttribute("user", new UserDTO());
         return "admin/users/add";
     }

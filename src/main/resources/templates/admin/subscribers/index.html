@@ -1,0 +1,56 @@
+<div id="layouts-partials-header" th:replace="admin/layouts/header::layouts-header"></div>
+<!-- page content -->
+<div class="right_col" role="main">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Danh sách đăng ký nhận tin</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Làm mới</a>
+                                <a class="dropdown-item" href="#">Xuất ra excel</a>
+                            </div>
+                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="table-responsive">
+                        <table class="table table-striped jambo_table bulk_action">
+                            <thead>
+                            <tr class="headings">
+                                <th class="column-title">Email</th>
+                                <th class="column-title">Trạng thái</th>
+                                <th class="column-title no-link last"><span class="nobr">Thao tác</span></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="even pointer" th:each="s:${subscribers}">
+                                <td th:text="${s.email}"></td>
+                                <td>
+                                    <span th:if="${s.status=='ACTIVE'}" class="badge badge-success">Hoạt động</span>
+                                    <span th:if="${s.status=='PENDING'}" class="badge badge-secondary">Tạm dừng</span>
+                                </td>
+                                <td class="last">
+                                    <a class="btn btn-sm btn-outline-secondary" th:attr="href='../admin/subscribers/inactive/'+${s.id}" th:if="${s.status=='ACTIVE'}">Dừng gửi tin</a>
+                                    <a class="btn btn-sm btn-outline-success" th:attr="href='../admin/subscribers/active/'+${s.id}" th:if="${s.status=='PENDING'}">Gửi lại tin</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /page content -->
+<div id="layouts-partials-footer" th:replace="admin/layouts/footer::layouts-footer"></div>

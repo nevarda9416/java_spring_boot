@@ -59,8 +59,7 @@ public class SubscriberController {
             model.addAttribute("totalItems", subscriberPage.getTotalElements());
         }
         model.addAttribute("currentPage", page);
-        model.addAttribute("category", new CategoryDTO());
-        return "admin/subscriber/index";
+        return "admin/subscribers/index";
     }
 
     /**
@@ -82,7 +81,7 @@ public class SubscriberController {
         model.addAttribute("totalItems", subscriberPage.getTotalElements());
         Subscriber subscriber = subscriberService.findById(id);
         model.addAttribute("subscriber", subscriber);
-        return "admin/subscriber/form";
+        return "admin/subscribers/form";
     }
 
     /**
@@ -110,7 +109,7 @@ public class SubscriberController {
         Pageable pageable = Pageable.ofSize(size).withPage(page);
         List<SubscriberDTO> subscribers = subscriberService.getAll(pageable);
         model.addAttribute("subscribers", subscribers);
-        return "admin/subscriber/add";
+        return "admin/subscribers/add";
     }
 
     /**
