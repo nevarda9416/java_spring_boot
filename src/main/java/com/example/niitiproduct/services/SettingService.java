@@ -39,10 +39,8 @@ public class SettingService {
             settingData.setWebsite_contact(setting.getWebsite_contact());
             settingData.setEmail_contact(setting.getEmail_contact());
             settingData.setAddress_contact(setting.getAddress_contact());
-            settingData.setLink_google_map(setting.getLink_google_map());
-            settingData.setTimer_support(setting.getTimer_support());
             settingData.setLogo_header_company(setting.getLogo_header_company());
-            settingData.setLogo_company(setting.getLogo_company());
+            settingData.setLogo_footer_company(setting.getLogo_footer_company());
             settingData.setCopyright_left(setting.getCopyright_left());
             settingData.setCopyright_right(setting.getCopyright_right());
             settingData.setFacebook(setting.getFacebook());
@@ -51,7 +49,6 @@ public class SettingService {
             settingData.setTwitter(setting.getTwitter());
             settingData.setGoogle(setting.getGoogle());
             settingData.setTiktok(setting.getTiktok());
-            settingData.setSlogan_register(setting.getSlogan_register());
             settingData.setMeta_title(setting.getMeta_title());
             settingData.setMeta_keyword(setting.getMeta_keyword());
             settingData.setMeta_description(setting.getMeta_description());

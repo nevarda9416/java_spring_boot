@@ -337,8 +337,26 @@ public class MasterDataSeeder {
     }
 
     public void insertSettingData() {
-        Setting s1 = new Setting(1, "Công ty TNHH Kỹ Thuật NIIT-ICT", "0987654321", "", "Thiết bị mạng NIIT-ICT", "niithanoi.edu.vn", "hello@niithanoi.edu.vn", "Tầng 3, 25T2, N05, Nguyễn Thị Thập, Cầu Giấy, Hà Nội", "https://www.google.com/maps/place/3+P.+Nguy%E1%BB%85n+Th%E1%BB%8B+Th%E1%BA%ADp,+Trung+Ho%C3%A0,+C%E1%BA%A7u+Gi%E1%BA%A5y,+H%C3%A0+N%E1%BB%99i,+Vietnam/data=!4m2!3m1!1s0x3135aca167369b09:0x2430ccbe8a5f8a0d?sa=X&ved=1t:242&ictx=111", "9:00 - 18:00", "https://niithanoi.edu.vn/pic/banner/log_636686424391527334.png", "https://niithanoi.edu.vn/pic/banner/log_636686424391527334.png", "", "", "https://www.facebook.com/NIIT.ICT/", "https://www.youtube.com/channel/UCqWcReCheBF-O6dlRf2CDRw", "", "https://twitter.com/day_ict", "", "", "https://niithanoi.edu.vn/img/boCongThuong.png",
-                "Thiết bị mạng NIIT-ICT", "Thiết bị mạng", "Thiết bị mạng NIIT-ICT", "", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Setting s1 = new Setting(1, "Công ty TNHH Kỹ Thuật NIIT-ICT"
+                , "0987654321"
+                , ""
+                , "Thiết bị mạng NIIT-ICT"
+                , "niithanoi.edu.vn"
+                , "hello@niithanoi.edu.vn"
+                , "Tầng 3, 25T2, N05, Nguyễn Thị Thập, Cầu Giấy, Hà Nội"
+                ,"https://niithanoi.edu.vn/pic/banner/log_636686424391527334.png"
+                , "https://niithanoi.edu.vn/pic/banner/log_636686424391527334.png"
+                , "", "", "https://www.facebook.com/NIIT.ICT/"
+                , "https://www.youtube.com/channel/UCqWcReCheBF-O6dlRf2CDRw"
+                , ""
+                , "https://twitter.com/day_ict"
+                , ""
+                , "https://niithanoi.edu.vn/img/boCongThuong.png",
+                "Thiết bị mạng NIIT-ICT"
+                , "Thiết bị mạng"
+                , "Thiết bị mạng NIIT-ICT"
+                , ""
+                , new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         List<Setting> settings = Arrays.asList(s1);
         // This exposes a saveAll method for us, which will batch several inserts into one.
         settingRepository.saveAll(settings);

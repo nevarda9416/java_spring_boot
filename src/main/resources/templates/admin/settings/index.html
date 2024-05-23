@@ -1,0 +1,161 @@
+<div id="layouts-partials-header" th:replace="admin/layouts/header::layouts-header"></div>
+<!-- page content -->
+<div class="right_col" role="main">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Cập nhật cài đặt hiển thị</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <form action="/admin/settings/update" method="post" th:object="${setting}"
+                          enctype="multipart/form-data">
+                        <span class="section">Thông tin hiển thị</span>
+                        <div class="field item form-group">
+                            <label for="name" class="col-form-label col-md-3 col-sm-3 label-align">Tên công ty<span
+                                    class="required">*</span></label>
+                            <div class="col-md-9 col-sm-9">
+                                <input type="text" class="form-control" required id="name" th:field="*{company_contact}"/>
+                            </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label for="telephone_contact" class="col-form-label col-md-3 col-sm-3 label-align">Số điện thoại liên hệ<span
+                                    class="required">*</span></label>
+                            <div class="col-md-9 col-sm-9">
+                                <input type="text" class="form-control" required id="telephone_contact" th:field="*{telephone_contact}"/>
+                            </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label for="fax_contact" class="col-form-label col-md-3 col-sm-3 label-align">Fax liên hệ<span
+                                    class="required">*</span></label>
+                            <div class="col-md-9 col-sm-9">
+                                <input type="text" class="form-control" required id="fax_contact" th:field="*{fax_contact}"/>
+                            </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label for="website_name" class="col-form-label col-md-3 col-sm-3 label-align">Tên website<span
+                                    class="required">*</span></label>
+                            <div class="col-md-9 col-sm-9">
+                                <input type="text" class="form-control" required id="website_name" th:field="*{website_name}"/>
+                            </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label for="website_contact" class="col-form-label col-md-3 col-sm-3 label-align">URL website<span
+                                    class="required">*</span></label>
+                            <div class="col-md-9 col-sm-9">
+                                <input type="text" class="form-control" required id="website_contact" th:field="*{website_contact}"/>
+                            </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label for="email_contact" class="col-form-label col-md-3 col-sm-3 label-align">Email liên hệ<span
+                                    class="required">*</span></label>
+                            <div class="col-md-9 col-sm-9">
+                                <input type="text" class="form-control" required id="email_contact" th:field="*{email_contact}"/>
+                            </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label for="address_contact" class="col-form-label col-md-3 col-sm-3 label-align">Địa chỉ liên hệ<span
+                                    class="required">*</span></label>
+                            <div class="col-md-9 col-sm-9">
+                                <input type="text" class="form-control" required id="address_contact" th:field="*{address_contact}"/>
+                            </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label for="logo_header_company" class="col-form-label col-md-3 col-sm-3  label-align">Logo trên header</label>
+                            <div class="col-md-9 col-sm-9">
+                                <input type="file" class="form-control optional" id="logo_header_company" th:field="*{logo_header_company}" accept="image/*"/>
+                            </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label for="logo_footer_company" class="col-form-label col-md-3 col-sm-3  label-align">Logo dưới footer</label>
+                            <div class="col-md-9 col-sm-9">
+                                <input type="file" class="form-control optional" id="logo_footer_company" th:field="*{logo_footer_company}" accept="image/*"/>
+                            </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label for="copyright_left" class="col-form-label col-md-3 col-sm-3 label-align">Mô tả thứ nhất</label>
+                            <div class="col-md-9 col-sm-9">
+                                <textarea class="form-control" id="copyright_left" th:field="*{copyright_left}"></textarea>
+                            </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label for="copyright_right" class="col-form-label col-md-3 col-sm-3 label-align">Mô tả thứ hai</label>
+                            <div class="col-md-9 col-sm-9">
+                                <textarea class="form-control" id="copyright_right" th:field="*{copyright_right}"></textarea>
+                            </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label for="facebook" class="col-form-label col-md-3 col-sm-3 label-align">Link facebook</label>
+                            <div class="col-md-9 col-sm-9">
+                                <input type="text" class="form-control" id="facebook" th:field="*{facebook}"/>
+                            </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label for="youtube" class="col-form-label col-md-3 col-sm-3 label-align">Link youtube</label>
+                            <div class="col-md-9 col-sm-9">
+                                <input type="text" class="form-control" id="youtube" th:field="*{youtube}"/>
+                            </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label for="instagram" class="col-form-label col-md-3 col-sm-3 label-align">Link instagram</label>
+                            <div class="col-md-9 col-sm-9">
+                                <input type="text" class="form-control" id="instagram" th:field="*{instagram}"/>
+                            </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label for="twitter" class="col-form-label col-md-3 col-sm-3 label-align">Link twitter</label>
+                            <div class="col-md-9 col-sm-9">
+                                <input type="text" class="form-control" id="twitter" th:field="*{twitter}"/>
+                            </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label for="google" class="col-form-label col-md-3 col-sm-3 label-align">Link google</label>
+                            <div class="col-md-9 col-sm-9">
+                                <input type="text" class="form-control" id="google" th:field="*{google}"/>
+                            </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label for="tiktok" class="col-form-label col-md-3 col-sm-3 label-align">Link tiktok</label>
+                            <div class="col-md-9 col-sm-9">
+                                <input type="text" class="form-control" id="tiktok" th:field="*{tiktok}"/>
+                            </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label for="meta_title" class="col-form-label col-md-3 col-sm-3 label-align">SEO tiêu đề</label>
+                            <div class="col-md-9 col-sm-9">
+                                <textarea class="form-control" id="meta_title" th:field="*{meta_title}"></textarea>
+                            </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label for="meta_keyword" class="col-form-label col-md-3 col-sm-3 label-align">SEO từ khóa</label>
+                            <div class="col-md-9 col-sm-9">
+                                <textarea class="form-control" id="meta_keyword" th:field="*{meta_keyword}"></textarea>
+                            </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label for="meta_description" class="col-form-label col-md-3 col-sm-3 label-align">SEO mô tả</label>
+                            <div class="col-md-9 col-sm-9">
+                                    <textarea class="form-control" id="meta_description" th:field="*{meta_description}"></textarea>
+                            </div>
+                        </div>
+                        <div class="field item form-group">
+                            <label for="meta_image" class="col-form-label col-md-3 col-sm-3 label-align">SEO ảnh</label>
+                            <div class="col-md-9 col-sm-9">
+                                <input type="file" class="form-control" id="meta_image" th:field="*{meta_image}"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6 offset-md-3">
+                                <button type="submit" class="btn btn-primary">Lưu</button>
+                                <button type="reset" class="btn btn-success">Làm lại</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /page content -->
+<div id="layouts-partials-footer" th:replace="admin/layouts/footer::layouts-footer"></div>

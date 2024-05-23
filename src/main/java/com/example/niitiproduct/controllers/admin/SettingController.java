@@ -21,8 +21,9 @@ public class SettingController {
     @GetMapping("")
     public String index(Model model) {
         List<SettingDTO> settings = settingService.getAll();
+        model.addAttribute("setting", new SettingDTO());
         model.addAttribute("settings", settings);
-        return "admin/setting/index";
+        return "admin/settings/index";
     }
 
     /**
@@ -32,7 +33,7 @@ public class SettingController {
     public String edit(Model model, @PathVariable("id") Long id) {
         List<SettingDTO> settings = settingService.getAll();
         model.addAttribute("settings", settings);
-        return "admin/setting/index";
+        return "admin/settings/index";
     }
 
     /**
@@ -51,7 +52,7 @@ public class SettingController {
     public String add(Model model) {
         List<SettingDTO> settings = settingService.getAll();
         model.addAttribute("settings", settings);
-        return "admin/setting/add";
+        return "admin/settings/add";
     }
 
     /**

@@ -26,14 +26,10 @@ public class Setting {
     String email_contact;
     @Column(name = "address_contact")
     String address_contact;
-    @Column(name = "link_google_map")
-    String link_google_map;
-    @Column(name = "timer_support")
-    String timer_support;
     @Column(name = "logo_header_company")
     String logo_header_company;
-    @Column(name = "logo_company")
-    String logo_company;
+    @Column(name = "logo_footer_company")
+    String logo_footer_company;
     @Column(name = "copyright_left")
     String copyright_left;
     @Column(name = "copyright_right")
@@ -50,8 +46,6 @@ public class Setting {
     String google;
     @Column(name = "tiktok")
     String tiktok;
-    @Column(name = "slogan_register")
-    String slogan_register;
     @Column(name = "meta_title")
     String meta_title;
     @Column(name = "meta_keyword")
@@ -73,7 +67,7 @@ public class Setting {
     @Column(name = "deleted_by")
     String deleted_by;
 
-    public Setting(Integer id, String company_contact, String telephone_contact, String fax_contact, String website_name, String website_contact, String email_contact, String address_contact, String link_google_map, String timer_support, String logo_header_company, String logo_company, String copyright_left, String copyright_right, String facebook, String youtube, String instagram, String twitter, String google, String tiktok, String slogan_register, String meta_title, String meta_keyword, String meta_description, String meta_image, String created_at, String created_by, String updated_at, String updated_by, String deleted_at, String deleted_by) {
+    public Setting(Integer id, String company_contact, String telephone_contact, String fax_contact, String website_name, String website_contact, String email_contact, String address_contact, String logo_header_company, String logo_footer_company, String copyright_left, String copyright_right, String facebook, String youtube, String instagram, String twitter, String google, String tiktok, String meta_title, String meta_keyword, String meta_description, String meta_image, String created_at, String created_by, String updated_at, String updated_by, String deleted_at, String deleted_by) {
         this.id = id;
         this.company_contact = company_contact;
         this.telephone_contact = telephone_contact;
@@ -82,10 +76,8 @@ public class Setting {
         this.website_contact = website_contact;
         this.email_contact = email_contact;
         this.address_contact = address_contact;
-        this.link_google_map = link_google_map;
-        this.timer_support = timer_support;
         this.logo_header_company = logo_header_company;
-        this.logo_company = logo_company;
+        this.logo_footer_company = logo_footer_company;
         this.copyright_left = copyright_left;
         this.copyright_right = copyright_right;
         this.facebook = facebook;
@@ -94,7 +86,6 @@ public class Setting {
         this.twitter = twitter;
         this.google = google;
         this.tiktok = tiktok;
-        this.slogan_register = slogan_register;
         this.meta_title = meta_title;
         this.meta_keyword = meta_keyword;
         this.meta_description = meta_description;

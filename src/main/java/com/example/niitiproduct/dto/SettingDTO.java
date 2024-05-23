@@ -16,10 +16,8 @@ public class SettingDTO {
     private String website_contact;
     private String email_contact;
     private String address_contact;
-    private String link_google_map;
-    private String timer_support;
     private String logo_header_company;
-    private String logo_company;
+    private String logo_footer_company;
     private String copyright_left;
     private String copyright_right;
     private String facebook;
@@ -28,7 +26,6 @@ public class SettingDTO {
     private String twitter;
     private String google;
     private String tiktok;
-    private String slogan_register;
     private String meta_title;
     private String meta_keyword;
     private String meta_description;
