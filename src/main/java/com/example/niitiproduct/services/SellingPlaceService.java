@@ -62,6 +62,7 @@ public class SellingPlaceService {
             sellingPlaceData.setSub_district(sellingPlace.getSub_district());
             sellingPlaceData.setAddress(sellingPlace.getAddress());
             sellingPlaceData.setHotline(sellingPlace.getHotline());
+            sellingPlaceData.setStatus(sellingPlace.getStatus());
             sellingPlaceData.setCreated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
             sellingPlaceData.setCreated_by(String.valueOf(1));
             sellingPlaceData.setUpdated_at(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));

@@ -16,6 +16,7 @@ public class SellingPlaceDTO {
     private String sub_district;
     private String address;
     private String hotline;
+    private String status;
     private String created_at;
     private String created_by;
     private String updated_at;

@@ -13,7 +13,7 @@ public class SellingPlaceRestController {
     @Autowired
     private SellingPlaceService sellingPlaceService;
 
-    @GetMapping("/selling_places/all")
+    @GetMapping("/selling-places/all")
     public ResponseEntity<Object> index() {
         return sellingPlaceService.getAllSellingPlaces();
     }

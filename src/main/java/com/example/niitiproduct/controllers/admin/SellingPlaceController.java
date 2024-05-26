@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("admin/selling_places")
+@RequestMapping("admin/selling-places")
 public class SellingPlaceController {
     @Autowired
     private SellingPlaceService sellingPlaceService;
@@ -26,7 +26,7 @@ public class SellingPlaceController {
     public String index(Model model) {
         List<SellingPlaceDTO> sellingPlaces = sellingPlaceService.getAll();
         model.addAttribute("sellingPlaces", sellingPlaces);
-        return "admin/selling_place/index";
+        return "admin/selling-place/index";
     }
 
     /**
@@ -47,7 +47,7 @@ public class SellingPlaceController {
             model.addAttribute("sellingPlaces", sellingPlaces);
         }
         model.addAttribute("sellingPlace", new SellingPlaceDTO());
-        return "admin/selling_place/index";
+        return "admin/selling-place/index";
     }
 
     /**
@@ -59,11 +59,9 @@ public class SellingPlaceController {
      */
     @GetMapping("/edit/{id}")
     public String edit(Model model, @PathVariable("id") Long id) {
-        List<SellingPlaceDTO> sellingPlaces = sellingPlaceService.getAll();
-        model.addAttribute("sellingPlaces", sellingPlaces);
         SellingPlace sellingPlace = sellingPlaceService.findById(id);
         model.addAttribute("sellingPlace", sellingPlace);
-        return "admin/selling_place/form";
+        return "admin/selling-place/edit";
     }
 
     /**
@@ -75,7 +73,7 @@ public class SellingPlaceController {
     @PostMapping(value = "/update")
     public String update(@ModelAttribute SellingPlace sellingPlace) {
         sellingPlaceService.save(sellingPlace);
-        return "redirect:/admin/selling_places/edit/" + sellingPlace.getId();
+        return "redirect:/admin/selling-places/edit/" + sellingPlace.getId();
     }
 
     /**
@@ -84,11 +82,10 @@ public class SellingPlaceController {
      * @param model
      * @return
      */
-    @GetMapping("/sellingPlaces/add")
+    @GetMapping("/add")
     public String add(Model model) {
-        List<SellingPlaceDTO> sellingPlaces = sellingPlaceService.getAll();
-        model.addAttribute("sellingPlaces", sellingPlaces);
-        return "admin/selling_place/add";
+        model.addAttribute("sellingPlace", new SellingPlaceDTO());
+        return "admin/selling-place/add";
     }
 
     /**
@@ -100,7 +97,7 @@ public class SellingPlaceController {
     @PostMapping(value = "/store")
     public String store(@ModelAttribute SellingPlace sellingPlace) {
         sellingPlaceService.save(sellingPlace);
-        return "redirect:/admin/selling_places";
+        return "redirect:/admin/selling-places";
     }
 
     /**
@@ -116,6 +113,6 @@ public class SellingPlaceController {
         List<SellingPlaceDTO> sellingPlaces = sellingPlaceService.getAll();
         model.addAttribute("sellingPlaces", sellingPlaces);
         model.addAttribute("sellingPlace", new SellingPlaceDTO());
-        return "redirect:/admin/selling_places";
+        return "redirect:/admin/selling-places";
     }
 }

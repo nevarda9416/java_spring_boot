@@ -26,6 +26,8 @@ public class SellingPlace {
     String address;
     @Column(name = "hotline")
     String hotline;
+    @Column(name = "status")
+    String status;
     @Column(name = "created_at")
     String created_at;
     @Column(name = "created_by")

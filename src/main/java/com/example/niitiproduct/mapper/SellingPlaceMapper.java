@@ -16,6 +16,7 @@ public class SellingPlaceMapper {
                 .sub_district(sellingPlace.getSub_district())
                 .address(sellingPlace.getAddress())
                 .hotline(sellingPlace.getHotline())
+                .status(sellingPlace.getStatus())
                 .created_at(sellingPlace.getCreated_at())
                 .created_by(sellingPlace.getCreated_by())
                 .updated_at(sellingPlace.getUpdated_at())
