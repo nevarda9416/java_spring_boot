@@ -25,7 +25,7 @@ public class PromotionController {
     public String index(Model model) {
         List<PromotionDTO> promotions = promotionService.getAll();
         model.addAttribute("promotions",  promotions);
-        return "admin/promotion/index";
+        return "admin/promotions/index";
     }
 
     /**
@@ -45,7 +45,7 @@ public class PromotionController {
             model.addAttribute("promotions", promotions);
         }
         model.addAttribute("promotion", new PromotionDTO());
-        return "admin/promotion/index";
+        return "admin/promotions/index";
     }
 
     /**
@@ -60,7 +60,7 @@ public class PromotionController {
         model.addAttribute("promotions", promotions);
         Promotion promotion = promotionService.findById(id);
         model.addAttribute("promotion", promotion);
-        return "admin/promotion/form";
+        return "admin/promotions/edit";
     }
 
     /**
@@ -79,11 +79,10 @@ public class PromotionController {
      * @param model
      * @return
      */
-    @GetMapping("/promotions/add")
+    @GetMapping("/add")
     public String add(Model model) {
-        List<PromotionDTO> promotions = promotionService.getAll();
-        model.addAttribute("promotions", promotions);
-        return "admin/promotion/add";
+        model.addAttribute("promotion", new PromotionDTO());
+        return "admin/promotions/add";
     }
 
     /**
@@ -109,6 +108,6 @@ public class PromotionController {
         List<PromotionDTO> promotions = promotionService.getAll();
         model.addAttribute("promotions", promotions);
         model.addAttribute("promotion", new PromotionDTO());
-        return "redirect:/admin/categories";
+        return "redirect:/admin/promotions";
     }
 }

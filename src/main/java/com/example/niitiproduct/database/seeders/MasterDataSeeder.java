@@ -298,11 +298,11 @@ public class MasterDataSeeder {
     }
 
     public void insertPromotionData() {
-        Promotion p1 = new Promotion(1, "CODE202401WF", "Khuyến mãi trên sản phẩm", "product", "30000", "", "2024-01-01", "2025-01-01", 1
+        Promotion p1 = new Promotion(1, "CODE202401WF", "Khuyến mãi trên sản phẩm", "product", "30000", "", "01/01/2024", "01/01/2025", 1
                 , new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
-        Promotion p2 = new Promotion(2, "CODE202402WF", "Khuyến mãi trên đơn hàng", "order", "50000", "", "2024-01-01", "2025-01-01", 1
+        Promotion p2 = new Promotion(2, "CODE202402WF", "Khuyến mãi trên đơn hàng", "order", "50000", "", "01/01/2024", "01/01/2025", 1
                 , new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
-        Promotion p3 = new Promotion(3, "CODE202403WF", "Khuyến mãi trên khách hàng thân thiết", "vip_1", "10000", "", "2024-01-01", "2025-01-01", 1
+        Promotion p3 = new Promotion(3, "CODE202403WF", "Khuyến mãi trên khách hàng thân thiết", "vip_1", "10000", "", "01/01/2024", "01/01/2025", 1
                 , new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         List<Promotion> promotions = Arrays.asList(p1, p2, p3);
         // This exposes a saveAll method for us, which will batch several inserts into one.

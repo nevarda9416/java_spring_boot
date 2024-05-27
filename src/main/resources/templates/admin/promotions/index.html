@@ -1,6 +1,23 @@
 <div id="layouts-partials-header" th:replace="admin/layouts/header::layouts-header"></div>
 <!-- page content -->
 <div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <a th:href="@{'/admin/promotions/add'}" class="btn btn-success"><i class="fa fa-plus"></i> Thêm khuyến mãi</a>
+        </div>
+        <div class="title_right">
+            <div class="col-md-6 col-sm-6 form-group pull-right top_search mb-0">
+                <div class="input-group mb-0">
+                    <label>
+                        <input type="text" class="form-control" name="keyword">
+                    </label>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Tìm kiếm</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-12 col-sm-12">
             <div class="x_panel">
@@ -45,7 +62,8 @@
                                 <td th:text="${p.discount_rate}"> %</td>
                                 <td>Còn được sử dụng</td>
                                 <td class=" last"><a href="#" data-toggle="modal"
-                                                     th:attr="data-target=${'#bs-example-modal-lg-'+p.id}">Xem chi tiết</a> |
+                                                     th:attr="data-target=${'#bs-example-modal-lg-'+p.id}">Xem chi
+                                    tiết</a> |
                                     <a th:attr="href='../admin/promotions/edit/'+${p.id}">Cập nhật</a>
                                     <div class="modal fade bs-example-modal-lg"
                                          th:attr="id=${'bs-example-modal-lg-'+p.id}" tabindex="-1" role="dialog"

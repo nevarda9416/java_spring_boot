@@ -1725,9 +1725,12 @@ function init_daterangepicker_single_call() {
     if (typeof ($.fn.daterangepicker) === 'undefined') { return; }
     console.log('init_daterangepicker_single_call');
 
-    $('#single_cal1').daterangepicker({
+    $('#start_time, #end_time').daterangepicker({
         singleDatePicker: true,
-        singleClasses: "picker_1"
+        singleClasses: "picker_1",
+        locale: {
+            format: 'DD/MM/YYYY'
+        }
     }, function (start, end, label) {
         console.log(start.toISOString(), end.toISOString(), label);
     });
