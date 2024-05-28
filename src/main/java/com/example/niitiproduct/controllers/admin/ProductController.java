@@ -1,14 +1,13 @@
 package com.example.niitiproduct.controllers.admin;
 
 import com.example.niitiproduct.config.constants.Pagination;
-import com.example.niitiproduct.dto.CategoryDTO;
-import com.example.niitiproduct.dto.ProductDTO;
-import com.example.niitiproduct.dto.PromotionDTO;
+import com.example.niitiproduct.dto.*;
 import com.example.niitiproduct.models.Product;
-import com.example.niitiproduct.models.ProductPromotion;
 import com.example.niitiproduct.services.Category.CategoryService;
+import com.example.niitiproduct.services.ManufactureService;
 import com.example.niitiproduct.services.ProductService;
 import com.example.niitiproduct.services.PromotionService;
+import com.example.niitiproduct.services.SubCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
@@ -21,6 +20,10 @@ import java.util.List;
 public class ProductController {
     @Autowired
     private CategoryService categoryService;
+    @Autowired
+    private SubCategoryService subCategoryService;
+    @Autowired
+    private ManufactureService manufactureService;
     @Autowired
     private ProductService productService;
     @Autowired
@@ -68,11 +71,16 @@ public class ProductController {
      */
     @GetMapping("/edit/{id}")
     public String edit(Model model, @PathVariable("id") Long id) {
-        List<ProductDTO> products = productService.getAll();
-        model.addAttribute("products", products);
-        List<ProductPromotion> promotion = productService.findById(id);
-        model.addAttribute("promotion", promotion);
-        return "admin/product/index";
+        Pageable pageable = Pageable.ofSize(Integer.parseInt(Pagination.largeSize)).withPage(Integer.parseInt(Pagination.defaultPage) - 1);
+        List<CategoryDTO> categories = categoryService.getAll(pageable);
+        model.addAttribute("categories", categories);
+        List<SubCategoryDTO> subcategories = subCategoryService.getAll();
+        model.addAttribute("subcategories", subcategories);
+        List<ManufactureDTO> manufactures = manufactureService.getAll();
+        model.addAttribute("manufactures", manufactures);
+        Product product = productService.findById(id);
+        model.addAttribute("product", product);
+        return "admin/product/edit";
     }
 
     /**
@@ -96,9 +104,11 @@ public class ProductController {
         Pageable pageable = Pageable.ofSize(Integer.parseInt(Pagination.largeSize)).withPage(Integer.parseInt(Pagination.defaultPage) - 1);
         List<CategoryDTO> categories = categoryService.getAll(pageable);
         model.addAttribute("categories", categories);
+        List<SubCategoryDTO> subcategories = subCategoryService.getAll();
+        model.addAttribute("subcategories", subcategories);
+        List<ManufactureDTO> manufactures = manufactureService.getAll();
+        model.addAttribute("manufactures", manufactures);
         model.addAttribute("product", new ProductDTO());
-        List<ProductDTO> products = productService.getAll();
-        model.addAttribute("products", products);
         return "admin/product/add";
     }
 

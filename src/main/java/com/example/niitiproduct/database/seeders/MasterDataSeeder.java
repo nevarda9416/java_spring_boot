@@ -238,7 +238,7 @@ public class MasterDataSeeder {
                         "            </ul>",
                 "Card mạng không dây Với công nghệ WiFi 6 (802.11ax) và băng thông rộng 160 MHz, ASUS PCE-AX3000 mang đến tốc độ không dây nhanh hơn gấp 2,7 lần so với các thiết bị WiFi 5 (802.11ac). Sự kết hợp mang tính cách mạng giữa công nghệ OFDMA và MU-MIMO đảm bảo kết nối WiFi hiệu quả nhất cho máy tính của bạn.",
                 "Card mạng không dây Với công nghệ WiFi 6 (802.11ax) và băng thông rộng 160 MHz, ASUS PCE-AX3000 mang đến tốc độ không dây nhanh hơn gấp 2,7 lần so với các thiết bị WiFi 5 (802.11ac). Sự kết hợp mang tính cách mạng giữa công nghệ OFDMA và MU-MIMO đảm bảo kết nối WiFi hiệu quả nhất cho máy tính của bạn.",
-                "in_stock", 1, 1, 1, 1, "Cạc mạng không dây Asus PCI-E PCE-AX3000 Tray", "PCI-E,PCE-AX3000,AX3000Mbps", "Cạc mạng không dây Asus PCI-E PCE-AX3000 Tray", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+                1, 1, 1, 1, "Cạc mạng không dây Asus PCI-E PCE-AX3000 Tray", "PCI-E,PCE-AX3000,AX3000Mbps", "Cạc mạng không dây Asus PCI-E PCE-AX3000 Tray", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         Product p2 = new Product(2, "Bộ phát wifi 6 Asus RT-AX53U (Chuẩn AX/ AX1800Mbps/ 4 Ăng-ten ngoài/ Wifi Mesh/ 35 User)",
                 "bo-phat-wifi-6-asus-rt-ax53u-chuan-ax-ax1800mbps-4-ang-ten-ngoai-wifi-mesh-35-user",
                 "<ul class=\"ul\">\n" +
@@ -254,7 +254,7 @@ public class MasterDataSeeder {
                         "            </ul>",
                 "Wi-Fi công nghệ Mesh Asus RT-AX53U chuẩn Wifi 6 (802.11ax) mới nhất cung cấp các công nghệ trong tương lai, hiệu quả mạng cao hơn, tốc độ WiFi nhanh hơn, vùng phủ sóng lớn hơn và thời lượng pin được cải thiện cho các thiết bị được kết nối, mang lại cho người dùng trải nghiệm mạng tốt hơn đáng kể.",
                 "Wi-Fi công nghệ Mesh Asus RT-AX53U chuẩn Wifi 6 (802.11ax) mới nhất cung cấp các công nghệ trong tương lai, hiệu quả mạng cao hơn, tốc độ WiFi nhanh hơn, vùng phủ sóng lớn hơn và thời lượng pin được cải thiện cho các thiết bị được kết nối, mang lại cho người dùng trải nghiệm mạng tốt hơn đáng kể.",
-                "in_stock", 2, 4, 1, 1, "Bộ phát wifi 6 Asus RT-AX53U", "RT-AX53U,AX1800Mbps", "Bộ phát wifi 6 Asus RT-AX53U", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+                2, 4, 1, 1, "Bộ phát wifi 6 Asus RT-AX53U", "RT-AX53U,AX1800Mbps", "Bộ phát wifi 6 Asus RT-AX53U", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         Product p3 = new Product(3, "Bộ phát wifi 6 Asus RT-AX1800HP MU-MIMO (Chuẩn AX/ AX1800Mbps/ 4 Ăng-ten ngoài/ Wifi Mesh/ 35 User)",
                 "bo-phat-wifi-6-asus-rt-ax1800hp-mu-mimo-chuan-ax-ax1800mbps-4-ang-ten-ngoai-wifi-mesh-35-user",
                 "<ul class=\"ul\">\n" +
@@ -270,16 +270,16 @@ public class MasterDataSeeder {
                         "            </ul>",
                 "Ngày càng có nhiều thiết bị cá nhân và thiết bị IoT được kết nối với bộ phát Wifi, dẫn đến sự gia tăng tổng thể về mật độ mạng, đẩy giới hạn của tiêu chuẩn WiFi hiện tại lên mức cao hơn. Chuẩn WiFi 6 (802.11ax) mới nhất cung cấp các công nghệ tương lai, hiệu quả kết nối mạng tốt hơn, tốc độ WiFi nhanh hơn, phạm vi phủ sóng lớn hơn và cải thiện thời lượng pin cho các thiết bị được kết nối, mang lại trải nghiệm mạng tối ưu hơn nhiều cho người dùng.",
                 "Ngày càng có nhiều thiết bị cá nhân và thiết bị IoT được kết nối với bộ phát Wifi, dẫn đến sự gia tăng tổng thể về mật độ mạng, đẩy giới hạn của tiêu chuẩn WiFi hiện tại lên mức cao hơn. Chuẩn WiFi 6 (802.11ax) mới nhất cung cấp các công nghệ tương lai, hiệu quả kết nối mạng tốt hơn, tốc độ WiFi nhanh hơn, phạm vi phủ sóng lớn hơn và cải thiện thời lượng pin cho các thiết bị được kết nối, mang lại trải nghiệm mạng tối ưu hơn nhiều cho người dùng.",
-                "out_of_stock", 2, 3, 1, 1, "Bộ phát wifi 6 Asus RT-AX1800HP MU-MIMO", "RT-AX1800HP,MU-MIMO,AX1800Mbps", "Bộ phát wifi 6 Asus RT-AX1800HP MU-MIMO", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+                2, 3, 1, 1, "Bộ phát wifi 6 Asus RT-AX1800HP MU-MIMO", "RT-AX1800HP,MU-MIMO,AX1800Mbps", "Bộ phát wifi 6 Asus RT-AX1800HP MU-MIMO", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         List<Product> products = Arrays.asList(p1, p2, p3);
         // This exposes a saveAll method for us, which will batch several inserts into one.
         productRepository.saveAll(products);
     }
 
     public void insertProductDetailData() {
-        ProductDetail p1 = new ProductDetail(1, "Chuẩn AX", 1800000F, 1600000F, 1, "SKUAX001", "/images/product/p001.png", "publish", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
-        ProductDetail p2 = new ProductDetail(2, "AX3000Mbps", 1900000F, 1800000F, 1, "SKUAX002", "/images/product/p002.png", "publish", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
-        ProductDetail p3 = new ProductDetail(3, "2 Ăng-ten", 1500000F, 1500000F, 1, "SKUAX003", "/images/product/p003.png", "publish", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        ProductDetail p1 = new ProductDetail(1, "Chuẩn AX", 1800000F, 1600000F, 1, "SKUAX001", "/images/product/p001.png", "in_stock", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        ProductDetail p2 = new ProductDetail(2, "AX3000Mbps", 1900000F, 1800000F, 1, "SKUAX002", "/images/product/p002.png", "in_stock", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        ProductDetail p3 = new ProductDetail(3, "2 Ăng-ten", 1500000F, 1500000F, 1, "SKUAX003", "/images/product/p003.png", "out_of_stock", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         List<ProductDetail> productDetails = Arrays.asList(p1, p2, p3);
         // This exposes a saveAll method for us, which will batch several inserts into one.
         productDetailRepository.saveAll(productDetails);
@@ -344,7 +344,7 @@ public class MasterDataSeeder {
                 , "niithanoi.edu.vn"
                 , "hello@niithanoi.edu.vn"
                 , "Tầng 3, 25T2, N05, Nguyễn Thị Thập, Cầu Giấy, Hà Nội"
-                ,"https://niithanoi.edu.vn/pic/banner/log_636686424391527334.png"
+                , "https://niithanoi.edu.vn/pic/banner/log_636686424391527334.png"
                 , "https://niithanoi.edu.vn/pic/banner/log_636686424391527334.png"
                 , "", "", "https://www.facebook.com/NIIT.ICT/"
                 , "https://www.youtube.com/channel/UCqWcReCheBF-O6dlRf2CDRw"

@@ -3,15 +3,17 @@
 <div class="right_col" role="main">
     <div class="page-title">
         <div class="title_left">
-            <a href="/admin/products/add" class="btn btn-success"><i class="fa fa-plus"></i> Thêm sản phẩm</a>
+            <a th:href="@{'/admin/products/add'}" class="btn btn-success"><i class="fa fa-plus"></i> Thêm sản phẩm</a>
         </div>
         <div class="title_right">
-            <div class="col-md-5 col-sm-5   form-group pull-right top_search">
+            <div class="col-md-6 col-sm-6 form-group pull-right top_search">
                 <div class="input-group">
-                    <input type="text" class="form-control" name="keyword">
+                    <label>
+                        <input type="text" class="form-control" name="keyword">
+                    </label>
                     <span class="input-group-btn">
-                                  <button class="btn btn-default" type="button">Tìm kiếm</button>
-                        </span>
+                              <button class="btn btn-default" type="button">Tìm kiếm</button>
+                    </span>
                 </div>
             </div>
         </div>
@@ -62,7 +64,8 @@
                                 <!--                                    <td><img th:attr="src=${p.thumbnail_url},alt=${p.name}"/></td>-->
                                 <!--                                    <td th:text="${p.status}"></td>-->
                                 <td class=" last"><a href="#" data-toggle="modal"
-                                                     th:attr="data-target=${'#bs-example-modal-lg-'+p.id}">Xem chi tiết</a> |
+                                                     th:attr="data-target=${'#bs-example-modal-lg-'+p.id}">Xem chi
+                                    tiết</a> |
                                     <a th:attr="href='../admin/products/edit/'+${p.id}">Cập nhật</a>
                                     <div class="modal fade bs-example-modal-lg"
                                          th:attr="id=${'bs-example-modal-lg-'+p.id}" tabindex="-1" role="dialog"

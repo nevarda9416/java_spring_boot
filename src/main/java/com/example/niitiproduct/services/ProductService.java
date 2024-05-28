@@ -22,8 +22,6 @@ public class ProductService {
     ProductMapper productMapper;
     @Autowired
     private ProductRepository productRepository;
-    @Autowired
-    private ProductPromotionRepository productPromotionRepository;
 
     /**
      * Get all products
@@ -48,8 +46,8 @@ public class ProductService {
      * @param id
      * @return
      */
-    public List<ProductPromotion> findById(Long id) {
-        return productPromotionRepository.findFirstByProduct_IdOrderByIdDesc(Math.toIntExact(id));
+    public Product findById(Long id) {
+        return productRepository.findById(Math.toIntExact(id)).get();
     }
 
     /**
