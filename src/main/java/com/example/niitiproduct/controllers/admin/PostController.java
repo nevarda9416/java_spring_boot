@@ -22,7 +22,7 @@ public class PostController {
     public String index(Model model) {
         List<PostDTO> posts = postService.getAll();
         model.addAttribute("posts", posts);
-        return "admin/post/index";
+        return "admin/posts/index";
     }
 
     /**
@@ -39,7 +39,7 @@ public class PostController {
             model.addAttribute("posts", posts);
         }
         model.addAttribute("post", new PostDTO());
-        return "admin/post/index";
+        return "admin/posts/index";
     }
 
     /**
@@ -49,7 +49,7 @@ public class PostController {
     public String edit(Model model, @PathVariable("id") Long id) {
         List<PostDTO> posts = postService.getAll();
         model.addAttribute("posts", posts);
-        return "admin/post/index";
+        return "admin/posts/index";
     }
 
     /**
@@ -64,11 +64,11 @@ public class PostController {
     /**
      * Add post
      */
-    @GetMapping("/posts/add")
+    @GetMapping("/add")
     public String add(Model model) {
         List<PostDTO> posts = postService.getAll();
         model.addAttribute("posts", posts);
-        return "admin/post/add";
+        return "admin/posts/add";
     }
 
     /**

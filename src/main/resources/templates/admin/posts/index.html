@@ -1,0 +1,107 @@
+<div id="layouts-partials-header" th:replace="admin/layouts/header::layouts-header"></div>
+<!-- page content -->
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <a th:href="@{'/admin/posts/add'}" class="btn btn-success"><i class="fa fa-plus"></i> Thêm trang tin tức</a>
+        </div>
+        <div class="title_right">
+            <div class="col-md-5 col-sm-5   form-group pull-right top_search">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="keyword">
+                    <span class="input-group-btn">
+                          <button class="btn btn-default" type="button">Tìm kiếm</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Danh sách trang tin tức</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Làm mới</a>
+                                <a class="dropdown-item" href="#">Xuất ra excel</a>
+                            </div>
+                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="table-responsive">
+                        <table class="table table-striped jambo_table bulk_action">
+                            <thead>
+                            <tr class="headings">
+                                <th class="column-title">Tiêu đề</th>
+                                <th class="column-title">Tác giả</th>
+                                <th class="column-title">Ngày tạo</th>
+                                <th class="column-title no-link last"><span class="nobr">Thao tác</span></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="even pointer" th:each="p:${posts}">
+                                <td th:text="${p.title}"></td>
+                                <td th:text="${p.author_name}"></td>
+                                <td th:text="${p.created_at}"></td>
+                                <td class="last">
+                                    <a href="#" data-toggle="modal"
+                                       th:attr="data-target=${'#bs-example-modal-lg-'+p.id}">Xem chi tiết</a> |
+                                    <a th:attr="href='../admin/pages/edit/'+${p.id}">Cập nhật</a>
+                                    <div class="modal fade bs-example-modal-lg"
+                                         th:attr="id=${'bs-example-modal-lg-'+p.id}" tabindex="-1" role="dialog"
+                                         aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title" id="myModalLabel">Thông tin trang tin tức</h4>
+                                                    <button type="button" class="close" data-dismiss="modal"><span
+                                                            aria-hidden="true">×</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <table class="table table-striped">
+                                                        <tr>
+                                                            <td>Tiêu đề:</td>
+                                                            <td th:text="${p.title}"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tác giả:</td>
+                                                            <td th:text="${p.author_name}"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Ngày tạo:</td>
+                                                            <td th:text="${p.created_at}"></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Đóng
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /page content -->
+<div id="layouts-partials-footer" th:replace="admin/layouts/footer::layouts-footer"></div>

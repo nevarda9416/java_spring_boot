@@ -4,8 +4,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <a href="/admin/pages" title="Quay lại danh sách trang chính sách"><i class="fa fa-long-arrow-left"></i> Quay
-                    lại danh sách trang chính sách</a>
+                <a th:href="@{'/admin/posts/add'}" title="Quay lại danh sách trang tin tức"><i class="fa fa-long-arrow-left"></i> Quay lại danh sách trang tin tức</a>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -13,7 +12,7 @@
             <div class="col-md-12 col-sm-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Thêm trang chính sách</h2>
+                        <h2>Thêm trang tin tức</h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                             <li><a class="close-link"><i class="fa fa-close"></i></a>
@@ -24,10 +23,8 @@
                     <div class="x_content">
                         <form class="" action="/admin/pages/store" method="post" novalidate
                               enctype="multipart/form-data">
-                            <span class="section">Thông tin trang</span>
                             <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Tiêu đề trang<span
-                                        class="required">*</span></label>
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Tiêu đề&nbsp;<span class="required">*</span></label>
                                 <div class="col-md-9 col-sm-9">
                                     <input type="text" class="form-control" name="title" id="title" required/>
                                 </div>
