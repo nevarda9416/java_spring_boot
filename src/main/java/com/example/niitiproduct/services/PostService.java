@@ -3,7 +3,7 @@ package com.example.niitiproduct.services;
 import com.example.niitiproduct.dto.PostDTO;
 import com.example.niitiproduct.mapper.PostMapper;
 import com.example.niitiproduct.models.Post;
-import com.example.niitiproduct.models.Product;
+import com.example.niitiproduct.models.Promotion;
 import com.example.niitiproduct.repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -36,6 +36,15 @@ public class PostService {
     }
 
     /**
+     * Edit post
+     * @param id
+     * @return
+     */
+    public Post findById(Long id) {
+        return postRepository.findById(Math.toIntExact(id)).get();
+    }
+
+    /**
      * Insert/Update post
      */
     public boolean save(Post post) {
@@ -56,7 +65,6 @@ public class PostService {
             postData.setComment_count(post.getComment_count());
             postData.setPost_type(post.getPost_type());
             postData.setCategory_id(post.getCategory_id());
-            postData.setIs_deleted(post.getIs_deleted());
             postData.setIs_highlight(post.getIs_highlight());
             postData.setShow_on_homepage(post.getShow_on_homepage());
             postData.setMeta_title(post.getMeta_title());

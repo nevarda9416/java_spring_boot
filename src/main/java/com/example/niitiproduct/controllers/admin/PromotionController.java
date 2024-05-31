@@ -56,8 +56,6 @@ public class PromotionController {
      */
     @GetMapping("/edit/{id}")
     public String edit(Model model, @PathVariable("id") Long id) {
-        List<PromotionDTO> promotions = promotionService.getAll();
-        model.addAttribute("promotions", promotions);
         Promotion promotion = promotionService.findById(id);
         model.addAttribute("promotion", promotion);
         return "admin/promotions/edit";

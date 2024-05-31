@@ -40,8 +40,6 @@ public class Post {
     String post_type;
     @Column(name = "category_id")
     Integer category_id;
-    @Column(name = "is_deleted")
-    Integer is_deleted;
     @Column(name = "is_highlight")
     Integer is_highlight;
     @Column(name = "show_on_homepage")
@@ -67,7 +65,7 @@ public class Post {
     @Column(name = "deleted_by")
     String deleted_by;
 
-    public Post(Integer id, String title, String share_url, String slug, String excerpt, String plain_text, String content, String author_name, Integer user_id, String status, String published_at, Integer is_comment, Integer comment_count, String post_type, Integer category_id, Integer is_deleted, Integer is_highlight, Integer show_on_homepage, String meta_title, String meta_keyword, String meta_description, String meta_image, String created_at, String created_by, String updated_at, String updated_by, String deleted_at, String deleted_by) {
+    public Post(Integer id, String title, String share_url, String slug, String excerpt, String plain_text, String content, String author_name, Integer user_id, String status, String published_at, Integer is_comment, Integer comment_count, String post_type, Integer category_id, Integer is_highlight, Integer show_on_homepage, String meta_title, String meta_keyword, String meta_description, String meta_image, String created_at, String created_by, String updated_at, String updated_by, String deleted_at, String deleted_by) {
         this.id = id;
         this.title = title;
         this.share_url = share_url;
@@ -83,7 +81,6 @@ public class Post {
         this.comment_count = comment_count;
         this.post_type = post_type;
         this.category_id = category_id;
-        this.is_deleted = is_deleted;
         this.is_highlight = is_highlight;
         this.show_on_homepage = show_on_homepage;
         this.meta_title = meta_title;

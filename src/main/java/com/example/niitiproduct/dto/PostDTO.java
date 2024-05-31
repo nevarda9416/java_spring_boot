@@ -23,7 +23,6 @@ public class PostDTO {
     private Integer comment_count;
     private String post_type;
     private Integer category_id;
-    private Integer is_deleted;
     private Integer is_highlight;
     private Integer show_on_homepage;
     private String meta_title;

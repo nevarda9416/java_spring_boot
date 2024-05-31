@@ -2,6 +2,7 @@ package com.example.niitiproduct.controllers.admin;
 
 import com.example.niitiproduct.dto.PostDTO;
 import com.example.niitiproduct.models.Post;
+import com.example.niitiproduct.models.Promotion;
 import com.example.niitiproduct.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -47,9 +48,9 @@ public class PostController {
      */
     @GetMapping("/edit/{id}")
     public String edit(Model model, @PathVariable("id") Long id) {
-        List<PostDTO> posts = postService.getAll();
-        model.addAttribute("posts", posts);
-        return "admin/posts/index";
+        Post post = postService.findById(id);
+        model.addAttribute("post", post);
+        return "admin/posts/edit";
     }
 
     /**
@@ -66,8 +67,7 @@ public class PostController {
      */
     @GetMapping("/add")
     public String add(Model model) {
-        List<PostDTO> posts = postService.getAll();
-        model.addAttribute("posts", posts);
+        model.addAttribute("post", new PostDTO());
         return "admin/posts/add";
     }
 

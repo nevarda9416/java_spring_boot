@@ -23,7 +23,6 @@ public class PostMapper {
                 .comment_count(post.getComment_count())
                 .post_type(post.getPost_type())
                 .category_id(post.getCategory_id())
-                .is_deleted(post.getIs_deleted())
                 .is_highlight(post.getIs_highlight())
                 .show_on_homepage(post.getShow_on_homepage())
                 .meta_title(post.getMeta_title())

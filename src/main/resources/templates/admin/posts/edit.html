@@ -1,2 +1,168 @@
 <div id="layouts-partials-header" th:replace="admin/layouts/header::layouts-header"></div>
+<!-- page content -->
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <a th:href="@{'/admin/posts'}" title="Quay lại danh sách trang tin tức"><i class="fa fa-long-arrow-left"></i> Quay lại danh sách trang tin tức</a>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Cập nhật trang tin tức</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <form action="/admin/posts/update" method="post" enctype="multipart/form-data" th:object="${post}">
+                            <span class="section">Thông tin trang tin tức</span>
+                            <div class="form-group row">
+                                <label for="title" class="col-form-label col-md-3 col-sm-3 label-align">Tiêu đề&nbsp;<span class="required">*</span></label>
+                                <div class="col-md-9 col-sm-9">
+                                    <input type="text" class="form-control" id="title" th:field="*{title}" required/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="share_url" class="col-form-label col-md-3 col-sm-3 label-align">URL</label>
+                                <div class="col-md-9 col-sm-9">
+                                    <input type="text" class="form-control" id="share_url" th:field="*{share_url}"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="slug" class="col-form-label col-md-3 col-sm-3 label-align">Slug</label>
+                                <div class="col-md-9 col-sm-9">
+                                    <input type="text" class="form-control" id="slug" th:field="*{slug}"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align">Tóm tắt</label>
+                                <div class="col-md-9 col-sm-9">
+                                    <textarea class="form-control" name="excerpt" id="excerpt"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align">Nội dung</label>
+                                <div class="col-md-9 col-sm-9">
+                                    <textarea name="content" id="content" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align">Ảnh đại diện</label>
+                                <div class="col-md-9 col-sm-9">
+                                    <input type="file" class="form-control optional" name="meta_image" id="meta_image"/></div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="author_name" class="col-form-label col-md-3 col-sm-3  label-align">Tên người viết</label>
+                                <div class="col-md-9 col-sm-9">
+                                    <input type="text" class="form-control" id="author_name" th:field="*{author_name}"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="status" class="control-label col-md-3 col-sm-3 label-align">Trạng thái</label>
+                                <div class="col-md-3 col-sm-3 ">
+                                    <select class="form-control" id="status" th:field="*{status}">
+                                        <option value="draft">Nháp</option>
+                                        <option value="publish">Cho đăng</option>
+                                        <option value="waiting-review">Chờ phê duyệt</option>
+                                        <option value="unpublish">Ngừng đăng</option>
+                                        <option value="trash">Xóa</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="published_at" class="col-form-label col-md-3 col-sm-3 label-align">Thời gian đăng&nbsp;<span class="required">*</span></label>
+                                <div class="col-md-3 col-sm-3">
+                                    <fieldset>
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <div class="col-md-12 xdisplay_inputx form-group row has-feedback">
+                                                    <input type="text" class="form-control has-feedback-left"
+                                                           id="published_at" th:field="*{published_at}" required>
+                                                    <span class="fa fa-calendar-o form-control-feedback left"
+                                                          aria-hidden="true"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="is_comment" class="col-form-label col-md-3 col-sm-3 label-align">Cho phép bình luận</label>
+                                <div class="col-md-9 col-sm-9">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input class="flat" type="checkbox" checked="checked" value="1" id="is_comment" th:field="*{is_comment}">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="post_type" class="control-label col-md-3 col-sm-3 label-align">Loại bài viết&nbsp;<span class="required">*</span></label>
+                                <div class="col-md-3 col-sm-3">
+                                    <select class="form-control" id="post_type" th:field="*{post_type}"
+                                            required>
+                                        <option value="product">Tin sản phẩm</option>
+                                        <option value="technology">Tin công nghệ</option>
+                                        <option value="promotion">Tin khuyến mãi</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="category_id" class="col-form-label col-md-3 col-sm-3 label-align">Danh mục</label>
+                                <div class="col-md-3 col-sm-3">
+                                    <select class="form-control" id="category_id" th:field="*{category_id}">
+                                        <option value="0">Không</option>
+                                        <option th:each="c: ${categories}" th:value="${c.id}" th:text="${c.name}"></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="show_on_homepage" class="col-form-label col-md-3 col-sm-3 label-align">Hiển thị trên trang ngoài cùng</label>
+                                <div class="col-md-9 col-sm-9">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input class="flat" type="checkbox" checked="checked" value="1" id="show_on_homepage" th:field="*{show_on_homepage}">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="meta_title" class="col-form-label col-md-3 col-sm-3 label-align">SEO tiêu đề&nbsp;<span class="required">*</span></label>
+                                <div class="col-md-9 col-sm-9">
+                                    <textarea class="form-control" id="meta_title" th:field="*{meta_title}" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="meta_keyword" class="col-form-label col-md-3 col-sm-3 label-align">SEO từ khóa&nbsp;<span class="required">*</span></label>
+                                <div class="col-md-9 col-sm-9">
+                                    <textarea class="form-control" id="meta_keyword" th:field="*{meta_keyword}" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="meta_description" class="col-form-label col-md-3 col-sm-3 label-align">SEO mô tả&nbsp;<span class="required">*</span></label>
+                                <div class="col-md-9 col-sm-9">
+                                    <textarea class="form-control" id="meta_description" th:field="*{meta_description}" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-6 offset-md-3">
+                                    <button type="submit" class="btn btn-primary">Lưu</button>
+                                    <button type="reset" class="btn btn-success">Làm lại</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /page content -->
 <div id="layouts-partials-footer" th:replace="admin/layouts/footer::layouts-footer"></div>

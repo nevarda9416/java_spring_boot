@@ -1725,7 +1725,7 @@ function init_daterangepicker_single_call() {
     if (typeof ($.fn.daterangepicker) === 'undefined') { return; }
     console.log('init_daterangepicker_single_call');
 
-    $('#start_time, #end_time').daterangepicker({
+    $('#start_time, #end_time, #published_at').daterangepicker({
         singleDatePicker: true,
         singleClasses: "picker_1",
         locale: {
