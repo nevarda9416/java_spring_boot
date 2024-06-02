@@ -25,7 +25,7 @@ public class ManufactureController {
     public String index(Model model) {
         List<ManufactureDTO> manufactures = manufactureService.getAll();
         model.addAttribute("manufactures", manufactures);
-        return "admin/manufacture/index";
+        return "admin/manufactures/index";
     }
 
     /**
@@ -45,7 +45,7 @@ public class ManufactureController {
             model.addAttribute(" manufactures",  manufactures);
         }
         model.addAttribute(" manufacture", new ManufactureDTO());
-        return "admin/manufacture/index";
+        return "admin/manufactures/index";
     }
 
     /**
@@ -60,7 +60,7 @@ public class ManufactureController {
         model.addAttribute(" manufactures",  manufactures);
         Manufacture  manufacture = manufactureService.findById(id);
         model.addAttribute(" manufacture",  manufacture);
-        return "admin/manufacture/edit";
+        return "admin/manufactures/edit";
     }
 
     /**
@@ -79,11 +79,11 @@ public class ManufactureController {
      * @param model
      * @return
      */
-    @GetMapping("/ manufactures/add")
+    @GetMapping("/add")
     public String add(Model model) {
         List<ManufactureDTO>  manufactures = manufactureService.getAll();
         model.addAttribute(" manufactures",  manufactures);
-        return "admin/manufacture/add";
+        return "admin/manufactures/add";
     }
 
     /**
