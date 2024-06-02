@@ -1,0 +1,239 @@
+<div id="layouts-partials-header" th:replace="admin/layouts/header::layouts-header"></div>
+<!-- page content -->
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <a th:href="@{'/admin/orders'}" title="Quay lại danh sách đơn hàng"><i
+                        class="fa fa-long-arrow-left"></i> Quay lại danh sách đơn hàng</a>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Cập nhật đơn hàng</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <form th:action="@{'/admin/orders/update'}" method="post" th:object="${order}">
+                            <span class="section">Thông tin đơn hàng</span>
+                            <div class="form-group row">
+                                <label for="code" class="col-form-label col-md-3 col-sm-3 label-align">Mã đơn
+                                    hàng</label>
+                                <div class="col-md-2 col-sm-2">
+                                    <input type="text" class="form-control" id="code" th:field="*{code}" readonly/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="total_price" class="col-form-label col-md-3 col-sm-3 label-align">Tổng giá
+                                    trị đơn hàng</label>
+                                <div class="col-md-2 col-sm-2">
+                                    <input type="text" class="form-control" id="total_price" th:field="*{total_price}"
+                                           readonly/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="total_amount" class="col-form-label col-md-3 col-sm-3 label-align">Số lượng
+                                    sản phẩm</label>
+                                <div class="col-md-1 col-sm-1">
+                                    <input type="text" class="form-control" id="total_amount" th:field="*{total_amount}"
+                                           readonly/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="total_tax" class="col-form-label col-md-3 col-sm-3 label-align">Giá thuế
+                                    tính trên đơn hàng</label>
+                                <div class="col-md-2 col-sm-2">
+                                    <input type="text" class="form-control" id="total_tax" th:field="*{total_tax}"
+                                           readonly/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="status" class="control-label col-md-3 col-sm-3 label-align">Trạng
+                                    thái</label>
+                                <div class="col-md-3 col-sm-3 ">
+                                    <select class="form-control" id="status" th:field="*{status}">
+                                        <option value="">Đang giao hàng</option>
+                                        <option value="">Chưa thanh toán</option>
+                                        <option value="">Chờ thanh toán</option>
+                                        <option value="">Đặt cọc 1 phần</option>
+                                        <option value="">Đã thanh toán COD</option>
+                                        <option value="">Đã thanh toán chuyển khoản</option>
+                                        <option value="">Hủy đơn hàng</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="total_discount_code" class="col-form-label col-md-3 col-sm-3 label-align">Mã
+                                    giảm giá</label>
+                                <div class="col-md-2 col-sm-2">
+                                    <input type="text" class="form-control" id="total_discount_code"
+                                           th:field="*{total_discount_code}" readonly/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="total_discount_amount" class="col-form-label col-md-3 col-sm-3 label-align">Tổng
+                                    tiền giảm</label>
+                                <div class="col-md-2 col-sm-2">
+                                    <input type="text" class="form-control" id="total_discount_amount"
+                                           th:field="*{total_discount_amount}" readonly/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="accounts_receivable" class="col-form-label col-md-3 col-sm-3 label-align">Số
+                                    tiền còn phải thu của khách</label>
+                                <div class="col-md-2 col-sm-2">
+                                    <input type="text" class="form-control" id="accounts_receivable"
+                                           th:field="*{accounts_receivable}" readonly/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="note" class="col-form-label col-md-3 col-sm-3 label-align">Ghi chú</label>
+                                <div class="col-md-9 col-sm-9">
+                                    <textarea class="form-control" id="note" th:field="*{note}"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="customer_id" class="col-form-label col-md-3 col-sm-3 label-align">Mã khách
+                                    hàng</label>
+                                <div class="col-md-1 col-sm-1">
+                                    <input type="text" class="form-control" id="customer_id" th:field="*{customer_id}"
+                                           readonly/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="shipping_method" class="col-form-label col-md-3 col-sm-3 label-align">Phương
+                                    thức giao hàng</label>
+                                <div class="col-md-2 col-sm-2">
+                                    <input type="text" class="form-control" id="shipping_method"
+                                           th:field="*{shipping_method}" readonly/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="shipping_date" class="col-form-label col-md-3 col-sm-3 label-align">Ngày
+                                    giao hàng</label>
+                                <div class="col-md-2 col-sm-2">
+                                    <input type="text" class="form-control" id="shipping_date"
+                                           th:field="*{shipping_date}" readonly/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="payment_method" class="col-form-label col-md-3 col-sm-3 label-align">Phương
+                                    thức thanh toán</label>
+                                <div class="col-md-2 col-sm-2">
+                                    <input type="text" class="form-control" id="payment_method"
+                                           th:field="*{payment_method}" readonly/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="payment_date" class="col-form-label col-md-3 col-sm-3 label-align">Ngày
+                                    thanh toán</label>
+                                <div class="col-md-2 col-sm-2">
+                                    <input type="text" class="form-control" id="payment_date" th:field="*{payment_date}"
+                                           readonly/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="shipping_fullname" class="col-form-label col-md-3 col-sm-3 label-align">Tên
+                                    khách hàng</label>
+                                <div class="col-md-3 col-sm-3">
+                                    <input type="text" class="form-control" id="shipping_fullname"
+                                           th:field="*{shipping_fullname}" readonly/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="shipping_address" class="col-form-label col-md-3 col-sm-3 label-align">Địa
+                                    chỉ giao hàng</label>
+                                <div class="col-md-9 col-sm-9">
+                                    <input type="text" class="form-control" id="shipping_address"
+                                           th:field="*{shipping_address}"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="shipping_email" class="col-form-label col-md-3 col-sm-3 label-align">Email
+                                    khách hàng</label>
+                                <div class="col-md-3 col-sm-3">
+                                    <input type="text" class="form-control" id="shipping_email"
+                                           th:field="*{shipping_email}" readonly/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="shipping_fee" class="col-form-label col-md-3 col-sm-3 label-align">Phí giao
+                                    hàng</label>
+                                <div class="col-md-2 col-sm-2">
+                                    <input type="text" class="form-control" id="shipping_fee" th:field="*{shipping_fee}"
+                                           readonly/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="shipping_phone" class="col-form-label col-md-3 col-sm-3 label-align">Số điện
+                                    thoại khách hàng</label>
+                                <div class="col-md-2 col-sm-2">
+                                    <input type="text" class="form-control" id="shipping_phone"
+                                           th:field="*{shipping_phone}" readonly/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="province_code" class="col-form-label col-md-3 col-sm-3 label-align">Mã
+                                    tỉnh/thành phố</label>
+                                <div class="col-md-1 col-sm-1">
+                                    <input type="text" class="form-control" id="province_code"
+                                           th:field="*{province_code}" readonly/>
+                                </div>
+                                <label for="province_name" class="col-form-label col-md-2 col-sm-2 label-align">Tên
+                                    tỉnh/thành phố</label>
+                                <div class="col-md-2 col-sm-2">
+                                    <input type="text" class="form-control" id="province_name"
+                                           th:field="*{province_name}" readonly/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="district_code" class="col-form-label col-md-3 col-sm-3 label-align">Mã
+                                    quận/huyện</label>
+                                <div class="col-md-1 col-sm-1">
+                                    <input type="text" class="form-control" id="district_code"
+                                           th:field="*{district_code}" readonly/>
+                                </div>
+                                <label for="district_name" class="col-form-label col-md-2 col-sm-2 label-align">Tên
+                                    quận/huyện</label>
+                                <div class="col-md-2 col-sm-2">
+                                    <input type="text" class="form-control" id="district_name"
+                                           th:field="*{district_name}" readonly/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="sub_district_code" class="col-form-label col-md-3 col-sm-3 label-align">Mã
+                                    phường/xã</label>
+                                <div class="col-md-1 col-sm-1">
+                                    <input type="text" class="form-control" id="sub_district_code"
+                                           th:field="*{sub_district_code}" readonly/>
+                                </div>
+                                <label for="sub_district_name" class="col-form-label col-md-2 col-sm-2 label-align">Tên
+                                    phường/xã</label>
+                                <div class="col-md-2 col-sm-2">
+                                    <input type="text" class="form-control" id="sub_district_name"
+                                           th:field="*{sub_district_name}" readonly/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-6 offset-md-3">
+                                    <button type="submit" class="btn btn-primary">Lưu</button>
+                                    <button type="reset" class="btn btn-success">Làm lại</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /page content -->
+<div id="layouts-partials-footer" th:replace="admin/layouts/footer::layouts-footer"></div>

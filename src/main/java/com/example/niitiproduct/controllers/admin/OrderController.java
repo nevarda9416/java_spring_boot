@@ -26,7 +26,7 @@ public class OrderController {
         List<OrderDTO> orders = orderService.getAll();
         model.addAttribute("orders", orders);
         model.addAttribute("order", new OrderDTO());
-        return "admin/order/index";
+        return "admin/orders/index";
     }
 
     /**
@@ -46,7 +46,7 @@ public class OrderController {
             model.addAttribute("orders", orders);
         }
         model.addAttribute("order", new OrderDTO());
-        return "admin/order/index";
+        return "admin/orders/index";
     }
 
     /**
@@ -61,7 +61,7 @@ public class OrderController {
         model.addAttribute("orders", orders);
         Order order = orderService.findById(id);
         model.addAttribute("order", order);
-        return "admin/order/form";
+        return "admin/orders/form";
     }
 
     /**
@@ -84,7 +84,7 @@ public class OrderController {
     public String add(Model model) {
         List<OrderDTO> orders = orderService.getAll();
         model.addAttribute("orders", orders);
-        return "admin/order/add";
+        return "admin/orders/add";
     }
 
     /**
