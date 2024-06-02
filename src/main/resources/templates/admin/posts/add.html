@@ -21,7 +21,7 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <form action="/admin/posts/store" method="post" enctype="multipart/form-data" th:object="${post}">
+                        <form th:action="@{'/admin/posts/store'}" method="post" enctype="multipart/form-data" th:object="${post}">
                             <div class="form-group row">
                                 <label for="title" class="col-form-label col-md-3 col-sm-3 label-align">Tiêu đề&nbsp;<span class="required">*</span></label>
                                 <div class="col-md-9 col-sm-9">
