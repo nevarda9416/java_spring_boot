@@ -38,13 +38,13 @@ public class ManufactureController {
     public String search(Model model, @RequestParam("keyword") String keyword) {
         if (keyword.isEmpty()) {
             List<ManufactureDTO>  manufactures = manufactureService.getAll();
-            model.addAttribute(" manufactures",  manufactures);
+            model.addAttribute("manufactures",  manufactures);
         } else {
             List<Manufacture>  manufactures = manufactureService.searchByName(keyword);
             model.addAttribute("keyword", keyword);
-            model.addAttribute(" manufactures",  manufactures);
+            model.addAttribute("manufactures",  manufactures);
         }
-        model.addAttribute(" manufacture", new ManufactureDTO());
+        model.addAttribute("manufacture", new ManufactureDTO());
         return "admin/manufactures/index";
     }
 
@@ -57,9 +57,9 @@ public class ManufactureController {
     @GetMapping("/edit/{id}")
     public String edit(Model model, @PathVariable("id") Long id) {
         List<ManufactureDTO>  manufactures = manufactureService.getAll();
-        model.addAttribute(" manufactures",  manufactures);
+        model.addAttribute("manufactures",  manufactures);
         Manufacture  manufacture = manufactureService.findById(id);
-        model.addAttribute(" manufacture",  manufacture);
+        model.addAttribute("manufacture",  manufacture);
         return "admin/manufactures/edit";
     }
 
@@ -82,7 +82,7 @@ public class ManufactureController {
     @GetMapping("/add")
     public String add(Model model) {
         List<ManufactureDTO>  manufactures = manufactureService.getAll();
-        model.addAttribute(" manufactures",  manufactures);
+        model.addAttribute("manufactures",  manufactures);
         return "admin/manufactures/add";
     }
 
@@ -107,8 +107,8 @@ public class ManufactureController {
     public String delete(Model model, @PathVariable("id") Long id) {
         manufactureService.delete(id);
         List<ManufactureDTO>  manufactures = manufactureService.getAll();
-        model.addAttribute(" manufactures",  manufactures);
-        model.addAttribute(" manufacture", new ManufactureDTO());
+        model.addAttribute("manufactures",  manufactures);
+        model.addAttribute("manufacture", new ManufactureDTO());
         return "redirect:/admin/categories";
     }
 }

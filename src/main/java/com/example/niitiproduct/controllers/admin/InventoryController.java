@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("admin")
+@RequestMapping("admin/inventories")
 public class InventoryController {
     @Autowired
     private InventoryService inventoryService;
@@ -21,11 +21,11 @@ public class InventoryController {
      * @param model
      * @return
      */
-    @GetMapping("/inventories")
+    @GetMapping("")
     public String index(Model model) {
         List<InventoryDTO> inventories = inventoryService.getAll();
         model.addAttribute("inventories", inventories);
-        return "admin/inventory/index";
+        return "admin/inventories/index";
     }
 
     /**
@@ -37,15 +37,15 @@ public class InventoryController {
     @GetMapping("/search")
     public String search(Model model, @RequestParam("keyword") String keyword) {
         if (keyword.isEmpty()) {
-            List<InventoryDTO> inventorys = inventoryService.getAll();
-            model.addAttribute("inventorys", inventorys);
+            List<InventoryDTO> inventories = inventoryService.getAll();
+            model.addAttribute("inventories", inventories);
         } else {
-            List<Inventory> inventorys = inventoryService.searchByName(keyword);
+            List<Inventory> inventories = inventoryService.searchByName(keyword);
             model.addAttribute("keyword", keyword);
-            model.addAttribute("inventorys", inventorys);
+            model.addAttribute("inventories", inventories);
         }
         model.addAttribute("inventory", new InventoryDTO());
-        return "admin/inventory/index";
+        return "admin/inventories/index";
     }
 
     /**
@@ -56,11 +56,11 @@ public class InventoryController {
      */
     @GetMapping("/edit/{id}")
     public String edit(Model model, @PathVariable("id") Long id) {
-        List<InventoryDTO> inventorys = inventoryService.getAll();
-        model.addAttribute("inventorys", inventorys);
+        List<InventoryDTO> inventories = inventoryService.getAll();
+        model.addAttribute("inventories", inventories);
         Inventory inventory = inventoryService.findById(id);
         model.addAttribute("inventory", inventory);
-        return "edit";
+        return "admin/inventories/edit";
     }
 
     /**
@@ -71,7 +71,7 @@ public class InventoryController {
     @PostMapping(value = "/update")
     public String update(@ModelAttribute Inventory inventory) {
         inventoryService.save(inventory);
-        return "redirect:/admin/inventorys/edit/" + inventory.getId();
+        return "redirect:/admin/inventories/edit/" + inventory.getId();
     }
 
     /**
@@ -79,11 +79,11 @@ public class InventoryController {
      * @param model
      * @return
      */
-    @GetMapping("/inventorys/add")
+    @GetMapping("/add")
     public String add(Model model) {
-        List<InventoryDTO> inventorys = inventoryService.getAll();
-        model.addAttribute("inventorys", inventorys);
-        return "admin/inventory/add";
+        List<InventoryDTO> inventories = inventoryService.getAll();
+        model.addAttribute("inventories", inventories);
+        return "admin/inventories/add";
     }
 
     /**
@@ -106,8 +106,8 @@ public class InventoryController {
     @GetMapping("/delete/{id}")
     public String delete(Model model, @PathVariable("id") Long id) {
         inventoryService.delete(id);
-        List<InventoryDTO> inventorys = inventoryService.getAll();
-        model.addAttribute("inventorys", inventorys);
+        List<InventoryDTO> inventories = inventoryService.getAll();
+        model.addAttribute("inventories", inventories);
         model.addAttribute("inventory", new InventoryDTO());
         return "redirect:/admin/categories";
     }
