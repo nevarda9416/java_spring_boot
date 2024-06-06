@@ -1,54 +1,54 @@
 <div th:fragment="layouts-footer">
-<!-- footer content -->
-<footer>
-    <div class="pull-right">
-        iProduct Managed by NIIT-ICT
-    </div>
-    <div class="clearfix"></div>
-</footer>
-<!-- /footer content -->
-<!-- jQuery -->
-<script th:src="@{/vendors/jquery/dist/jquery.min.js}"></script>
-<!-- Bootstrap -->
-<script th:src="@{/vendors/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
-<!-- FastClick -->
-<script th:src="@{/vendors/fastclick/lib/fastclick.js}"></script>
-<!-- NProgress -->
-<script th:src="@{/vendors/nprogress/nprogress.js}"></script>
-<!-- Chart.js -->
-<script th:src="@{/vendors/Chart.js/dist/Chart.min.js}"></script>
-<!-- jQuery Sparklines -->
-<script th:src="@{/vendors/jquery-sparkline/dist/jquery.sparkline.min.js}"></script>
-<!-- Flot -->
-<script th:src="@{/vendors/Flot/jquery.flot.js}"></script>
-<script th:src="@{/vendors/Flot/jquery.flot.pie.js}"></script>
-<script th:src="@{/vendors/Flot/jquery.flot.time.js}"></script>
-<script th:src="@{/vendors/Flot/jquery.flot.stack.js}"></script>
-<script th:src="@{/vendors/Flot/jquery.flot.resize.js}"></script>
-<!-- Flot plugins -->
-<script th:src="@{/vendors/flot.orderbars/js/jquery.flot.orderBars.js}"></script>
-<script th:src="@{/vendors/flot-spline/js/jquery.flot.spline.min.js}"></script>
-<script th:src="@{/vendors/flot.curvedlines/curvedLines.js}"></script>
-<!-- DateJS -->
-<script th:src="@{/vendors/DateJS/build/date.js}"></script>
-<!-- bootstrap-daterangepicker -->
-<script th:src="@{/vendors/moment/min/moment.min.js}"></script>
-<script th:src="@{/vendors/bootstrap-daterangepicker/daterangepicker.js}"></script>
-<!-- bootstrap-datetimepicker -->
-<script th:src="@{/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js}"></script>
-<!-- iCheck -->
-<script th:src="@{/vendors/iCheck/icheck.min.js}"></script>
-<!-- CKEditor -->
-<script th:src="@{/vendors/ckeditor/ckeditor.js}"></script>
-<script>
-    CKEDITOR.replace("description");
-    CKEDITOR.replace("summary");
-    CKEDITOR.replace("short_description");
-    CKEDITOR.replace("long_description");
-    CKEDITOR.replace("content");
-</script>
-<!-- Custom Theme Scripts -->
-<script th:src="@{/vendors/js/custom.js}"></script>
-</body>
-</html>
+    <!-- footer content -->
+    <footer>
+        <div class="pull-right">
+            iProduct Managed by NIIT-ICT
+        </div>
+        <div class="clearfix"></div>
+    </footer>
+    <!-- /footer content -->
+    <!-- jQuery -->
+    <script th:src="@{/vendors/jquery/dist/jquery.min.js}"></script>
+    <!-- Bootstrap -->
+    <script th:src="@{/vendors/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
+    <!-- FastClick -->
+    <script th:src="@{/vendors/fastclick/lib/fastclick.js}"></script>
+    <!-- NProgress -->
+    <script th:src="@{/vendors/nprogress/nprogress.js}"></script>
+    <!-- Chart.js -->
+    <script th:src="@{/vendors/Chart.js/dist/Chart.min.js}"></script>
+    <!-- jQuery Sparklines -->
+    <script th:src="@{/vendors/jquery-sparkline/dist/jquery.sparkline.min.js}"></script>
+    <!-- Flot -->
+    <script th:src="@{/vendors/Flot/jquery.flot.js}"></script>
+    <script th:src="@{/vendors/Flot/jquery.flot.pie.js}"></script>
+    <script th:src="@{/vendors/Flot/jquery.flot.time.js}"></script>
+    <script th:src="@{/vendors/Flot/jquery.flot.stack.js}"></script>
+    <script th:src="@{/vendors/Flot/jquery.flot.resize.js}"></script>
+    <!-- Flot plugins -->
+    <script th:src="@{/vendors/flot.orderbars/js/jquery.flot.orderBars.js}"></script>
+    <script th:src="@{/vendors/flot-spline/js/jquery.flot.spline.min.js}"></script>
+    <script th:src="@{/vendors/flot.curvedlines/curvedLines.js}"></script>
+    <!-- DateJS -->
+    <script th:src="@{/vendors/DateJS/build/date.js}"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script th:src="@{/vendors/moment/min/moment.min.js}"></script>
+    <script th:src="@{/vendors/bootstrap-daterangepicker/daterangepicker.js}"></script>
+    <!-- bootstrap-datetimepicker -->
+    <script th:src="@{/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js}"></script>
+    <!-- iCheck -->
+    <script th:src="@{/vendors/iCheck/icheck.min.js}"></script>
+    <!-- CKEditor -->
+    <script th:src="@{/vendors/ckeditor/ckeditor.js}"></script>
+    <script>
+        CKEDITOR.replace("description", {height: ['500px']});
+        CKEDITOR.replace("summary");
+        CKEDITOR.replace("short_description");
+        CKEDITOR.replace("long_description");
+        CKEDITOR.replace("content");
+    </script>
+    <!-- Custom Theme Scripts -->
+    <script th:src="@{/vendors/js/custom.js}"></script>
+    </body>
+    </html>
 </div>

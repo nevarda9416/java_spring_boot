@@ -6,7 +6,7 @@
             <a th:href="@{/admin/manufactures/add}" class="btn btn-success" title="Thêm nhà cung cấp"><i class="fa fa-plus"></i>&nbsp;Thêm nhà cung cấp</a>
         </div>
         <div class="title_right">
-            <div class="col-md-6 col-sm-6 form-group pull-right top_search">
+            <div class="col-md-5 col-sm-5 form-group pull-right top_search">
                 <div class="input-group">
                     <label>
                         <input type="text" class="form-control" name="keyword">
@@ -55,7 +55,7 @@
                                 <td th:text="${m.name}"></td>
                                 <td th:text="${m.description}"></td>
                                 <td class=" last"><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Xem chi tiết</a> |
-                                    <a th:attr="href='../admin/manufactures/edit/'+${m.id}">Cập nhật</a>
+                                    <a th:href="@{'/admin/manufactures/edit/'+${m.id}}">Cập nhật</a>
                                     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">

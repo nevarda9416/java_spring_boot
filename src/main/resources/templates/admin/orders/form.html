@@ -25,14 +25,14 @@
                         <form th:action="@{'/admin/orders/update'}" method="post" th:object="${order}">
                             <span class="section">Thông tin đơn hàng</span>
                             <div class="form-group row">
-                                <label for="code" class="col-form-label col-md-3 col-sm-3 label-align">Mã đơn
+                                <label for="code" class="control-label col-md-3 col-sm-3 label-align">Mã đơn
                                     hàng</label>
                                 <div class="col-md-2 col-sm-2">
                                     <input type="text" class="form-control" id="code" th:field="*{code}" readonly/>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="total_price" class="col-form-label col-md-3 col-sm-3 label-align">Tổng giá
+                                <label for="total_price" class="control-label col-md-3 col-sm-3 label-align">Tổng giá
                                     trị đơn hàng</label>
                                 <div class="col-md-2 col-sm-2">
                                     <input type="text" class="form-control" id="total_price" th:field="*{total_price}"
@@ -40,7 +40,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="total_amount" class="col-form-label col-md-3 col-sm-3 label-align">Số lượng
+                                <label for="total_amount" class="control-label col-md-3 col-sm-3 label-align">Số lượng
                                     sản phẩm</label>
                                 <div class="col-md-1 col-sm-1">
                                     <input type="text" class="form-control" id="total_amount" th:field="*{total_amount}"
@@ -48,7 +48,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="total_tax" class="col-form-label col-md-3 col-sm-3 label-align">Giá thuế
+                                <label for="total_tax" class="control-label col-md-3 col-sm-3 label-align">Giá thuế
                                     tính trên đơn hàng</label>
                                 <div class="col-md-2 col-sm-2">
                                     <input type="text" class="form-control" id="total_tax" th:field="*{total_tax}"
@@ -71,7 +71,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="total_discount_code" class="col-form-label col-md-3 col-sm-3 label-align">Mã
+                                <label for="total_discount_code" class="control-label col-md-3 col-sm-3 label-align">Mã
                                     giảm giá</label>
                                 <div class="col-md-2 col-sm-2">
                                     <input type="text" class="form-control" id="total_discount_code"
@@ -79,7 +79,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="total_discount_amount" class="col-form-label col-md-3 col-sm-3 label-align">Tổng
+                                <label for="total_discount_amount" class="control-label col-md-3 col-sm-3 label-align">Tổng
                                     tiền giảm</label>
                                 <div class="col-md-2 col-sm-2">
                                     <input type="text" class="form-control" id="total_discount_amount"
@@ -87,7 +87,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="accounts_receivable" class="col-form-label col-md-3 col-sm-3 label-align">Số
+                                <label for="accounts_receivable" class="control-label col-md-3 col-sm-3 label-align">Số
                                     tiền còn phải thu của khách</label>
                                 <div class="col-md-2 col-sm-2">
                                     <input type="text" class="form-control" id="accounts_receivable"
@@ -95,13 +95,13 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="note" class="col-form-label col-md-3 col-sm-3 label-align">Ghi chú</label>
+                                <label for="note" class="control-label col-md-3 col-sm-3 label-align">Ghi chú</label>
                                 <div class="col-md-9 col-sm-9">
                                     <textarea class="form-control" id="note" th:field="*{note}"></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="customer_id" class="col-form-label col-md-3 col-sm-3 label-align">Mã khách
+                                <label for="customer_id" class="control-label col-md-3 col-sm-3 label-align">Mã khách
                                     hàng</label>
                                 <div class="col-md-1 col-sm-1">
                                     <input type="text" class="form-control" id="customer_id" th:field="*{customer_id}"
@@ -109,7 +109,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="shipping_method" class="col-form-label col-md-3 col-sm-3 label-align">Phương
+                                <label for="shipping_method" class="control-label col-md-3 col-sm-3 label-align">Phương
                                     thức giao hàng</label>
                                 <div class="col-md-2 col-sm-2">
                                     <input type="text" class="form-control" id="shipping_method"
@@ -117,7 +117,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="shipping_date" class="col-form-label col-md-3 col-sm-3 label-align">Ngày
+                                <label for="shipping_date" class="control-label col-md-3 col-sm-3 label-align">Ngày
                                     giao hàng</label>
                                 <div class="col-md-2 col-sm-2">
                                     <input type="text" class="form-control" id="shipping_date"
@@ -125,7 +125,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="payment_method" class="col-form-label col-md-3 col-sm-3 label-align">Phương
+                                <label for="payment_method" class="control-label col-md-3 col-sm-3 label-align">Phương
                                     thức thanh toán</label>
                                 <div class="col-md-2 col-sm-2">
                                     <input type="text" class="form-control" id="payment_method"
@@ -133,7 +133,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="payment_date" class="col-form-label col-md-3 col-sm-3 label-align">Ngày
+                                <label for="payment_date" class="control-label col-md-3 col-sm-3 label-align">Ngày
                                     thanh toán</label>
                                 <div class="col-md-2 col-sm-2">
                                     <input type="text" class="form-control" id="payment_date" th:field="*{payment_date}"
@@ -141,7 +141,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="shipping_fullname" class="col-form-label col-md-3 col-sm-3 label-align">Tên
+                                <label for="shipping_fullname" class="control-label col-md-3 col-sm-3 label-align">Tên
                                     khách hàng</label>
                                 <div class="col-md-3 col-sm-3">
                                     <input type="text" class="form-control" id="shipping_fullname"
@@ -149,7 +149,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="shipping_address" class="col-form-label col-md-3 col-sm-3 label-align">Địa
+                                <label for="shipping_address" class="control-label col-md-3 col-sm-3 label-align">Địa
                                     chỉ giao hàng</label>
                                 <div class="col-md-9 col-sm-9">
                                     <input type="text" class="form-control" id="shipping_address"
@@ -157,7 +157,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="shipping_email" class="col-form-label col-md-3 col-sm-3 label-align">Email
+                                <label for="shipping_email" class="control-label col-md-3 col-sm-3 label-align">Email
                                     khách hàng</label>
                                 <div class="col-md-3 col-sm-3">
                                     <input type="text" class="form-control" id="shipping_email"
@@ -165,7 +165,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="shipping_fee" class="col-form-label col-md-3 col-sm-3 label-align">Phí giao
+                                <label for="shipping_fee" class="control-label col-md-3 col-sm-3 label-align">Phí giao
                                     hàng</label>
                                 <div class="col-md-2 col-sm-2">
                                     <input type="text" class="form-control" id="shipping_fee" th:field="*{shipping_fee}"
@@ -173,7 +173,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="shipping_phone" class="col-form-label col-md-3 col-sm-3 label-align">Số điện
+                                <label for="shipping_phone" class="control-label col-md-3 col-sm-3 label-align">Số điện
                                     thoại khách hàng</label>
                                 <div class="col-md-2 col-sm-2">
                                     <input type="text" class="form-control" id="shipping_phone"
@@ -181,13 +181,13 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="province_code" class="col-form-label col-md-3 col-sm-3 label-align">Mã
+                                <label for="province_code" class="control-label col-md-3 col-sm-3 label-align">Mã
                                     tỉnh/thành phố</label>
                                 <div class="col-md-1 col-sm-1">
                                     <input type="text" class="form-control" id="province_code"
                                            th:field="*{province_code}" readonly/>
                                 </div>
-                                <label for="province_name" class="col-form-label col-md-2 col-sm-2 label-align">Tên
+                                <label for="province_name" class="control-label col-md-2 col-sm-2 label-align">Tên
                                     tỉnh/thành phố</label>
                                 <div class="col-md-2 col-sm-2">
                                     <input type="text" class="form-control" id="province_name"
@@ -195,13 +195,13 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="district_code" class="col-form-label col-md-3 col-sm-3 label-align">Mã
+                                <label for="district_code" class="control-label col-md-3 col-sm-3 label-align">Mã
                                     quận/huyện</label>
                                 <div class="col-md-1 col-sm-1">
                                     <input type="text" class="form-control" id="district_code"
                                            th:field="*{district_code}" readonly/>
                                 </div>
-                                <label for="district_name" class="col-form-label col-md-2 col-sm-2 label-align">Tên
+                                <label for="district_name" class="control-label col-md-2 col-sm-2 label-align">Tên
                                     quận/huyện</label>
                                 <div class="col-md-2 col-sm-2">
                                     <input type="text" class="form-control" id="district_name"
@@ -209,13 +209,13 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="sub_district_code" class="col-form-label col-md-3 col-sm-3 label-align">Mã
+                                <label for="sub_district_code" class="control-label col-md-3 col-sm-3 label-align">Mã
                                     phường/xã</label>
                                 <div class="col-md-1 col-sm-1">
                                     <input type="text" class="form-control" id="sub_district_code"
                                            th:field="*{sub_district_code}" readonly/>
                                 </div>
-                                <label for="sub_district_name" class="col-form-label col-md-2 col-sm-2 label-align">Tên
+                                <label for="sub_district_name" class="control-label col-md-2 col-sm-2 label-align">Tên
                                     phường/xã</label>
                                 <div class="col-md-2 col-sm-2">
                                     <input type="text" class="form-control" id="sub_district_name"

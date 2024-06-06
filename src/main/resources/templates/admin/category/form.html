@@ -26,37 +26,37 @@
                     <form class="" action="/admin/categories/update" method="post" validate th:object="${category}" enctype="multipart/form-data">
                         <span class="section">Sửa thông tin danh mục cha</span>
                         <input class="form-control" name="id" type="hidden" required th:field="*{id}"/>
-                        <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">Tên danh mục<span
+                        <div class="form-group row">
+                            <label class="control-label col-md-3 col-sm-3  label-align">Tên danh mục<span
                                     class="required">*</span></label>
                             <div class="col-md-9 col-sm-9">
                                 <input class="form-control" name="name" type="text" required th:field="*{name}"/>
                             </div>
                         </div>
-                        <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">Slug <span
+                        <div class="form-group row">
+                            <label class="control-label col-md-3 col-sm-3  label-align">Slug <span
                                     class="required">*</span></label>
                             <div class="col-md-9 col-sm-9">
                                 <input class="form-control" name="slug" type="text" required th:field="*{slug}"/></div>
                         </div>
-                        <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">Hình ảnh minh họa</label>
+                        <div class="form-group row">
+                            <label class="control-label col-md-3 col-sm-3  label-align">Hình ảnh minh họa</label>
                             <div class="col-md-9 col-sm-9">
                                 <img th:src="@{${'/public/uploads' + category.image}}"  th:alt="*{name}" width="100px"/></div>
                         </div>
-                        <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">Tóm tắt</label>
+                        <div class="form-group row">
+                            <label class="control-label col-md-3 col-sm-3  label-align">Tóm tắt</label>
                             <div class="col-md-9 col-sm-9">
                                 <input class="form-control" name="summary" type="text" th:field="*{summary}"/></div>
                         </div>
-                        <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">Mô tả</label>
+                        <div class="form-group row">
+                            <label class="control-label col-md-3 col-sm-3  label-align">Mô tả</label>
                             <div class="col-md-9 col-sm-9">
                                 <textarea id="description" required class="form-control" name="description" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.." data-parsley-validation-threshold="10"  th:field="*{description}"></textarea>
                             </div>
                         </div>
-                        <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">Cho phép hiển thị</label>
+                        <div class="form-group row">
+                            <label class="control-label col-md-3 col-sm-3  label-align">Cho phép hiển thị</label>
                             <div class="col-md-9 col-sm-9">
                                 <div class="checkbox">
                                     <label>
@@ -65,8 +65,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">Thứ tự hiển thị</label>
+                        <div class="form-group row">
+                            <label class="control-label col-md-3 col-sm-3  label-align">Thứ tự hiển thị</label>
                             <div class="col-md-9 col-sm-9">
                                 <input class="form-control number" name="display_order" type="number" min="0"  th:field="*{display_order}"></div>
                         </div>

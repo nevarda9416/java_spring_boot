@@ -81,8 +81,7 @@ public class ManufactureController {
      */
     @GetMapping("/add")
     public String add(Model model) {
-        List<ManufactureDTO>  manufactures = manufactureService.getAll();
-        model.addAttribute("manufactures",  manufactures);
+        model.addAttribute("manufacture", new ManufactureDTO());
         return "admin/manufactures/add";
     }
 

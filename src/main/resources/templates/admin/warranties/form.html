@@ -25,26 +25,26 @@
                         <form class="" action="/admin/warranties/update" method="post" th:object="${warranty}">
                             <input type="hidden" class="form-control" th:field="*{id}"/>
                             <span class="section">Thông tin bảo hành</span>
-                            <div class="field item form-group">
-                                <label for="customer_id" class="col-form-label col-md-3 col-sm-3  label-align">ID khách hàng</label>
+                            <div class="form-group row">
+                                <label for="customer_id" class="control-label col-md-3 col-sm-3  label-align">ID khách hàng</label>
                                 <div class="col-md-9 col-sm-9">
                                     <input type="text" class="form-control" th:field="*{customer_id}" readonly/>
                                 </div>
                             </div>
-                            <div class="field item form-group">
-                                <label for="order_id" class="col-form-label col-md-3 col-sm-3  label-align">ID đơn hàng</label>
+                            <div class="form-group row">
+                                <label for="order_id" class="control-label col-md-3 col-sm-3  label-align">ID đơn hàng</label>
                                 <div class="col-md-9 col-sm-9">
                                     <input type="text" class="form-control" th:field="*{order_id}" readonly/>
                                 </div>
                             </div>
-                            <div class="field item form-group">
-                                <label for="product_id" class="col-form-label col-md-3 col-sm-3  label-align">ID sản phẩm</label>
+                            <div class="form-group row">
+                                <label for="product_id" class="control-label col-md-3 col-sm-3  label-align">ID sản phẩm</label>
                                 <div class="col-md-9 col-sm-9">
                                     <input type="text" class="form-control" th:field="*{product_id}" readonly/>
                                 </div>
                             </div>
-                            <div class="field item form-group">
-                                <label for="period" class="col-form-label col-md-3 col-sm-3  label-align">Thời gian bảo hành</label>
+                            <div class="form-group row">
+                                <label for="period" class="control-label col-md-3 col-sm-3  label-align">Thời gian bảo hành</label>
                                 <div class="col-md-9 col-sm-9">
                                     <fieldset>
                                         <div class="control-group ">
@@ -58,8 +58,8 @@
                                     </fieldset>
                                 </div>
                             </div>
-                            <div class="field item form-group">
-                                <label for="description" class="col-form-label col-md-3 col-sm-3  label-align">Mô tả</label>
+                            <div class="form-group row">
+                                <label for="description" class="control-label col-md-3 col-sm-3  label-align">Mô tả</label>
                                 <div class="col-md-9 col-sm-9">
                                     <textarea required th:field="*{description}"></textarea>
                                 </div>

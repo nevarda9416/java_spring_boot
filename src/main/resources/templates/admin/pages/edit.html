@@ -25,37 +25,37 @@
                         <form th:action="@{'/admin/pages/update'}" method="post" enctype="multipart/form-data" th:object="${page}">
                             <span class="section">Thông tin trang chính sách</span>
                             <div class="form-group row">
-                                <label for="title" class="col-form-label col-md-3 col-sm-3  label-align">Tiêu đề trang&nbsp;<span
+                                <label for="title" class="control-label col-md-3 col-sm-3  label-align">Tiêu đề trang&nbsp;<span
                                         class="required">*</span></label>
                                 <div class="col-md-9 col-sm-9">
                                     <input type="text" class="form-control" id="title" th:feild="*{title}" required/>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="slug" class="col-form-label col-md-3 col-sm-3  label-align">Slug</label>
+                                <label for="slug" class="control-label col-md-3 col-sm-3  label-align">Slug</label>
                                 <div class="col-md-9 col-sm-9">
                                     <input type="text" class="form-control" id="slug" th:feild="*{slug}"/>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="excerpt" class="col-form-label col-md-3 col-sm-3  label-align">Tóm tắt</label>
+                                <label for="excerpt" class="control-label col-md-3 col-sm-3  label-align">Tóm tắt</label>
                                 <div class="col-md-9 col-sm-9">
                                     <textarea class="form-control" id="excerpt" th:feild="excerpt"></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="content" class="col-form-label col-md-3 col-sm-3  label-align">Nội dung</label>
+                                <label for="content" class="control-label col-md-3 col-sm-3  label-align">Nội dung</label>
                                 <div class="col-md-9 col-sm-9">
                                     <textarea class="form-control" id="content" th:feild="content"></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align">Ảnh đại diện</label>
+                                <label class="control-label col-md-3 col-sm-3 label-align">Ảnh đại diện</label>
                                 <div class="col-md-9 col-sm-9">
                                     <input type="file" class="form-control optional" name="meta_image" id="meta_image"/></div>
                             </div>
                             <div class="form-group row">
-                                <label for="author_name" class="col-form-label col-md-3 col-sm-3  label-align">Tên người viết</label>
+                                <label for="author_name" class="control-label col-md-3 col-sm-3  label-align">Tên người viết</label>
                                 <div class="col-md-9 col-sm-9">
                                     <input type="text" class="form-control" id="author_name" th:field="*{author_name}"/>
                                 </div>
@@ -84,7 +84,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="category_id" class="col-form-label col-md-3 col-sm-3 label-align">Danh mục</label>
+                                <label for="category_id" class="control-label col-md-3 col-sm-3 label-align">Danh mục</label>
                                 <div class="col-md-3 col-sm-3">
                                     <select class="form-control" id="category_id" th:field="*{category_id}">
                                         <option value="0">Không</option>
@@ -93,19 +93,19 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="meta_title" class="col-form-label col-md-3 col-sm-3 label-align">SEO tiêu đề&nbsp;<span class="required">*</span></label>
+                                <label for="meta_title" class="control-label col-md-3 col-sm-3 label-align">SEO tiêu đề&nbsp;<span class="required">*</span></label>
                                 <div class="col-md-9 col-sm-9">
                                     <textarea class="form-control" id="meta_title" th:field="*{meta_title}" required></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="meta_keyword" class="col-form-label col-md-3 col-sm-3 label-align">SEO từ khóa&nbsp;<span class="required">*</span></label>
+                                <label for="meta_keyword" class="control-label col-md-3 col-sm-3 label-align">SEO từ khóa&nbsp;<span class="required">*</span></label>
                                 <div class="col-md-9 col-sm-9">
                                     <textarea class="form-control" id="meta_keyword" th:field="*{meta_keyword}" required></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="meta_description" class="col-form-label col-md-3 col-sm-3 label-align">SEO mô tả&nbsp;<span class="required">*</span></label>
+                                <label for="meta_description" class="control-label col-md-3 col-sm-3 label-align">SEO mô tả&nbsp;<span class="required">*</span></label>
                                 <div class="col-md-9 col-sm-9">
                                     <textarea class="form-control" id="meta_description" th:field="*{meta_description}" required></textarea>
                                 </div>
