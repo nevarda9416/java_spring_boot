@@ -81,8 +81,7 @@ public class InventoryController {
      */
     @GetMapping("/add")
     public String add(Model model) {
-        List<InventoryDTO> inventories = inventoryService.getAll();
-        model.addAttribute("inventories", inventories);
+        model.addAttribute("inventory", new InventoryDTO());
         return "admin/inventories/add";
     }
 
