@@ -25,7 +25,7 @@ public class BannerController {
     public String index(Model model) {
         List<BannerDTO> banners = bannerService.getAll();
         model.addAttribute("banners", banners);
-        return "admin/banner/index";
+        return "admin/banners/index";
     }
 
     /**
@@ -45,9 +45,9 @@ public class BannerController {
             model.addAttribute("banners", banners);
         }
         model.addAttribute("banner", new BannerDTO());
-        return "admin/banner/index";
+        return "admin/banners/index";
     }/**
-     * Edit customer
+     * Edit banner
      * @param model
      * @param id
      * @return
@@ -58,12 +58,12 @@ public class BannerController {
         model.addAttribute("banners", banners);
         Banner banner = bannerService.findById(id);
         model.addAttribute("banner", banner);
-        return "edit";
+        return "admin/banners/edit";
     }
 
     /**
-     * Update customer
-     * @param customer
+     * Update banner
+     * @param banner
      * @return
      */
     @PostMapping(value = "/update")
@@ -73,7 +73,7 @@ public class BannerController {
     }
 
     /**
-     * Add customer
+     * Add banner
      * @param model
      * @return
      */
@@ -85,8 +85,8 @@ public class BannerController {
     }
 
     /**
-     * Insert customer
-     * @param customer
+     * Insert banner
+     * @param banner
      * @return
      */
     @PostMapping(value = "/store")
@@ -96,7 +96,7 @@ public class BannerController {
     }
 
     /**
-     * Delete customer
+     * Delete banner
      * @param model
      * @param id
      * @return
