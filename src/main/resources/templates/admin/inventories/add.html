@@ -4,7 +4,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <a th:href="@{'/admin/inventories'}" title="Quay lại danh mục tồn kho"><i class="fa fa-long-arrow-left"></i> Quay
+                <a th:href="@{'/admin/inventories'}" title="Quay lại danh mục tồn kho"><i class="fa fa-long-arrow-left"></i>&nbsp;Quay
                     lại danh mục tồn kho</a>
             </div>
         </div>
@@ -25,14 +25,14 @@
                         <form th:action="@{'/admin/inventories/store'}" method="post" th:object="${inventory}">
                             <input type="hidden" th:field="*{id}"/>
                             <div class="field item form-group">
-                                <label for="name" class="col-form-label col-md-3 col-sm-3  label-align">Tên kho&nbsp;<span
+                                <label for="name" class="col-form-label col-md-3 col-sm-3 label-align">Tên kho&nbsp;<span
                                         class="required">*</span></label>
                                 <div class="col-md-9 col-sm-9">
                                     <input type="text" class="form-control" id="name" th:field="*{name}" required/>
                                 </div>
                             </div>
                             <div class="field item form-group">
-                                <label for="address" class="col-form-label col-md-3 col-sm-3  label-align">Địa chỉ&nbsp;<span
+                                <label for="address" class="col-form-label col-md-3 col-sm-3 label-align">Địa chỉ&nbsp;<span
                                         class="required">*</span></label>
                                 <div class="col-md-9 col-sm-9">
                                     <textarea class="form-control" id="address" th:field="*{address}" required></textarea>

@@ -1,6 +1,24 @@
 <div id="layouts-partials-header" th:replace="admin/layouts/header::layouts-header"></div>
 <!-- page content -->
 <div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <a th:href="@{/admin/banners/add}" class="btn btn-success mt-2" title="Thêm quảng cáo"><i class="fa fa-plus"></i>&nbsp;Thêm quảng cáo</a>
+        </div>
+        <div class="title_right">
+            <div class="col-md-6 col-sm-6 form-group pull-right top_search mb-0">
+                <div class="input-group">
+                    <label>
+                        <input type="text" class="form-control" name="keyword">
+                    </label>
+                    <span class="input-group-btn">
+                          <button class="btn btn-default" type="button">Tìm kiếm</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
     <div class="row">
         <div class="col-md-12 col-sm-12">
             <div class="x_panel">
@@ -36,14 +54,14 @@
                             <tbody>
                             <tr class="even pointer" th:each="b:${banners}">
                                 <td th:text="${b.name}"></td>
-                                <td><img th:attr="src=${b.thumbnail_url},alt=${b.name}" width="300px"/></td>
+                                <td><img th:attr="src=${b.thumbnail_url},alt=${b.name}" width="300px" alt=""/></td>
                                 <td>
                                     <span th:if="${b.is_actived==1}" class="badge badge-success">Hiển thị</span>
                                     <span th:if="${b.is_actived==0}" class="badge badge-secondary">Ẩn</span>
                                 </td>
                                 <td class=" last"><a href="#" data-toggle="modal"
                                                      data-target=".bs-example-modal-lg">Xem chi tiết</a> |
-                                    <a th:attr="href='../admin/banners/edit/'+${b.id}">Cập nhật</a>
+                                    <a th:href="@{'/admin/banners/edit/'+${b.id}}">Cập nhật</a>
                                     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
                                          aria-hidden="true">
                                         <div class="modal-dialog modal-lg">

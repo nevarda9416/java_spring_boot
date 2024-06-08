@@ -54,8 +54,6 @@ public class BannerController {
      */
     @GetMapping("/edit/{id}")
     public String edit(Model model, @PathVariable("id") Long id) {
-        List<BannerDTO> banners = bannerService.getAll();
-        model.addAttribute("banners", banners);
         Banner banner = bannerService.findById(id);
         model.addAttribute("banner", banner);
         return "admin/banners/edit";
@@ -79,8 +77,7 @@ public class BannerController {
      */
     @GetMapping("/add")
     public String add(Model model) {
-        List<BannerDTO> banners = bannerService.getAll();
-        model.addAttribute("banners", banners);
+        model.addAttribute("banner", new BannerDTO());
         return "admin/banners/add";
     }
 

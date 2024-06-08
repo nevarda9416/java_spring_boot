@@ -4,7 +4,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <a th:href="@{'/admin/pages'}" title="Quay lại danh sách trang chính sách"><i class="fa fa-long-arrow-left"></i> Quay
+                <a th:href="@{'/admin/pages'}" title="Quay lại danh sách trang chính sách"><i class="fa fa-long-arrow-left"></i>&nbsp;Quay
                     lại danh sách trang chính sách</a>
             </div>
         </div>
@@ -25,26 +25,26 @@
                         <form th:action="@{'/admin/pages/update'}" method="post" enctype="multipart/form-data" th:object="${page}">
                             <span class="section">Thông tin trang chính sách</span>
                             <div class="form-group row">
-                                <label for="title" class="control-label col-md-3 col-sm-3  label-align">Tiêu đề trang&nbsp;<span
+                                <label for="title" class="control-label col-md-3 col-sm-3 label-align">Tiêu đề trang&nbsp;<span
                                         class="required">*</span></label>
                                 <div class="col-md-9 col-sm-9">
                                     <input type="text" class="form-control" id="title" th:feild="*{title}" required/>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="slug" class="control-label col-md-3 col-sm-3  label-align">Slug</label>
+                                <label for="slug" class="control-label col-md-3 col-sm-3 label-align">Slug</label>
                                 <div class="col-md-9 col-sm-9">
                                     <input type="text" class="form-control" id="slug" th:feild="*{slug}"/>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="excerpt" class="control-label col-md-3 col-sm-3  label-align">Tóm tắt</label>
+                                <label for="excerpt" class="control-label col-md-3 col-sm-3 label-align">Tóm tắt</label>
                                 <div class="col-md-9 col-sm-9">
                                     <textarea class="form-control" id="excerpt" th:feild="excerpt"></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="content" class="control-label col-md-3 col-sm-3  label-align">Nội dung</label>
+                                <label for="content" class="control-label col-md-3 col-sm-3 label-align">Nội dung</label>
                                 <div class="col-md-9 col-sm-9">
                                     <textarea class="form-control" id="content" th:feild="content"></textarea>
                                 </div>
@@ -55,7 +55,7 @@
                                     <input type="file" class="form-control optional" name="meta_image" id="meta_image"/></div>
                             </div>
                             <div class="form-group row">
-                                <label for="author_name" class="control-label col-md-3 col-sm-3  label-align">Tên người viết</label>
+                                <label for="author_name" class="control-label col-md-3 col-sm-3 label-align">Tên người viết</label>
                                 <div class="col-md-9 col-sm-9">
                                     <input type="text" class="form-control" id="author_name" th:field="*{author_name}"/>
                                 </div>
