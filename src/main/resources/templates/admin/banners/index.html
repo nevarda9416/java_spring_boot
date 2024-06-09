@@ -3,7 +3,8 @@
 <div class="right_col" role="main">
     <div class="page-title">
         <div class="title_left">
-            <a th:href="@{/admin/banners/add}" class="btn btn-success mt-2" title="Thêm quảng cáo"><i class="fa fa-plus"></i>&nbsp;Thêm quảng cáo</a>
+            <a th:href="@{/admin/banners/add}" class="btn btn-success mt-2" th:title="#{title.banners.index.add}"><i
+                    class="fa fa-plus"></i>&nbsp;<span th:text="#{title.banners.index.add}"></span></a>
         </div>
         <div class="title_right">
             <div class="col-md-6 col-sm-6 form-group pull-right top_search mb-0">
@@ -12,7 +13,7 @@
                         <input type="text" class="form-control" name="keyword">
                     </label>
                     <span class="input-group-btn">
-                          <button class="btn btn-default" type="button">Tìm kiếm</button>
+                          <button type="button" class="btn btn-default" th:text="#{name.button.search}"></button>
                     </span>
                 </div>
             </div>
@@ -23,20 +24,18 @@
         <div class="col-md-12 col-sm-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Quảng cáo</h2>
+                    <h2 th:text="#{title.banners.index}"></h2>
                     <ul class="nav navbar-right panel_toolbox">
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-expanded="false"><i class="fa fa-wrench"></i></a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Làm mới</a>
-                                <a class="dropdown-item" href="#">Xuất ra excel</a>
+                                <a class="dropdown-item" href="#" th:text="#{name.button.refresh}"></a>
+                                <a class="dropdown-item" href="#" th:text="#{name.button.export}"></a>
                             </div>
                         </li>
-                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a></li>
                     </ul>
                     <div class="clearfix"></div>
                 </div>
@@ -45,29 +44,29 @@
                         <table class="table table-striped jambo_table bulk_action">
                             <thead>
                             <tr class="headings">
-                                <th class="column-title">Tên quảng cáo</th>
-                                <th class="column-title">Hình ảnh quảng cáo</th>
-                                <th class="column-title">Trạng thái</th>
-                                <th class="column-title no-link last"><span class="nobr">Thao tác</span></th>
+                                <th class="column-title" th:text="#{label.banners.form.name}"></th>
+                                <th class="column-title" th:text="#{label.banners.form.thumbnail_url}"></th>
+                                <th class="column-title" th:text="#{label.banners.form.is_actived}"></th>
+                                <th class="column-title no-link last"><span class="nobr" th:text="#{name.button.action}"></span></th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr class="even pointer" th:each="b:${banners}">
                                 <td th:text="${b.name}"></td>
-                                <td><img th:attr="src=${b.thumbnail_url},alt=${b.name}" width="300px" alt=""/></td>
+                                <td><img th:attr="src=${b.thumbnail_url},alt=${b.name}" width="300px"/></td>
                                 <td>
-                                    <span th:if="${b.is_actived==1}" class="badge badge-success">Hiển thị</span>
-                                    <span th:if="${b.is_actived==0}" class="badge badge-secondary">Ẩn</span>
+                                    <span th:if="${b.is_actived==1}" class="badge badge-success" th:text="#{label.banners.badge.display.show}"></span>
+                                    <span th:if="${b.is_actived==0}" class="badge badge-secondary" th:text="#{label.banners.badge.display.hide}"></span>
                                 </td>
-                                <td class=" last"><a href="#" data-toggle="modal"
-                                                     data-target=".bs-example-modal-lg">Xem chi tiết</a> |
-                                    <a th:href="@{'/admin/banners/edit/'+${b.id}}">Cập nhật</a>
+                                <td class=" last">
+                                    <a href="#" data-toggle="modal" data-target=".bs-example-modal-lg" th:text="#{name.button.view}"></a> |
+                                    <a th:href="@{'/admin/banners/edit/'+${b.id}}" th:text="#{name.button.update}"></a>
                                     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
                                          aria-hidden="true">
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h4 class="modal-title" id="myModalLabel">Thông tin quảng cáo</h4>
+                                                    <h4 class="modal-title" id="myModalLabel" th:text="#{title.banners.index.info}"></h4>
                                                     <button type="button" class="close" data-dismiss="modal"><span
                                                             aria-hidden="true">×</span>
                                                     </button>
@@ -75,40 +74,44 @@
                                                 <div class="modal-body">
                                                     <table class="table table-striped">
                                                         <tr>
-                                                            <td>Tên quảng cáo:</td>
+                                                            <td th:text="#{label.banners.form.name}"></td>
                                                             <td th:text="${b.name}"></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Mô tả:</td>
+                                                            <td th:text="#{label.banners.form.description}"></td>
                                                             <td th:text="${b.description}"></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Hình ảnh quảng cáo:</td>
+                                                            <td th:text="#{label.banners.form.thumbnail_url}"></td>
                                                             <td><img th:attr="src=${b.thumbnail_url},alt=${b.name}" width="400px"/></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Đường dẫn quảng cáo:</td>
+                                                            <td th:text="#{label.banners.form.banner_url}"></td>
                                                             <td th:text="${b.banner_url}"></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Là quảng cáo mặc định:</td>
+                                                            <td th:text="#{label.banners.form.is_default}"></td>
                                                             <td>
-                                                                <span th:if="${b.is_default==1}" class="badge badge-success">Có</span>
-                                                                <span th:if="${b.is_default==0}" class="badge badge-secondary">Không</span>
+                                                                <span th:if="${b.is_default==1}"
+                                                                      class="badge badge-success" th:text="#{label.banners.badge.default.yes}"></span>
+                                                                <span th:if="${b.is_default==0}"
+                                                                      class="badge badge-secondary" th:text="#{label.banners.badge.default.no}"></span>
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Trạng thái:</td>
+                                                            <td th:text="#{label.banners.form.is_actived}"></td>
                                                             <td>
-                                                                <span th:if="${b.is_actived==1}" class="badge badge-success">Hiển thị</span>
-                                                                <span th:if="${b.is_actived==0}" class="badge badge-secondary">Ẩn</span>
+                                                                <span th:if="${b.is_actived==1}"
+                                                                      class="badge badge-success" th:text="#{label.banners.badge.display.show}"></span>
+                                                                <span th:if="${b.is_actived==0}"
+                                                                      class="badge badge-secondary" th:text="#{label.banners.badge.display.hide}"></span>
                                                             </td>
                                                         </tr>
                                                     </table>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">Đóng
+                                                            data-dismiss="modal" th:text="#{name.button.close}">
                                                     </button>
                                                 </div>
                                             </div>

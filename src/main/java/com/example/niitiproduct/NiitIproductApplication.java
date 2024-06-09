@@ -3,8 +3,13 @@ package com.example.niitiproduct;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.i18n.CookieLocaleResolver;
+
+import java.util.Locale;
+import java.util.TimeZone;
 
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
 public class NiitIproductApplication implements WebMvcConfigurer {
