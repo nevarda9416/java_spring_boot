@@ -23,6 +23,8 @@ import java.util.List;
 @RequestMapping("data/master")
 public class MasterDataSeeder {
     @Autowired
+    private AttributeRepository attributeRepository;
+    @Autowired
     private BannerRepository bannerRepository;
     @Autowired
     private CategoryRepository categoryRepository;
@@ -117,6 +119,15 @@ public class MasterDataSeeder {
         jdbcTemplate.execute(sql20);
         jdbcTemplate.execute(sql21);
         jdbcTemplate.execute(sql22);
+    }
+
+    public void insertAttributeData() {
+        Attribute a1 = new Attribute(1, "ax", "Chuẩn AX", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Attribute a2 = new Attribute(2, "ax-frequency", "AX3000Mbps", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        Attribute a3 = new Attribute(3, "2-antenna", "2 Ăng-ten", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        List<Attribute> attributes = Arrays.asList(a1, a2, a3);
+        // This exposes a saveAll method for us, which will batch several inserts into one.
+        attributeRepository.saveAll(attributes);
     }
 
     public void insertBannerData() {
@@ -277,9 +288,9 @@ public class MasterDataSeeder {
     }
 
     public void insertProductDetailData() {
-        ProductDetail p1 = new ProductDetail(1, "Chuẩn AX", 1800000F, 1600000F, 1, "SKUAX001", "/images/product/p001.png", "in_stock", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
-        ProductDetail p2 = new ProductDetail(2, "AX3000Mbps", 1900000F, 1800000F, 1, "SKUAX002", "/images/product/p002.png", "in_stock", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
-        ProductDetail p3 = new ProductDetail(3, "2 Ăng-ten", 1500000F, 1500000F, 1, "SKUAX003", "/images/product/p003.png", "out_of_stock", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        ProductDetail p1 = new ProductDetail(1, "1,2", 1800000F, 1600000F, 1, "SKUAX001", "/images/product/p001.png", "in_stock", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        ProductDetail p2 = new ProductDetail(2, "1,2,3", 1900000F, 1800000F, 2, "SKUAX002", "/images/product/p002.png", "in_stock", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
+        ProductDetail p3 = new ProductDetail(3, "1", 1500000F, 1500000F, 3, "SKUAX003", "/images/product/p003.png", "out_of_stock", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), "admin", null, null);
         List<ProductDetail> productDetails = Arrays.asList(p1, p2, p3);
         // This exposes a saveAll method for us, which will batch several inserts into one.
         productDetailRepository.saveAll(productDetails);
@@ -405,6 +416,7 @@ public class MasterDataSeeder {
     @GetMapping("/insert")
     public ResponseEntity<Object> insertMasterData() {
         this.truncateAllTables();
+        this.insertAttributeData();
         this.insertBannerData();
         this.insertCategoryData();
         this.insertCustomerData();
@@ -427,6 +439,7 @@ public class MasterDataSeeder {
         this.insertUserData();
         this.insertWarrantyData();
         return new ResponseEntity<>(
+                "Đã thêm dữ liệu thuộc tính sản phẩm.<br/>" +
                 "Đã thêm dữ liệu quảng cáo.<br/>" +
                         "Đã thêm dữ liệu danh mục cha.<br/>" +
                         "Đã thêm dữ liệu khách hàng.<br/>" +

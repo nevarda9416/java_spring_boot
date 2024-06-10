@@ -9,7 +9,7 @@ public class ProductDetailMapper {
     public ProductDetailDTO toDTO(ProductDetail productDetail) {
         return ProductDetailDTO.builder(
                 ).id(productDetail.getId())
-                .attribute_value(productDetail.getAttribute_value())
+                .list_attribute_ids(productDetail.getList_attribute_ids())
                 .original_price(productDetail.getOriginal_price())
                 .sale_price(productDetail.getSale_price())
                 .product_id(productDetail.getProduct_id())

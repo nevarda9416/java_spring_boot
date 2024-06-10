@@ -12,8 +12,8 @@ public class ProductDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    @Column(name = "attribute_value")
-    String attribute_value;
+    @Column(name = "list_attribute_ids")
+    String list_attribute_ids;
     @Column(name = "original_price")
     Float original_price;
     @Column(name = "sale_price")
@@ -39,9 +39,9 @@ public class ProductDetail {
     @Column(name = "deleted_by")
     String deleted_by;
 
-    public ProductDetail(Integer id, String attribute_value, Float original_price, Float sale_price, Integer product_id, String sku, String thumbnail_url, String status, String created_at, String created_by, String updated_at, String updated_by, String deleted_at, String deleted_by) {
+    public ProductDetail(Integer id, String list_attribute_ids, Float original_price, Float sale_price, Integer product_id, String sku, String thumbnail_url, String status, String created_at, String created_by, String updated_at, String updated_by, String deleted_at, String deleted_by) {
         this.id = id;
-        this.attribute_value = attribute_value;
+        this.list_attribute_ids = list_attribute_ids;
         this.original_price = original_price;
         this.sale_price = sale_price;
         this.product_id = product_id;

@@ -3,6 +3,7 @@ package com.example.niitiproduct.services;
 import com.example.niitiproduct.dto.ProductDTO;
 import com.example.niitiproduct.mapper.ProductMapper;
 import com.example.niitiproduct.models.Product;
+import com.example.niitiproduct.models.ProductDetail;
 import com.example.niitiproduct.models.ProductPromotion;
 import com.example.niitiproduct.repositories.ProductPromotionRepository;
 import com.example.niitiproduct.repositories.ProductRepository;
@@ -12,9 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class ProductService {
@@ -120,7 +119,8 @@ public class ProductService {
     }
 
     public ResponseEntity<Object> getProductBySlug(String slug) {
-        List<Product> productDetail = productRepository.findBySlug(slug);
+        List<Map<String, Object>> productDetail = productRepository.findBySlug(slug);
+        System.out.println(productDetail);
         return new ResponseEntity<>(productDetail, HttpStatus.OK);
     }
 }

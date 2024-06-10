@@ -9,7 +9,7 @@ import lombok.*;
 @Builder
 public class ProductDetailDTO {
     private Integer id;
-    private String attribute_value;
+    private String list_attribute_ids;
     private Float original_price;
     private Float sale_price;
     private Integer product_id;
