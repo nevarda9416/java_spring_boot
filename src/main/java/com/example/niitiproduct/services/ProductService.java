@@ -120,7 +120,6 @@ public class ProductService {
 
     public ResponseEntity<Object> getProductBySlug(String slug) {
         List<Map<String, Object>> productDetail = productRepository.findBySlug(slug);
-        System.out.println(productDetail);
         return new ResponseEntity<>(productDetail, HttpStatus.OK);
     }
 }
