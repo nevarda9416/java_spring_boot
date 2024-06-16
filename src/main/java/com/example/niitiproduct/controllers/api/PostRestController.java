@@ -15,20 +15,26 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Objects;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/posts")
 public class PostRestController {
     Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     private PostService postService;
 
-    @GetMapping("/posts/all")
+    @GetMapping("/all")
     public ResponseEntity<Object> index() {
         return postService.getAllPosts();
     }
 
-    @GetMapping("/posts/category/{id}")
+    @GetMapping("/category/{id}")
     public ResponseEntity<Object> getPostsByCategoryId(@PathVariable("id") Integer categoryId) {
         logger.info("Posts list fetched by category");
         return ResponseHandler.generateResponse(HttpStatus.OK, "Success", Objects.requireNonNull(postService.getPostsByCategoryId(categoryId).getBody()));
+    }
+
+    @GetMapping("/slug/{slug}")
+    public ResponseEntity<Object> getPostBySlug(@PathVariable("slug") String slug) {
+        logger.info("Post detail by slug");
+        return ResponseHandler.generateResponse(HttpStatus.OK, "Success", Objects.requireNonNull(postService.getPostBySlug(slug).getBody()));
     }
 }

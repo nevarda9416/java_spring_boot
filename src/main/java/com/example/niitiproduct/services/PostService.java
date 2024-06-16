@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class PostService {
@@ -95,12 +96,22 @@ public class PostService {
     }
 
     public ResponseEntity<Object> getAllPosts() {
-        List<Post> postList = postRepository.findAll();
+        List<Post> postList = postRepository.findAllByOrderByIdDesc();
         return new ResponseEntity<>(postList, HttpStatus.OK);
     }
 
     public ResponseEntity<Object> getPostsByCategoryId(Integer categoryId) {
         List<Post> postList = postRepository.findPostsByCategory_id(categoryId);
         return new ResponseEntity<>(postList, HttpStatus.OK);
+    }
+
+    /**
+     * Get page by slug
+     * @param slug
+     * @return
+     */
+    public ResponseEntity<Object> getPostBySlug(String slug) {
+        List<Map<String, Object>> postDetail = postRepository.findBySlug(slug);
+        return new ResponseEntity<>(postDetail, HttpStatus.OK);
     }
 }
