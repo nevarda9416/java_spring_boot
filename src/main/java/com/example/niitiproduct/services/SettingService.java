@@ -2,14 +2,19 @@ package com.example.niitiproduct.services;
 
 import com.example.niitiproduct.dto.SettingDTO;
 import com.example.niitiproduct.mapper.SettingMapper;
+import com.example.niitiproduct.models.SellingPlace;
 import com.example.niitiproduct.models.Setting;
 import com.example.niitiproduct.repositories.SettingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SettingService {
@@ -74,5 +79,14 @@ public class SettingService {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    /**
+     * API get all settings
+     * @return
+     */
+    public ResponseEntity<Object> getAllSettings() {
+        Optional<Setting> setting = settingRepository.findById(1);
+        return new ResponseEntity<>(setting, HttpStatus.OK);
     }
 }
