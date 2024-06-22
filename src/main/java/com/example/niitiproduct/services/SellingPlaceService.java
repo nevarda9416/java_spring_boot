@@ -87,8 +87,12 @@ public class SellingPlaceService {
         }
     }
 
+    /**
+     * API get all selling places
+     * @return
+     */
     public ResponseEntity<Object> getAllSellingPlaces() {
-        List<SellingPlace> sellingPlaceList = sellingPlaceRepository.findAll();
+        List<SellingPlace> sellingPlaceList = sellingPlaceRepository.findAllByOrderByIdDesc();
         return new ResponseEntity<>(sellingPlaceList, HttpStatus.OK);
     }
 }

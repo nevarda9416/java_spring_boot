@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface SellingPlaceRepository extends JpaRepository<SellingPlace, Integer> {
     List<SellingPlace> findByNameContaining(String name);
+    List<SellingPlace> findAllByOrderByIdDesc();
 }
